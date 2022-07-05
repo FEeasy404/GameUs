@@ -1,0 +1,17 @@
+.input-login {
+  padding: 10px;
+  /* margin-bottom: 16px; */
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  border-width: 0 0 1px 0;
+  border-color: #DBDBDB;
+  border-style: solid;
+  box-sizing: border-box;
+}
+
+.label-login {
+  display: block;
+  font-size: 1.2rem;
+  color: #767676;
+}
