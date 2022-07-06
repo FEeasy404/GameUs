@@ -1,5 +1,5 @@
 import React from "react";
-import LoginInput from "../../atoms/LoginInput/LoginInput";
+import LoginInput from "../../atoms/InputBox/InputBox";
 import Button from "../../atoms/Button/Button";
 
 function LoginForm({label}) {
