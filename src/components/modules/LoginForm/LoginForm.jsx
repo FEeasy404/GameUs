@@ -2,7 +2,7 @@ import React from "react";
 import LoginInput from "../../atoms/LoginInput/LoginInput";
 import Button from "../../atoms/Button/Button";
 
-function LoginForm() {
+function LoginForm({label}) {
   return (
     <div>
       <LoginInput id="email" type="email" name="이메일" />
@@ -10,7 +10,7 @@ function LoginForm() {
       <Button
         href={null}
         size="large"
-        label="로그인"
+        label={label}
         active={false}
         primary={true}
         onClick={null}
