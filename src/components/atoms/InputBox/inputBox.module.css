@@ -10,8 +10,13 @@
   box-sizing: border-box;
 }
 
+.input-login::placeholder{
+  color: #DBDBDB;
+}
+
 .label-login {
   display: block;
   font-size: 1.2rem;
   color: #767676;
 }
+
