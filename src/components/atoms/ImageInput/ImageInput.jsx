@@ -16,7 +16,6 @@ function ImageInput({a11y, size, id}) {
         accept=".jpeg, .jpg, .png"
         id={id}
         className={"a11y-hidden"} 
-        // onChange={onChange}
       />
     </div>
   );
