@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react"
 import LoginForm from "../../modules/LoginForm/LoginForm";
 
-function LoginPageForm({title, label}) {
+function LoginPageForm({ title, label }) {
   return (
     <section>
       <div className="max-width">
