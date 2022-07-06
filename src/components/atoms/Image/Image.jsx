@@ -1,12 +1,12 @@
 import React from "react";
-import "./image.css";
+import styles from "./image.module.css";
 
-function UserProfileImage({ src, type, size, alt }) {
+function Image({ src, type, size, alt }) {
   return (
-    <div className={`image ${type} ${size}`}>
+    <div className={`${styles.image} ${styles[type]} ${styles[size]}`}>
       <img src={src} alt={alt} />
     </div>
   );
 }
 
-export default UserProfileImage;
+export default Image;

@@ -12,7 +12,7 @@
   object-fit: cover;
 }
 
-/* 원형이미지입니다. */
+/* 원형 이미지입니다. */
 .circle {
   border-radius: 50%;
 }
@@ -67,18 +67,16 @@
 
 /* 채팅방에서 사용될 이미지입니다. */
 .squircle.medium {
-  width: 240px;
-  height: 240px;
+  max-width: 240px;
 }
 
 /* 게시글에서 사용될 이미지입니다. */
-.squircle.medium_large{
-  width: 304px;
-  height: 228px;
+.squircle.medium_large {
+  width: 100%;
 }
 
 /* 상품 등록 페이지에서 사용될 이미지입니다. */
-.squircle.large{
+.squircle.large {
   width: 320px;
   height: 204px;
 }
