@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import LoginForm from "../../modules/LoginForm/LoginForm";
 
 function LoginPageForm({ title, label }) {
@@ -6,10 +6,11 @@ function LoginPageForm({ title, label }) {
     <section>
       <div className="max-width">
         <h1>{title}</h1>
-        <LoginForm label={label}/>
+        <LoginForm label={label} />
       </div>
     </section>
-  )
+  );
 }
 
-export default LoginPageForm
+export default LoginPageForm;
+

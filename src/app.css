@@ -1,0 +1,22 @@
+
+
+html {
+	font-size: 10px;
+}
+
+.a11y-hidden {
+	overflow: hidden;
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+}
+
+.max-width{
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 34px;
+}
