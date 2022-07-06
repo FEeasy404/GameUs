@@ -13,3 +13,4 @@ function LoginPageForm({ title, label }) {
 }
 
 export default LoginPageForm;
+
