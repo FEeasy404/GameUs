@@ -1,35 +1,38 @@
 .button {
+  display: block;
+  text-align: center;
   width: 100%;
   border: 0;
   border-radius: 44px;
   background-color: #F26E22;
   color: #fff;
   font-size: 14px;
+  cursor: pointer;
 }
 
-.button.disabled {
+.disabled {
   background-color: #FFC7A7;
 }
 
-.button.secondary {
+.secondary {
   border: 1px solid #DBDBDB;
   background-color: #fff;
   color: #767676;
 }
 
-.button.large {
+.large {
   padding: 13px;
 }
 
-.button.medium {
+.medium {
   padding: 8px;
 }
 
-.button.medium_small {
+.medium_small {
   padding: 7px;
 }
 
-.button.small {
+.small {
   padding: 7px;
   font-size: 12px;
 }
