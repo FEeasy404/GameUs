@@ -7,7 +7,7 @@ function ProfileSetting() {
     <div>
       <h1>프로필 설정</h1>
       <p>나중에 언제든지 변경할 수 있습니다.</p>
-      <ProfileForm />
+      <ProfileForm haveProfileImag={true}/>
       <Button
         size="large"
         label="게임어스 시작하기"
