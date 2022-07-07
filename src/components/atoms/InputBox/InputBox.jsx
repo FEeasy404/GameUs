@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./inputBox.module.css";
 
-function LoginInput({ id, type, name, placeholder }) {
+function LoginInput({ id, type, name, placeholder, error }) {
+  const errorClass = error ? "error" : "";
   return (
     <div>
       <label htmlFor={id} className={styles[`label-login`]}>
@@ -12,8 +13,9 @@ function LoginInput({ id, type, name, placeholder }) {
         required
         id={id}
         placeholder={placeholder}
-        className={styles["input-login"]}
+        className={[styles["input-login"], styles[errorClass]].join(" ")}
       />
+      {error && <small className={styles["text-error"]}>{error}</small>}
     </div>
   );
 }

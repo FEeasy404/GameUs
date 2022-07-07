@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import JoinPage from "./pages/JoinPage";
 import "./reset.css";
-import "./app.css";
+import "./global.css";
 
 function App() {
   return (

@@ -4,6 +4,11 @@ html {
 	font-size: 10px;
 }
 
+a{
+	text-decoration: none;
+	color:inherit;
+}
+
 .a11y-hidden {
 	overflow: hidden;
 	position: absolute;
