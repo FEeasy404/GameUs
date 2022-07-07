@@ -1,6 +1,6 @@
 .input-login {
-  padding: 10px;
-  /* margin-bottom: 16px; */
+  padding: 10px 10px 8px 5px;
+  margin-bottom: 16px;
   width: 100%;
   font-size: 1.4rem;
   line-height: 1.4rem;
@@ -8,10 +8,15 @@
   border-color: #DBDBDB;
   border-style: solid;
   box-sizing: border-box;
+  outline: none;
 }
 
 .input-login::placeholder{
   color: #DBDBDB;
+}
+
+.input-login:focus{
+  border-color: #F26E22;
 }
 
 .label-login {
@@ -20,3 +25,13 @@
   color: #767676;
 }
 
+.error{
+  margin-bottom: 6px;
+}
+
+.text-error{
+  display: block;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  color:#EB5757;
+}
