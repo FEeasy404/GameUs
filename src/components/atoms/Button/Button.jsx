@@ -1,24 +1,24 @@
-import styles from "./button.css";
+import styles from "./button.module.css";
+import { Link } from "react-router-dom";
 
 function Button({ href, size, label, active, primary, onClick }) {
-  const classList = [
-    "button",
-    size,
-    primary ? "" : "secondary",
-    active ? "" : "disabled",
-  ];
+  const classList = ["button", size];
+  primary ? null : classList.push("secondary");
+  active ? null : classList.push("disabled");
+
+  const CLASS_LIST = classList.map((item)=>(styles[item])).join(" ");
 
   return (
     <>
       {href ? (
-        <a href={href} className={styles[`${classList.join(" ")}`]}>
+        <Link to={href} className={CLASS_LIST}>
           {label}
-        </a>
+        </Link>
       ) : (
         <button
           type="button"
           onClick={onClick}
-          className={`${classList.join(" ")}`}
+          className={CLASS_LIST}
         >
           {label}
         </button>
