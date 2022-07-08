@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import styles from "./comment.module.css"
+import { Link } from "react-router-dom";
+import styles from "./comment.module.css";
 
 function Comment({postId, countComment}) {
   return (
@@ -11,4 +11,4 @@ function Comment({postId, countComment}) {
   )
 }
 
-export default Comment
+export default Comment;
