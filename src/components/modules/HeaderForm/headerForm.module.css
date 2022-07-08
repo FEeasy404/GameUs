@@ -1,0 +1,27 @@
+.header-wrapper{
+  height: 32px;
+  padding: 8px 16px 7.5px;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid var(--lightgray-color);
+}
+
+.large{
+  font-size: 1.8rem;
+}
+
+.small{
+  padding-left: 8px;
+  font-size: 1.4rem;
+}
+
+.header-wrapper > button:nth-child(n+2){
+  justify-self: end;
+  margin-left: auto;
+}
+
+.button button:nth-child(2){
+  justify-self: end;
+  margin-left: auto;
+  width: 90px;
+}
