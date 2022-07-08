@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import styles from "./like.module.css"
+import React, { useState } from "react";
+import styles from "./like.module.css";
 
 function Like() {
   const [like, setLike] = useState(false);
