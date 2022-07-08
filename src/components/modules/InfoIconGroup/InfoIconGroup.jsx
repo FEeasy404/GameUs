@@ -1,7 +1,7 @@
-import React from 'react';
-import Like from '../../atoms/Like/Like';
-import Comment from '../../atoms/Comment/Comment';
-import styles from './infoIconGroup.module.css';
+import React from "react";
+import Like from "../../atoms/Like/Like";
+import Comment from "../../atoms/Comment/Comment";
+import styles from "./infoIconGroup.module.css";
 
 function InfoIconGroup({post}) {
   return (
@@ -12,4 +12,4 @@ function InfoIconGroup({post}) {
   )
 }
 
-export default InfoIconGroup
+export default InfoIconGroup;
