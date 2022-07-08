@@ -3,7 +3,7 @@
   padding: 8px 16px 7.5px;
   display: flex;
   align-items: center;
-  border-bottom: 0.5px solid #DBDBDB;
+  border-bottom: 0.5px solid var(--lightgray-color);
 }
 
 .large{

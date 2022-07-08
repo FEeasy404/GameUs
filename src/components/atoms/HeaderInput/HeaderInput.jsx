@@ -2,7 +2,7 @@ import styles from "./headerInput.module.css";
 
 function HeaderInput({ placeholder }) {
   return (
-    <form action="#" className={styles["input-form"]}>
+    <form action="#" className={styles["form-input"]}>
       <input
         type="text"
         title={placeholder}
