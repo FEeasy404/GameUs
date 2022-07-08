@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  border: 0.5px solid #dbdbdb;
+  border: 0.5px solid var(--lightgray-color);
   overflow: hidden;
 }
 

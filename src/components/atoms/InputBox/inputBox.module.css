@@ -5,33 +5,33 @@
   font-size: 1.4rem;
   line-height: 1.4rem;
   border-width: 0 0 1px 0;
-  border-color: #DBDBDB;
+  border-color: var(--lightgray-color);
   border-style: solid;
   box-sizing: border-box;
   outline: none;
 }
 
-.input-login::placeholder{
-  color: #DBDBDB;
+.input-login::placeholder {
+  color: var(--lightgray-color);
 }
 
-.input-login:focus{
-  border-color: #F26E22;
+.input-login:focus {
+  border-color: var(--main-color);
 }
 
 .label-login {
   display: block;
   font-size: 1.2rem;
-  color: #767676;
+  color: var(--darkgray-color);
 }
 
-.error{
+.error {
   margin-bottom: 6px;
 }
 
-.text-error{
+.text-error {
   display: block;
   margin-bottom: 16px;
   font-size: 1.2rem;
-  color:#EB5757;
+  color: var(--error-color);
 }
