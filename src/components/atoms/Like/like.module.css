@@ -15,12 +15,12 @@
 }
 
 .count-like {
-  color: #767676;
+  color: var(--darkgray-color);
   font-size: 1.2rem;
   line-height: 20px;
   vertical-align: top;
 }
 
 .liked {
-  background-color: palevioletred;
+  background-color: var(--main-color);
 }
