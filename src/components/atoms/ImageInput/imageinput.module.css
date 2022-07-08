@@ -1,3 +1,14 @@
+.container {
+  display: inline-block;
+}
+
+/* 프로필 이미지 수정 시 사용되는 버튼일 경우 */
+.profile {  
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 .label-file {
   display: inline-block;
   border-radius: 50%;

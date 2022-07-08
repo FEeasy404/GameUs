@@ -1,0 +1,9 @@
+.container {
+  margin: 30px auto;
+  position: relative;
+  display: inline-block;
+}
+
+.image-profile {
+  display: inline-block;
+}

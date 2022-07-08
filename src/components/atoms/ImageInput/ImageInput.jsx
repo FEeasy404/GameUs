@@ -1,9 +1,12 @@
 import React from "react";
 import styles from "./imageinput.module.css"
 
-function ImageInput({a11y, size, id}) {
+function ImageInput({a11y, size, id, isProfileImageInput}) {
+  const containerClasseList = [styles["container"]];
+  isProfileImageInput ? containerClasseList.push(styles["profile"]) : null;
+
   return (
-    <div>
+    <div className={containerClasseList.join(' ')}>
       <p className="a11y-hidden">{a11y}</p>
       <label 
       htmlFor={id}
