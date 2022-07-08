@@ -1,6 +1,6 @@
 import styles from "./IconButton.module.css";
 
-function HeaderButton({ type, text, onClick }) {
+function IconButton({ type, text, onClick }) {
   return (
     <button
       type="button"
@@ -12,4 +12,4 @@ function HeaderButton({ type, text, onClick }) {
   );
 }
 
-export default HeaderButton;
+export default IconButton;

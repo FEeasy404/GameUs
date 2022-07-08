@@ -1,11 +1,11 @@
 import React from "react";
 import InputBox from "../../atoms/InputBox/InputBox";
-import ImageInput from "../../atoms/ImageInput/ImageInput";
+import ImageInputButton from "../../atoms/ImageInputButton/ImageInputButton";
 
 function ProfileForm() {
   return (
     <div>
-      <ImageInput
+      <ImageInputButton
         id="profileImageUpload"
         size="medium"
         a11y="프로필 이미지 파일 불러오기"
