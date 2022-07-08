@@ -13,8 +13,8 @@ function Like() {
 
   return (
     <div className={styles["container-like"]}>
-      <p className='a11y-hidden'>좋아요</p>
-      <button type='button' onClick={handleSetLike} className={styles["button-like"]}></button>
+      <p className="a11y-hidden">좋아요</p>
+      <button type="button" onClick={handleSetLike} className={styles["button-like"]}></button>
       <span className={styles["count-like"]}>{countLike}</span>
     </div>
   )
