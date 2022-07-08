@@ -1,0 +1,21 @@
+.button{
+  width: 24px;
+  height: 24px;
+  border:none;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.back{
+  background-image: url(../../../assets/icon-arrow-left.svg);
+}
+
+.search{
+  background-image: url(../../../assets/icon-search.svg);
+}
+
+.menu{
+  background-image: url(../../../assets/icon-more-vertical.svg);
+}
