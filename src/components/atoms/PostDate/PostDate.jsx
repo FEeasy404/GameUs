@@ -9,4 +9,4 @@ function PostDate({date}) {
   )
 }
 
-export default PostDate
+export default PostDate;
