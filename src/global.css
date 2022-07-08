@@ -1,27 +1,34 @@
-
-
-html {
-	font-size: 10px;
+:root {
+  --main-color: #2f51cf;
+  --disabled-color: #9aaae6;
+  --error-color: #eb5757;
+  --darkgray-color: #767676;
+  --middlegray-color: #c4c4c4;
+  --lightgray-color: #dbdbdb;
 }
 
-a{
-	text-decoration: none;
-	color:inherit;
+html {
+  font-size: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .a11y-hidden {
-	overflow: hidden;
-	position: absolute;
-	clip: rect(0, 0, 0, 0);
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	border: 0;
-	padding: 0;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
 }
 
-.max-width{
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 34px;
+.max-width {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 34px;
 }

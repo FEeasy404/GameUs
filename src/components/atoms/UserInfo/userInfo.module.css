@@ -15,11 +15,11 @@
   margin: 6px auto 16px;
   font-size: 1.2rem;
   line-height: 15px;
-  color: #767676;
+  color: var(--darkgray-color);
 }
 
 .user_introduce {
   font-size: 1.4rem;
   line-height: 18px;
-  color: #767676;
+  color: var(--darkgray-color);
 }

@@ -1,20 +1,20 @@
-.button-select{
+.button-select {
   position: absolute;
-  bottom:0;
-  right:0;
+  bottom: 0;
+  right: 0;
   border-radius: 50%;
-  border:none;
-  background-color: #F26E22;
+  border: none;
+  background-color: var(--main-color);
   background-image: url(../../../assets/icon-image.svg);
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
 }
 
-.gray{
+.gray {
   bottom: 12px;
   right: 12px;
-  background-color: #C4C4C4;
+  background-color: var(--middlegray-color);
 }
 
 .medium {
