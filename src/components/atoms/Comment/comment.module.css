@@ -1,0 +1,23 @@
+.cont-comment {
+  display: inline-block;
+}
+
+.link-comment {
+  display: inline-block;
+  margin-right: 6px;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background-image: url("../../../assets/icon-message.svg");
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.count-comment {
+  color: var(--darkgray-color);
+  font-size: 1.2rem;
+  line-height: 20px;
+  vertical-align: top;
+}
