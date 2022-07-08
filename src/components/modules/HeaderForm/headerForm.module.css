@@ -15,7 +15,7 @@
   font-size: 1.4rem;
 }
 
-.header-wrapper > button:nth-child(2){
+.header-wrapper > button:nth-child(n+2){
   justify-self: end;
   margin-left: auto;
 }
