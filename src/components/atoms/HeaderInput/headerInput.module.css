@@ -1,0 +1,18 @@
+.input-form{
+  margin-left: 16px;
+  width: 100%;
+}
+
+.input-find{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 7px 7px 7px 16px;
+  background-color: var(--whitegray-color);
+  border:none;
+  border-radius: 32px;
+  outline-color: var(--main-color);
+}
+
+.input-find::placeholder{
+  color: var(--middlegray-color);
+}
