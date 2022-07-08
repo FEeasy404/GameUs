@@ -1,0 +1,14 @@
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 30px auto 24px;
+}
+
+.upper-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
+  margin: 0 auto;
+}
