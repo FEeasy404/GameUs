@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+}
+
+.number {
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 23px;
+}
+
+.number.following {
+  color: var(--darkgray-color);
+}
+
+.text {
+  font-size: 0.8rem;
+  line-height: 10px;
+  color: var(--darkgray-color);
+}
