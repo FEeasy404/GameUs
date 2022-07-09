@@ -1,4 +1,4 @@
-.header-wrapper {
+.wrapper-header {
   height: 32px;
   padding: 8px 16px 7.5px;
   display: flex;
@@ -15,7 +15,7 @@
   font-size: 1.4rem;
 }
 
-.header-wrapper > button:nth-child(n + 2) {
+.wrapper-header > button:nth-child(n + 2) {
   justify-self: end;
   margin-left: auto;
 }

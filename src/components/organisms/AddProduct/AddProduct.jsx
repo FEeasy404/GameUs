@@ -4,7 +4,7 @@ import styles from "./addProduct.module.css";
 
 function AddProduct() {
   return (
-    <section className={`${styles["form-wrapper"]} wrapper-padding`}>
+    <section className={`${styles["wrapper-form"]} wrapper-padding`}>
       <h2>이미지 등록</h2>
       <ImageInputForm
         a11y="이미지 미리보기"
