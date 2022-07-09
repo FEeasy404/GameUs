@@ -1,4 +1,4 @@
-import styles from "./IconButton.module.css";
+import styles from "./iconButton.module.css";
 
 function IconButton({ type, text, onClick }) {
   return (

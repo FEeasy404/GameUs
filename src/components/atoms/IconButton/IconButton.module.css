@@ -1,21 +1,37 @@
-.button{
+.button {
   width: 24px;
   height: 24px;
-  border:none;
+  border: none;
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
 }
 
-.back{
+.back {
   background-image: url(../../../assets/icon-arrow-left.svg);
 }
 
-.search{
+.search {
   background-image: url(../../../assets/icon-search.svg);
 }
 
-.menu{
+.menu {
   background-image: url(../../../assets/icon-more-vertical.svg);
+}
+
+.message {
+  background-image: url(../../../assets/icon-message-circle.svg);
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--lightgray-color);
+  border-radius: 30px;
+}
+
+.share {
+  background-image: url(../../../assets/icon-share.svg);
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--lightgray-color);
+  border-radius: 30px;
 }
