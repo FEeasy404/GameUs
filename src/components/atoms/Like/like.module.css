@@ -1,0 +1,26 @@
+.container-like {
+  display: inline-block;
+}
+
+.button-like {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background-image: url("../../../assets/icon-like-empty.svg");
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.count-like {
+  padding: 0 6px;
+  color: var(--darkgray-color);
+  font-size: 1.2rem;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.liked {
+  background-color: var(--main-color);
+}

@@ -1,11 +1,11 @@
-.profile-wrapper {
+.wrapper-profile {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin: 30px auto 24px;
 }
 
-.upper-wrapper {
+.wrapper-upper {
   display: flex;
   justify-content: center;
   align-items: center;
