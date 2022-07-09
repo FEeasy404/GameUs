@@ -8,7 +8,22 @@ function ProfilePage() {
     <div>
       <HeaderForm backButton={true} menuButton={true} />
       {/* isMe=true이면 나의 프로필, 아니면 다른 사람의 프로필입니다. */}
-      <UserProfile isMe={false} />
+      {/* 나중에 현재 로그인된 accountname과 프로필의 accountname을 비교하면 될 거 같아요 */}
+      <UserProfile
+        isMe={false}
+        user={{
+          _id: "1",
+          username: "애월읍 위니브 게임랜드",
+          accountname: "weniv_Gameland",
+          intro: "제주 최고의 게임랜드를 찾으시나요?",
+          image: "http://www.paullab.co.kr/images/weniv-binky.png",
+          isfollow: false,
+          following: [],
+          follower: [],
+          followerCount: 2950,
+          followingCount: 128,
+        }}
+      />
     </div>
   );
 }
