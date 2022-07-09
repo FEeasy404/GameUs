@@ -11,15 +11,13 @@ function ImageInputButton({ selectFile, saveImage, color, size }) {
         accept="img/*"
         onChange={saveImage}
         ref={selectFile}
-        className={styles["input-file"]}
+        className={"a11y-hidden"}
       />
       <button
         type="button"
         className={`${styles["button-select"]} ${styles[size]} ${styles[color]}`}
         onClick={openFile}
-      >
-        <span className="a11y-hidden">이미지 추가</span>
-      </button>
+      ></button>
     </div>
   );
 }
