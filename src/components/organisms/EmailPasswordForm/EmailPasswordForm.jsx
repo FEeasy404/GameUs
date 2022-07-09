@@ -4,7 +4,7 @@ import styles from "./emailPasswordForm.module.css";
 
 function EmailPasswordForm({ title, label }) {
   return (
-    <section>
+    <section className="wrapper-padding">
       <h1 className={styles["title"]}>{title}</h1>
       <LoginForm label={label} />
     </section>
