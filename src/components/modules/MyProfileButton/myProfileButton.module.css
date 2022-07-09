@@ -1,14 +1,14 @@
-.button-wrapper {
+.container-button {
   display: flex;
   gap: 12px;
   justify-content: center;
   margin: 0 91px;
 }
 
-.button-wrapper > a:first-child {
+.container-button > a:first-child {
   width: 120px;
 }
 
-.button-wrapper > a:last-child {
+.container-button > a:last-child {
   width: 100px;
 }

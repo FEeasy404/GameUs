@@ -5,22 +5,23 @@ import UserInfo from "../../atoms/UserInfo/UserInfo";
 import styles from "./userProfileBox.module.css";
 
 function UserProfileBox({
+  src,
   userName,
   userId,
   userIntroduce,
-  followerNumber,
-  followingNumber,
+  followerCount,
+  followingCount,
 }) {
   return (
-    <div className={styles["profile-wrapper"]}>
-      <div className={styles["upper-wrapper"]}>
-        <NumberFollow number={followerNumber} isFollower={true} />
+    <div className={styles["wrapper-profile"]}>
+      <div className={styles["wrapper-upper"]}>
+        <NumberFollow number={followerCount} isFollower={true} />
         <ImageBox
-          src="http://www.paullab.co.kr/images/weniv-binky.png"
+          src={src}
           type="circle"
           size="large"
         />
-        <NumberFollow number={followingNumber} isFollower={false} />
+        <NumberFollow number={followingCount} isFollower={false} />
       </div>
       <UserInfo
         userName={userName}

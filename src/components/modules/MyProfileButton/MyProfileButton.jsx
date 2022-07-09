@@ -4,7 +4,7 @@ import styles from "./myProfileButton.module.css";
 
 function MyProfileButton() {
   return (
-    <div className={styles["button-wrapper"]}>
+    <div className={styles["container-button"]}>
       <Button
         href="#"
         size="medium"
