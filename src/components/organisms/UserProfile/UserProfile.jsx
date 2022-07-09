@@ -14,7 +14,11 @@ function UserProfile({ isMe, user }) {
         followerCount={user.followerCount}
         followingCount={user.followingCount}
       />
-      {isMe ? <MyProfileButton /> : <ProfileButton isFollowing={user.isFollowing} />}
+      {isMe ? (
+        <MyProfileButton />
+      ) : (
+        <ProfileButton isFollowing={user.isFollowing} />
+      )}
     </div>
   );
 }
