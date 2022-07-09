@@ -13,8 +13,8 @@ function UserProfileBox({
   followingCount,
 }) {
   return (
-    <div className={styles["profile-wrapper"]}>
-      <div className={styles["upper-wrapper"]}>
+    <div className={styles["wrapper-profile"]}>
+      <div className={styles["wrapper-upper"]}>
         <NumberFollow number={followerCount} isFollower={true} />
         <ImageBox
           src={src}
