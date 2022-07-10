@@ -60,7 +60,7 @@
   height: 90px;
 }
 
-/* 판매중인 상품 목록의 썸네일에 사용될 이미지입니다. */
+/* 여러 장의 이미지 업로드에 사용될 이미지입니다. */
 .rounded_square.medium_small {
   width: 168px;
   height: 126px;
