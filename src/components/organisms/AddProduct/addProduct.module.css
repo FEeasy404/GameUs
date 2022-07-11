@@ -1,0 +1,13 @@
+.wrapper-form {
+  padding-top: 30px;
+}
+
+.wrapper-form > h2 {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: var(--darkgray-color);
+}
+
+.wrapper-form > div:nth-child(2) {
+  margin: 18px auto 30px;
+}

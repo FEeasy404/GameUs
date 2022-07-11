@@ -5,7 +5,7 @@
   --darkgray-color: #767676;
   --middlegray-color: #c4c4c4;
   --lightgray-color: #dbdbdb;
-  --whitegray-color:#F2F2F2;
+  --whitegray-color: #f2f2f2;
 }
 
 html {
@@ -31,5 +31,8 @@ a {
 .max-width {
   max-width: 800px;
   margin: 0 auto;
+}
+
+.wrapper-padding {
   padding: 34px;
 }
