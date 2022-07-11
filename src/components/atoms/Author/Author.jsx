@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from './author.module.css'
+import React from "react";
+import styles from "/author.module.css";
 
 function Author({userName, userId}) {
   return (
@@ -10,4 +10,4 @@ function Author({userName, userId}) {
   )
 }
 
-export default Author
+export default Author;
