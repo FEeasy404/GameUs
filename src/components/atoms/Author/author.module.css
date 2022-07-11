@@ -1,0 +1,8 @@
+.text-user_id,
+.text-user_name {
+    display: block;
+}
+
+.text-user_id {
+    color: var(--darkgray-color);
+}
