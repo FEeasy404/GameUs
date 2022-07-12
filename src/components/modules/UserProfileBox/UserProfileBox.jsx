@@ -14,6 +14,7 @@ function UserProfileBox({
 }) {
   return (
     <div className={styles["wrapper-profile"]}>
+      <h2 className="a11y-hidden">사용자 정보</h2>
       <div className={styles["wrapper-upper"]}>
         <NumberFollow number={followerCount} isFollower={true} />
         <ImageBox
