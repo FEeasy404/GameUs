@@ -1,0 +1,7 @@
+.wrapper-post {
+  display: flex;
+}
+
+.wrapper-post > textarea {
+  margin: 12px 0 16px 12px;
+}
