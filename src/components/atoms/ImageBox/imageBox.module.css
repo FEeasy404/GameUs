@@ -73,7 +73,7 @@
 
 /* 게시글에서 사용될 이미지입니다. */
 .rounded_square.medium_large {
-  width: 100%;
+  max-width: 400px;
 }
 
 /* 상품 등록 페이지에서 사용될 이미지입니다. */

@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import styles from "./imageInputButton.module.css";
 
-function ImageInputButton({ selectFile, saveImage, color, size }) {
+function ImageInputButton({ saveImage, color, size, multiple }) {
+  const selectFile = useRef("");
   function openFile() {
     selectFile.current.click();
   }
@@ -12,6 +14,7 @@ function ImageInputButton({ selectFile, saveImage, color, size }) {
         onChange={saveImage}
         ref={selectFile}
         className={styles["file-input"]}
+        multiple={multiple}
       />
       <button
         type="button"

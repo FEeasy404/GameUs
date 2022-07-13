@@ -3,6 +3,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import JoinPage from "./pages/JoinPage";
 import AddProductPage from "./pages/AddProductPage";
 import ProfilePage from "./pages/ProfilePage";
+import UploadPage from "./pages/UploadPage/UploadPage";
 import "./reset.css";
 import "./global.css";
 
@@ -23,6 +24,7 @@ function App() {
           path="/profile/following"
           element={<h1>팔로잉 목록 페이지입니다.</h1>}
         />
+        <Route path="/post" element={<UploadPage />}></Route>
       </Routes>
     </div>
   );
