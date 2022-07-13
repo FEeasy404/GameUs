@@ -33,4 +33,5 @@
 
 .button-disable {
   color: var(--middlegray-color);
+  pointer-events: none;
 }
