@@ -1,8 +1,8 @@
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import TextArea from "../../atoms/TextArea/TextArea";
-import styles from "./postText.module.css";
+import styles from "./uploadText.module.css";
 
-function PostText() {
+function UploadText() {
   return (
     <div className={styles["wrapper-post"]}>
       <ImageBox src="" type="circle" size="medium_small" alt="프로필 이미지" />
@@ -11,4 +11,4 @@ function PostText() {
   );
 }
 
-export default PostText;
+export default UploadText;

@@ -1,12 +1,12 @@
-import PostImage from "../../modules/PostImage/PostImage";
-import PostText from "../../modules/PostText/PostText";
-import styles from "./postForm.module.css";
-function PostForm({ images, handleDeleteBtn }) {
+import UploadText from "../../modules/UploadText/UploadText";
+import UploadImage from "../../modules/UploadImage/UploadImage";
+import styles from "./uploadForm.module.css";
+function UploadForm({ images, handleDeleteBtn }) {
   return (
     <div className={styles["form-post"]}>
-      <PostText />
+      <UploadText />
       {images.length === 1 ? (
-        <PostImage
+        <UploadImage
           size="medium_large"
           item={images[0]}
           handleDeleteBtn={handleDeleteBtn}
@@ -16,7 +16,7 @@ function PostForm({ images, handleDeleteBtn }) {
           {images.map((item) => {
             return (
               <li key={item.key}>
-                <PostImage
+                <UploadImage
                   size="medium_small"
                   item={item}
                   handleDeleteBtn={handleDeleteBtn}
@@ -30,4 +30,4 @@ function PostForm({ images, handleDeleteBtn }) {
   );
 }
 
-export default PostForm;
+export default UploadForm;

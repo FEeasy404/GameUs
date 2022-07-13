@@ -1,7 +1,7 @@
 import { useState } from "react";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import ImageInputButton from "../../components/atoms/ImageInputButton/ImageInputButton";
-import PostForm from "../../components/organisms/PostForm/PostForm";
+import UploadForm from "../../components/organisms/UploadForm/UploadForm";
 import styles from "./uploadPage.module.css";
 
 function UploadPage() {
@@ -24,7 +24,7 @@ function UploadPage() {
   return (
     <div className={styles["wrapper-page"]}>
       <HeaderForm backButton={true} button="업로드" />
-      <PostForm images={images} handleDeleteBtn={handleDeleteBtn} />
+      <UploadForm images={images} handleDeleteBtn={handleDeleteBtn} />
       <ImageInputButton saveImage={saveImage} size="medium" multiple={true} />
     </div>
   );

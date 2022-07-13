@@ -1,8 +1,8 @@
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import IconButton from "../../atoms/IconButton/IconButton";
-import styles from "./postImage.module.css";
+import styles from "./uploadImage.module.css";
 
-function PostImage({ size, item, handleDeleteBtn }) {
+function UploadImage({ size, item, handleDeleteBtn }) {
   return (
     <div className={`${styles["wrapper-image"]} ${styles[size]}`}>
       <ImageBox src={item.src} type="rounded_square" size={size} />
@@ -15,4 +15,4 @@ function PostImage({ size, item, handleDeleteBtn }) {
   );
 }
 
-export default PostImage;
+export default UploadImage;
