@@ -7,7 +7,7 @@ function ProductTextInput() {
         id="product"
         type="text"
         name="상품명"
-        placeholder="2~5자 이내여야 합니다."
+        placeholder="2~15자 이내여야 합니다."
       />
       <InputBox
         id="price"

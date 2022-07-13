@@ -1,0 +1,22 @@
+.wrapper-products {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 20px;
+}
+
+.list-product {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+

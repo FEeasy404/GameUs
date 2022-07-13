@@ -13,7 +13,7 @@ function MyProfileButton() {
         primary={false}
       />
       <Button
-        href="#"
+        href="/product"
         size="medium"
         label="상품 등록"
         active={true}

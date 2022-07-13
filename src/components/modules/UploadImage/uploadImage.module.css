@@ -1,0 +1,17 @@
+.wrapper-image {
+  position: relative;
+}
+
+.wrapper-image > button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
+.medium_large {
+  max-width: 400px;
+}
+
+.medium_small {
+  width: 168px;
+}

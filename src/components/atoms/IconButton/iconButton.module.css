@@ -20,6 +20,10 @@
   background-image: url(../../../assets/icon-more-vertical.svg);
 }
 
+.close {
+  background-image: url(../../../assets/x.svg);
+}
+
 .message {
   background-image: url(../../../assets/icon-message-circle.svg);
   width: 34px;

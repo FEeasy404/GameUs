@@ -1,12 +1,13 @@
 import React from "react";
-import styles from "/author.module.css";
+import { Link } from "react-router-dom";
+import styles from "./author.module.css";
 
-function Author({userName, userId}) {
+function Author({authorName, authorId}) {
   return (
-    <div>
-        <span className={styles["text-user_name"]}>{userName}</span>
-        <span className={styles["text-user_id"]}>{userId}</span>
-    </div>
+    <Link to={authorId}>
+      <span className={styles["text-name"]}>{authorName}</span>
+      <span className={styles["text-id"]} >{authorId}</span>
+    </Link>
   )
 }
 

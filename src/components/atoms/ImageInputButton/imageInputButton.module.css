@@ -1,3 +1,7 @@
+.file-input {
+  display: none;
+}
+
 .button-select {
   position: absolute;
   bottom: 0;

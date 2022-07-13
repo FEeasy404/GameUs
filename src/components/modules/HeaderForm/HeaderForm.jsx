@@ -16,7 +16,7 @@ function HeaderForm({
   let navigate = useNavigate();
   const classButton = button ? "button" : "";
   return (
-    <header className={`${styles["header-wrapper"]} ${styles[classButton]}`}>
+    <header className={`${styles["wrapper-header"]} ${styles[classButton]}`}>
       {backButton && (
         <IconButton type="back" text="뒤로 가기" onClick={() => navigate(-1)} />
       )}
