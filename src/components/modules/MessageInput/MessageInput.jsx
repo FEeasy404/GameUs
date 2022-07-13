@@ -3,7 +3,7 @@ import styles from "./messageInput.module.css";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import ImageInputButton from "../../atoms/ImageInputButton/ImageInputButton";
 
-function Comment({ type, src, title, placeholder, buttonText }) {
+function MessageInput({ type, src, title, placeholder, buttonText }) {
   const [text, setText] = useState("");
   const inputRef = useRef();
   //mount 되면 input focus
@@ -37,4 +37,4 @@ function Comment({ type, src, title, placeholder, buttonText }) {
   );
 }
 
-export default Comment;
+export default MessageInput;
