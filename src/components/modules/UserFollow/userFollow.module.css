@@ -1,4 +1,4 @@
-.follow-wrapper {
+.wrapper-follow {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -6,12 +6,17 @@
   margin: 0px auto;
 }
 
-.follow-wrapper > div:nth-child(2) {
+.wrapper-link{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.wrapper-link > div:nth-child(2) {
   max-width: 240px;
   margin: 5px 0 6px 12px;
 }
 
-.follow-wrapper > button {
+.wrapper-follow > button {
   width: 56px;
   justify-self: end;
   margin-left: auto;

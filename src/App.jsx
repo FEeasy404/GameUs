@@ -6,6 +6,8 @@ import ProfilePage from "./pages/ProfilePage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import "./reset.css";
 import "./global.css";
+import FollowerPage from "./pages/FollowerPage";
+import FollowingPage from "./pages/FollowingPage.jsx";
 
 function App() {
   return (
@@ -17,12 +19,12 @@ function App() {
         <Route path="/product" element={<AddProductPage />} />
         <Route path="/profile/:accountname" element={<ProfilePage />} />
         <Route
-          path="/profile/follower"
-          element={<h1>팔로워 목록 페이지입니다.</h1>}
+          path="/profile/:accountname/follower"
+          element={<FollowerPage />}
         />
         <Route
-          path="/profile/following"
-          element={<h1>팔로잉 목록 페이지입니다.</h1>}
+          path="/profile/:accountname/following"
+          element={<FollowingPage />}
         />
         <Route path="/post" element={<UploadPage />}></Route>
       </Routes>
