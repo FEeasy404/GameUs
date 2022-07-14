@@ -1,0 +1,11 @@
+.form-post > div:nth-child(2),
+.form-post > ul {
+  margin-left: 54px;
+}
+
+.list {
+  display: flex;
+  gap: 8px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}

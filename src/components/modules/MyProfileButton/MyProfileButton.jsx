@@ -4,7 +4,7 @@ import styles from "./myProfileButton.module.css";
 
 function MyProfileButton() {
   return (
-    <div className={styles["button-wrapper"]}>
+    <div className={styles["container-button"]}>
       <Button
         href="#"
         size="medium"
@@ -13,7 +13,7 @@ function MyProfileButton() {
         primary={false}
       />
       <Button
-        href="#"
+        href="/product"
         size="medium"
         label="상품 등록"
         active={true}

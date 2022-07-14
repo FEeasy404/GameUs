@@ -1,0 +1,14 @@
+.wrapper-page {
+  height: 100vh;
+  position: relative;
+}
+
+.wrapper-page > div:nth-child(2) {
+  padding: 20px 16px 16px;
+}
+
+.wrapper-page > div:last-child {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}

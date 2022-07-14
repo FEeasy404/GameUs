@@ -1,0 +1,20 @@
+.wrapper-product {
+  max-width: 140px;
+}
+
+.product_name {
+  display: block;
+  margin: 6px 0 4px;
+  font-size: 1.4rem;
+  line-height: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.product_price {
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 15px;
+  color: var(--main-color);
+}

@@ -5,7 +5,7 @@ import styles from "./profileButton.module.css";
 
 function ProfileButton({ isFollowing }) {
   return (
-    <div className={styles["button-wrapper"]}>
+    <div className={styles["container-button"]}>
       <IconButton type="message" text="메시지 보내기" />
       <Button
         href="#"
