@@ -15,7 +15,7 @@ function App() {
         <Route path="/user/login" element={<LoginPage />} />
         <Route path="/user" element={<JoinPage />} />
         <Route path="/product" element={<AddProductPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile/:accountname" element={<ProfilePage />} />
         <Route
           path="/profile/follower"
           element={<h1>팔로워 목록 페이지입니다.</h1>}
