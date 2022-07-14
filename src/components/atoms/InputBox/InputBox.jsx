@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./inputBox.module.css";
 
-function LoginInput({ id, type, name, placeholder, error }) {
+function InputBox({ id, type, name, placeholder, error }) {
   const errorClass = error ? "error" : "";
   return (
     <div>
@@ -20,4 +20,4 @@ function LoginInput({ id, type, name, placeholder, error }) {
   );
 }
 
-export default LoginInput;
+export default InputBox;
