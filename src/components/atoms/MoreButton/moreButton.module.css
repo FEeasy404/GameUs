@@ -1,7 +1,6 @@
 .button {
-  float: right;
+  position: absolute;
   cursor: pointer;
   background-color: inherit;
   border: none;
-  background-image: url("../../../assets/icon-more-vertical-small.svg");
 }
