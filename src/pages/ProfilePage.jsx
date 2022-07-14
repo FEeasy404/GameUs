@@ -89,7 +89,6 @@ function ProfilePage() {
   //   },
   // ];
 
-  console.log(products);
   return (
     <>
       <h1 className="a11y-hidden">프로필 페이지</h1>
