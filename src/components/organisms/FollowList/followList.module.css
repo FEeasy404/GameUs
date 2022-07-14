@@ -1,0 +1,19 @@
+.list-follow {
+  margin: 24px auto;
+}
+
+.list-follow li {
+  margin: 16px auto;
+}
+
+.wrapper-message {
+  margin: 50px auto;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--middlegray-color);
+}
+
+.emoji {
+  margin: 20px auto;
+  font-size: 6rem;
+}
