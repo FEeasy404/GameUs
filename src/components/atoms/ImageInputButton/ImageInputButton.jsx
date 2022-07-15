@@ -10,7 +10,7 @@ function ImageInputButton({ saveImage, color, size, multiple }) {
     <div>
       <input
         type="file"
-        accept="img/*"
+        accept=".jpg, .gif, .png, .jpeg, .bmp, .tif, .heic"
         onChange={saveImage}
         ref={selectFile}
         className={styles["file-input"]}
