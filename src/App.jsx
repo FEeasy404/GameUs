@@ -3,6 +3,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import JoinPage from "./pages/JoinPage";
 import AddProductPage from "./pages/AddProductPage";
 import ProfilePage from "./pages/ProfilePage";
+import ProfileEditPage from "./pages/ProfileEditPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import "./reset.css";
 import "./global.css";
@@ -26,7 +27,8 @@ function App() {
           path="/profile/:accountname/following"
           element={<FollowingPage />}
         />
-        <Route path="/post" element={<UploadPage />}></Route>
+        <Route path="profile/edit" element={<ProfileEditPage />} />
+        <Route path="/post" element={<UploadPage />} />
       </Routes>
     </div>
   );
