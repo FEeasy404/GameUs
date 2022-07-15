@@ -2,7 +2,16 @@ import ImageInputForm from "../../modules/ImageInputForm/ImageInputForm";
 import ProductTextInput from "../../modules/ProductTextInput/ProductTextInput";
 import styles from "./addProduct.module.css";
 
-function AddProduct() {
+function AddProduct({
+  saveImage,
+  image,
+  handleName,
+  handlePrice,
+  handleLink,
+  maxLenght,
+  nameError,
+  priceError,
+}) {
   return (
     <section className={`${styles["wrapper-form"]} wrapper-padding`}>
       <h2>이미지 등록</h2>
@@ -11,8 +20,17 @@ function AddProduct() {
         boxType="rounded_square"
         boxSize="large"
         buttonColor="gray"
+        saveImage={saveImage}
+        image={image}
       />
-      <ProductTextInput />
+      <ProductTextInput
+        handleName={handleName}
+        handlePrice={handlePrice}
+        handleLink={handleLink}
+        maxLenght={maxLenght}
+        nameError={nameError}
+        priceError={priceError}
+      />
     </section>
   );
 }
