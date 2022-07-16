@@ -4,7 +4,7 @@ import imageCompression from "browser-image-compression";
 import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
 import AddProduct from "../components/organisms/AddProduct/AddProduct";
 
-function AddProductPage() {
+function AddProductPage({ accountname }) {
   const navigate = useNavigate();
   const [image, setImage] = useState("");
   const [name, setName] = useState("");
@@ -107,8 +107,7 @@ function AddProductPage() {
   //제출 버튼
   async function handleSubmit() {
     await postProduct();
-    //profile/${accountname}로 수정필요
-    navigate("/profile/jordi2");
+    navigate(`profile/${accountname}`);
   }
 
   return (
