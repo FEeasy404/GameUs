@@ -107,7 +107,7 @@ function AddProductPage({ accountname }) {
   //제출 버튼
   async function handleSubmit() {
     await postProduct();
-    navigate(`profile/${accountname}`);
+    navigate(`/profile/${accountname}`);
   }
 
   return (
