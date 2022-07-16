@@ -8,7 +8,7 @@ function AddProduct({
   handleName,
   handlePrice,
   handleLink,
-  maxLenght,
+  maxLength,
   nameError,
   priceError,
 }) {
@@ -27,7 +27,7 @@ function AddProduct({
         handleName={handleName}
         handlePrice={handlePrice}
         handleLink={handleLink}
-        maxLenght={maxLenght}
+        maxLength={maxLength}
         nameError={nameError}
         priceError={priceError}
       />

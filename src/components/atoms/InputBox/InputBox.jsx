@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./inputBox.module.css";
 
-function InputBox({ id, type, name, placeholder, error, onChange, maxLenght }) {
+function InputBox({ id, type, name, placeholder, error, onChange, maxLength }) {
   const errorClass = error ? "error" : "";
   return (
     <div>
@@ -15,7 +15,7 @@ function InputBox({ id, type, name, placeholder, error, onChange, maxLenght }) {
         placeholder={placeholder}
         className={[styles["input-login"], styles[errorClass]].join(" ")}
         onChange={onChange}
-        maxLength={maxLenght}
+        maxLength={maxLength}
       />
       {error && <small className={styles["text-error"]}>{error}</small>}
     </div>

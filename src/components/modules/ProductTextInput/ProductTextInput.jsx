@@ -4,7 +4,7 @@ function ProductTextInput({
   handleName,
   handlePrice,
   handleLink,
-  maxLenght,
+  maxLength,
   nameError,
   priceError,
 }) {
@@ -16,7 +16,7 @@ function ProductTextInput({
         name="상품명"
         placeholder="2~15자 이내여야 합니다."
         onChange={handleName}
-        maxLenght={maxLenght}
+        maxLength={maxLength}
         error={nameError && "상품명은 2~15자 이내여야 합니다."}
       />
       <InputBox
