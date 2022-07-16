@@ -11,7 +11,9 @@ function HeaderForm({
   title,
   titleSize,
   button,
+  active,
   Input,
+  onClick,
 }) {
   let navigate = useNavigate();
   const classButton = button ? "button" : "";
@@ -27,9 +29,9 @@ function HeaderForm({
         <Button
           size="medium_small"
           label={button}
-          active={true}
+          active={active}
           primary={true}
-          onClick={""}
+          onClick={onClick}
         />
       )}
       {Input && <HeaderInput placeholder="계정 검색" />}
