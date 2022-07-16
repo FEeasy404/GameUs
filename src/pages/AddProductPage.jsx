@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import imageCompression from "browser-image-compression";
 import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
 import AddProduct from "../components/organisms/AddProduct/AddProduct";
 
@@ -15,6 +16,22 @@ function AddProductPage() {
   const baseURL = "https://mandarin.api.weniv.co.kr";
   const token = window.localStorage.getItem("token");
 
+  //이미지 리사이즈
+  async function handleImageSize(file) {
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 500,
+    };
+    try {
+      const blobFile = await imageCompression(file, options);
+      const newFile = new File([blobFile], `${blobFile.name}`, {
+        type: blobFile.type,
+      });
+      return newFile;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   //이미지 저장
   async function imageUpload(file) {
     try {
@@ -33,8 +50,9 @@ function AddProductPage() {
     }
   }
   async function saveImage(event) {
-    const imageSrc = await imageUpload(event.target.files[0]);
-    setImage(imageSrc);
+    const compressedFile = await handleImageSize(event.target.files[0]);
+    const fileUrl = await imageUpload(compressedFile);
+    setImage(fileUrl);
   }
 
   //텍스트 저장
@@ -108,7 +126,7 @@ function AddProductPage() {
         handleName={handleName}
         handlePrice={handlePrice}
         handleLink={handleLink}
-        maxLenght="15"
+        maxLength="15"
         nameError={nameError}
         priceError={priceError}
       />
