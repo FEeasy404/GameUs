@@ -42,8 +42,8 @@ function AddProductPage() {
         method: "POST",
         body: formData,
       });
-      const json = (await res).json();
-      const filename = (await json).filename;
+      const json = await res.json();
+      const filename = await json.filename;
       return baseURL + "/" + filename;
     } catch (error) {
       console.log(error.message);
@@ -108,7 +108,7 @@ function AddProductPage() {
   async function handleSubmit() {
     await postProduct();
     //profile/${accountname}로 수정필요
-    navigate("/profile/weniv_Gameland");
+    navigate("/profile/jordi2");
   }
 
   return (
