@@ -48,22 +48,22 @@ function LoginForm({ label }) {
       console.log(result);
       const emailRegExp =
         /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-      // 이메일 형식이 일치하지 않는 경우 (button type이 submit이 아니라서 여기에서 유효성을 검사합니다.)
-      if (!email.match(emailRegExp)) {
+      // 이메일 란이 비어있는 경우
+      if (!email) {
+        setEmailError("이메일을 입력해 주세요.");
+      }
+      // 비밀번호 란이 비어있는 경우
+      else if (!password) {
+        setPasswordError("비밀번호를 입력해 주세요.");
+      } // 이메일 형식이 일치하지 않는 경우 (button type이 submit이 아니라서 여기에서 유효성을 검사합니다.)
+      else if (!email.match(emailRegExp)) {
         setEmailError("이메일 형식에 맞게 입력해 주세요.");
       }
       // 이메일, 비밀번호가 일치하지 않는 경우
       else if (result.status === 422) {
         setPasswordError(result.message);
       }
-      // 이메일 란이 비어있는 경우
-      else if (!email) {
-        setEmailError("이메일을 입력해 주세요.");
-      }
-      // 비밀번호 란이 비어있는 경우
-      else if (!password) {
-        setPasswordError("비밀번호를 입력해 주세요.");
-      }
+
       // 이메일, 비밀번호가 둘 다 빈 경우는 아예 버튼을 disabled 시켰기 때문에 따로 에러 메시지를 띄우지 않게 했습니다.
       window.localStorage.removeItem("accountname");
       window.localStorage.setItem("accountname", result.user.accountname);
