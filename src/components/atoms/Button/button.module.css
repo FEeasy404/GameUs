@@ -12,6 +12,7 @@
 
 .disabled {
   background-color: var(--disabled-color);
+  pointer-events: none;
 }
 
 .secondary {
