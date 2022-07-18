@@ -5,24 +5,19 @@ import AddProductPage from "./pages/AddProductPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProfileEditPage from "./pages/ProfileEditPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
-import "./reset.css";
-import "./global.css";
 import FollowerPage from "./pages/FollowerPage";
 import FollowingPage from "./pages/FollowingPage.jsx";
+import "./reset.css";
+import "./global.css";
 
 function App() {
-  //로그인 구현후 변경 필요
-  const accountname = "weniv_Gameland";
   return (
     <div className="max-width">
       <Routes>
         <Route path="/" element={<h1>메인 페이지입니다.</h1>} />
-        <Route path="/user/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/user" element={<JoinPage />} />
-        <Route
-          path="/product"
-          element={<AddProductPage accountname={accountname} />}
-        />
+        <Route path="/product" element={<AddProductPage />} />
         <Route path="/profile/:accountname" element={<ProfilePage />} />
         <Route
           path="/profile/:accountname/follower"
@@ -33,7 +28,10 @@ function App() {
           element={<FollowingPage />}
         />
         <Route path="profile/edit" element={<ProfileEditPage />} />
-        <Route path="/post" element={<UploadPage />} />
+        <Route
+          path="/post"
+          element={<UploadPage />}
+        />
       </Routes>
     </div>
   );

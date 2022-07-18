@@ -1,7 +1,7 @@
 import { useRef, useCallback, useEffect } from "react";
 import styles from "./textArea.module.css";
 
-function TextArea({ label }) {
+function TextArea({ label, handleText }) {
   const textRef = useRef();
   //textarea 높이 조절
   const textAreaResize = useCallback(() => {
@@ -25,7 +25,10 @@ function TextArea({ label }) {
         ref={textRef}
         placeholder="게시글 입력하기.."
         className={styles["input-text"]}
-        onChange={textAreaResize}
+        onChange={(event) => {
+          textAreaResize();
+          handleText(event);
+        }}
       ></textarea>
     </>
   );

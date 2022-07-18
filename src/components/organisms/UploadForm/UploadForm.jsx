@@ -1,10 +1,10 @@
 import UploadText from "../../modules/UploadText/UploadText";
 import UploadImage from "../../modules/UploadImage/UploadImage";
 import styles from "./uploadForm.module.css";
-function UploadForm({ images, handleDeleteBtn }) {
+function UploadForm({ images, handleText, handleDeleteBtn }) {
   return (
     <div className={styles["form-post"]}>
-      <UploadText />
+      <UploadText handleText={handleText} />
       {images.length === 1 ? (
         <UploadImage
           size="medium_large"
