@@ -22,7 +22,7 @@ function LoginForm({ label }) {
   }, [email, password]);
 
   // 이메일과 비밀번호 둘 다 input이므로 한꺼번에 관리합니다.
-  function handleData(event) {
+  function handleLoginInputData(event) {
     // input 타입이 "email" 이면 이메일 세팅
     if (event.target.type === "email") {
       setEmail(event.target.value);
@@ -32,7 +32,8 @@ function LoginForm({ label }) {
       setPassword(event.target.value);
     }
   }
-  async function login() {
+
+  async function handleLogin() {
     try {
       const reqBody = {
         user: {
@@ -94,7 +95,7 @@ function LoginForm({ label }) {
         type="email"
         name="이메일"
         value={email}
-        onChange={handleData}
+        onChange={handleLoginInputData}
         error={emailError}
         innerRef={emailInput}
       />
@@ -103,7 +104,7 @@ function LoginForm({ label }) {
         type="password"
         name="비밀번호"
         value={password}
-        onChange={handleData}
+        onChange={handleLoginInputData}
         error={passwordError}
         innerRef={passwordInput}
       />
@@ -113,7 +114,7 @@ function LoginForm({ label }) {
         label={label}
         active={(email || password) && true}
         primary={true}
-        onClick={login}
+        onClick={handleLogin}
       />
     </form>
   );

@@ -6,12 +6,13 @@ import ImageInputButton from "../../components/atoms/ImageInputButton/ImageInput
 import UploadForm from "../../components/organisms/UploadForm/UploadForm";
 import styles from "./uploadPage.module.css";
 
-function UploadPage({ accountname }) {
+function UploadPage() {
   const navigate = useNavigate();
   const [text, setText] = useState("");
   const [images, setImages] = useState([]);
   const baseURL = "https://mandarin.api.weniv.co.kr";
   const token = window.localStorage.getItem("token");
+  const myAccountname = window.localStorage.getItem("");
 
   //텍스트 처리
   function handleText(event) {
@@ -125,7 +126,7 @@ function UploadPage({ accountname }) {
     await uploadData(imageNames);
     //메모리 누수 방지
     images.forEach((file) => URL.revokeObjectURL(file.src));
-    navigate(`/profile/${accountname}`);
+    navigate(`/profile/${myAccountname}`);
   }
 
   return (
