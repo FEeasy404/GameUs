@@ -3,7 +3,8 @@ import UserProfileBox from "../../modules/UserProfileBox/UserProfileBox";
 import MyProfileButton from "../../modules/MyProfileButton/MyProfileButton";
 import ProfileButton from "../../modules/ProfileButton/ProfileButton";
 
-function UserProfile({ isMe, userProfile }) {
+function UserProfile({ userProfile }) {
+  const myAccountname = window.localStorage.getItem("accountname");
   return (
     <div>
       <UserProfileBox
@@ -14,7 +15,7 @@ function UserProfile({ isMe, userProfile }) {
         followerCount={userProfile.followerCount}
         followingCount={userProfile.followingCount}
       />
-      {isMe ? (
+      {userProfile.accountname == myAccountname ? (
         <MyProfileButton />
       ) : (
         <ProfileButton isFollowing={userProfile.isFollowing} />

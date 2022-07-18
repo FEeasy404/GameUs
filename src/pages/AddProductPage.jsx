@@ -4,7 +4,7 @@ import imageCompression from "browser-image-compression";
 import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
 import AddProduct from "../components/organisms/AddProduct/AddProduct";
 
-function AddProductPage({ accountname }) {
+function AddProductPage() {
   const navigate = useNavigate();
   const [image, setImage] = useState("");
   const [name, setName] = useState("");
@@ -15,6 +15,7 @@ function AddProductPage({ accountname }) {
 
   const baseURL = "https://mandarin.api.weniv.co.kr";
   const token = window.localStorage.getItem("token");
+  const myAccountname = window.localStorage.getItem("accountname");
 
   //이미지 리사이즈
   async function handleImageSize(file) {
@@ -107,7 +108,7 @@ function AddProductPage({ accountname }) {
   //제출 버튼
   async function handleSubmit() {
     await postProduct();
-    navigate(`/profile/${accountname}`);
+    navigate(`/profile/${myAccountname}`);
   }
 
   return (
