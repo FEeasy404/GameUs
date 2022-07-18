@@ -12,18 +12,13 @@ import FollowingPage from "./pages/FollowingPage.jsx";
 import HomePage from "./pages/HomePage";
 
 function App() {
-  //로그인 구현후 변경 필요
-  const accountname = "weniv_Gameland";
   return (
     <div className="max-width">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/user/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/user" element={<JoinPage />} />
-        <Route
-          path="/product"
-          element={<AddProductPage accountname={accountname} />}
-        />
+        <Route path="/product" element={<AddProductPage />} />
         <Route path="/profile/:accountname" element={<ProfilePage />} />
         <Route
           path="/profile/:accountname/follower"
@@ -34,7 +29,10 @@ function App() {
           element={<FollowingPage />}
         />
         <Route path="profile/edit" element={<ProfileEditPage />} />
-        <Route path="/post" element={<UploadPage />} />
+        <Route
+          path="/post"
+          element={<UploadPage />}
+        />
       </Routes>
     </div>
   );
