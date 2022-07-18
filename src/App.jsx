@@ -30,7 +30,7 @@ function App() {
         <Route path="profile/edit" element={<ProfileEditPage />} />
         <Route
           path="/post"
-          element={<UploadPage accountname={accountname} />}
+          element={<UploadPage />}
         />
       </Routes>
     </div>
