@@ -16,7 +16,16 @@ function AddProductPage() {
   const baseURL = "https://mandarin.api.weniv.co.kr";
   const token = window.localStorage.getItem("token");
   const myAccountname = window.localStorage.getItem("accountname");
-
+  //이미지 프리뷰
+  async function saveImage(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const image = {
+      src: URL.createObjectURL(file),
+      data: file,
+    };
+    setImage(image);
+  }
   //이미지 리사이즈
   async function handleImageSize(file) {
     const options = {
@@ -50,11 +59,6 @@ function AddProductPage() {
       console.log(error.message);
     }
   }
-  async function saveImage(event) {
-    const compressedFile = await handleImageSize(event.target.files[0]);
-    const fileUrl = await imageUpload(compressedFile);
-    setImage(fileUrl);
-  }
 
   //텍스트 저장
   function handleName(event) {
@@ -82,13 +86,13 @@ function AddProductPage() {
   }
 
   //상품 업로드
-  async function postProduct() {
+  async function postProduct(fileUrl) {
     const data = {
       product: {
         itemName: name,
         price: price,
         link: link,
-        itemImage: image,
+        itemImage: fileUrl,
       },
     };
     try {
@@ -107,7 +111,10 @@ function AddProductPage() {
 
   //제출 버튼
   async function handleSubmit() {
-    await postProduct();
+    const compressedFile = await handleImageSize(image.data);
+    const fileUrl = await imageUpload(compressedFile);
+    await postProduct(fileUrl);
+    URL.revokeObjectURL(image.src);
     navigate(`/profile/${myAccountname}`);
   }
 
@@ -118,11 +125,11 @@ function AddProductPage() {
         backButton={true}
         button="저장"
         onClick={handleSubmit}
-        active={image && name && price && link && true}
+        active={name && price && link && image && true}
       />
       <AddProduct
         saveImage={saveImage}
-        image={image}
+        image={image.src}
         handleName={handleName}
         handlePrice={handlePrice}
         handleLink={handleLink}

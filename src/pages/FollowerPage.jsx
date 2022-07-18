@@ -15,7 +15,7 @@ function FollowerPage() {
 
     async function getFollowers() {
       try {
-        const data = await fetch(baseURL + `/profile/${accountname}/follower`, {
+        const data = await fetch(baseURL + `/profile/${accountname}/follower?limit=Infinity`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
