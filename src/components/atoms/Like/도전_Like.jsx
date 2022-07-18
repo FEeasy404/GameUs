@@ -2,18 +2,25 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import styles from "./like.module.css";
 
+// 도전과제 좋아요 기능입니다.
+// 좋아요가 실제 데이터에 반영되게 만드는 것인데,
+// 미완이라 동작을 안 할거에요! 나중에 더 수정하겠습니다.
+
 function Like({postId, hearted, heartCount}) {
   const BASE_URL = "https://mandarin.api.weniv.co.kr";
-  const REQ_PATH = `/post/:${postId}/heart`;
+  const BASE_REQ_PATH = `/post/:${postId}/`;
   const TOKEN = window.localStorage.getItem("token");
 
   const [like, setLike] = useState(hearted);
   const [countLike, setCountLike] = useState(heartCount);
 
-  // 좋아요 시 
   useEffect( async () => {
+    // 좋아요 패스 = /post/:${postId}/heart
+    // 좋아요 취소 패스 = /post/:${postId}/unheart
+    let req_path = BASE_REQ_PATH + (like ? "heart" : "unheart");
+
     try {
-        const response = fetch(BASE_URL + REQ_PATH, {
+        fetch(BASE_URL + req_path, {
           method: "POST",
           headers: {
             "Authorization" : `Bearer ${TOKEN}`,
@@ -27,13 +34,7 @@ function Like({postId, hearted, heartCount}) {
   
   function handleSetLike(event) {
     setLike(!like);
-    if(like) {
-      // 좋아요
-      setCountLike(countLike + 1);
-    }else {
-      // 좋아요 취소
-      setCountLike(countLike - 1);
-    }
+    setCountLike(countLike + (like ? -1 : 1));
     event.target.classList.toggle(styles.liked);
   }
 
