@@ -28,10 +28,7 @@ function App() {
           element={<FollowingPage />}
         />
         <Route path="profile/edit" element={<ProfileEditPage />} />
-        <Route
-          path="/post"
-          element={<UploadPage accountname={accountname} />}
-        />
+        <Route path="/post" element={<UploadPage />} />
       </Routes>
     </div>
   );
