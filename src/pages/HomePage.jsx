@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../components/modules/PostCard/PostCard";
 
@@ -22,7 +21,7 @@ function HomePage() {
         const response = fetch(BASE_URL + REQ_PATH, {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${TOKEN}`,
+            "Authorization": `Bearer ${TOKEN}`,
             "Content-type": "application/json",
           },
         });
@@ -46,7 +45,7 @@ function HomePage() {
             {
             posts.map((post, index) => {
               <li key={index}>
-                <PostCard/>
+                <PostCard post={post}/>
               </li>
             })
           }
@@ -56,4 +55,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default HomePage;
