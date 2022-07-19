@@ -10,6 +10,7 @@ import UploadPage from "./pages/UploadPage/UploadPage";
 import FollowerPage from "./pages/FollowerPage";
 import FollowingPage from "./pages/FollowingPage.jsx";
 import HomePage from "./pages/HomePage/HomePage";
+import PostPage from "./pages/PostPage";
 
 function App() {
   return (
@@ -29,10 +30,8 @@ function App() {
           element={<FollowingPage />}
         />
         <Route path="profile/edit" element={<ProfileEditPage />} />
-        <Route
-          path="/post"
-          element={<UploadPage />}
-        />
+        <Route path="/post" element={<UploadPage />} />
+        <Route path="/post/:postId" element={<PostPage />} />
       </Routes>
     </div>
   );
