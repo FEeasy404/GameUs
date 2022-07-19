@@ -30,7 +30,7 @@ function HomePage() {
           },
         });
         const result = await response.json();
-        setPosts(result);
+        setPosts(result.posts);
       } catch (error) {
         console.log(error.message);
       }
