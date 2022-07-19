@@ -16,7 +16,7 @@ function ImageListMaker({image}) {
       <ul>
         {image.map((item, index) => (
           <li key={index}>
-            <ImageBox src={image} type={"rounded_square"} size={"medium_small"} />
+            <ImageBox src={image[index]} type={"rounded_square"} size={"medium_small"} />
           </li>
         ))}
       </ul>
