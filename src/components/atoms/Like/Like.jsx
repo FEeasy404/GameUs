@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./like.module.css";
 
-function Like() {
-  const [like, setLike] = useState(false);
-  const [countLike, setCountLike] = useState(0);
-
+function Like({hearted, heartCount}) {
+  const [like, setLike] = useState(hearted);
+  const [countLike, setCountLike] = useState(heartCount);
+  
   function handleSetLike(event) {
     setLike(!like);
     setCountLike(countLike + (like ? -1 : 1));

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useEffect } from "react";
+
+import { useState, useEffect } from "react";
 import Button from "../../components/atoms/Button/Button";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
@@ -22,7 +22,7 @@ function HomePage() {
   useEffect(() => {
     async function getPostDatas() {
       try {
-        const response = fetch(BASE_URL + REQ_PATH, {
+        const response = await fetch(BASE_URL + REQ_PATH, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${TOKEN}`,
@@ -30,7 +30,7 @@ function HomePage() {
           },
         });
         const result = await response.json();
-        setPosts(result);
+        setPosts(result.posts);
       } catch (error) {
         console.log(error.message);
       }
@@ -61,7 +61,7 @@ function HomePage() {
             {
             posts.map((post, index) => {
               <li key={index}>
-                <PostCard/>
+                <PostCard post={post}/>
               </li>
             })
           }
@@ -71,4 +71,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default HomePage;
