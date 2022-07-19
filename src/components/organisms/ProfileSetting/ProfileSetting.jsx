@@ -13,7 +13,6 @@ function ProfileSetting() {
   const [accountnameError, setAccountnameError] = useState("");
 
   const [isValid, setValid] = useState(false);
-  const [accountnameValid, setAccountnameValid] = useState(false);
   // const baseURL = "https://mandarin.api.weniv.co.kr";
 
   const usernameInput = useRef();
@@ -61,7 +60,6 @@ function ProfileSetting() {
       <p>나중에 언제든지 변경할 수 있습니다.</p>
       <ProfileForm
         setValid={setValid}
-        setAccountnameValid={setAccountnameValid}
         image={image}
         setImage={setImage}
         username={username}
@@ -80,7 +78,7 @@ function ProfileSetting() {
       <Button
         size="large"
         label="게임어스 시작하기"
-        active={accountnameValid && true}
+        active={username && accountname && true}
         primary={true}
         onClick={handleRegister}
       />

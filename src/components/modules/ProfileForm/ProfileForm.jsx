@@ -5,7 +5,6 @@ import styles from "./profileForm.module.css";
 
 function ProfileForm({
   setValid,
-  setAccountnameValid,
   username,
   setUsername,
   accountname,
@@ -31,14 +30,6 @@ function ProfileForm({
     setAccountnameError("");
     setValid(false);
   }, [accountname]);
-
-  useEffect(() => {
-    if (username && accountname) {
-      setAccountnameValid(true);
-    } else {
-      setAccountnameValid(false);
-    }
-  }, [username, accountname]);
 
   function handleEditInputData(event) {
     if (event.target.id === "username") {
