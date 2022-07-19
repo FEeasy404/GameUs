@@ -9,7 +9,7 @@ import ProfileEditPage from "./pages/ProfileEditPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import FollowerPage from "./pages/FollowerPage";
 import FollowingPage from "./pages/FollowingPage.jsx";
-import HomePage from "./pages/HomePage/HomePage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
