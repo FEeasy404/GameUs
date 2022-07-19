@@ -11,7 +11,7 @@ function SearchPage() {
       <HeaderForm backButton={true} input={true} />
       <ul className={styles["container-users"]}>
         <li>
-          <Link to={"profile/jordi3"} className={styles["container-user"]}>
+          <Link to={"/profile/jordi3"} className={styles["container-user"]}>
             <ImageBox 
               src={"https://mandarin.api.weniv.co.kr/1657961502180.png"} 
               type={"circle"} 
