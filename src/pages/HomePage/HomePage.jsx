@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
-import PostCard from "../components/modules/PostCard/PostCard";
+import Button from "../../components/atoms/Button/Button";
+import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
+import PostCard from "../../components/modules/PostCard/PostCard";
+import catImageURL from "../../assets/icon-404-cat.png";
+import styles from "./homePage.module.css"
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
@@ -38,9 +41,21 @@ function HomePage() {
   // posts 배열의 길이가 0이면 팔로우한 유저가 없다고 판단, 검색 버튼이 나옵니다.
   // post 배열의 길이가 1이 아니면 PostCard로 List를 만듭니다.
   return (
-    <div>
-      <HeaderForm title={"감귤마켓 피드"} searchButton={true} />
-      {posts.length === 0 && "유저를 검색해 팔로우 해보세요!"}
+    <>
+      <HeaderForm title={"감귤마켓 피드"} searchButton={true} titleSize={"large"} />
+      {posts.length === 0 && 
+        <div className={styles["container-search_notice"]}>
+          <img src={catImageURL} />
+          <p className={styles["text"]}>유저를 검색해 팔로우 해보세요!</p>
+          <Button
+            href={"/search"}
+            size="medium"
+            label={"검색하기"}
+            active={true}
+            primary={true}
+          />
+        </div>
+      }
       {posts.length !== 0 && 
         <ul>
             {
@@ -52,7 +67,7 @@ function HomePage() {
           }
         </ul>
       }
-    </div>
+    </>
   )
 }
 
