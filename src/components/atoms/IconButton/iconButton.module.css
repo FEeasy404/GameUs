@@ -20,6 +20,12 @@
   background-image: url(../../../assets/icon-more-vertical.svg);
 }
 
+.more {
+  width: 18px;
+  height: 18px;
+  background-image: url(../../../assets/icon-more-vertical-small.svg);
+}
+
 .close {
   background-image: url(../../../assets/x.svg);
 }
