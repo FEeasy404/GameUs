@@ -6,6 +6,24 @@ import InfoIconGroup from "../InfoIconGroup/InfoIconGroup"
 import PostDate from "../../atoms/PostDate/PostDate"
 import styles from "./postCard.module.css"
 
+function ImageListMaker({image}) {
+  if(image.length === 1) {
+    return (
+      <ImageBox src={image[0]} type={"rounded_square"} size={"medium_large"} />
+    )
+  }else if(image.length > 1) {
+    return (
+      <ul>
+        {image.map((item, index) => (
+          <li key={index}>
+            <ImageBox src={image[index]} type={"rounded_square"} size={"medium_small"} />
+          </li>
+        ))}
+      </ul>
+    )
+  }
+}
+
 function PostCard({post}) {
   const author = post.author;
 
@@ -19,7 +37,7 @@ function PostCard({post}) {
           <MoreButton />
       </div>
       <p>{post.content}</p>
-      <ImageBox src={post.image} type={"rounded_square"} size={"medium_large"} />
+      <ImageListMaker image={post.image} />
       <InfoIconGroup
         postId={post.id}
         hearted={post.hearted}

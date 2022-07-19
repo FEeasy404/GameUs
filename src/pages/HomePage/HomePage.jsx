@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Button from "../../components/atoms/Button/Button";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
@@ -30,7 +29,20 @@ function HomePage() {
           },
         });
         const result = await response.json();
+        // image 프로퍼티의 여러 개 담긴 image url을 나눠 배열로 만듭니다.
+        const imageData = result.posts.map(
+          (item) => (item.image.split(", "))
+        );
+        
+        // posts의 각 게시글 image 프로퍼티를 처리된 imageData로 대체합니다.
+        result.posts.map((post, index) => {
+          post.image = imageData[index];
+        })
+
+        console.log(result);
         setPosts(result.posts);
+        console.log(posts);
+        
       } catch (error) {
         console.log(error.message);
       }
@@ -58,12 +70,12 @@ function HomePage() {
       }
       {posts.length !== 0 && 
         <ul>
-            {
-            posts.map((post, index) => {
+          {
+            posts.map((post, index) => (
               <li key={index}>
                 <PostCard post={post}/>
               </li>
-            })
+            ))
           }
         </ul>
       }
