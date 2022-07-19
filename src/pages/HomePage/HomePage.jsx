@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Button from "../../components/atoms/Button/Button";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
@@ -58,12 +57,12 @@ function HomePage() {
       }
       {posts.length !== 0 && 
         <ul>
-            {
-            posts.map((post, index) => {
+          {
+            posts.map((post, index) => (
               <li key={index}>
                 <PostCard post={post}/>
               </li>
-            })
+            ))
           }
         </ul>
       }
