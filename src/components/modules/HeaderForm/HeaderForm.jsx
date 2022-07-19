@@ -12,7 +12,7 @@ function HeaderForm({
   titleSize,
   button,
   active,
-  Input,
+  input,
   onClick,
 }) {
   let navigate = useNavigate();
@@ -36,7 +36,7 @@ function HeaderForm({
           onClick={onClick}
         />
       )}
-      {Input && <HeaderInput placeholder="계정 검색" />}
+      {input && <HeaderInput placeholder="계정 검색" />}
     </header>
   );
 }
