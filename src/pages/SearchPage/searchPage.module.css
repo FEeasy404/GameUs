@@ -1,0 +1,19 @@
+.container-users {
+  box-sizing: border-box;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: baseline;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.user {
+  width: 100%;
+}
+.user:not(:last-of-type) {
+  margin-bottom: 16px;
+}
