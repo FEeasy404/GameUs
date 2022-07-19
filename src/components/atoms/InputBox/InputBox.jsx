@@ -14,7 +14,7 @@ function InputBox({
 }) {
   const errorClass = error ? "error" : "";
   return (
-    <div tabIndex="0">
+    <div>
       <label htmlFor={id} className={styles[`label-login`]}>
         {name}
       </label>
