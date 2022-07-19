@@ -12,7 +12,7 @@ function ProfileSetting() {
   const [usernameError, setUsernameError] = useState("");
   const [accountnameError, setAccountnameError] = useState("");
 
-  const [isValid, setValid] = useState(false);
+  const [isAccountnameValid, setAccountnameValid] = useState(false);
   // const baseURL = "https://mandarin.api.weniv.co.kr";
 
   const usernameInput = useRef();
@@ -27,8 +27,8 @@ function ProfileSetting() {
   function handleRegister() {
     usernameInput.current.blur();
     accountnameInput.current.blur();
-    
-    if (!usernameError && !accountnameError && isValid) {
+
+    if (!usernameError && !accountnameError && isAccountnameValid) {
       const data = registerData;
       data.user.username = username;
       data.user.accountname = accountname;
@@ -36,7 +36,7 @@ function ProfileSetting() {
       setRegisterData(data);
       console.log(registerData);
     }
-    // if (isValid) {
+    // if (isAccountnameValid) {
     //   setRegisterData(registerData);
     //   try {
     //     const data = await fetch(baseURL + "/user", {
@@ -59,7 +59,7 @@ function ProfileSetting() {
       <h1>프로필 설정</h1>
       <p>나중에 언제든지 변경할 수 있습니다.</p>
       <ProfileForm
-        setValid={setValid}
+        setAccountnameValid={setAccountnameValid}
         image={image}
         setImage={setImage}
         username={username}

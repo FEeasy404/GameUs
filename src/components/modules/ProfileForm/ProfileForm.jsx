@@ -4,7 +4,7 @@ import ImageInputForm from "../ImageInputForm/ImageInputForm";
 import styles from "./profileForm.module.css";
 
 function ProfileForm({
-  setValid,
+  setAccountnameValid,
   username,
   setUsername,
   accountname,
@@ -28,7 +28,7 @@ function ProfileForm({
 
   useEffect(() => {
     setAccountnameError("");
-    setValid(false);
+    setAccountnameValid(false);
   }, [accountname]);
 
   function handleEditInputData(event) {
@@ -68,7 +68,7 @@ function ProfileForm({
       if (result.message == "이미 가입된 계정ID 입니다.") {
         setAccountnameError(result.message);
       } else {
-        setValid(true);
+        setAccountnameValid(true);
       }
     } catch (error) {
       console.log(error.message);

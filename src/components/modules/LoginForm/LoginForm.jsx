@@ -5,13 +5,13 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RegisterContext } from "../../../contexts/RegisterContext";
 
-function LoginForm({ label, setEmailValid }) {
+function LoginForm({ label, setEmailPasswordValid }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const [isValid, setValid] = useState(false);
+  const [isEmailValid, setEmailValid] = useState(false);
   const baseURL = "https://mandarin.api.weniv.co.kr";
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ function LoginForm({ label, setEmailValid }) {
   // email과 password 내용이 바뀌면 에러가 표시되지 않도록 비웁니다.
   useEffect(() => {
     setEmailError("");
-    setValid(false);
+    setEmailValid(false);
   }, [email]);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ function LoginForm({ label, setEmailValid }) {
       if (result.message == "이미 가입된 이메일 주소 입니다.") {
         setEmailError(result.message);
       } else {
-        setValid(true);
+        setEmailValid(true);
       }
     } catch (error) {
       console.log(error.message);
@@ -140,13 +140,13 @@ function LoginForm({ label, setEmailValid }) {
     emailInput.current.blur();
     passwordInput.current.blur();
 
-    if (!emailError && !passwordError && isValid) {
+    if (!emailError && !passwordError && isEmailValid) {
       const data = registerData;
       data.user.email = email;
       data.user.password = password;
       setRegisterData(data);
       console.log(registerData);
-      setEmailValid(true);
+      setEmailPasswordValid(true);
     }
   }
 
