@@ -99,7 +99,7 @@ function UploadPage() {
     const imageData = imageNames
       .split(",")
       .map((name) => baseURL + "/" + name)
-      .join(", ");
+      .join(",");
     const data = {
       post: {
         content: text,
