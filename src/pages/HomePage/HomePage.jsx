@@ -42,7 +42,7 @@ function HomePage() {
   // post 배열의 길이가 1이 아니면 PostCard로 List를 만듭니다.
   return (
     <>
-      <HeaderForm title={"감귤마켓 피드"} searchButton={true} />
+      <HeaderForm title={"감귤마켓 피드"} searchButton={true} titleSize={"large"} />
       {posts.length === 0 && 
         <div className={styles["container-search_notice"]}>
           <img src={catImageURL} />
