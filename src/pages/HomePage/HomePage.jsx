@@ -29,6 +29,11 @@ function HomePage() {
           },
         });
         const result = await response.json();
+        // image 프로퍼티의 여러 개 담긴 image url을 나눠 배열로 만듭니다.
+        const postData = result.posts.map(
+          (item) => (item.image.split(", "))
+        );
+        console.log(postData);
         setPosts(result.posts);
       } catch (error) {
         console.log(error.message);
