@@ -23,8 +23,10 @@ function HeaderForm({
         <IconButton type="back" text="뒤로 가기" onClick={() => navigate(-1)} />
       )}
       {title && <h1 className={styles[titleSize]}>{title}</h1>}
-      {searchButton && <IconButton type="search" text="검색" onClick={""} />}
-      {menuButton && <IconButton type="menu" text="더보기" onClick={""} />}
+      {searchButton && (
+        <IconButton type="search" text="검색" onClick={onClick} />
+      )}
+      {menuButton && <IconButton type="menu" text="더보기" onClick={onClick} />}
       {button && (
         <Button
           size="medium_small"
