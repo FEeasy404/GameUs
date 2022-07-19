@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useEffect } from "react";
+
+import { useState, useEffect } from "react";
 import Button from "../../components/atoms/Button/Button";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
@@ -42,7 +42,7 @@ function HomePage() {
   // post 배열의 길이가 1이 아니면 PostCard로 List를 만듭니다.
   return (
     <>
-      <HeaderForm title={"감귤마켓 피드"} searchButton={true} />
+      <HeaderForm title={"감귤마켓 피드"} searchButton={true} titleSize={"large"} />
       {posts.length === 0 && 
         <div className={styles["container-search_notice"]}>
           <img src={catImageURL} />
@@ -61,7 +61,7 @@ function HomePage() {
             {
             posts.map((post, index) => {
               <li key={index}>
-                <PostCard/>
+                <PostCard post={post}/>
               </li>
             })
           }
@@ -71,4 +71,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default HomePage;
