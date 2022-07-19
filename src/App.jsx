@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import JoinPage from "./pages/JoinPage";
+import RegisterPage from "./pages/RegisterPage";
 import AddProductPage from "./pages/AddProductPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProfileEditPage from "./pages/ProfileEditPage";
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<h1>메인 페이지입니다.</h1>} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/user" element={<JoinPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/product" element={<AddProductPage />} />
         <Route path="/profile/:accountname" element={<ProfilePage />} />
         <Route

@@ -1,25 +1,34 @@
 import React from "react";
 import InputBox from "../../atoms/InputBox/InputBox";
 import Button from "../../atoms/Button/Button";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { RegisterContext } from "../../../contexts/RegisterContext";
 
-function LoginForm({ label }) {
+function LoginForm({ label, setEmailValid }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+
+  const [isValid, setValid] = useState(false);
   const baseURL = "https://mandarin.api.weniv.co.kr";
   const navigate = useNavigate();
 
   const emailInput = useRef();
   const passwordInput = useRef();
+  const { registerData, setRegisterData } = useContext(RegisterContext);
+  const emailRegExp = /^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i;
 
   // email과 password 내용이 바뀌면 에러가 표시되지 않도록 비웁니다.
   useEffect(() => {
-    setEmailError();
-    setPasswordError();
-  }, [email, password]);
+    setEmailError("");
+    setValid(false);
+  }, [email]);
+
+  useEffect(() => {
+    setPasswordError("");
+  }, [password]);
 
   // 이메일과 비밀번호 둘 다 input이므로 한꺼번에 관리합니다.
   function handleLoginInputData(event) {
@@ -33,16 +42,14 @@ function LoginForm({ label }) {
     }
   }
 
-  async function handleLogin() {
+  async function handleBlurEmail() {
+    const reqBody = {
+      user: {
+        email: email,
+      },
+    };
     try {
-      const reqBody = {
-        user: {
-          email: email,
-          password: password,
-        },
-      };
-
-      const data = await fetch(baseURL + "/user/login", {
+      const data = await fetch(baseURL + "/user/emailvalid", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -51,7 +58,48 @@ function LoginForm({ label }) {
       });
       const result = await data.json();
 
-      const emailRegExp = /^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i;
+      if (result.message == "이미 가입된 이메일 주소 입니다.") {
+        setEmailError(result.message);
+      } else {
+        setValid(true);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+    if (!email) {
+      setEmailError("이메일을 입력해 주세요.");
+    } else if (!email.match(emailRegExp)) {
+      setEmailError("잘못된 이메일 형식입니다.");
+    }
+  }
+
+  function handleBlurPassword() {
+    if (!password) {
+      setPasswordError("비밀번호를 입력해 주세요.");
+    } else if (password.length < 6) {
+      setPasswordError("비밀번호는 6자 이상 입력해 주세요.");
+    } else {
+      setPasswordError("");
+    }
+  }
+
+  async function handleLogin() {
+    const reqBody = {
+      user: {
+        email: email,
+        password: password,
+      },
+    };
+
+    try {
+      const data = await fetch(baseURL + "/user/login", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(reqBody),
+      });
+      const result = await data.json();
       // 이메일 란이 비어있는 경우
       if (!email) {
         setEmailError("이메일을 입력해 주세요.");
@@ -64,7 +112,7 @@ function LoginForm({ label }) {
       }
       // 이메일 형식이 일치하지 않는 경우 (button type이 submit이 아니라서 여기에서 유효성을 검사합니다.)
       else if (!email.match(emailRegExp)) {
-        setEmailError("이메일 형식에 맞게 입력해 주세요.");
+        setEmailError("잘못된 이메일 형식입니다.");
         emailInput.current.focus();
       }
       // 이메일, 비밀번호가 일치하지 않는 경우
@@ -88,6 +136,20 @@ function LoginForm({ label }) {
     }
   }
 
+  function handleCheckEmail() {
+    emailInput.current.blur();
+    passwordInput.current.blur();
+
+    if (!emailError && !passwordError && isValid) {
+      const data = registerData;
+      data.user.email = email;
+      data.user.password = password;
+      setRegisterData(data);
+      console.log(registerData);
+      setEmailValid(true);
+    }
+  }
+
   return (
     <form>
       <InputBox
@@ -95,6 +157,7 @@ function LoginForm({ label }) {
         type="email"
         name="이메일"
         value={email}
+        onBlur={handleBlurEmail}
         onChange={handleLoginInputData}
         error={emailError}
         innerRef={emailInput}
@@ -104,6 +167,7 @@ function LoginForm({ label }) {
         type="password"
         name="비밀번호"
         value={password}
+        onBlur={handleBlurPassword}
         onChange={handleLoginInputData}
         error={passwordError}
         innerRef={passwordInput}
@@ -112,9 +176,9 @@ function LoginForm({ label }) {
         href={null}
         size="large"
         label={label}
-        active={(email || password) && true}
+        active={email && password && true}
         primary={true}
-        onClick={handleLogin}
+        onClick={label === "로그인" ? handleLogin : handleCheckEmail}
       />
     </form>
   );

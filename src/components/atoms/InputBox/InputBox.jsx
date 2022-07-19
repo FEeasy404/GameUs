@@ -7,13 +7,14 @@ function InputBox({
   name,
   placeholder,
   error,
+  onBlur,
   onChange,
   maxLength,
   innerRef,
 }) {
   const errorClass = error ? "error" : "";
   return (
-    <div>
+    <div tabIndex="0">
       <label htmlFor={id} className={styles[`label-login`]}>
         {name}
       </label>
@@ -23,6 +24,7 @@ function InputBox({
         id={id}
         placeholder={placeholder}
         className={[styles["input-login"], styles[errorClass]].join(" ")}
+        onBlur={onBlur}
         onChange={onChange}
         maxLength={maxLength}
         ref={innerRef}
