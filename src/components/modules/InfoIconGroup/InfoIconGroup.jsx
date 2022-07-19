@@ -3,11 +3,11 @@ import Like from "../../atoms/Like/Like";
 import Comment from "../../atoms/Comment/Comment";
 import styles from "./infoIconGroup.module.css";
 
-function InfoIconGroup({post}) {
+function InfoIconGroup({postId, hearted, heartCount, commentCount}) {
   return (
     <div className={styles["container-icon"]}>
-      <Like />
-      <Comment postId={post.id} countComment={post.comment}/>
+      <Like postId={postId} hearted={hearted} heartCount={heartCount}/>
+      <Comment commentCount={commentCount}/>
     </div>
   )
 }

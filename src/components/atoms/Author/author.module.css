@@ -1,9 +1,14 @@
 .text-name {
+  display: block;
   font-size: 1.4rem;
+  line-height: 1.8rem;
   font-weight: 500;
 }
 
 .text-id {
+  display: block;
   font-size: 1.2rem;
+  line-height: 1.6rem;
   font-weight: 400;
   color: var(--darkgray-color);
+}
