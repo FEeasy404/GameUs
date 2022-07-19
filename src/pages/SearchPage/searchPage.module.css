@@ -1,0 +1,37 @@
+.container-users {
+  box-sizing: border-box;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: baseline;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.container-user {
+  width: 100%;
+  display: flex;
+}
+
+.info-user {
+  width: auto;
+  padding: 6px 12px;
+}
+
+.username {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.id {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--darkgray-color);
+}

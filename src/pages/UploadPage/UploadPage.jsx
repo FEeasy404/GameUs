@@ -12,7 +12,7 @@ function UploadPage() {
   const [images, setImages] = useState([]);
   const baseURL = "https://mandarin.api.weniv.co.kr";
   const token = window.localStorage.getItem("token");
-  const myAccountname = window.localStorage.getItem("");
+  const myAccountname = window.localStorage.getItem("accountname");
 
   //텍스트 처리
   function handleText(event) {
@@ -99,7 +99,7 @@ function UploadPage() {
     const imageData = imageNames
       .split(",")
       .map((name) => baseURL + "/" + name)
-      .join(", ");
+      .join(",");
     const data = {
       post: {
         content: text,
