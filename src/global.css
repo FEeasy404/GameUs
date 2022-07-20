@@ -12,6 +12,10 @@ html {
   font-size: 10px;
 }
 
+body {
+  padding-top: 48px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
