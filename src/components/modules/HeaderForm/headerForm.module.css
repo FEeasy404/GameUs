@@ -1,4 +1,11 @@
 .wrapper-header {
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 800px;
+  background-color: white;
   height: 32px;
   padding: 8px 16px 7.5px;
   display: flex;
