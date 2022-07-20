@@ -1,26 +1,27 @@
 import React from "react";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import Author from "../../atoms/Author/Author";
-import MoreButton from "../../atoms/MoreButton/MoreButton";
 import InfoIconGroup from "../InfoIconGroup/InfoIconGroup";
 import PostDate from "../../atoms/PostDate/PostDate";
 import styles from "./postCard.module.css";
+import IconButton from "../../atoms/IconButton/IconButton";
 
 function ImageListMaker({ image }) {
   const imageData = image.split(",");
-  if (image.length === 1) {
+  console.dir(imageData);
+  console.log(imageData.length);
+  if (imageData.length == 1) {
     return (
-      <ImageBox src={image[0]} type={"rounded_square"} size={"medium_large"} />
+      <ImageBox src={imageData} type={"rounded_square"} />
     );
-  } else if (image.length > 1) {
+  } else if (imageData.length > 1) {
     return (
-      <ul>
+      <ul className={styles["list-images"]}>
         {imageData.map((item, index) => (
-          <li key={index}>
+          <li key={index} className={styles["item-image"]}>
             <ImageBox
               src={item}
               type={"rounded_square"}
-              size={"medium_small"}
             />
           </li>
         ))}
@@ -38,10 +39,10 @@ function PostCard({ post }) {
         <ImageBox type={"circle"} size={"medium_small"} />
       </div>
       <div className={styles["container-user"]}>
-        <Author authorName={author.username} authorId={author._id} />
-        <MoreButton />
+        <Author authorName={author.username} authorId={author.accountname} />
+        <IconButton type={"more"} text={"더보기"} onClick={()=>{}} />
       </div>
-      <p>{post.content}</p>
+      <p className={styles["content"]}>{post.content}</p>
       <ImageListMaker image={post.image} />
       <InfoIconGroup
         postId={post.id}

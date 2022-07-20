@@ -1,3 +1,3 @@
-.container-icon:not(:last-child) {
+.container-icon > div:not(:last-child) {
   margin-right: 10px;
 }
