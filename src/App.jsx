@@ -13,6 +13,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import HomePage from "./pages/HomePage/HomePage";
 import PostPage from "./pages/PostPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import ChatListPage from "./pages/ChatListPage/ChatListPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/chat" element={<ChatListPage />} />
         <Route path="/user" element={<JoinPage />} />
         <Route path="/product" element={<AddProductPage />} />
         <Route path="/profile/:accountname" element={<ProfilePage />} />
