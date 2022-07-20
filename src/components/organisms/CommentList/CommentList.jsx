@@ -1,6 +1,7 @@
 import styles from "./commentList.module.css";
 import CommentForm from "../../modules/CommentForm/CommentForm";
 
+//날짜 계산
 function getTimeStamp(createdAt) {
   const createTime = new Date(createdAt);
   const now = new Date();
@@ -10,6 +11,7 @@ function getTimeStamp(createdAt) {
   const elapsedDay = elapsedHour / 24;
   const elapsedMonth = elapsedDay / 30;
   const elapsedYear = elapsedMonth / 12;
+  if (elapsedSec < 1) return `지금`;
   if (elapsedSec < 61) return `${Math.floor(elapsedSec)}초 전`;
   if (elapsedMin < 61) return `${Math.floor(elapsedMin)}분 전`;
   if (elapsedHour < 25) return `${Math.floor(elapsedHour)}시간 전`;
@@ -19,7 +21,6 @@ function getTimeStamp(createdAt) {
 }
 
 function CommentList({ comments }) {
-  //날짜 계산
   return (
     <ul className={styles["wrapper-comment"]}>
       {comments.map((item) => {
@@ -27,6 +28,7 @@ function CommentList({ comments }) {
           <li key={item.id}>
             <CommentForm
               src={item.author.image}
+              accoutName={item.author.accountname}
               userName={item.author.username}
               createTime={getTimeStamp(item.createdAt)}
               text={item.content}
