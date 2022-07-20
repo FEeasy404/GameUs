@@ -24,7 +24,7 @@ function HeaderForm({
       )}
       {title && <h1 className={styles[titleSize]}>{title}</h1>}
       {searchButton && (
-        <IconButton type="search" text="검색" onClick={onClick} />
+        <IconButton type="search" text="검색" onClick={() => navigate("/search")} />
       )}
       {menuButton && <IconButton type="menu" text="더보기" onClick={onClick} />}
       {button && (
