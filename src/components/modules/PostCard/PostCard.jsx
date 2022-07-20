@@ -12,7 +12,7 @@ function ImageListMaker({ image }) {
   console.log(imageData.length);
   if (imageData.length == 1) {
     return (
-      <ImageBox src={imageData} type={"rounded_square"} size={"medium_large"} />
+      <ImageBox src={imageData} type={"rounded_square"} />
     );
   } else if (imageData.length > 1) {
     return (
@@ -22,7 +22,6 @@ function ImageListMaker({ image }) {
             <ImageBox
               src={item}
               type={"rounded_square"}
-              size={"medium_small"}
             />
           </li>
         ))}

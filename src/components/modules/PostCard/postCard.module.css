@@ -30,10 +30,16 @@
   overflow-x: auto;
 }
 
-.list-images::-webkit-scrollbar{
+/* 이미지가 여러 개일 때 스크롤을 없앱니다. */
+/* .list-images::-webkit-scrollbar{
   display:none;
-}
+} */
 
 .item-image {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.item-image:not(:last-of-type) {
   margin-right: 8px;
 }
