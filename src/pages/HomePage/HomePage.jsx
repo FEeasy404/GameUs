@@ -48,9 +48,10 @@ function HomePage() {
   // posts 배열의 길이가 0이면 팔로우한 유저가 없다고 판단, 검색 버튼이 나옵니다.
   // post 배열의 길이가 1이 아니면 PostCard로 List를 만듭니다.
   return (
-    <>
+    <section>
+      <h1 className="a11y-hidden">게임어스 홈 피드</h1>
       <HeaderForm
-        title={"감귤마켓 피드"}
+        title={"홈 피드"}
         searchButton={true}
         titleSize={"large"}
       />
@@ -76,7 +77,7 @@ function HomePage() {
           ))}
         </ul>
       )}
-    </>
+    </section>
   );
 }
 
