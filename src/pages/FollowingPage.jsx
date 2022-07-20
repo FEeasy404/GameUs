@@ -9,14 +9,14 @@ function FollowingPage() {
   let { accountname } = useParams();
   const [followings, setFollowings] = useState([]);
 
-  useEffect(() => {
-    const baseURL = "https://mandarin.api.weniv.co.kr";
-    const token = window.localStorage.getItem("token");
+  const baseURL = "https://mandarin.api.weniv.co.kr";
+  const token = window.localStorage.getItem("token");
 
+  useEffect(() => {
     async function getFollowings() {
       try {
         const data = await fetch(
-          baseURL + `/profile/${accountname}/following`,
+          baseURL + `/profile/${accountname}/following?limit=Infinity`,
           {
             method: "GET",
             headers: {
