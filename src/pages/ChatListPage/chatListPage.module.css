@@ -44,14 +44,25 @@
   letter-spacing: 0em;
 }
 
+.info-message {
+  min-width: 20rem;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-gap: 12px;
+  gap: 12px;
+}
+
 .message {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 1.2rem;
   font-weight: 400;
   color: var(--darkgray-color);
 }
 
 .date {
-  float: right;
+  display: inline-block;
   font-size: 1rem;
   color: var(--lightgray-color);
 }

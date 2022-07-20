@@ -34,7 +34,7 @@ function ChatListPage() {
                 <strong className={styles.username}>
                   {item.username}
                 </strong>
-              <div>
+              <div className={styles["info-message"]}>
                 <span className={styles.message}>
                   {item.message}
                 </span>
