@@ -11,6 +11,7 @@ import FollowerPage from "./pages/FollowerPage";
 import FollowingPage from "./pages/FollowingPage.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import HomePage from "./pages/HomePage/HomePage";
+import PostPage from "./pages/PostPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 
 function App() {
@@ -33,7 +34,9 @@ function App() {
         />
         <Route path="profile/edit" element={<ProfileEditPage />} />
         <Route path="/post" element={<UploadPage />} />
+        <Route path="/post/:postId" element={<PostPage />} />
         <Route path="/*" element={<ErrorPage />} />
+
       </Routes>
     </div>
   );
