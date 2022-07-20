@@ -4,6 +4,7 @@ import Button from "../../atoms/Button/Button";
 import { RegisterContext } from "../../../contexts/RegisterContext";
 import imageCompression from "browser-image-compression";
 import { useNavigate } from "react-router-dom";
+import styles from "./profileSetting.module.css";
 
 function ProfileSetting() {
   const [image, setImage] = useState("");
@@ -100,9 +101,9 @@ function ProfileSetting() {
   }
 
   return (
-    <section className="wrapper-padding">
-      <h1>프로필 설정</h1>
-      <p>나중에 언제든지 변경할 수 있습니다.</p>
+    <section className={"wrapper-padding"}>
+      <h1 className={styles["title"]}>프로필 설정</h1>
+      <p className={styles["message"]}>나중에 언제든지 변경할 수 있습니다.</p>
       <ProfileForm
         setAccountnameValid={setAccountnameValid}
         image={image}
