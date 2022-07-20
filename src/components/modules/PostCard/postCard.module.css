@@ -3,7 +3,7 @@
   width: 100%;
   padding: 20px 16px;
   display: grid;
-  grid-template-columns: 54px 1fr;
+  grid-template-columns: 42px 1fr;
   grid-template-rows: repeat(5, auto);
   gap: 16px 12px;
 }
@@ -13,5 +13,27 @@
 }
 
 .container-user {
+  display: flex;
+  justify-content: space-between;
   padding: 4px 0;
+}
+
+.content {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: normal;
+}
+
+.list-images {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.list-images::-webkit-scrollbar{
+  display:none;
+}
+
+.item-image {
+  margin-right: 8px;
 }
