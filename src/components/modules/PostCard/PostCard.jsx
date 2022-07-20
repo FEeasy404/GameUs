@@ -10,11 +10,9 @@ function ImageListMaker({ image }) {
   const imageData = image.split(",");
   console.dir(imageData);
   console.log(imageData.length);
-  if (imageData.length == 1) {
-    return (
-      <ImageBox src={imageData} type={"rounded_square"} />
-    );
-  } else if (imageData.length > 1) {
+  //이미지가 없을 경우 빈 태그 리턴
+  if (!image) return <></>;
+  else {
     return (
       <ul className={styles["list-images"]}>
         {imageData.map((item, index) => (
@@ -22,6 +20,7 @@ function ImageListMaker({ image }) {
             <ImageBox
               src={item}
               type={"rounded_square"}
+              size={"medium_large"}
             />
           </li>
         ))}
@@ -40,7 +39,7 @@ function PostCard({ post }) {
       </div>
       <div className={styles["container-user"]}>
         <Author authorName={author.username} authorId={author.accountname} />
-        <IconButton type={"more"} text={"더보기"} onClick={()=>{}} />
+        <IconButton type={"more"} text={"더보기"} onClick={() => {}} />
       </div>
       <p className={styles["content"]}>{post.content}</p>
       <ImageListMaker image={post.image} />
