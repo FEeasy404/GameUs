@@ -11,6 +11,7 @@ import FollowerPage from "./pages/FollowerPage";
 import FollowingPage from "./pages/FollowingPage.jsx";
 import HomePage from "./pages/HomePage/HomePage";
 import PostPage from "./pages/PostPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/user" element={<JoinPage />} />
         <Route path="/product" element={<AddProductPage />} />
         <Route path="/profile/:accountname" element={<ProfilePage />} />
