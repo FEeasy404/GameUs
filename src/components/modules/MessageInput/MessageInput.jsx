@@ -11,6 +11,7 @@ function MessageInput({
   buttonText,
   inputRef,
   onClick,
+  onKeyPress,
 }) {
   const [inputText, setInputText] = useState("");
   useEffect(() => {
@@ -31,6 +32,7 @@ function MessageInput({
           setInputText(event.target.value);
         }}
         className={styles["comment-input"]}
+        onKeyPress={onKeyPress}
       />
       <button
         type="submit"

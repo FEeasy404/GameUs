@@ -75,6 +75,12 @@ function PostPage() {
     await uploadComment(inputText);
   }
 
+  function handleOnkeyPress(event) {
+    if (event.key === "Enter") {
+      handleTextInput();
+    }
+  }
+
   return (
     <div style={{ paddingBottom: "61px" }}>
       <HeaderForm backButton={true} menuButton={true} />
@@ -88,6 +94,7 @@ function PostPage() {
         buttonText="게시"
         inputRef={inputRef}
         onClick={handleTextInput}
+        onKeyPress={handleOnkeyPress}
       />
     </div>
   );
