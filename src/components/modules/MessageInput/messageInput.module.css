@@ -1,4 +1,10 @@
 .wrapper-comment {
+  margin: auto;
+  max-width: 800px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
   display: flex;
   padding: 12.5px 16px 12px;
   border-top: 1px solid var(--lightgray-color);
