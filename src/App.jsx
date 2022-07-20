@@ -9,6 +9,7 @@ import "./reset.css";
 import "./global.css";
 import FollowerPage from "./pages/FollowerPage";
 import FollowingPage from "./pages/FollowingPage.jsx";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 function App() {
   //로그인 구현후 변경 필요
@@ -34,6 +35,7 @@ function App() {
         />
         <Route path="profile/edit" element={<ProfileEditPage />} />
         <Route path="/post" element={<UploadPage />} />
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
   );
