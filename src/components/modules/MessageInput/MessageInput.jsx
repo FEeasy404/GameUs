@@ -11,12 +11,16 @@ function MessageInput({
   buttonText,
   inputRef,
   onClick,
-  onKeyPress,
 }) {
   const [inputText, setInputText] = useState("");
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+  function handleOnkeyPress(event) {
+    if (event.key === "Enter") {
+      onClick();
+    }
+  }
   return (
     <div className={styles["wrapper-comment"]}>
       {type === "comment" && (
@@ -32,7 +36,7 @@ function MessageInput({
           setInputText(event.target.value);
         }}
         className={styles["comment-input"]}
-        onKeyPress={onKeyPress}
+        onKeyPress={handleOnkeyPress}
       />
       <button
         type="submit"
