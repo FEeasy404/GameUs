@@ -1,13 +1,16 @@
-.wrapper-upper {
-  display: flex;
-  align-items: center;
+.wrapper-comment {
+  display: grid;
+  grid-template-columns: 34px 1fr 18px;
+  grid-gap: 4px 0;
 }
 
 .comment_info {
+  grid-column: 2 / 3;
+  margin: 6px 0 0 12px;
+  height: 18px;
   display: flex;
   align-items: center;
-  margin-left: 12px;
-  flex-grow: 1;
+  cursor: pointer;
 }
 
 .comment_info strong {
@@ -20,7 +23,13 @@
   color: var(--darkgray-color);
 }
 
+.wrapper-comment button {
+  margin-top: 6px;
+}
+
 .text {
-  margin: 4px 15px auto 48px;
+  margin-left: 12px;
+  grid-column: 2 / 3;
+  line-height: 18px;
   font-size: 1.4rem;
 }

@@ -10,17 +10,14 @@ function CommentForm({ src, accoutName, userName, createTime, text }) {
   }
   return (
     <div className={styles["wrapper-comment"]}>
-      <div className={styles["wrapper-upper"]}>
-        <ImageBox src={src} type="circle" size="small" alt="프로필 이미지" />
-        <div
-          className={styles["comment_info"]}
-          onClick={() => navigate(`/profile/${accoutName}`)}
-        >
-          <strong>{userName}</strong>
-          <small>{`· ${createTime}`}</small>
-        </div>
-        <IconButton type="more" onClick={handleMoreButton} />
+      <ImageBox src={src} type="circle" size="small" alt="프로필 이미지" />
+      <div className={styles["comment_info"]}>
+        <strong onClick={() => navigate(`/profile/${accoutName}`)}>
+          {userName}
+        </strong>
+        <small>{`· ${createTime}`}</small>
       </div>
+      <IconButton type="more" onClick={handleMoreButton} />
       <p className={styles["text"]}>{text}</p>
     </div>
   );
