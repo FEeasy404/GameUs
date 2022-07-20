@@ -16,6 +16,11 @@ function MessageInput({
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+  function handleOnkeyPress(event) {
+    if (event.key === "Enter") {
+      onClick();
+    }
+  }
   return (
     <div className={styles["wrapper-comment"]}>
       {type === "comment" && (
@@ -31,6 +36,7 @@ function MessageInput({
           setInputText(event.target.value);
         }}
         className={styles["comment-input"]}
+        onKeyPress={handleOnkeyPress}
       />
       <button
         type="submit"
