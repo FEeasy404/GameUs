@@ -172,7 +172,7 @@ function LoginForm({ label, setEmailPasswordValid }) {
         type="email"
         name="이메일"
         value={email}
-        onBlur={handleBlurEmail}
+        onBlur={label !== "로그인" ? handleBlurEmail : null}
         onChange={handleLoginInputData}
         error={emailError}
         innerRef={emailInput}
@@ -182,7 +182,7 @@ function LoginForm({ label, setEmailPasswordValid }) {
         type="password"
         name="비밀번호"
         value={password}
-        onBlur={handleBlurPassword}
+        onBlur={label !== "로그인" ? handleBlurPassword : null}
         onChange={handleLoginInputData}
         error={passwordError}
         innerRef={passwordInput}
