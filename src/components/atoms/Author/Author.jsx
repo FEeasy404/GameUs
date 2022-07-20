@@ -6,7 +6,7 @@ function Author({authorName, authorId}) {
   return (
     <Link to={authorId}>
       <span className={styles["text-name"]}>{authorName}</span>
-      <span className={styles["text-id"]} >{authorId}</span>
+      <span className={styles["text-id"]} >@{authorId}</span>
     </Link>
   )
 }

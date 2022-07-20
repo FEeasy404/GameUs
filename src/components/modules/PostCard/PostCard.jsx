@@ -38,7 +38,7 @@ function PostCard({ post }) {
         <ImageBox type={"circle"} size={"medium_small"} />
       </div>
       <div className={styles["container-user"]}>
-        <Author authorName={author.username} authorId={author._id} />
+        <Author authorName={author.username} authorId={author.accountname} />
         <MoreButton />
       </div>
       <p>{post.content}</p>
