@@ -5,6 +5,8 @@ import styles from "./profileForm.module.css";
 
 function ProfileForm({
   setAccountnameValid,
+  image,
+  setImage,
   username,
   setUsername,
   accountname,
@@ -18,10 +20,11 @@ function ProfileForm({
   usernameInput,
   accountnameInput,
 }) {
+  // 계정 ID 검사 정규식입니다.
+  const accountnameRegExp = /^[a-zA-Z0-9_.]+$/i;
   const baseURL = "https://mandarin.api.weniv.co.kr";
 
-  const accountnameRegExp = /^[a-zA-Z0-9_.]+$/i;
-
+  // 사용자 이름과 계정 ID 내용이 바뀌면 에러가 표시되지 않도록 비웁니다.
   useEffect(() => {
     setUsernameError("");
   }, [username]);
@@ -31,25 +34,46 @@ function ProfileForm({
     setAccountnameValid(false);
   }, [accountname]);
 
+  // 이미지를 선택하면 우선 로컬 url로 보여주는 함수입니다.
+  function handleImageInputData(event) {
+    const file = event.target.files[0];
+    console.log(file);
+    if (!file) {
+      return;
+    }
+    const preview = { src: URL.createObjectURL(file), data: file };
+    setImage(preview);
+  }
+
+  // 사용자 이름,계정 ID, 소개 셋 다 input이므로 한꺼번에 관리합니다.
   function handleEditInputData(event) {
+    // input id가 "username" 이면 사용자 이름 세팅
     if (event.target.id === "username") {
       setUsername(event.target.value);
+      // input id가 "accountname" 이면 계정 ID 세팅
     } else if (event.target.id === "accountname") {
       setAccountname(event.target.value);
+      // input id가 "intro" 면 소개 세팅
     } else if (event.target.id === "intro") {
       setIntro(event.target.value);
     }
   }
 
+  // username input이 blur되었을 때 유효성 검사를 실행하는 함수입니다.
   function handleBlurUsername() {
+    // 사용자 이름 칸이 비어 있는지 검사합니다.
     if (!username) {
       setUsernameError("사용자 이름을 입력해 주세요.");
-    } else if (username.length < 2 || username.length > 10) {
+    }
+    // 사용자 이름이 2~10자인지 검사합니다.
+    else if (username.length < 2 || username.length > 10) {
       setUsernameError("사용자 이름은 2~10자 이내여야 합니다.");
     }
   }
 
+  // accountname input이 blur되었을 때 유효성 검사를 실행하는 함수입니다.
   async function handleBlurAccountname() {
+    // 이미 존재하는 계정 ID인지 검사합니다.
     const reqBody = {
       user: {
         accountname: accountname,
@@ -67,15 +91,20 @@ function ProfileForm({
 
       if (result.message == "이미 가입된 계정ID 입니다.") {
         setAccountnameError(result.message);
-      } else {
+      }
+      // 가입된 계정 ID가 아니라면 isAccountValid를 true로 바꿉니다.
+      else {
         setAccountnameValid(true);
       }
     } catch (error) {
       console.log(error.message);
     }
+    // 계정 ID 칸이 비어 있는지 검사합니다.
     if (!accountname) {
       setAccountnameError("계정 ID를 입력해 주세요.");
-    } else if (!accountname.match(accountnameRegExp)) {
+    }
+    // 계정 ID 형식에 맞는지 검사합니다.
+    else if (!accountname.match(accountnameRegExp)) {
       setAccountnameError(
         "계정 ID는 영문, 숫자, 특수문자(.),(_)만 사용 가능합니다."
       );
@@ -88,6 +117,12 @@ function ProfileForm({
         ally="프로필 이미지 수정"
         boxType="circle"
         boxSize="large"
+        image={
+          image
+            ? image.src
+            : "https://mandarin.api.weniv.co.kr/1658306906297.png"
+        }
+        saveImage={handleImageInputData}
       />
       <InputBox
         id="username"

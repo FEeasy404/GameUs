@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./numberFollow.module.css";
 
 function NumberFollow({ number, isFollower }) {
@@ -8,9 +8,8 @@ function NumberFollow({ number, isFollower }) {
   isFollower ? null : classList.push("following");
   const CLASS_LIST = classList.map((item) => styles[item]).join(" ");
 
-  let { accountname } = useParams();
-  const followerURL = `/profile/${accountname}/follower`;
-  const followingURL = `/profile/${accountname}/following`;
+  const followerURL = `follower`;
+  const followingURL = `following`;
 
   return (
     <Link
