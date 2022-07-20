@@ -1,0 +1,26 @@
+.wrapper-upper {
+  display: flex;
+  align-items: center;
+}
+
+.comment_info {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+  flex-grow: 1;
+}
+
+.comment_info strong {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.comment_info small {
+  margin-left: 6px;
+  color: var(--darkgray-color);
+}
+
+.text {
+  margin: 4px 15px auto 48px;
+  font-size: 1.4rem;
+}
