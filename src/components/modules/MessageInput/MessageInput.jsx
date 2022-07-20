@@ -1,18 +1,21 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./messageInput.module.css";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import ImageInputButton from "../../atoms/ImageInputButton/ImageInputButton";
 
-function MessageInput({ type, src, title, placeholder, buttonText }) {
-  const [text, setText] = useState("");
-  const inputRef = useRef();
-  //mount 되면 input focus
+function MessageInput({
+  type,
+  src,
+  title,
+  placeholder,
+  buttonText,
+  inputRef,
+  onClick,
+}) {
+  const [inputText, setInputText] = useState("");
   useEffect(() => {
     inputRef.current.focus();
   }, []);
-  function handleTextInput(event) {
-    setText(event.target.value);
-  }
   return (
     <div className={styles["wrapper-comment"]}>
       {type === "comment" && (
@@ -24,12 +27,17 @@ function MessageInput({ type, src, title, placeholder, buttonText }) {
         ref={inputRef}
         placeholder={placeholder}
         title={title}
-        onChange={handleTextInput}
+        onChange={(event) => {
+          setInputText(event.target.value);
+        }}
         className={styles["comment-input"]}
       />
       <button
         type="submit"
-        className={text ? styles["button-active"] : styles["button-disable"]}
+        className={
+          inputText ? styles["button-active"] : styles["button-disable"]
+        }
+        onClick={onClick}
       >
         {buttonText}
       </button>

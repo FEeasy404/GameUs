@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../components/modules/PostCard/PostCard";
@@ -7,8 +7,10 @@ import MessageInput from "../components/modules/MessageInput/MessageInput";
 
 function PostPage() {
   let { postId } = useParams();
+  const inputRef = useRef();
   const [post, setPost] = useState();
   const [comments, setComments] = useState([]);
+  const [text, setText] = useState("");
   const BASE_URL = "https://mandarin.api.weniv.co.kr";
   const TOKEN = window.localStorage.getItem("token");
   const reqData = {
@@ -44,10 +46,37 @@ function PostPage() {
     }
     getPostData();
     getPostComment();
-  }, [postId]);
+  }, [postId, text]);
+
+  async function uploadComment(text) {
+    const commentData = {
+      comment: {
+        content: text,
+      },
+    };
+    try {
+      fetch(BASE_URL + `/post/${postId}/comments`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(commentData),
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  async function handleTextInput() {
+    const inputText = inputRef.current.value;
+    inputRef.current.value = "";
+    setText(inputText);
+    await uploadComment(inputText);
+  }
 
   return (
-    <>
+    <div style={{ paddingBottom: "61px" }}>
       <HeaderForm backButton={true} menuButton={true} />
       {post && <PostCard post={post} />}
       {comments && <CommentList comments={comments} />}
@@ -57,8 +86,10 @@ function PostPage() {
         title="댓글"
         placeholder="댓글 입력하기..."
         buttonText="게시"
+        inputRef={inputRef}
+        onClick={handleTextInput}
       />
-    </>
+    </div>
   );
 }
 
