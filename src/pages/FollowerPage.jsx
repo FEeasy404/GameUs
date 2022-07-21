@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
-import BottomNavigateBar from "./components/modules/BottomNavigateBar/BottomNavigateBar";
+import BottomNavigateBar from "../components/modules/BottomNavigateBar/BottomNavigateBar";
 import FollowList from "../components/organisms/FollowList/FollowList";
 
 function FollowerPage() {
