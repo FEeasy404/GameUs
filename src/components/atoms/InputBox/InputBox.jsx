@@ -7,6 +7,7 @@ function InputBox({
   name,
   placeholder,
   error,
+  onBlur,
   onChange,
   maxLength,
   innerRef,
@@ -23,6 +24,7 @@ function InputBox({
         id={id}
         placeholder={placeholder}
         className={[styles["input-login"], styles[errorClass]].join(" ")}
+        onBlur={onBlur}
         onChange={onChange}
         maxLength={maxLength}
         ref={innerRef}
