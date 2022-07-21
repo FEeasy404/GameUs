@@ -4,7 +4,7 @@ import styles from "./productList.module.css";
 
 function ProductList({ products }) {
   return (
-    <div className={styles["wrapper-products"]}>
+    <section className={styles["wrapper-products"]}>
       <h2 className={styles["title"]}>판매 중인 상품</h2>
       {products.data > 0 ? (
         <ul className={styles["list-product"]}>
@@ -24,7 +24,7 @@ function ProductList({ products }) {
       ) : (
         <p className={styles["message"]}>판매 중인 상품이 없어요.</p>
       )}
-    </div>
+    </section>
   );
 }
 
