@@ -9,8 +9,11 @@ import ProfileEditPage from "./pages/ProfileEditPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import FollowerPage from "./pages/FollowerPage";
 import FollowingPage from "./pages/FollowingPage.jsx";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import HomePage from "./pages/HomePage/HomePage";
+import PostPage from "./pages/PostPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import ChatListPage from "./pages/ChatListPage/ChatListPage";
 
 function App() {
   return (
@@ -20,6 +23,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/chat" element={<ChatListPage />} />
+        <Route path="/user" element={<JoinPage />} />
         <Route path="/product" element={<AddProductPage />} />
         <Route path="/profile/:accountname" element={<ProfilePage />} />
         <Route
@@ -31,10 +36,10 @@ function App() {
           element={<FollowingPage />}
         />
         <Route path="profile/edit" element={<ProfileEditPage />} />
-        <Route
-          path="/post"
-          element={<UploadPage />}
-        />
+        <Route path="/post" element={<UploadPage />} />
+        <Route path="/post/:postId" element={<PostPage />} />
+        <Route path="/*" element={<ErrorPage />} />
+
       </Routes>
     </div>
   );

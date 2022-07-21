@@ -1,42 +1,48 @@
-import React from "react"
-import ImageBox from "../../atoms/ImageBox/ImageBox"
-import Author from "../../atoms/Author/Author"
-import MoreButton from "../../atoms/MoreButton/MoreButton"
-import InfoIconGroup from "../InfoIconGroup/InfoIconGroup"
-import PostDate from "../../atoms/PostDate/PostDate"
-import styles from "./postCard.module.css"
+import React from "react";
+import ImageBox from "../../atoms/ImageBox/ImageBox";
+import Author from "../../atoms/Author/Author";
+import InfoIconGroup from "../InfoIconGroup/InfoIconGroup";
+import PostDate from "../../atoms/PostDate/PostDate";
+import styles from "./postCard.module.css";
+import IconButton from "../../atoms/IconButton/IconButton";
 
-function ImageListMaker({image}) {
-  if(image.length === 1) {
+function ImageListMaker({ image }) {
+  const imageData = image.split(",");
+  console.dir(imageData);
+  console.log(imageData.length);
+  if (imageData.length == 1) {
     return (
-      <ImageBox src={image[0]} type={"rounded_square"} size={"medium_large"} />
-    )
-  }else if(image.length > 1) {
+      <ImageBox src={imageData} type={"rounded_square"} />
+    );
+  } else if (imageData.length > 1) {
     return (
-      <ul>
-        {image.map((item, index) => (
-          <li key={index}>
-            <ImageBox src={image[index]} type={"rounded_square"} size={"medium_small"} />
+      <ul className={styles["list-images"]}>
+        {imageData.map((item, index) => (
+          <li key={index} className={styles["item-image"]}>
+            <ImageBox
+              src={item}
+              type={"rounded_square"}
+            />
           </li>
         ))}
       </ul>
-    )
+    );
   }
 }
 
-function PostCard({post}) {
+function PostCard({ post }) {
   const author = post.author;
 
   return (
     <article className={styles["container-post"]}>
       <div className={styles["profile"]}>
-        <ImageBox type={"circle"} size={"medium_small"}/>
+        <ImageBox type={"circle"} size={"medium_small"} />
       </div>
       <div className={styles["container-user"]}>
-          <Author authorName={author.username} authorId={author._id}/>
-          <MoreButton />
+        <Author authorName={author.username} authorId={author.accountname} />
+        <IconButton type={"more"} text={"더보기"} onClick={()=>{}} />
       </div>
-      <p>{post.content}</p>
+      <p className={styles["content"]}>{post.content}</p>
       <ImageListMaker image={post.image} />
       <InfoIconGroup
         postId={post.id}
@@ -46,7 +52,7 @@ function PostCard({post}) {
       />
       <PostDate date={post.createdAt} />
     </article>
-  )
+  );
 }
 
-export default PostCard
+export default PostCard;

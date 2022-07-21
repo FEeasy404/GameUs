@@ -1,8 +1,9 @@
 .container-post {
+  box-sizing: border-box;
   width: 100%;
   padding: 20px 16px;
   display: grid;
-  grid-template-columns: 54px 1fr;
+  grid-template-columns: 42px 1fr;
   grid-template-rows: repeat(5, auto);
   gap: 16px 12px;
 }
@@ -12,5 +13,33 @@
 }
 
 .container-user {
+  display: flex;
+  justify-content: space-between;
   padding: 4px 0;
+}
+
+.content {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: normal;
+}
+
+.list-images {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* 이미지가 여러 개일 때 스크롤을 없앱니다. */
+/* .list-images::-webkit-scrollbar{
+  display:none;
+} */
+
+.item-image {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.item-image:not(:last-of-type) {
+  margin-right: 8px;
 }

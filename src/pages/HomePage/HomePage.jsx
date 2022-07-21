@@ -29,15 +29,13 @@ function HomePage() {
           },
         });
         const result = await response.json();
-        // image 프로퍼티의 여러 개 담긴 image url을 나눠 배열로 만듭니다.
-        const imageData = result.posts.map((item) => item.image.split(","));
+        // // image 프로퍼티의 여러 개 담긴 image url을 나눠 배열로 만듭니다.
+        // const imageData = result.posts.map((item) => item.image.split(","));
 
-        // posts의 각 게시글 image 프로퍼티를 처리된 imageData로 대체합니다.
-        result.posts.map((post, index) => {
-          post.image = imageData[index];
-        });
-
-        console.log(result);
+        // // posts의 각 게시글 image 프로퍼티를 처리된 imageData로 대체합니다.
+        // result.posts.map((post, index) => {
+        //   post.image = imageData[index];
+        // });
         setPosts(result.posts);
         console.log(posts);
       } catch (error) {
@@ -50,9 +48,10 @@ function HomePage() {
   // posts 배열의 길이가 0이면 팔로우한 유저가 없다고 판단, 검색 버튼이 나옵니다.
   // post 배열의 길이가 1이 아니면 PostCard로 List를 만듭니다.
   return (
-    <>
+    <section>
+      <h1 className="a11y-hidden">게임어스 홈 피드</h1>
       <HeaderForm
-        title={"감귤마켓 피드"}
+        title={"홈 피드"}
         searchButton={true}
         titleSize={"large"}
       />
@@ -78,7 +77,7 @@ function HomePage() {
           ))}
         </ul>
       )}
-    </>
+    </section>
   );
 }
 
