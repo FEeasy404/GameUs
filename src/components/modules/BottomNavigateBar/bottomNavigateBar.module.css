@@ -1,0 +1,25 @@
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.list-nav {
+  background-color: #fff;
+  border-top: 1px solid var(--lightgray-color);
+}
+
+.item-nav {
+  display: inline-block;
+  padding: 12px 30px 6px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--darkgray-color);
+}
+
+.item-nav:not(:last-of-type) {
+  margin-right: auto;
+}
