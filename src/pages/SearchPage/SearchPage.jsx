@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
+import styles from "./searchPage.module.css";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import ImageBox from "../../components/atoms/ImageBox/ImageBox";
-import styles from "./searchPage.module.css";
-import { Link } from "react-router-dom";
+import BottomNavigateBar from "./components/modules/BottomNavigateBar/BottomNavigateBar";
 
 // 마크업까지 구현되었으며, 추후 props를 통해 검색 기능을 추가할 예정
 
 function SearchPage() {
   return (
-    <>
+    <section>
+      <h1 className="a11y-hidden">유저 검색</h1>
       <HeaderForm backButton={true} input={true} />
       <ul className={styles["container-users"]}>
         <li>
@@ -39,8 +41,9 @@ function SearchPage() {
           </Link>
         </li>
       </ul>
-    </>
+      <BottomNavigateBar />
+    </section>
   )
 }
 
-export default SearchPage
+export default SearchPage;

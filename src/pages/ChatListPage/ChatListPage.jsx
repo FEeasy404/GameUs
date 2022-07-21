@@ -1,6 +1,7 @@
 import React from "react";
 import ImageBox from "../../components/atoms/ImageBox/ImageBox";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
+import BottomNavigateBar from "./components/modules/BottomNavigateBar/BottomNavigateBar";
 import styles from "./chatListPage.module.css";
 
 function ChatListPage() {
@@ -46,7 +47,7 @@ function ChatListPage() {
           </li>
         ))}
       </ul>
-      
+      <BottomNavigateBar />
     </section>
   )
 }

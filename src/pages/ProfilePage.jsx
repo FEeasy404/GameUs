@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
 import UserProfile from "../components/organisms/UserProfile/UserProfile";
 import ProductList from "../components/organisms/ProductList/ProductList";
+import BottomNavigateBar from "./components/modules/BottomNavigateBar/BottomNavigateBar";
 
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
@@ -56,12 +57,13 @@ function ProfilePage() {
   }, [accountname]);
 
   return (
-    <>
+    <section>
       <h1 className="a11y-hidden">프로필 페이지</h1>
       <HeaderForm backButton={true} menuButton={true} />
       <UserProfile userProfile={profile} />
       <ProductList products={products} />
-    </>
+      <BottomNavigateBar />
+    </section>
   );
 }
 
