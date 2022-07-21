@@ -8,8 +8,6 @@ import IconButton from "../../atoms/IconButton/IconButton";
 
 function ImageListMaker({ image }) {
   const imageData = image.split(",");
-  console.dir(imageData);
-  console.log(imageData.length);
   //이미지가 없을 경우 빈 태그 리턴
   if (!image) return <></>;
   else {
@@ -35,7 +33,7 @@ function PostCard({ post }) {
   return (
     <article className={styles["container-post"]}>
       <div className={styles["profile"]}>
-        <ImageBox type={"circle"} size={"medium_small"} />
+        <ImageBox type={"circle"} size={"medium_small"} src={author.image} />
       </div>
       <div className={styles["container-user"]}>
         <Author authorName={author.username} authorId={author.accountname} />
@@ -43,7 +41,7 @@ function PostCard({ post }) {
       </div>
       <div className={styles["content"]}>
         {post.content.split("\n").map((line, index) => {
-          return line ? <p key={index}>{line}</p> : <br />;
+          return line ? <p key={index}>{line}</p> : <br key={index} />;
         })}
       </div>
       <ImageListMaker image={post.image} />
