@@ -4,6 +4,7 @@ import Button from "../../atoms/Button/Button";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RegisterContext } from "../../../contexts/RegisterContext";
+import styles from "./loginForm.module.css";
 
 function LoginForm({ label, setEmailPasswordValid }) {
   const [email, setEmail] = useState("");
@@ -166,7 +167,7 @@ function LoginForm({ label, setEmailPasswordValid }) {
   }
 
   return (
-    <form>
+    <form className={styles["form-login"]}>
       <InputBox
         id="email"
         type="email"
