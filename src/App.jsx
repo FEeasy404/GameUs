@@ -24,7 +24,6 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/chat" element={<ChatListPage />} />
-        <Route path="/user" element={<JoinPage />} />
         <Route path="/product" element={<AddProductPage />} />
         <Route path="/profile/:accountname" element={<ProfilePage />} />
         <Route
