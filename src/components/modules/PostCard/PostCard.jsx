@@ -43,11 +43,13 @@ function PostCard({ post }) {
       </div>
       <div className={styles["content"]}>
         {post.content.split("\n").map((line, index) => {
-          return (
+          return line ? (
             <p key={index}>
               {line}
-              <br />
+              {!line && <br />}
             </p>
+          ) : (
+            <br />
           );
         })}
       </div>
