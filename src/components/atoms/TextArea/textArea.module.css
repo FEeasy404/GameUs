@@ -4,6 +4,7 @@
   outline: none;
   border: none;
   font-size: 1.4rem;
+  line-height: 18px;
 }
 
 .input-text::placeholder {
