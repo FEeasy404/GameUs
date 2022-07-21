@@ -1,18 +1,24 @@
 import React, { useContext, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import imageCompression from "browser-image-compression";
 import ProfileForm from "../../modules/ProfileForm/ProfileForm";
 import Button from "../../atoms/Button/Button";
 import { RegisterContext } from "../../../contexts/RegisterContext";
-import imageCompression from "browser-image-compression";
-import { useNavigate } from "react-router-dom";
 import styles from "./profileSetting.module.css";
 
 function ProfileSetting() {
-  const [image, setImage] = useState("");
-  const [username, setUsername] = useState("");
-  const [accountname, setAccountname] = useState("");
-  const [intro, setIntro] = useState("");
-  const [usernameError, setUsernameError] = useState("");
-  const [accountnameError, setAccountnameError] = useState("");
+  const [value, setValue] = useState({
+    image: "",
+    username: "",
+    accountname: "",
+    intro: "",
+  });
+
+  const [error, setError] = useState({
+    username: "",
+    accountname: "",
+  });
+
   // 계정 ID가 이미 가입되어 있으면 false, 가입 가능하면 true입니다.
   const [isAccountnameValid, setAccountnameValid] = useState(false);
 
@@ -67,21 +73,24 @@ function ProfileSetting() {
     accountnameInput.current.blur();
 
     // 에러가 없고 계정 ID가 유효하다면 context에 이미지, 사용자 이름, 계정 ID, 소개를 저장합니다.
-    if (!usernameError && !accountnameError && isAccountnameValid) {
+    if (!error.username && !error.accountname && isAccountnameValid) {
       const data = registerData;
-      if (image) {
-        const resizedImage = await handleImageResize(image.data);
+      if (value.image) {
+        const resizedImage = await handleImageResize(value.image.data);
         const imageUrl = await uploadImage(resizedImage);
         data.user.image = imageUrl;
-        URL.revokeObjectURL(image.src);
+        URL.revokeObjectURL(value.image.src);
       }
       // 이미지를 선택하지 않았다면 기본 이미지로 설정됩니다.
       else {
         data.user.image = "https://mandarin.api.weniv.co.kr/1658306906297.png";
       }
-      data.user.username = username;
-      data.user.accountname = accountname;
-      data.user.intro = intro;
+      data.user = {
+        ...data.user,
+        username: value.username,
+        accountname: value.accountname,
+        intro: value.intro,
+      };
       setRegisterData(data);
 
       // context에 저장된 데이터로 회원가입을 진행합니다.
@@ -106,25 +115,17 @@ function ProfileSetting() {
       <p className={styles["message"]}>나중에 언제든지 변경할 수 있습니다.</p>
       <ProfileForm
         setAccountnameValid={setAccountnameValid}
-        image={image}
-        setImage={setImage}
-        username={username}
-        setUsername={setUsername}
-        accountname={accountname}
-        setAccountname={setAccountname}
-        intro={intro}
-        setIntro={setIntro}
-        usernameError={usernameError}
-        setUsernameError={setUsernameError}
-        accountnameError={accountnameError}
-        setAccountnameError={setAccountnameError}
+        value={value}
+        setValue={setValue}
+        error={error}
+        setError={setError}
         usernameInput={usernameInput}
         accountnameInput={accountnameInput}
       />
       <Button
         size="large"
         label="게임어스 시작하기"
-        active={username && accountname && true}
+        active={value.username && value.accountname && true}
         primary={true}
         onClick={handleRegister}
       />

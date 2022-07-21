@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import InputBox from "../../atoms/InputBox/InputBox";
 import Button from "../../atoms/Button/Button";
-import { useContext, useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { RegisterContext } from "../../../contexts/RegisterContext";
 import styles from "./loginForm.module.css";
 
 function LoginForm({ label, setEmailPasswordValid }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [value, setValue] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState({
+    email: "",
+    password: "",
+  });
+
   // 이메일이 이미 가입되어 있으면 false, 가입 가능하면 true입니다.
   const [isEmailValid, setEmailValid] = useState(false);
 
@@ -27,87 +32,96 @@ function LoginForm({ label, setEmailPasswordValid }) {
 
   // email과 password 내용이 바뀌면 에러가 표시되지 않도록 비웁니다.
   useEffect(() => {
-    setEmailError("");
+    setError({ ...error, email: "" });
     setEmailValid(false);
-  }, [email]);
+  }, [value.email]);
 
   useEffect(() => {
-    setPasswordError("");
-  }, [password]);
+    setError({ ...error, password: "" });
+  }, [value.password]);
 
   // 이메일과 비밀번호 둘 다 input이므로 한꺼번에 관리합니다.
-  function handleLoginInputData(event) {
-    // input 타입이 "email" 이면 이메일 세팅
-    if (event.target.type === "email") {
-      setEmail(event.target.value);
+  function handleInputValue(event) {
+    setValue({ ...value, [event.target.id]: event.target.value });
+  }
+
+  // 에러를 체크합니다.
+  function checkEmailError() {
+    // 이메일 란이 비어있는 경우
+    if (!value.email) {
+      setError({ ...error, email: "이메일을 입력해 주세요." });
+      return false;
     }
-    // input 타입이 "password" 이면 비밀번호 세팅
-    else if (event.target.type === "password") {
-      setPassword(event.target.value);
+    // 이메일 형식이 일치하지 않는 경우 (button type이 submit이 아니라서 여기에서 유효성을 검사합니다.)
+    else if (!value.email.match(emailRegExp)) {
+      setError({ ...error, email: "잘못된 이메일 형식입니다." });
+      return false;
     }
+    // emailInput.current.focus();
+    return true;
+  }
+
+  function checkPasswordError() {
+    // 비밀번호 란이 비어있는 경우
+    if (!value.password) {
+      setError({ ...error, password: "비밀번호를 입력해 주세요." });
+      return false;
+    }
+    // 비밀번호가 6자 이상인지 검사합니다.
+    else if (value.password.length < 6) {
+      setError({ ...error, password: "비밀번호는 6자 이상 입력해 주세요." });
+      return false;
+    }
+    // passwordInput.current.focus();
+    return true;
   }
 
   // 로그인 함수입니다.
-  async function handleLogin() {
-    const reqBody = {
-      user: {
-        email: email,
-        password: password,
-      },
-    };
-
-    try {
-      const data = await fetch(baseURL + "/user/login", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
+  async function handleSubmitLogin() {
+    // 로그인은 버튼 눌렀을 때 유효성 검사를 하므로 여기에서 함수를 실행시킵니다.
+    if (error && checkEmailError() && checkPasswordError()) {
+      const reqBody = {
+        user: {
+          ...value,
         },
-        body: JSON.stringify(reqBody),
-      });
-      const result = await data.json();
-      // 이메일 란이 비어있는 경우
-      if (!email) {
-        setEmailError("이메일을 입력해 주세요.");
-        emailInput.current.focus();
-      }
-      // 비밀번호 란이 비어있는 경우
-      else if (!password) {
-        setPasswordError("비밀번호를 입력해 주세요.");
-        passwordInput.current.focus();
-      }
-      // 이메일 형식이 일치하지 않는 경우 (button type이 submit이 아니라서 여기에서 유효성을 검사합니다.)
-      else if (!email.match(emailRegExp)) {
-        setEmailError("잘못된 이메일 형식입니다.");
-        emailInput.current.focus();
-      }
-      // 이메일, 비밀번호가 일치하지 않는 경우
-      else if (result.status === 422) {
-        emailInput.current.focus();
-        setPasswordError(result.message);
-      }
-      // 이메일, 비밀번호가 둘 다 빈 경우는 아예 버튼을 disabled 시켰기 때문에 따로 에러 메시지를 띄우지 않게 했습니다.
+      };
+      try {
+        const data = await fetch(baseURL + "/user/login", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(reqBody),
+        });
+        const result = await data.json();
+        // 이메일, 비밀번호가 일치하지 않는 경우
+        if (result.status === 422) {
+          setError({ ...error, password: result.message });
+          emailInput.current.focus();
+        }
+        // 이메일, 비밀번호가 둘 다 빈 경우는 아예 버튼을 disabled 시켰기 때문에 따로 에러 메시지를 띄우지 않게 했습니다.
 
-      // 로컬 스토리지에 accountname 저장
-      window.localStorage.removeItem("accountname");
-      window.localStorage.setItem("accountname", result.user.accountname);
-      // 로컬 스토리지에 남아 있는 토큰을 지우고 다시 토큰을 설정합니다.
-      // 로그아웃 기능이 따로 없는 거 같아서 우선은 로그인하면서 지워줍니다.
-      window.localStorage.removeItem("token");
-      window.localStorage.setItem("token", result.user.token);
+        // 로컬 스토리지에 accountname 저장
+        window.localStorage.removeItem("accountname");
+        window.localStorage.setItem("accountname", result.user.accountname);
+        // 로컬 스토리지에 남아 있는 토큰을 지우고 다시 토큰을 설정합니다.
+        // 로그아웃 기능이 따로 없는 거 같아서 우선은 로그인하면서 지워줍니다.
+        window.localStorage.removeItem("token");
+        window.localStorage.setItem("token", result.user.token);
 
-      navigate("/");
-    } catch (error) {
-      console.log(error.message);
+        navigate("/");
+      } catch (error) {
+        console.log(error.message);
+      }
     }
   }
 
-  // 회원 가입
-  // email input이 blur되었을 때 유효성 검사를 실행하는 함수입니다.
-  async function handleBlurEmail() {
+  // 회원 가입에서는 blur일 때 유효성 검사를 진행합니다.
+  async function checkEmailValid() {
     // 이미 존재하는 이메일인지 검사합니다.
     const reqBody = {
       user: {
-        email: email,
+        email: value.email,
       },
     };
     try {
@@ -121,7 +135,7 @@ function LoginForm({ label, setEmailPasswordValid }) {
       const result = await data.json();
 
       if (result.message == "이미 가입된 이메일 주소 입니다.") {
-        setEmailError(result.message);
+        setError({ ...error, email: result.message });
       }
       // 가입된 이메일이 아니라면 isEmailValid를 true로 바꿉니다.
       else {
@@ -130,26 +144,6 @@ function LoginForm({ label, setEmailPasswordValid }) {
     } catch (error) {
       console.log(error.message);
     }
-    // 이메일 칸이 비어 있는지 검사합니다.
-    if (!email) {
-      setEmailError("이메일을 입력해 주세요.");
-    }
-    // 이메일 형식에 맞는지 검사합니다.
-    else if (!email.match(emailRegExp)) {
-      setEmailError("잘못된 이메일 형식입니다.");
-    }
-  }
-
-  // password input이 blur되었을 때 유효성 검사를 실행하는 함수입니다.
-  function handleBlurPassword() {
-    // 비밀번호 칸이 비어 있는지 검사합니다.
-    if (!password) {
-      setPasswordError("비밀번호를 입력해 주세요.");
-    }
-    // 비밀번호가 6자 이상인지 검사합니다.
-    else if (password.length < 6) {
-      setPasswordError("비밀번호는 6자 이상 입력해 주세요.");
-    }
   }
 
   function handleCheckEmail() {
@@ -157,10 +151,13 @@ function LoginForm({ label, setEmailPasswordValid }) {
     emailInput.current.blur();
     passwordInput.current.blur();
     // 에러가 없고 이메일이 유효하다면 context에 이메일, 비밀번호를 저장합니다.
-    if (!emailError && !passwordError && isEmailValid) {
+    if (!error.email && !error.password && isEmailValid) {
       const data = registerData;
-      data.user.email = email;
-      data.user.password = password;
+      data.user = {
+        ...data.user,
+        email: value.email,
+        password: value.password,
+      };
       setRegisterData(data);
       setEmailPasswordValid(true); // 이메일과 비밀번호에 문제가 없으면 true로 변경
     }
@@ -172,29 +169,36 @@ function LoginForm({ label, setEmailPasswordValid }) {
         id="email"
         type="email"
         name="이메일"
-        value={email}
-        onBlur={label !== "로그인" ? handleBlurEmail : null}
-        onChange={handleLoginInputData}
-        error={emailError}
+        value={value.email}
+        onBlur={
+          label !== "로그인"
+            ? () => {
+                checkEmailError();
+                checkEmailValid();
+              }
+            : null
+        }
+        onChange={handleInputValue}
+        error={error.email}
         innerRef={emailInput}
       />
       <InputBox
         id="password"
         type="password"
         name="비밀번호"
-        value={password}
-        onBlur={label !== "로그인" ? handleBlurPassword : null}
-        onChange={handleLoginInputData}
-        error={passwordError}
+        value={value.password}
+        onBlur={label !== "로그인" ? checkPasswordError : null}
+        onChange={handleInputValue}
+        error={error.password}
         innerRef={passwordInput}
       />
       <Button
         href={null}
         size="large"
         label={label}
-        active={email && password && true}
+        active={value.email && value.password && true}
         primary={true}
-        onClick={label === "로그인" ? handleLogin : handleCheckEmail}
+        onClick={label === "로그인" ? handleSubmitLogin : handleCheckEmail}
       />
     </form>
   );
