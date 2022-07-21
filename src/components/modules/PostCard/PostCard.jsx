@@ -41,14 +41,16 @@ function PostCard({ post }) {
         <Author authorName={author.username} authorId={author.accountname} />
         <IconButton type={"more"} text={"더보기"} onClick={() => {}} />
       </div>
-      <p className={styles["content"]}>
-        {post.content.split("\n").map((line) => (
-          <>
-            {line}
-            <br />
-          </>
-        ))}
-      </p>
+      <div className={styles["content"]}>
+        {post.content.split("\n").map((line, index) => {
+          return (
+            <p key={index}>
+              {line}
+              <br />
+            </p>
+          );
+        })}
+      </div>
       <ImageListMaker image={post.image} />
       <InfoIconGroup
         postId={post.id}
