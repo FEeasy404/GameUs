@@ -142,7 +142,9 @@ function UploadPage() {
         handleText={handleText}
         handleDeleteBtn={handleDeleteBtn}
       />
-      <ImageInputButton saveImage={saveImage} size="medium" multiple={true} />
+      <div className={styles["wrapper-bottom"]}>
+        <ImageInputButton saveImage={saveImage} size="medium" multiple={true} />
+      </div>
     </div>
   );
 }
