@@ -1,5 +1,6 @@
 .wrapper-post {
-  display: flex;
+  display: grid;
+  grid-template-columns: 42px 1fr;
 }
 
 .wrapper-post > textarea {

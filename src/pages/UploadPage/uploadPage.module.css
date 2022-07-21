@@ -1,14 +1,17 @@
-.wrapper-page {
-  height: 100vh;
-  position: relative;
-}
-
 .wrapper-page > div:nth-child(2) {
   padding: 20px 16px 16px;
 }
 
-.wrapper-page > div:last-child {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
+.wrapper-bottom {
+  margin: auto;
+  max-width: 800px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+}
+
+.wrapper-bottom button {
+  margin: 0 16px 16px auto;
 }
