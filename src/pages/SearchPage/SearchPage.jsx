@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./searchPage.module.css";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import ImageBox from "../../components/atoms/ImageBox/ImageBox";
-import BottomNavigateBar from "./components/modules/BottomNavigateBar/BottomNavigateBar";
+import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
 
 // 마크업까지 구현되었으며, 추후 props를 통해 검색 기능을 추가할 예정
 

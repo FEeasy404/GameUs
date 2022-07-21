@@ -3,7 +3,7 @@ import Button from "../../components/atoms/Button/Button";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
 import catImageURL from "../../assets/icon-404-cat.png";
-import BottomNavigateBar from "./components/modules/BottomNavigateBar/BottomNavigateBar";
+import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
 import styles from "./homePage.module.css";
 
 function HomePage() {
