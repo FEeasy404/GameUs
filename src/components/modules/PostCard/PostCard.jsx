@@ -41,7 +41,7 @@ function PostCard({ post }) {
       </div>
       <div className={styles["content"]}>
         {post.content.split("\n").map((line, index) => {
-          return line ? <p key={index}>{line}</p> : <br />;
+          return line ? <p key={index}>{line}</p> : <br key={index} />;
         })}
       </div>
       <ImageListMaker image={post.image} />
