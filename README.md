@@ -11,11 +11,11 @@
 - prettier
 - browser-image-compression
 
-<div align='center'>
+
 
 ## 역할 분담
 
-</div>
+
 
 
 ## 김보람
