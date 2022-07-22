@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import imageCompression from "browser-image-compression";
-import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
-import AddProduct from "../components/organisms/AddProduct/AddProduct";
+import { handleImageSize } from "../../common/ImageResize";
+import { uploadImage } from "../../common/ImageUpload";
+import { postProduct } from "./AddProductPageAPI";
+import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
+import AddProduct from "../../components/organisms/AddProduct/AddProduct";
 
 function AddProductPage() {
   const navigate = useNavigate();
@@ -12,9 +14,6 @@ function AddProductPage() {
   const [link, setLink] = useState("");
   const [nameError, setNameError] = useState(false);
   const [priceError, setPriceError] = useState(false);
-
-  const baseURL = "https://mandarin.api.weniv.co.kr";
-  const token = window.localStorage.getItem("token");
   const myAccountname = window.localStorage.getItem("accountname");
   //이미지 프리뷰
   async function saveImage(event) {
@@ -26,41 +25,8 @@ function AddProductPage() {
     };
     setImage(image);
   }
-  //이미지 리사이즈
-  async function handleImageSize(file) {
-    const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 500,
-    };
-    try {
-      const blobFile = await imageCompression(file, options);
-      const newFile = new File([blobFile], `${blobFile.name}`, {
-        type: blobFile.type,
-      });
-      return newFile;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  //이미지 저장
-  async function imageUpload(file) {
-    try {
-      const formData = new FormData();
-      formData.append("image", file);
-      const imageReqPath = "/image/uploadfile";
-      const res = await fetch(baseURL + imageReqPath, {
-        method: "POST",
-        body: formData,
-      });
-      const json = await res.json();
-      const filename = await json.filename;
-      return baseURL + "/" + filename;
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
 
-  //텍스트 저장
+  //상품명 처리
   function handleName(event) {
     const name = event.target.value.trim();
     setName(name);
@@ -70,8 +36,10 @@ function AddProductPage() {
     }
     setNameError(false);
   }
+  //가격 처리
   function handlePrice(event) {
     const price = event.target.value.replace(/,/g, "");
+    if (!price) return;
     if (isNaN(price)) {
       setPriceError(true);
       event.target.value = "";
@@ -81,45 +49,21 @@ function AddProductPage() {
     event.target.value = Number(price).toLocaleString("en-US");
     setPrice(Number(price));
   }
+  //링크 처리
   function handleLink(event) {
     setLink(event.target.value.trim());
   }
-
-  //상품 업로드
-  async function postProduct(fileUrl) {
-    const data = {
-      product: {
-        itemName: name,
-        price: price,
-        link: link,
-        itemImage: fileUrl,
-      },
-    };
-    try {
-      fetch(baseURL + "/product", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-
-  //제출 버튼
+  //저장 버튼
   async function handleSubmit() {
     const compressedFile = await handleImageSize(image.data);
-    const fileUrl = await imageUpload(compressedFile);
-    await postProduct(fileUrl);
+    const fileUrl = await uploadImage(compressedFile);
+    await postProduct(price, link, fileUrl);
     URL.revokeObjectURL(image.src);
     navigate(`/profile/${myAccountname}`);
   }
 
   return (
-    <>
+    <section>
       <h1 className="a11y-hidden">상품 등록 페이지</h1>
       <HeaderForm
         backButton={true}
@@ -137,7 +81,7 @@ function AddProductPage() {
         nameError={nameError}
         priceError={priceError}
       />
-    </>
+    </section>
   );
 }
 

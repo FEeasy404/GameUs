@@ -84,7 +84,7 @@
 
 /* 상품 등록 페이지에서 사용될 이미지입니다. */
 .rounded_square.large {
-  width: 320px;
+  max-width: 320px;
   height: 204px;
   background-color: var(--whitegray-color);
 }

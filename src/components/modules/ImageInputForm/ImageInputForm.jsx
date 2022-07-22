@@ -10,12 +10,6 @@ function ImageInputForm({
   saveImage,
   image,
 }) {
-  // 상위 컴포넌트로 이동 필요
-  // const [image, setImage] = useState("");
-  // function saveImage(event) {
-  //   setImage(URL.createObjectURL(event.target.files[0]));
-  //   console.log(image);
-  // }
   return (
     <div className={`${styles["image-input"]} ${styles[boxType]}`}>
       {a11y && <p className="a11y-hidden">{a11y}</p>}
