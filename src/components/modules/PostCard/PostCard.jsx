@@ -71,7 +71,6 @@ function PostCard({ post }) {
       </article>
       {onModal && (
         <Modal
-          onModal={onModal}
           onClose={() => setOnModal(false)}
           buttons={
             myAccountname === author.accountname

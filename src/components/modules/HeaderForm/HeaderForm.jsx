@@ -65,7 +65,6 @@ function HeaderForm({
       </header>
       {onModal && (
         <Modal
-          onModal={onModal}
           onClose={() => setOnModal(false)}
           buttons={[
             { text: "설정 및 개인정보", onClick: handleSetting },

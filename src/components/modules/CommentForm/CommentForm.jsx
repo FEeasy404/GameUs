@@ -33,7 +33,6 @@ function CommentForm({ src, accoutName, userName, createTime, text }) {
       </div>
       {onModal && (
         <Modal
-          onModal={onModal}
           onClose={() => setOnModal(false)}
           buttons={
             myAccountname === accoutName
