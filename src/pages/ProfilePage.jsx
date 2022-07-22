@@ -15,8 +15,6 @@ function ProfilePage() {
   const token = window.localStorage.getItem("token");
 
   useEffect(() => {
-    // 호준님 말씀대로 api는 메소드별로 따로 함수화해서 관리해도 좋을 것 같습니다
-
     // 사용자의 프로필 정보를 받아오는 함수입니다.
     async function getProfile() {
       try {
@@ -45,7 +43,6 @@ function ProfilePage() {
           },
         });
         const result = await data.json();
-        console.log(result);
         setProducts(result);
       } catch (error) {
         console.log(error.message);
