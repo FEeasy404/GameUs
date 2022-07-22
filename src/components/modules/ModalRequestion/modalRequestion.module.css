@@ -1,0 +1,25 @@
+.wrapper-modal {
+  align-self: center;
+  background-color: white;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.wrapper-modal strong {
+  display: block;
+  padding: 22px 54px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  grid-column: 1 / 3;
+  border-bottom: 1px solid var(--lightgray-color);
+}
+
+.wrapper-modal button {
+  padding: 14px 37px;
+}
+
+.wrapper-modal > button:nth-child(3) {
+  border-left: 1px solid var(--lightgray-color);
+  color: var(--main-color);
+}
