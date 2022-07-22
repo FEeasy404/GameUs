@@ -20,7 +20,7 @@
 
 |김도희|김보람|여다희|이혜원|
 | :-------------: | :-------------: | :-------------: | :-------------: |
-|<img src="https://avatars.githubusercontent.com/u/102498600?v=4" height=180 width=180>|<img src="https://avatars.githubusercontent.com/u/68495264?v=4" height=150 width=150>|<img src="https://avatars.githubusercontent.com/u/102221305?v=4" height=150 width=150> |<img src="https://avatars.githubusercontent.com/u/79434205?v=4" height=150 width=150>|
+|<img src="https://avatars.githubusercontent.com/u/102498600?v=4" height=150 width=150>|<img src="https://avatars.githubusercontent.com/u/68495264?v=4" height=150 width=150>|<img src="https://avatars.githubusercontent.com/u/102221305?v=4" height=150 width=150> |<img src="https://avatars.githubusercontent.com/u/79434205?v=4" height=150 width=150>|
 |[Github](https://github.com/hee1231)|[Github](https://github.com/boram2445)|[Github](https://github.com/yeodahui)|[Github](https://github.com/donkeeman)|
 
 
