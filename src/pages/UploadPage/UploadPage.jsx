@@ -66,7 +66,7 @@ function UploadPage() {
 
   //업로드 버튼
   async function handleUploadButton() {
-    const imageNames = await handleuploadImages();
+    const imageNames = await handleuploadImages(images);
     await uploadData(imageNames, text);
     //메모리 누수 방지
     images.forEach((file) => URL.revokeObjectURL(file.src));

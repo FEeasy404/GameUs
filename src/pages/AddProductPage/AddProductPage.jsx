@@ -57,7 +57,7 @@ function AddProductPage() {
   async function handleSubmit() {
     const compressedFile = await handleImageSize(image.data);
     const fileUrl = await uploadImage(compressedFile);
-    await postProduct(price, link, fileUrl);
+    await postProduct(name, price, link, fileUrl);
     URL.revokeObjectURL(image.src);
     navigate(`/profile/${myAccountname}`);
   }
