@@ -3,7 +3,7 @@ import "./reset.css";
 import "./global.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import AddProductPage from "./pages/AddProductPage";
+import AddProductPage from "./pages/AddProductPage/AddProductPage";
 import ProfilePage from "./pages/ProfilePage";
 import ProfileEditPage from "./pages/ProfileEditPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
@@ -11,7 +11,7 @@ import FollowerPage from "./pages/FollowerPage";
 import FollowingPage from "./pages/FollowingPage.jsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import HomePage from "./pages/HomePage/HomePage";
-import PostPage from "./pages/PostPage";
+import PostPage from "./pages/PostPage/PostPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ChatListPage from "./pages/ChatListPage/ChatListPage";
 
@@ -38,7 +38,6 @@ function App() {
         <Route path="/post" element={<UploadPage />} />
         <Route path="/post/:postId" element={<PostPage />} />
         <Route path="/*" element={<ErrorPage />} />
-
       </Routes>
     </div>
   );
