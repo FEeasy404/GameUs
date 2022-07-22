@@ -2,11 +2,12 @@ import React from "react";
 import UserProfileBox from "../../modules/UserProfileBox/UserProfileBox";
 import MyProfileButton from "../../modules/MyProfileButton/MyProfileButton";
 import ProfileButton from "../../modules/ProfileButton/ProfileButton";
+import styles from "./userProfile.module.css";
 
 function UserProfile({ userProfile }) {
   const myAccountname = window.localStorage.getItem("accountname");
   return (
-    <div>
+    <section className={styles["wrapper-profile"]}>
       <UserProfileBox
         src={userProfile.image}
         userName={userProfile.username}
@@ -20,7 +21,7 @@ function UserProfile({ userProfile }) {
       ) : (
         <ProfileButton isFollowing={userProfile.isFollowing} />
       )}
-    </div>
+    </section>
   );
 }
 
