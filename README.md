@@ -13,14 +13,18 @@
 - prettier
 - browser-image-compression
 
+<br>
 
 ## 팀원 소개
 
 
 |김도희|김보람|여다희|이혜원|
-|:---:|:---:|:---:|:---:|
+| :-------------: | :-------------: | :-------------: | :-------------: |
+|<img src="https://avatars.githubusercontent.com/u/102498600?v=4" height=180 width=180>|<img src="https://avatars.githubusercontent.com/u/68495264?v=4" height=150 width=150>|<img src="https://avatars.githubusercontent.com/u/102221305?v=4" height=150 width=150> |<img src="https://avatars.githubusercontent.com/u/79434205?v=4" height=150 width=150>|
 |[Github](https://github.com/hee1231)|[Github](https://github.com/boram2445)|[Github](https://github.com/yeodahui)|[Github](https://github.com/donkeeman)|
 
+
+<br>
 
 ## 역할 분담
 
@@ -35,10 +39,10 @@
 
 ### 김보람
 
-- 판매상품 등록 구현
-- 게시글 등록 구현
-- 댓글 등록 및 불러오기 구현
-- 이미지 리사이즈 및 이미지 업로드 구현
+- 판매상품 등록 기능 구현
+- 게시글 등록 기능 구현
+- 댓글 등록 및 불러오기 기능 구현
+- 이미지 리사이즈 및 이미지 업로드 기능 구현
 
 
 ### 여다희
