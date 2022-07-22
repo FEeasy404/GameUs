@@ -2,9 +2,8 @@
   display: flex;
   gap: 10px;
   justify-content: center;
-  margin: 0 84px;
 }
 
-.container-button > a {
+.container-button > button:nth-child(2) {
   width: 120px;
 }
