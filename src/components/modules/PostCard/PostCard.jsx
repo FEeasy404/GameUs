@@ -5,6 +5,7 @@ import InfoIconGroup from "../InfoIconGroup/InfoIconGroup";
 import PostDate from "../../atoms/PostDate/PostDate";
 import styles from "./postCard.module.css";
 import IconButton from "../../atoms/IconButton/IconButton";
+import { Link } from "react-router-dom";
 
 function ImageListMaker({ image }) {
   const imageData = image.split(",");
@@ -32,9 +33,9 @@ function PostCard({ post }) {
 
   return (
     <article className={styles["container-post"]}>
-      <div className={styles["profile"]}>
+      <Link to={`/profile/${author.accountname}`} className={styles["profile"]}>
         <ImageBox type={"circle"} size={"medium_small"} src={author.image} />
-      </div>
+      </Link>
       <div className={styles["container-user"]}>
         <Author authorName={author.username} authorId={author.accountname} />
         <IconButton type={"more"} text={"더보기"} onClick={() => {}} />
