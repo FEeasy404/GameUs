@@ -95,23 +95,9 @@ function ProfilePage() {
           ) : (
             <ol className={styles["list-image"]}>
               {posts.map((post, index) => (
-                <>
-                  <li key={index}>
-                    {post.image && <ImagePostCard post={post} />}
-                  </li>
-                  <li key={index}>
-                    {post.image && <ImagePostCard post={post} />}
-                  </li>
-                  <li key={index}>
-                    {post.image && <ImagePostCard post={post} />}
-                  </li>
-                  <li key={index}>
-                    {post.image && <ImagePostCard post={post} />}
-                  </li>
-                  <li key={index}>
-                    {post.image && <ImagePostCard post={post} />}
-                  </li>
-                </>
+                <li key={index}>
+                  {post.image && <ImagePostCard post={post} />}
+                </li>
               ))}
             </ol>
           )}
