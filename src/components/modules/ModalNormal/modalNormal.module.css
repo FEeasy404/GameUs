@@ -1,0 +1,35 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.wrapper-modal {
+  align-self: flex-end;
+  margin: 0 auto;
+  padding: 36px 0 10px;
+  width: 100%;
+  max-width: 800px;
+  overflow-y: auto;
+  border-radius: 20px 20px 0 0;
+  background: white url(../../../assets/icon-modal-line.svg) no-repeat;
+  background-position: center 15px;
+  animation: fadeInUp 0.5s;
+}
+
+.button-modal {
+  width: 100%;
+  padding: 14px 0 14px 26px;
+  text-align: start;
+  font-size: 1.4rem;
+  line-height: 17.5px;
+}
+
+.button-modal:hover {
+  color: var(--main-color);
+}
