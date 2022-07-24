@@ -23,14 +23,6 @@ function UploadPage() {
     const imagesArr = images.filter((item) => item.key !== key);
     setImages(imagesArr);
   }
-  //이미지 업로드 제한
-  function limitUploadImage(files) {
-    if (!files) return;
-    if (images.length + files.length > 3) {
-      alert("이미지는 3개까지 업로드 가능합니다.");
-      return;
-    }
-  }
   //이미지 프리뷰
   function previewMultipleImages(files) {
     const copyImages = [...images];
@@ -51,9 +43,13 @@ function UploadPage() {
   }
   function saveImage(event) {
     const files = event.target.files;
-    limitUploadImage(files);
-    const images = previewMultipleImages(files);
-    setImages(images);
+    if (!files) return;
+    if (images.length + files.length > 3) {
+      alert("이미지는 3개까지 업로드 가능합니다.");
+      return;
+    }
+    const imageData = previewMultipleImages(files);
+    setImages(imageData);
   }
   //이미지 업로드
   async function handleuploadImages(images) {
