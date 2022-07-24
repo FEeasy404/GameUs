@@ -5,7 +5,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import AddProductPage from "./pages/AddProductPage/AddProductPage";
 import ProfilePage from "./pages/ProfilePage";
-import ProfileEditPage from "./pages/ProfileEditPage";
+import ProfileEditPage from "./pages/ProfileEditPage/ProfileEditPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import FollowerPage from "./pages/FollowerPage";
 import FollowingPage from "./pages/FollowingPage.jsx";
