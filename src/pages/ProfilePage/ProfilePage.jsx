@@ -1,10 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
-import UserProfile from "../components/organisms/UserProfile/UserProfile";
-import ProductList from "../components/organisms/ProductList/ProductList";
-import PostCard from "../components/modules/PostCard/PostCard";
+import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
+import UserProfile from "../../components/organisms/UserProfile/UserProfile";
+import ProductList from "../../components/organisms/ProductList/ProductList";
+import PostHeader from "../../components/modules/PostHeader/PostHeader";
+import PostCard from "../../components/modules/PostCard/PostCard";
+import ImagePostCard from "../../components/modules/ImagePostCard/ImagePostCard";
+import styles from "./profilePage.module.css";
 
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
@@ -12,6 +15,7 @@ function ProfilePage() {
   const [profile, setProfile] = useState({});
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [isAlbum, setAlbum] = useState(false);
 
   const BASE_URL = "https://mandarin.api.weniv.co.kr";
   const TOKEN = window.localStorage.getItem("token");
@@ -61,7 +65,6 @@ function ProfilePage() {
           },
         });
         const result = await data.json();
-        console.log(result.post);
         setPosts(result.post);
       } catch (error) {
         console.log(error.message);
@@ -78,19 +81,42 @@ function ProfilePage() {
       <HeaderForm backButton={true} menuButton={true} />
       <UserProfile userProfile={profile} />
       <ProductList products={products} />
-
-      <section>
-        <h1 className="a11y-hidden">나의 게시글 목록</h1>
-        {posts.length != 0 && (
-          <ul>
-            {posts.map((post, index) => (
-              <li key={index}>
-                <PostCard post={post} />
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
+      {posts.length != 0 && (
+        <section>
+          <PostHeader isAlbum={isAlbum} setAlbum={setAlbum} />
+          {!isAlbum ? (
+            <ol>
+              {posts.map((post, index) => (
+                <li key={index}>
+                  <PostCard post={post} />
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <ol className={styles["list-image"]}>
+              {posts.map((post, index) => (
+                <>
+                  <li key={index}>
+                    {post.image && <ImagePostCard post={post} />}
+                  </li>
+                  <li key={index}>
+                    {post.image && <ImagePostCard post={post} />}
+                  </li>
+                  <li key={index}>
+                    {post.image && <ImagePostCard post={post} />}
+                  </li>
+                  <li key={index}>
+                    {post.image && <ImagePostCard post={post} />}
+                  </li>
+                  <li key={index}>
+                    {post.image && <ImagePostCard post={post} />}
+                  </li>
+                </>
+              ))}
+            </ol>
+          )}
+        </section>
+      )}
     </>
   );
 }

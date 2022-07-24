@@ -45,3 +45,25 @@
   border: 1px solid var(--lightgray-color);
   border-radius: 30px;
 }
+
+.list:disabled {
+  background-image: url(../../../assets/icon-post-list-on.svg);
+}
+
+.list {
+  background-image: url(../../../assets/icon-post-list-off.svg);
+}
+
+.album:disabled {
+  background-image: url(../../../assets/icon-post-album-on.svg);
+}
+
+.album {
+  background-image: url(../../../assets/icon-post-album-off.svg);
+}
+
+.image-layers {
+  width: 20px;
+  height: 20px;
+  background-image: url(../../../assets/icon-image-layers.svg);
+}
