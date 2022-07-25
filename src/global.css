@@ -1,3 +1,4 @@
+/* 색상변수 설정 */
 :root {
   --main-color: #2f51cf;
   --disabled-color: #9aaae6;
@@ -8,19 +9,38 @@
   --whitegray-color: #f2f2f2;
 }
 
-html {
-  font-size: 10px;
+/* 폰트 */
+@font-face {
+  font-family: "SpocaHanSansNeo";
+  font-display: fallback;
+
+  /* 
+  사용할 폰트의 위치 및 형식 
+     Safari, Android, iOS => otf
+     Modern Browsers => woff
+     IE6-IE8 => eot
+  */
+  src: 
+    url("./SpocaHanSansNeo-Regular.otf") format("opentype"),
+    url("./SpocaHanSansNeo-Regular.woff") format("woff"),
+    url("./SpocaHanSansNeo-Regular.eot?iefix") format("embedded-opentype");
+
+  /* 사용할 폰트의 기본 스타일 */
+  font-weight: 400;
+  font-style: normal;
 }
 
+html {
+  font-size: 10px;
+  font-family: SpocaHanSansNeo, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* UI 여백 */
 body {
   padding-top: 48px;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
+/* 모듈 */
 .a11y-hidden {
   overflow: hidden;
   position: absolute;
