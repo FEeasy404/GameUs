@@ -9,6 +9,7 @@ import PostCard from "../../components/modules/PostCard/PostCard";
 import ImagePostCard from "../../components/modules/ImagePostCard/ImagePostCard";
 import styles from "./profilePage.module.css";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
+import { BASE_URL } from "../../common/BASE_URL";
 
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
@@ -19,7 +20,6 @@ function ProfilePage() {
   const [isAlbum, setAlbum] = useState(false);
   const [isMyProfile, setIsMyProfile] = useState("");
 
-  const BASE_URL = "https://mandarin.api.weniv.co.kr";
   const TOKEN = window.localStorage.getItem("token");
   const myAccountname = window.localStorage.getItem("accountname");
 

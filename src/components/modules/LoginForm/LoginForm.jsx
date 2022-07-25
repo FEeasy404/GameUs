@@ -4,6 +4,7 @@ import InputBox from "../../atoms/InputBox/InputBox";
 import Button from "../../atoms/Button/Button";
 import { RegisterContext } from "../../../contexts/RegisterContext";
 import styles from "./loginForm.module.css";
+import { BASE_URL } from "../../../common/BASE_URL";
 
 function LoginForm({ label, setEmailPasswordValid }) {
   const [value, setValue] = useState({
@@ -27,7 +28,6 @@ function LoginForm({ label, setEmailPasswordValid }) {
   // 이메일 검사 정규식입니다.
   const emailRegExp = /^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i;
 
-  const baseURL = "https://mandarin.api.weniv.co.kr";
   const navigate = useNavigate();
 
   // email과 password 내용이 바뀌면 에러가 표시되지 않도록 비웁니다.
@@ -86,7 +86,7 @@ function LoginForm({ label, setEmailPasswordValid }) {
         },
       };
       try {
-        const data = await fetch(baseURL + "/user/login", {
+        const data = await fetch(BASE_URL + "/user/login", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -125,7 +125,7 @@ function LoginForm({ label, setEmailPasswordValid }) {
       },
     };
     try {
-      const data = await fetch(baseURL + "/user/emailvalid", {
+      const data = await fetch(BASE_URL + "/user/emailvalid", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
