@@ -2,7 +2,7 @@ import NavItem from "../../atoms/NavItem/NavItem";
 import styles from "./bottomNavigateBar.module.css";
 
 function BottomNavigateBar() {
-  const user = "jordi3";
+  const accountname = localStorage.getItem("accountname");
   return (
     <nav className={styles["nav"]}>
       <ul className={styles["list-nav"]}>
@@ -17,7 +17,7 @@ function BottomNavigateBar() {
         </li>
         <li className={`${styles["item-nav"]} ${styles["profile"]}`}>
           <NavItem
-            link={`/profile/${user}`}
+            link={`/profile/${accountname}`}
             label={"프로필"}
             icon={"profile"}
           />
