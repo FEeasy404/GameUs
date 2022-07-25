@@ -16,13 +16,16 @@ function FollowerPage() {
 
     async function getFollowers() {
       try {
-        const data = await fetch(baseURL + `/profile/${accountname}/follower?limit=Infinity`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-type": "application/json",
-          },
-        });
+        const data = await fetch(
+          baseURL + `/profile/${accountname}/follower?limit=Infinity`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-type": "application/json",
+            },
+          }
+        );
         const result = await data.json();
         setFollowers(result);
       } catch (error) {

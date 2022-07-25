@@ -8,6 +8,7 @@ import PostHeader from "../../components/modules/PostHeader/PostHeader";
 import PostCard from "../../components/modules/PostCard/PostCard";
 import ImagePostCard from "../../components/modules/ImagePostCard/ImagePostCard";
 import styles from "./profilePage.module.css";
+import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
 
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
@@ -103,6 +104,7 @@ function ProfilePage() {
           )}
         </section>
       )}
+      <BottomNavigateBar />
     </>
   );
 }
