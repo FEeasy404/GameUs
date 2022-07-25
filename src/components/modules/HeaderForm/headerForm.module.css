@@ -1,12 +1,13 @@
 .wrapper-header {
   margin: auto;
   position: fixed;
+  box-sizing: border-box;
   top: 0;
   left: 0;
   right: 0;
   max-width: 800px;
   background-color: white;
-  height: 32px;
+  height: 48px;
   padding: 8px 16px 7.5px;
   display: flex;
   align-items: center;
@@ -16,11 +17,13 @@
 .large {
   padding-left: 8px;
   font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .small {
   padding-left: 8px;
   font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .wrapper-header > button:nth-child(n + 2) {
