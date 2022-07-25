@@ -5,6 +5,7 @@ import ProfileForm from "../../modules/ProfileForm/ProfileForm";
 import Button from "../../atoms/Button/Button";
 import { RegisterContext } from "../../../contexts/RegisterContext";
 import styles from "./profileSetting.module.css";
+import { BASE_URL } from "../../../common/BASE_URL";
 
 function ProfileSetting() {
   const [value, setValue] = useState({
@@ -29,7 +30,6 @@ function ProfileSetting() {
   // useContext를 이용하여 회원 가입 정보를 가져옵니다.
   const { registerData, setRegisterData } = useContext(RegisterContext);
 
-  const baseURL = "https://mandarin.api.weniv.co.kr";
   const navigate = useNavigate();
 
   // 이미지 리사이즈 함수입니다.
@@ -55,13 +55,13 @@ function ProfileSetting() {
       const formData = new FormData();
       formData.append("image", file);
       const imageReqPath = "/image/uploadfile";
-      const res = await fetch(baseURL + imageReqPath, {
+      const res = await fetch(BASE_URL + imageReqPath, {
         method: "POST",
         body: formData,
       });
       const json = await res.json();
       const filename = await json.filename;
-      return baseURL + "/" + filename;
+      return BASE_URL + "/" + filename;
     } catch (error) {
       console.log(error.message);
     }
@@ -95,7 +95,7 @@ function ProfileSetting() {
 
       // context에 저장된 데이터로 회원가입을 진행합니다.
       try {
-        await fetch(baseURL + "/user", {
+        await fetch(BASE_URL + "/user", {
           method: "POST",
           headers: {
             "Content-type": "application/json",

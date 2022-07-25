@@ -5,6 +5,7 @@ import PostCard from "../../components/modules/PostCard/PostCard";
 import catImageURL from "../../assets/icon-404-cat.png";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
 import styles from "./homePage.module.css";
+import { BASE_URL } from "../../common/BASE_URL";
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
@@ -14,7 +15,6 @@ function HomePage() {
   let post_skip = 0;
   // const skip_amount = 5;
 
-  const BASE_URL = "https://mandarin.api.weniv.co.kr";
   const REQ_PATH = `/post/feed/?limit=${post_limit}&skip=${post_skip}`;
   const TOKEN = window.localStorage.getItem("token");
 

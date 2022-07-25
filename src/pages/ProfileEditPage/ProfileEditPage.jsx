@@ -4,6 +4,7 @@ import imageCompression from "browser-image-compression";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import ProfileForm from "../../components/modules/ProfileForm/ProfileForm";
 import styles from "./profileEditPage.module.css";
+import { BASE_URL } from "../../common/BASE_URL";
 
 function ProfileEditPage() {
   const [value, setValue] = useState({
@@ -24,7 +25,6 @@ function ProfileEditPage() {
   const usernameInput = useRef();
   const accountnameInput = useRef();
 
-  const baseURL = "https://mandarin.api.weniv.co.kr";
   const token = window.localStorage.getItem("token");
   const navigate = useNavigate();
 
@@ -51,13 +51,13 @@ function ProfileEditPage() {
       const formData = new FormData();
       formData.append("image", file);
       const imageReqPath = "/image/uploadfile";
-      const res = await fetch(baseURL + imageReqPath, {
+      const res = await fetch(BASE_URL + imageReqPath, {
         method: "POST",
         body: formData,
       });
       const json = await res.json();
       const filename = await json.filename;
-      return baseURL + "/" + filename;
+      return BASE_URL + "/" + filename;
     } catch (error) {
       console.log(error.message);
     }
@@ -81,7 +81,7 @@ function ProfileEditPage() {
       }
       const reqBody = { user: { ...value } };
       try {
-        const data = await fetch(baseURL + "/user", {
+        const data = await fetch(BASE_URL + "/user", {
           method: "PUT",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -90,7 +90,6 @@ function ProfileEditPage() {
           body: JSON.stringify(reqBody),
         });
         const result = await data.json();
-        console.log(result);
         window.localStorage.removeItem("accountname");
         window.localStorage.setItem("accountname", result.user.accountname);
         navigate(`/profile/${value.accountname}`);
