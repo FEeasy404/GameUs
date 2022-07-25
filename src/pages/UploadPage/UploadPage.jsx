@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleImageSize } from "../../common/ImageResize";
-import { uploadmultipleImages } from "../../common/ImageUpload";
+import { uploadImage } from "../../common/ImageUpload";
 import { uploadData } from "./UploadAPI";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import ImageInputButton from "../../components/atoms/ImageInputButton/ImageInputButton";
@@ -26,7 +26,6 @@ function UploadPage() {
   //이미지 프리뷰
   function previewMultipleImages(files) {
     const copyImages = [...images];
-    console.log(files);
     for (let i = 0; i < files.length; i++) {
       const image = {
         key: Date.now() + i,
@@ -57,7 +56,7 @@ function UploadPage() {
     for (let file of images) {
       imageArr.push(await handleImageSize(file.data));
     }
-    return await uploadmultipleImages(imageArr);
+    return await uploadImage(imageArr);
   }
 
   //업로드 버튼
