@@ -2,12 +2,7 @@ const BASE_URL = "https://mandarin.api.weniv.co.kr";
 const TOKEN = window.localStorage.getItem("token");
 
 async function uploadData(imageNames, text) {
-  const imageData = imageNames
-    ? imageNames
-        .split(",")
-        .map((name) => BASE_URL + "/" + name)
-        .join(",")
-    : "";
+  const imageData = imageNames ? imageNames : "";
   const data = {
     post: {
       content: text,

@@ -1,28 +1,11 @@
 const BASE_URL = "https://mandarin.api.weniv.co.kr";
 
-//이미지 업로드
-async function uploadImage(file) {
+//이미지 업로드 - 한 개, 여러개
+async function uploadImage(files) {
+  const fileArr = Array.isArray(files) ? [...files] : [files];
+  let fileUrls = [];
   try {
-    const formData = new FormData();
-    formData.append("image", file);
-    const imageReqPath = "/image/uploadfile";
-    const res = await fetch(BASE_URL + imageReqPath, {
-      method: "POST",
-      body: formData,
-    });
-    const json = await res.json();
-    const filename = await json.filename;
-    return BASE_URL + "/" + filename;
-  } catch (error) {
-    console.log(error.message);
-  }
-}
-
-//여러장 이미지 업로드
-async function uploadmultipleImages(files) {
-  let fileNames = [];
-  try {
-    for (let file of files) {
+    for (let file of fileArr) {
       const formData = new FormData();
       formData.append("image", file);
       const res = await fetch(BASE_URL + "/image/uploadfile", {
@@ -30,17 +13,16 @@ async function uploadmultipleImages(files) {
         body: formData,
       });
       const json = await res.json();
-      const filename = await json.filename;
-      fileNames.push(filename);
+      fileUrls.push(`${BASE_URL}/${json.filename}`);
     }
-    if (fileNames.length > 1) {
-      return fileNames.join(",");
+    if (fileUrls.length > 1) {
+      return fileUrls.join(",");
     } else {
-      return fileNames[0];
+      return fileUrls[0];
     }
   } catch (error) {
     console.log(error.message);
   }
 }
 
-export { uploadImage, uploadmultipleImages };
+export { uploadImage };
