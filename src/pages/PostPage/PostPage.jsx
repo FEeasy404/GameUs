@@ -38,7 +38,7 @@ function PostPage() {
   }
 
   return (
-    <section style={{ paddingBottom: "61px" }}>
+    <section>
       <h1 className="a11y-hidden">게시글 상세 페이지</h1>
       <HeaderForm backButton={true} menuButton={true} />
       {post && <PostCard post={post} />}
