@@ -1,4 +1,4 @@
-const BASE_URL = "https://mandarin.api.weniv.co.kr";
+import { BASE_URL } from "./BASE_URL.jsx";
 
 //이미지 업로드 - 한 개, 여러개
 async function uploadImage(files) {
