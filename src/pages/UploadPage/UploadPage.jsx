@@ -76,7 +76,7 @@ function UploadPage() {
         backButton={true}
         button="업로드"
         onClick={handleUploadButton}
-        active={text && images.length > 0 && true}
+        active={text && true}
       />
       <UploadForm
         images={images}
