@@ -6,18 +6,29 @@
   margin: 0px auto;
 }
 
-.wrapper-link{
-  display: flex;
-  justify-content: flex-start;
+.wrapper-follow > div:first-child {
+  min-width: 50px;
 }
 
-.wrapper-link > div:nth-child(2) {
+.wrapper-link {
+  display: block;
   max-width: 240px;
-  margin: 5px 0 6px 12px;
 }
 
 .wrapper-follow > button {
   width: 56px;
-  justify-self: end;
+  justify-self: flex-end;
   margin-left: auto;
+}
+
+@media screen and (max-width: 400px) {
+  .wrapper-link {
+    max-width: 180px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .wrapper-link {
+    max-width: 100px;
+  }
 }
