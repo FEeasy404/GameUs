@@ -41,7 +41,7 @@ async function uploadComment(postId, text) {
     },
   };
   try {
-    fetch(BASE_URL + `/post/${postId}/comments`, {
+    await fetch(BASE_URL + `/post/${postId}/comments`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${TOKEN}`,
@@ -54,4 +54,18 @@ async function uploadComment(postId, text) {
   }
 }
 
-export { getPostData, getPostComment, uploadComment };
+async function deleteComment(postId, commentId) {
+  try {
+    await fetch(BASE_URL + `/post/${postId}/comments/${commentId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-type": "application/json",
+      },
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export { getPostData, getPostComment, uploadComment, deleteComment };

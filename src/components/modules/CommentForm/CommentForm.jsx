@@ -5,14 +5,19 @@ import IconButton from "../../atoms/IconButton/IconButton";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import Modal from "../../../components/organisms/Modal/Modal";
 
-function CommentForm({ src, accoutName, userName, createTime, text }) {
+function CommentForm({
+  id,
+  src,
+  accoutName,
+  userName,
+  createTime,
+  text,
+  handleDelete,
+}) {
   const navigate = useNavigate();
   const [onModal, setOnModal] = useState(false);
   const myAccountname = window.localStorage.getItem("accountname");
-  //심화 기능
-  function handleDelete() {
-    console.log("댓글 삭제");
-  }
+
   return (
     <>
       <div className={styles["wrapper-comment"]}>
@@ -36,7 +41,7 @@ function CommentForm({ src, accoutName, userName, createTime, text }) {
           onClose={() => setOnModal(false)}
           buttons={
             myAccountname === accoutName
-              ? [{ text: "삭제", onClick: handleDelete }]
+              ? [{ text: "삭제", onClick: () => handleDelete(id) }]
               : [{ text: "신고 하기" }]
           }
           name="댓글"
