@@ -17,12 +17,19 @@ function ProfilePage() {
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [isAlbum, setAlbum] = useState(false);
+  const [isMyProfile, setIsMyProfile] = useState("");
 
   const BASE_URL = "https://mandarin.api.weniv.co.kr";
   const TOKEN = window.localStorage.getItem("token");
+  const myAccountname = window.localStorage.getItem("accountname");
 
   useEffect(() => {
     // 사용자의 프로필 정보를 받아오는 함수입니다.
+    if (myAccountname === accountname) {
+      setIsMyProfile(true);
+    } else {
+      setIsMyProfile(false);
+    }
     async function getProfile() {
       try {
         const data = await fetch(BASE_URL + `/profile/${accountname}`, {
@@ -80,8 +87,8 @@ function ProfilePage() {
     <>
       <h1 className="a11y-hidden">프로필 페이지</h1>
       <HeaderForm backButton={true} menuButton={true} />
-      <UserProfile userProfile={profile} />
-      <ProductList products={products} />
+      <UserProfile isMyProfile={isMyProfile} userProfile={profile} />
+      <ProductList isMyProfile={isMyProfile} products={products} />
       {posts.length != 0 && (
         <section>
           <PostHeader isAlbum={isAlbum} setAlbum={setAlbum} />

@@ -4,8 +4,7 @@ import MyProfileButton from "../../modules/MyProfileButton/MyProfileButton";
 import ProfileButton from "../../modules/ProfileButton/ProfileButton";
 import styles from "./userProfile.module.css";
 
-function UserProfile({ userProfile }) {
-  const myAccountname = window.localStorage.getItem("accountname");
+function UserProfile({ isMyProfile, userProfile }) {
   return (
     <section className={styles["wrapper-profile"]}>
       <UserProfileBox
@@ -16,7 +15,7 @@ function UserProfile({ userProfile }) {
         followerCount={userProfile.followerCount}
         followingCount={userProfile.followingCount}
       />
-      {userProfile.accountname == myAccountname ? (
+      {isMyProfile ? (
         <MyProfileButton />
       ) : (
         <ProfileButton isFollowing={userProfile.isFollowing} />
