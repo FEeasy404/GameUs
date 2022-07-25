@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeaderForm from "../components/modules/HeaderForm/HeaderForm";
+import BottomNavigateBar from "../components/modules/BottomNavigateBar/BottomNavigateBar";
 import FollowList from "../components/organisms/FollowList/FollowList";
 
 function FollowerPage() {
@@ -32,7 +33,7 @@ function FollowerPage() {
   }, [accountname]);
 
   return (
-    <>
+    <section>
       <h1 className="a11y-hidden">팔로워 페이지</h1>
       <HeaderForm
         backButton={true}
@@ -41,7 +42,8 @@ function FollowerPage() {
         menuButton={false}
       />
       {followers && <FollowList list={followers} />}
-    </>
+      <BottomNavigateBar />
+    </section>
   );
 }
 

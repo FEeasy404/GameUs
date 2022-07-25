@@ -3,9 +3,11 @@ const TOKEN = window.localStorage.getItem("token");
 
 async function uploadData(imageNames, text) {
   const imageData = imageNames
-    .split(",")
-    .map((name) => BASE_URL + "/" + name)
-    .join(",");
+    ? imageNames
+        .split(",")
+        .map((name) => BASE_URL + "/" + name)
+        .join(",")
+    : "";
   const data = {
     post: {
       content: text,
