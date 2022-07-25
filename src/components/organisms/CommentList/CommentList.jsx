@@ -20,18 +20,20 @@ function getTimeStamp(createdAt) {
   return `${Math.floor(elapsedYear)}년 전`;
 }
 
-function CommentList({ comments }) {
+function CommentList({ comments, handleDelete }) {
   return (
     <ul className={styles["wrapper-comment"]}>
       {comments.map((item) => {
         return (
           <li key={item.id}>
             <CommentForm
+              id={item.id}
               src={item.author.image}
               accoutName={item.author.accountname}
               userName={item.author.username}
               createTime={getTimeStamp(item.createdAt)}
               text={item.content}
+              handleDelete={handleDelete}
             />
           </li>
         );

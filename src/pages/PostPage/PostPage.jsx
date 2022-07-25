@@ -1,6 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
-import { getPostData, getPostComment, uploadComment } from "./PostPageAPI";
+import {
+  getPostData,
+  getPostComment,
+  uploadComment,
+  deleteComment,
+} from "./PostPageAPI";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
 import CommentList from "../../components/organisms/CommentList/CommentList";
@@ -11,18 +16,25 @@ function PostPage() {
   const inputRef = useRef();
   const [post, setPost] = useState();
   const [comments, setComments] = useState([]);
-  const [text, setText] = useState("");
+  const [changeComments, setChangeComments] = useState(false);
 
   useEffect(() => {
-    getPostData(postId, setPost);
     getPostComment(postId, setComments);
-  }, [postId, text]);
+    getPostData(postId, setPost);
+  }, [postId, changeComments]);
 
+  //댓글 입력 및 추가
   async function handleTextInput() {
     const inputText = inputRef.current.value;
     inputRef.current.value = "";
-    setText(inputText);
     await uploadComment(postId, inputText);
+    setChangeComments(inputText);
+  }
+
+  //댓글 삭제
+  async function handleDelete(commentId) {
+    await deleteComment(postId, commentId);
+    setChangeComments(commentId);
   }
 
   return (
@@ -30,7 +42,9 @@ function PostPage() {
       <h1 className="a11y-hidden">게시글 상세 페이지</h1>
       <HeaderForm backButton={true} menuButton={true} />
       {post && <PostCard post={post} />}
-      {comments && <CommentList comments={comments} />}
+      {comments && (
+        <CommentList comments={comments} handleDelete={handleDelete} />
+      )}
       <MessageInput
         type="comment"
         src=""
