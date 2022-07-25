@@ -10,13 +10,13 @@ function UserFollow({ user }) {
   const [isFollowing, setIsFollowing] = useState(false);
   return (
     <div className={styles["wrapper-follow"]}>
-      <Link to={`/profile/${user.accountname}`} className={styles["wrapper-link"]}>
         <ImageBox
           src={user.image}
           type="circle"
           size="medium"
           alt="프로필 이미지"
         />
+        <Link to={`/profile/${user.accountname}`} className={styles["wrapper-link"]}>
         <UserNameIntroduce
           userName={user.username}
           userIntroduce={user.intro}
