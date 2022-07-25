@@ -17,9 +17,9 @@ function ChatListPage() {
     message: "동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세",
     date: "2020.10.25",
     read: true,
-  }
+  };
   const chatData = [item1, item2];
-  console.log(chatData)
+  console.log(chatData);
 
   return (
     <section>
@@ -32,16 +32,10 @@ function ChatListPage() {
               <ImageBox type={"circle"} size={"medium_small"} />
             </div>
             <div className={styles.right}>
-                <strong className={styles.username}>
-                  {item.username}
-                </strong>
+              <strong className={styles.username}>{item.username}</strong>
               <div className={styles["info-message"]}>
-                <span className={styles.message}>
-                  {item.message}
-                </span>
-                <span className={styles.date}>
-                  {item.date}
-                </span>
+                <span className={styles.message}>{item.message}</span>
+                <span className={styles.date}>{item.date}</span>
               </div>
             </div>
           </li>
@@ -49,7 +43,7 @@ function ChatListPage() {
       </ul>
       <BottomNavigateBar />
     </section>
-  )
+  );
 }
 
-export default ChatListPage
+export default ChatListPage;

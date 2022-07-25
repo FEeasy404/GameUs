@@ -1,0 +1,8 @@
+.wrapper-header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 10px 16px;
+  border: 0.5px solid var(--lightgray-color);
+  border-width: 0.5px 0;
+}

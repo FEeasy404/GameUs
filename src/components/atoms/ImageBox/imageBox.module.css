@@ -29,6 +29,11 @@
   height: 114px;
 }
 
+.square img {
+  height: 100%;
+  width: 100%;
+}
+
 /* 댓글에서 사용되는 프로필 이미지입니다. */
 .circle.small {
   width: 36px;

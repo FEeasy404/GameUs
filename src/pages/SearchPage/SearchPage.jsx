@@ -14,11 +14,11 @@ function SearchPage() {
       <ul className={styles["container-users"]}>
         <li>
           <Link to={"/profile/jordi3"} className={styles["container-user"]}>
-            <ImageBox 
-              src={"https://mandarin.api.weniv.co.kr/1657961502180.png"} 
-              type={"circle"} 
-              size={"medium"} 
-              alt={"jordi3"} 
+            <ImageBox
+              src={"https://mandarin.api.weniv.co.kr/1657961502180.png"}
+              type={"circle"}
+              size={"medium"}
+              alt={"jordi3"}
             />
             <div className={styles["info-user"]}>
               <strong className={styles["username"]}>죠르디</strong>
@@ -28,11 +28,11 @@ function SearchPage() {
         </li>
         <li>
           <Link to={"/profile/jordi3"} className={styles["container-user"]}>
-            <ImageBox 
-              src={"https://mandarin.api.weniv.co.kr/1657961502180.png"} 
-              type={"circle"} 
-              size={"medium"} 
-              alt={"jordi3"} 
+            <ImageBox
+              src={"https://mandarin.api.weniv.co.kr/1657961502180.png"}
+              type={"circle"}
+              size={"medium"}
+              alt={"jordi3"}
             />
             <div className={styles["info-user"]}>
               <strong className={styles["username"]}>죠르디</strong>
@@ -43,7 +43,7 @@ function SearchPage() {
       </ul>
       <BottomNavigateBar />
     </section>
-  )
+  );
 }
 
 export default SearchPage;

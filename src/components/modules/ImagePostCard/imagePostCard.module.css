@@ -1,0 +1,9 @@
+.link-image {
+  position: relative;
+}
+
+.link-image > button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
