@@ -1,0 +1,39 @@
+.link::before {
+  content: " ";
+  display: block;
+  margin: 0 auto 4px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+}
+
+.active {
+  color: #F26E22;
+}
+
+.home::before {
+  background-image: url("../../../assets/icon-home.svg");
+}
+.home.active::before {
+  background-image: url("../../../assets/icon-home-fill.svg");
+}
+
+.chat::before {
+  background-image: url("../../../assets/icon-message-circle.svg");
+}
+.chat.active::before {
+  background-image: url("../../../assets/icon-message-circle-fill.svg");
+}
+
+.post::before {
+  background-image: url("../../../assets/icon-edit.svg");
+}
+
+.profile::before {
+  background-image: url("../../../assets/icon-user.svg");
+}
+.profile.active::before {
+  background-image: url("../../../assets/icon-user-fill.svg");
+}
