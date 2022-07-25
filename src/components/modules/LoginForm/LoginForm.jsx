@@ -102,11 +102,8 @@ function LoginForm({ label, setEmailPasswordValid }) {
         // 이메일, 비밀번호가 둘 다 빈 경우는 아예 버튼을 disabled 시켰기 때문에 따로 에러 메시지를 띄우지 않게 했습니다.
 
         // 로컬 스토리지에 accountname 저장
-        window.localStorage.removeItem("accountname");
         window.localStorage.setItem("accountname", result.user.accountname);
-        // 로컬 스토리지에 남아 있는 토큰을 지우고 다시 토큰을 설정합니다.
-        // 로그아웃 기능이 따로 없는 거 같아서 우선은 로그인하면서 지워줍니다.
-        window.localStorage.removeItem("token");
+        // 로컬 스토리지에 토큰 저장
         window.localStorage.setItem("token", result.user.token);
 
         navigate("/");

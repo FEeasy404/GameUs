@@ -23,7 +23,9 @@ function HeaderForm({
   const [onModal, setOnModal] = useState(false);
   //로그아웃 함수
   function handleLogout() {
-    console.log("로그아웃");
+    window.localStorage.removeItem("accountname");
+    window.localStorage.removeItem("token");
+    navigate("/");
   }
   return (
     <>
