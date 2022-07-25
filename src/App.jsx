@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./reset.css";
+import "./font.css";
 import "./global.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
