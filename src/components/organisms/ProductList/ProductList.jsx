@@ -7,6 +7,14 @@ function ProductList({ isMyProfile, products }) {
   const [onModal, setOnModal] = useState(false);
   const [link, setLink] = useState("");
 
+  function handleDeletePost() {
+    // 상품 게시글 삭제 함수입니다.
+  }
+
+  function handleEditPost() {
+    // 상품 게시글 수정 함수입니다.
+  }
+
   function navigateLink(link) {
     window.open(link, "_blank");
   }
@@ -44,8 +52,8 @@ function ProductList({ isMyProfile, products }) {
         <Modal
           onClose={() => setOnModal(false)}
           buttons={[
-            { text: "삭제", onClick: () => {} },
-            { text: "수정", onClick: () => {} },
+            { text: "삭제", onClick: handleDeletePost },
+            { text: "수정", onClick: handleEditPost },
             {
               text: "웹사이트에서 상품 보기",
               onClick: () => navigateLink(link),
