@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import "./reset.css";
 import "./font.css";
 import "./global.css";
+import SplashPage from "./pages/SplashPage/SplashPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import AddProductPage from "./pages/AddProductPage/AddProductPage";
@@ -20,7 +21,8 @@ function App() {
   return (
     <div className="max-width">
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<SplashPage />} />
+        <Route path="/feed" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/search" element={<SearchPage />} />
