@@ -10,15 +10,18 @@ import ImagePostCard from "../../components/modules/ImagePostCard/ImagePostCard"
 import styles from "./profilePage.module.css";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
 import { BASE_URL } from "../../common/BASE_URL";
+import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
   let { accountname } = useParams();
+  const navigate = useNavigate();
   const [profile, setProfile] = useState({});
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [isAlbum, setAlbum] = useState(false);
   const [isMyProfile, setIsMyProfile] = useState("");
+  const [isDeletePost, setDeletePost] = useState("");
 
   const TOKEN = window.localStorage.getItem("token");
   const myAccountname = window.localStorage.getItem("accountname");
@@ -62,7 +65,11 @@ function ProfilePage() {
         console.log(error.message);
       }
     }
+    getProfile();
+    getProducts();
+  }, [accountname]);
 
+  useEffect(() => {
     async function getPosts() {
       try {
         const data = await fetch(BASE_URL + `/post/${accountname}/userpost`, {
@@ -78,10 +85,30 @@ function ProfilePage() {
         console.log(error.message);
       }
     }
-    getProfile();
-    getProducts();
     getPosts();
-  }, [accountname]);
+  }, [accountname, isDeletePost]);
+
+  //게시물 삭제 함수
+  async function handlePostDelete(postId) {
+    try {
+      await fetch(BASE_URL + `/post/${postId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+          "Content-type": "application/json",
+        },
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+    setDeletePost(postId);
+  }
+
+  //게시물 수정 함수
+  function handlePostChange(postId) {
+    console.log(postId);
+    navigate(`/post/edit/${postId}`);
+  }
 
   return (
     <>
@@ -96,7 +123,11 @@ function ProfilePage() {
             <ol>
               {posts.map((post, index) => (
                 <li key={index}>
-                  <PostCard post={post} />
+                  <PostCard
+                    post={post}
+                    handlePostDelete={handlePostDelete}
+                    handlePostChange={handlePostChange}
+                  />
                 </li>
               ))}
             </ol>

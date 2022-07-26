@@ -30,20 +30,17 @@ function ImageListMaker({ image }) {
   }
 }
 
-function PostCard({ post }) {
+function PostCard({ post, handlePostDelete, handlePostChange }) {
   const [onModal, setOnModal] = useState(false);
   const myAccountname = window.localStorage.getItem("accountname");
   const author = post.author;
-  function handleDelete() {
-    console.log("게시글 삭제");
-  }
-  function handleChange() {
-    console.log("게시글 수정");
-  }
   return (
     <>
       <article className={styles["container-post"]}>
-        <Link to={`/profile/${author.accountname}`} className={styles["profile"]}>
+        <Link
+          to={`/profile/${author.accountname}`}
+          className={styles["profile"]}
+        >
           <ImageBox type={"circle"} size={"medium_small"} src={author.image} />
         </Link>
         <div className={styles["container-user"]}>
@@ -76,8 +73,8 @@ function PostCard({ post }) {
           buttons={
             myAccountname === author.accountname
               ? [
-                  { text: "삭제", onClick: handleDelete },
-                  { text: "수정", onClick: handleChange },
+                  { text: "삭제", onClick: () => handlePostDelete(post.id) },
+                  { text: "수정", onClick: () => handlePostChange(post.id) },
                 ]
               : [{ text: "신고" }]
           }
