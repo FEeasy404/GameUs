@@ -40,21 +40,14 @@ function ProfileEditPage() {
         URL.revokeObjectURL(data.image.src);
         const imageUrl = await uploadImage(resizedImage);
         data.image = imageUrl;
-        // () => {
-        //   setValue({ ...value, image: imageUrl });
-        // };
       }
       // 이미지를 선택하지 않았다면 기본 이미지로 설정됩니다.
       else {
-        // () => {
-        //   setValue({
-        //     ...value,
-        //     image: "https://mandarin.api.weniv.co.kr/1658306906297.png",
-        //   });
-        // };
         data.image = "https://mandarin.api.weniv.co.kr/1658306906297.png";
       }
-      await editProfile(data);
+
+      const reqData = { user: { ...data } };
+      await editProfile(reqData);
       navigate(`/profile/${value.accountname}`);
     }
   }
