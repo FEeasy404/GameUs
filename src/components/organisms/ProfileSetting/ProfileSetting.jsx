@@ -5,9 +5,9 @@ import { uploadImage } from "../../../common/ImageUpload";
 import ProfileForm from "../../modules/ProfileForm/ProfileForm";
 import Button from "../../atoms/Button/Button";
 import styles from "./profileSetting.module.css";
-import { BASE_URL } from "../../../common/BASE_URL";
+import { postRegister } from "../../../pages/RegisterPage/RegisterPageAPI";
 
-function ProfileSetting(value, setValue, error, setError) {
+function ProfileSetting({ value, setValue, error, setError }) {
   // 계정 ID가 이미 가입되어 있으면 false, 가입 가능하면 true입니다.
   const [isAccountnameValid, setAccountnameValid] = useState(false);
 
@@ -24,34 +24,21 @@ function ProfileSetting(value, setValue, error, setError) {
 
     // 에러가 없고 계정 ID가 유효하다면 context에 이미지, 사용자 이름, 계정 ID, 소개를 저장합니다.
     if (!error.username && !error.accountname && isAccountnameValid) {
+      const data = value;
       if (value.image) {
-        const resizedImage = await handleImageSize(value.image.data);
+        const resizedImage = await handleImageSize(data.image.data);
+        URL.revokeObjectURL(data.image.src);
         const imageUrl = await uploadImage(resizedImage);
-        URL.revokeObjectURL(value.image.src);
-        value.image = imageUrl;
+        data.image = imageUrl;
       }
       // 이미지를 선택하지 않았다면 기본 이미지로 설정됩니다.
       else {
-        value.image.src = "https://mandarin.api.weniv.co.kr/1658306906297.png";
+        data.image = "https://mandarin.api.weniv.co.kr/1658306906297.png";
       }
-      const reqData = {
-        user: {
-          ...value,
-        },
-      };
+      const reqData = { user: { ...data } };
       // context에 저장된 데이터로 회원가입을 진행합니다.
-      try {
-        await fetch(BASE_URL + "/user", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(reqData),
-        });
-        navigate("/");
-      } catch (error) {
-        console.log(error.message);
-      }
+      await postRegister(reqData);
+      navigate("/");
     }
   }
 

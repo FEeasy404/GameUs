@@ -5,13 +5,13 @@ import styles from "./profileForm.module.css";
 import { BASE_URL } from "../../../common/BASE_URL";
 
 function ProfileForm({
-  setAccountnameValid,
   value,
   setValue,
   error,
   setError,
   usernameInput,
   accountnameInput,
+  setAccountnameValid,
 }) {
   // 계정 ID 검사 정규식입니다.
   const accountnameRegExp = /^[a-zA-Z0-9_.]+$/i;

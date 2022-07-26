@@ -18,12 +18,10 @@ function RegisterPage() {
   });
 
   const [error, setError] = useState({
-    username: "",
     email: "",
     password: "",
+    username: "",
     accountname: "",
-    intro: "",
-    image: "",
   });
 
   return !isEmailPasswordValid ? (
