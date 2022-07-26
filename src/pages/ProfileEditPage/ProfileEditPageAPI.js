@@ -1,11 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
 import { BASE_URL } from "../../common/BASE_URL";
 
 async function handleEdit(error, value, isAccountnameValid) {
   const TOKEN = window.localStorage.getItem("token");
-  const navigate = useNavigate();
   // 에러가 없고 계정 ID가 유효하다면 context에 이미지, 사용자 이름, 계정 ID, 소개를 저장합니다.
   if (!error.username && !error.accountname && isAccountnameValid) {
     if (value.image) {
@@ -31,7 +29,6 @@ async function handleEdit(error, value, isAccountnameValid) {
       const result = await data.json();
       window.localStorage.removeItem("accountname");
       window.localStorage.setItem("accountname", result.user.accountname);
-      navigate(`/profile/${value.accountname}`);
     } catch (error) {
       console.log(error.message);
     }

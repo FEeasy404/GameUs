@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import ProfileForm from "../../components/modules/ProfileForm/ProfileForm";
 import styles from "./profileEditPage.module.css";
@@ -23,17 +24,26 @@ function ProfileEditPage() {
   const usernameInput = useRef();
   const accountnameInput = useRef();
 
+  const navigate = useNavigate();
+
   return (
     <section className={styles["wrapper-profile"]}>
       <h1 className="a11y-hidden">프로필 수정 페이지</h1>
       <HeaderForm
         backButton={true}
         button="저장"
-        active={value.username && value.accountname && true}
+        active={
+          value.username &&
+          value.accountname &&
+          !error.username &&
+          !error.accountname &&
+          true
+        }
         onClick={() => {
           usernameInput.current.blur();
           accountnameInput.current.blur();
           handleEdit(error, value, isAccountnameValid);
+          navigate(`/profile/${value.accountname}`);
         }}
       />
       <ProfileForm
