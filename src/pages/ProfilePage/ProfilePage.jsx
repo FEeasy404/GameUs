@@ -10,12 +10,11 @@ import ImagePostCard from "../../components/modules/ImagePostCard/ImagePostCard"
 import styles from "./profilePage.module.css";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
 import { BASE_URL } from "../../common/BASE_URL";
-import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
   let { accountname } = useParams();
-  const navigate = useNavigate();
+
   const [profile, setProfile] = useState({});
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -70,6 +69,7 @@ function ProfilePage() {
   }, [accountname]);
 
   useEffect(() => {
+    //계정이 바뀌거나, 게시글이 삭제되었을때 재렌더링 됩니다
     async function getPosts() {
       try {
         const data = await fetch(BASE_URL + `/post/${accountname}/userpost`, {
@@ -88,28 +88,6 @@ function ProfilePage() {
     getPosts();
   }, [accountname, isDeletePost]);
 
-  //게시물 삭제 함수
-  async function handlePostDelete(postId) {
-    try {
-      await fetch(BASE_URL + `/post/${postId}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-          "Content-type": "application/json",
-        },
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
-    setDeletePost(postId);
-  }
-
-  //게시물 수정 함수
-  function handlePostChange(postId) {
-    console.log(postId);
-    navigate(`/post/edit/${postId}`);
-  }
-
   return (
     <>
       <h1 className="a11y-hidden">프로필 페이지</h1>
@@ -123,11 +101,7 @@ function ProfilePage() {
             <ol>
               {posts.map((post, index) => (
                 <li key={index}>
-                  <PostCard
-                    post={post}
-                    handlePostDelete={handlePostDelete}
-                    handlePostChange={handlePostChange}
-                  />
+                  <PostCard post={post} setDeletePost={setDeletePost} />
                 </li>
               ))}
             </ol>

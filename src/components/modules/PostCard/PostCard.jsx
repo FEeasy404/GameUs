@@ -8,6 +8,8 @@ import styles from "./postCard.module.css";
 import IconButton from "../../atoms/IconButton/IconButton";
 import Modal from "../../../components/organisms/Modal/Modal";
 import { Link } from "react-router-dom";
+import { deletePost } from "./PostCardAPI";
+import { useNavigate } from "react-router-dom";
 
 function ImageListMaker({ image }) {
   const imageData = image.split(",");
@@ -30,10 +32,19 @@ function ImageListMaker({ image }) {
   }
 }
 
-function PostCard({ post, handlePostDelete, handlePostChange }) {
+function PostCard({ post, setDeletePost }) {
+  const navigate = useNavigate();
   const [onModal, setOnModal] = useState(false);
   const myAccountname = window.localStorage.getItem("accountname");
   const author = post.author;
+  async function handlePostDelete(postId) {
+    await deletePost(postId, setDeletePost);
+    navigate(`/profile/${author.accountname}`);
+  }
+  function handlePostChange(postId) {
+    console.log(postId);
+    navigate(`/post/edit/${postId}`);
+  }
   return (
     <>
       <article className={styles["container-post"]}>
