@@ -4,6 +4,7 @@ import InputBox from "../../atoms/InputBox/InputBox";
 import Button from "../../atoms/Button/Button";
 import styles from "./loginForm.module.css";
 import { BASE_URL } from "../../../common/BASE_URL";
+import { postLogin } from "../../../pages/LoginPage/LoginPageAPI";
 
 function LoginForm({
   label,
@@ -74,43 +75,33 @@ function LoginForm({
   async function handleSubmitLogin() {
     // 로그인은 버튼 눌렀을 때 유효성 검사를 하므로 여기에서 함수를 실행시킵니다.
     if (error && checkEmailError() && checkPasswordError()) {
-      const reqBody = {
+      const reqData = {
         user: {
           ...value,
         },
       };
-      try {
-        const data = await fetch(BASE_URL + "/user/login", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(reqBody),
+      const result = await postLogin(reqData, error, setError);
+      if (result.status === 422) {
+        setError({
+          ...error,
+          password: "이메일 또는 비밀번호가 일치하지 않습니다.",
         });
-        const result = await data.json();
-        // 이메일, 비밀번호가 일치하지 않는 경우
-        if (result.status === 422) {
-          setError({ ...error, password: result.message });
-          emailInput.current.focus();
-        }
-        // 이메일, 비밀번호가 둘 다 빈 경우는 아예 버튼을 disabled 시켰기 때문에 따로 에러 메시지를 띄우지 않게 했습니다.
-
+      } else {
         // 로컬 스토리지에 accountname 저장
         window.localStorage.setItem("accountname", result.user.accountname);
         // 로컬 스토리지에 토큰 저장
         window.localStorage.setItem("token", result.user.token);
-
         navigate("/");
-      } catch (error) {
-        console.log(error.message);
       }
+      // if (!error.email && !error.password) {
+      // }
     }
   }
 
   // 회원 가입에서는 blur일 때 유효성 검사를 진행합니다.
   async function checkEmailValid() {
     // 이미 존재하는 이메일인지 검사합니다.
-    const reqBody = {
+    const reqData = {
       user: {
         email: value.email,
       },
@@ -121,7 +112,7 @@ function LoginForm({
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify(reqBody),
+        body: JSON.stringify(reqData),
       });
       const result = await data.json();
 
