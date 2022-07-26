@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import imageCompression from "browser-image-compression";
+import { handleImageSize } from "../../../common/ImageResize";
+import { uploadImage } from "../../../common/ImageUpload";
 import ProfileForm from "../../modules/ProfileForm/ProfileForm";
 import Button from "../../atoms/Button/Button";
 import { RegisterContext } from "../../../contexts/RegisterContext";
@@ -32,41 +33,6 @@ function ProfileSetting() {
 
   const navigate = useNavigate();
 
-  // 이미지 리사이즈 함수입니다.
-  async function handleImageResize(file) {
-    const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 500,
-    };
-    try {
-      const blobFile = await imageCompression(file, options);
-      const newFile = new File([blobFile], `${blobFile.name}`, {
-        type: blobFile.type,
-      });
-      return newFile;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  // 이미지를 서버에 업로드하는 함수입니다.
-  async function uploadImage(file) {
-    try {
-      const formData = new FormData();
-      formData.append("image", file);
-      const imageReqPath = "/image/uploadfile";
-      const res = await fetch(BASE_URL + imageReqPath, {
-        method: "POST",
-        body: formData,
-      });
-      const json = await res.json();
-      const filename = await json.filename;
-      return BASE_URL + "/" + filename;
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-
   // 회원 가입 함수입니다.
   async function handleRegister() {
     usernameInput.current.blur();
@@ -76,7 +42,7 @@ function ProfileSetting() {
     if (!error.username && !error.accountname && isAccountnameValid) {
       const data = registerData;
       if (value.image) {
-        const resizedImage = await handleImageResize(value.image.data);
+        const resizedImage = await handleImageSize(value.image.data);
         const imageUrl = await uploadImage(resizedImage);
         data.user.image = imageUrl;
         URL.revokeObjectURL(value.image.src);
