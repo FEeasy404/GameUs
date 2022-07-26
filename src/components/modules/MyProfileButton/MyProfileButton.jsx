@@ -6,7 +6,7 @@ function MyProfileButton() {
   return (
     <div className={styles["container-button"]}>
       <Button
-        href="/profile/edit"
+        href="edit"
         size="medium"
         label="프로필 수정"
         active={true}
