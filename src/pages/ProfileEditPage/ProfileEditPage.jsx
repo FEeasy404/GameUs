@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import ProfileForm from "../../components/modules/ProfileForm/ProfileForm";
 import styles from "./profileEditPage.module.css";
-import { handleEdit } from "./ProfileEditPageAPI";
+import { editProfile } from "./ProfileEditPageAPI";
+import { handleImageSize } from "../../common/ImageResize";
+import { uploadImage } from "../../common/ImageUpload";
 
 function ProfileEditPage() {
   const [value, setValue] = useState({
@@ -17,6 +19,7 @@ function ProfileEditPage() {
     username: "",
     accountname: "",
   });
+
   // 계정 ID가 이미 가입되어 있으면 false, 가입 가능하면 true입니다.
   const [isAccountnameValid, setAccountnameValid] = useState(false);
 
@@ -25,6 +28,36 @@ function ProfileEditPage() {
   const accountnameInput = useRef();
 
   const navigate = useNavigate();
+
+  async function handleEdit() {
+    usernameInput.current.blur();
+    accountnameInput.current.blur();
+    // 에러가 없고 계정 ID가 유효하다면 context에 이미지, 사용자 이름, 계정 ID, 소개를 저장합니다.
+    if (!error.username && !error.accountname && isAccountnameValid) {
+      const data = value;
+      if (value.image) {
+        const resizedImage = await handleImageSize(data.image.data);
+        URL.revokeObjectURL(data.image.src);
+        const imageUrl = await uploadImage(resizedImage);
+        data.image = imageUrl;
+        // () => {
+        //   setValue({ ...value, image: imageUrl });
+        // };
+      }
+      // 이미지를 선택하지 않았다면 기본 이미지로 설정됩니다.
+      else {
+        // () => {
+        //   setValue({
+        //     ...value,
+        //     image: "https://mandarin.api.weniv.co.kr/1658306906297.png",
+        //   });
+        // };
+        data.image = "https://mandarin.api.weniv.co.kr/1658306906297.png";
+      }
+      await editProfile(data);
+      navigate(`/profile/${value.accountname}`);
+    }
+  }
 
   return (
     <section className={styles["wrapper-profile"]}>
@@ -39,12 +72,7 @@ function ProfileEditPage() {
           !error.accountname &&
           true
         }
-        onClick={() => {
-          usernameInput.current.blur();
-          accountnameInput.current.blur();
-          handleEdit(error, value, isAccountnameValid);
-          navigate(`/profile/${value.accountname}`);
-        }}
+        onClick={handleEdit}
       />
       <ProfileForm
         setAccountnameValid={setAccountnameValid}

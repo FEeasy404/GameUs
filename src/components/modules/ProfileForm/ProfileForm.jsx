@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import InputBox from "../../atoms/InputBox/InputBox";
 import ImageInputForm from "../ImageInputForm/ImageInputForm";
 import styles from "./profileForm.module.css";
+import { BASE_URL } from "../../../common/BASE_URL";
 
 function ProfileForm({
   setAccountnameValid,
@@ -14,7 +15,6 @@ function ProfileForm({
 }) {
   // 계정 ID 검사 정규식입니다.
   const accountnameRegExp = /^[a-zA-Z0-9_.]+$/i;
-  const baseURL = "https://mandarin.api.weniv.co.kr";
 
   // 사용자 이름과 계정 ID 내용이 바뀌면 에러가 표시되지 않도록 비웁니다.
   useEffect(() => {
@@ -82,7 +82,7 @@ function ProfileForm({
       },
     };
     try {
-      const data = await fetch(baseURL + "/user/accountnamevalid", {
+      const data = await fetch(BASE_URL + "/user/accountnamevalid", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

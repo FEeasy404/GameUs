@@ -3,7 +3,7 @@ import "./reset.css";
 import "./font.css";
 import "./global.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import AddProductPage from "./pages/AddProductPage/AddProductPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import ProfileEditPage from "./pages/ProfileEditPage/ProfileEditPage";
@@ -35,7 +35,10 @@ function App() {
           path="/profile/:accountname/following"
           element={<FollowingPage />}
         />
-        <Route path="profile/edit" element={<ProfileEditPage />} />
+        <Route
+          path="/profile/:accountname/edit"
+          element={<ProfileEditPage />}
+        />
         <Route path="/post" element={<UploadPage />} />
         <Route path="/post/:postId" element={<PostPage />} />
         <Route path="/*" element={<ErrorPage />} />
