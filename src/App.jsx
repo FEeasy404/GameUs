@@ -16,6 +16,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import PostPage from "./pages/PostPage/PostPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ChatListPage from "./pages/ChatListPage/ChatListPage";
+import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         />
         <Route path="/post" element={<UploadPage />} />
         <Route path="/post/:postId" element={<PostPage />} />
+        <Route path="/chatroom" element={<ChatRoomPage />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
