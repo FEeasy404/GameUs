@@ -6,11 +6,9 @@ import catImageURL from "../../assets/icon-404-cat.png";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
 import styles from "./homePage.module.css";
 import { BASE_URL } from "../../common/BASE_URL";
-import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
-  const navigate = useNavigate();
   // 화면에 보이는 포스트 개수를 post_limit에 지정합니다.
   let post_limit = 10;
   // 보지 않을 포스트 개수를 post_skip에 저장합니다. 이후 skip_amount만큼 증가합니다.
@@ -22,11 +20,6 @@ function HomePage() {
 
   // 팔로우하는 유저의 게시글 목록을 posts state에 받아옵니다.
   useEffect(() => {
-    if (!TOKEN) {
-      navigate("/login");
-    } else {
-      getPostDatas();
-    }
     async function getPostDatas() {
       try {
         const response = await fetch(BASE_URL + REQ_PATH, {
@@ -50,6 +43,7 @@ function HomePage() {
         console.log(error.message);
       }
     }
+    getPostDatas();
   }, []);
 
   // posts 배열의 길이가 0이면 팔로우한 유저가 없다고 판단, 검색 버튼이 나옵니다.
