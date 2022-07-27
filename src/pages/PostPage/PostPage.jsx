@@ -17,6 +17,7 @@ function PostPage() {
   const [post, setPost] = useState();
   const [comments, setComments] = useState([]);
   const [changeComments, setChangeComments] = useState(false);
+  const myImage = window.sessionStorage.getItem("image");
 
   useEffect(() => {
     getPostComment(postId, setComments);
@@ -48,7 +49,7 @@ function PostPage() {
         )}
         <MessageInput
           type="comment"
-          src=""
+          src={myImage}
           title="댓글"
           placeholder="댓글 입력하기..."
           buttonText="게시"

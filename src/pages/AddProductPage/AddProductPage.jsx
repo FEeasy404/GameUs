@@ -14,7 +14,7 @@ function AddProductPage() {
   const [link, setLink] = useState("");
   const [nameError, setNameError] = useState(false);
   const [priceError, setPriceError] = useState(false);
-  const myAccountname = window.localStorage.getItem("accountname");
+  const myAccountname = window.sessionStorage.getItem("accountname");
   //이미지 프리뷰
   async function saveImage(event) {
     const file = event.target.files[0];

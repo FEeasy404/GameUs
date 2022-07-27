@@ -16,7 +16,7 @@ function HomePage() {
   // const skip_amount = 5;
 
   const REQ_PATH = `/post/feed/?limit=${post_limit}&skip=${post_skip}`;
-  const TOKEN = window.localStorage.getItem("token");
+  const TOKEN = window.sessionStorage.getItem("token");
 
   // 팔로우하는 유저의 게시글 목록을 posts state에 받아옵니다.
   useLayoutEffect(() => {
@@ -53,27 +53,27 @@ function HomePage() {
       <HeaderForm title={"홈 피드"} searchButton={true} titleSize={"large"} />
       <div className="wrapper-contents">
         {posts &&
-        (posts.length === 0 ? (
-          <div className={styles["container-search_notice"]}>
-            <img src={catImageURL} />
-            <p className={styles["text"]}>유저를 검색해 팔로우 해보세요!</p>
-            <Button
-              href={"/search"}
-              size="medium"
-              label={"검색하기"}
-              active={true}
-              primary={true}
-            />
-          </div>
-        ) : (
-          <ul>
-            {posts.map((post, index) => (
-              <li key={index}>
-                <PostCard post={post} />
-              </li>
-            ))}
-          </ul>
-        ))}
+          (posts.length === 0 ? (
+            <div className={styles["container-search_notice"]}>
+              <img src={catImageURL} />
+              <p className={styles["text"]}>유저를 검색해 팔로우 해보세요!</p>
+              <Button
+                href={"/search"}
+                size="medium"
+                label={"검색하기"}
+                active={true}
+                primary={true}
+              />
+            </div>
+          ) : (
+            <ul>
+              {posts.map((post, index) => (
+                <li key={index}>
+                  <PostCard post={post} />
+                </li>
+              ))}
+            </ul>
+          ))}
       </div>
       <BottomNavigateBar />
     </section>

@@ -87,14 +87,14 @@ function LoginForm({
           password: "이메일 또는 비밀번호가 일치하지 않습니다.",
         });
       } else {
-        // 로컬 스토리지에 accountname 저장
-        window.localStorage.setItem("accountname", result.user.accountname);
-        // 로컬 스토리지에 토큰 저장
-        window.localStorage.setItem("token", result.user.token);
+        // 토큰 검증 과정 필요
+
+        // 검증이 끝나면 세션 스토리지에 토큰, 계정 ID, 이미지 저장
+        window.sessionStorage.setItem("token", result.user.token);
+        window.sessionStorage.setItem("accountname", result.user.accountname);
+        window.sessionStorage.setItem("image", result.user.image);
         navigate("/feed");
       }
-      // if (!error.email && !error.password) {
-      // }
     }
   }
 

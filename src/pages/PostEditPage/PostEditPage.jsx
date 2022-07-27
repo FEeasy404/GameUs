@@ -11,7 +11,7 @@ function UploadPage() {
   const navigate = useNavigate();
   const [text, setText] = useState("");
   const [images, setImages] = useState([]);
-  const myAccountname = window.localStorage.getItem("accountname");
+  const myAccountname = window.sessionStorage.getItem("accountname");
 
   useEffect(() => {
     getPostData(postId, setText, setImages);
@@ -47,7 +47,7 @@ function UploadPage() {
         onClick={handleUploadButton}
         active={text && true}
       />
-      <div className="wrapper-contents">  
+      <div className="wrapper-contents">
         <UploadForm
           images={images}
           setText={setText}

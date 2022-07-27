@@ -1,6 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-const TOKEN = window.localStorage.getItem("token");
+const TOKEN = window.sessionStorage.getItem("token");
 
 async function postProduct(name, price, link, fileUrl) {
   const data = {

@@ -10,7 +10,7 @@ function UploadPage() {
   const navigate = useNavigate();
   const [text, setText] = useState("");
   const [images, setImages] = useState([]);
-  const myAccountname = window.localStorage.getItem("accountname");
+  const myAccountname = window.sessionStorage.getItem("accountname");
 
   //이미지 업로드
   async function handleuploadImages(images) {

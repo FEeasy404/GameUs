@@ -2,7 +2,7 @@ import NavItem from "../../atoms/NavItem/NavItem";
 import styles from "./bottomNavigateBar.module.css";
 
 function BottomNavigateBar() {
-  const accountname = localStorage.getItem("accountname");
+  const accountname = window.sessionStorage.getItem("accountname");
 
   return (
     <nav className={styles["nav"]}>
