@@ -1,3 +1,7 @@
+.form-post {
+  padding: 20px 16px 16px;
+}
+
 .form-post > div:nth-child(2),
 .form-post > ul {
   margin-left: 54px;
@@ -8,4 +12,18 @@
   gap: 8px;
   overflow-y: hidden;
   overflow-x: auto;
+}
+
+.wrapper-bottom {
+  margin: auto;
+  max-width: 800px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+}
+
+.wrapper-bottom button {
+  margin: 0 16px 16px auto;
 }

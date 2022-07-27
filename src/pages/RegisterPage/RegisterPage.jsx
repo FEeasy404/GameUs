@@ -24,24 +24,28 @@ function RegisterPage() {
     accountname: "",
   });
 
-  return !isEmailPasswordValid ? (
-    <EmailPasswordForm
-      title="이메일로 회원 가입"
-      label="다음"
-      value={value}
-      setValue={setValue}
-      error={error}
-      setError={setError}
-      setEmailPasswordValid={setEmailPasswordValid}
-    />
-  ) : (
-    <ProfileSetting
-      value={value}
-      setValue={setValue}
-      error={error}
-      setError={setError}
-    />
-  );
+  return (
+    <div className="wrapper-contents">
+      {!isEmailPasswordValid ? (
+        <EmailPasswordForm
+          title="이메일로 회원 가입"
+          label="다음"
+          value={value}
+          setValue={setValue}
+          error={error}
+          setError={setError}
+          setEmailPasswordValid={setEmailPasswordValid}
+        />
+      ) : (
+        <ProfileSetting
+          value={value}
+          setValue={setValue}
+          error={error}
+          setError={setError}
+        />
+      )}
+    </div>
+  )
 }
 
 export default RegisterPage;

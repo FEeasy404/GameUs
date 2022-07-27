@@ -42,7 +42,6 @@ function PostCard({ post, setDeletePost }) {
     navigate(`/profile/${author.accountname}`);
   }
   function handlePostChange(postId) {
-    console.log(postId);
     navigate(`/post/edit/${postId}`);
   }
   return (
