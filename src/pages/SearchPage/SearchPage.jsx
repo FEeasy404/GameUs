@@ -9,7 +9,7 @@ import BottomNavigateBar from "../../components/modules/BottomNavigateBar/Bottom
 function SearchPage() {
   return (
     <section>
-      <h1 className="a11y-hidden">유저 검색</h1>
+      <h2 className="a11y-hidden">유저 검색</h2>
       <HeaderForm backButton={true} input={true} />
       <div className="wrapper-contents">
         <ul className={styles["container-users"]}>

@@ -52,8 +52,8 @@ function ProfileEditPage() {
   }
 
   return (
-    <section className="wrapper-padding">
-      <h1 className="a11y-hidden">프로필 수정 페이지</h1>
+    <section className={styles["wrapper-profile"]}>
+      <h2 className="a11y-hidden">프로필 수정 페이지</h2>
       <HeaderForm
         backButton={true}
         button="저장"

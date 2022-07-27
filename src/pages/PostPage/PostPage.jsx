@@ -39,7 +39,7 @@ function PostPage() {
 
   return (
     <section>
-      <h1 className="a11y-hidden">게시글 상세 페이지</h1>
+      <h2 className="a11y-hidden">게시글 상세 페이지</h2>
       <HeaderForm backButton={true} menuButton={true} />
       <div className="wrapper-contents">
         {post && <PostCard post={post} />}

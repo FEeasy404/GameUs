@@ -17,7 +17,7 @@ function FollowingPage() {
 
   return (
     <section>
-      <h1 className="a11y-hidden">팔로잉 페이지</h1>
+      <h2 className="a11y-hidden">팔로잉 페이지</h2>
       <HeaderForm
         backButton={true}
         title="Followings"

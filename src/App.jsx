@@ -21,6 +21,7 @@ import PostEditPage from "./pages/PostEditPage/PostEditPage";
 function App() {
   return (
     <div className="max-width">
+      <h1 className="a11y-hidden">게임어스</h1>
       <Routes>
         <Route path="/" element={<SplashPage />} />
         <Route path="/feed" element={<HomePage />} />
