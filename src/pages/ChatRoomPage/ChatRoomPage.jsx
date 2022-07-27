@@ -3,7 +3,6 @@ import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import MessageInput from "../../components/modules/MessageInput/MessageInput";
 import ChatRoom from "../../components/modules/ChatRoom/ChatRoom";
 import { useRef } from "react";
-/* import styles from "./chatroompage.module.css"; */
 
 function ChatRoomPage() {
   const inputRef = useRef();
@@ -12,7 +11,7 @@ function ChatRoomPage() {
     <div>
       <HeaderForm
         backButton={true}
-        title="애월읍 위니브 게임랜드"
+        title="지상 최강의 뉴비"
         titleSize="small"
         menuButton={true}
       />
