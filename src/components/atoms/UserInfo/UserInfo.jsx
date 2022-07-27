@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./userInfo.module.css";
 
-function UserInfo({ userName, userId, userIntroduce }) {
+function UserInfo({ username, accountname, intro }) {
   return (
     <div className={styles["info-wrapper"]}>
-      <strong className={styles["user_name"]}>{userName}</strong>
-      <p className={styles["user_id"]}>@ {userId}</p>
-      <p className={styles["user_introduce"]}>{userIntroduce}</p>
+      <strong className={styles["user_name"]}>{username}</strong>
+      <p className={styles["user_id"]}>@ {accountname}</p>
+      <p className={styles["user_introduce"]}>{intro}</p>
     </div>
   );
 }
