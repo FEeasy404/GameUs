@@ -39,7 +39,9 @@ function UploadPage() {
         onClick={handleUploadButton}
         active={text && true}
       />
-      <UploadForm images={images} setText={setText} setImages={setImages} />
+      <div className="wrapper-contents">
+        <UploadForm images={images} setText={setText} setImages={setImages} />
+      </div>
     </section>
   );
 }

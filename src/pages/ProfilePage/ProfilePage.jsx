@@ -41,39 +41,41 @@ function ProfilePage() {
   }, [accountname, isDeletePost]);
 
   return (
-    <>
+    <section>
       <h1 className="a11y-hidden">프로필 페이지</h1>
       <HeaderForm backButton={true} menuButton={true} />
-      <UserProfile isMyProfile={isMyProfile} userProfile={profile} />
-      <ProductList
-        isMyProfile={isMyProfile}
-        products={products}
-        setDeleteProduct={setDeleteProduct}
-      />
-      {posts.length != 0 && (
-        <section>
-          <PostHeader isAlbum={isAlbum} setAlbum={setAlbum} />
-          {!isAlbum ? (
-            <ol>
-              {posts.map((post, index) => (
-                <li key={index}>
-                  <PostCard post={post} setDeletePost={setDeletePost} />
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <ol className={styles["list-image"]}>
-              {posts.map((post, index) => (
-                <li key={index}>
-                  {post.image && <ImagePostCard post={post} />}
-                </li>
-              ))}
-            </ol>
+       <div className="wrapper-contents">
+          <UserProfile isMyProfile={isMyProfile} userProfile={profile} />
+          <ProductList
+            isMyProfile={isMyProfile}
+            products={products}
+            setDeleteProduct={setDeleteProduct}
+          />
+          {posts.length != 0 && (
+            <section>
+              <PostHeader isAlbum={isAlbum} setAlbum={setAlbum} />
+              {!isAlbum ? (
+                <ol>
+                  {posts.map((post, index) => (
+                    <li key={index}>
+                      <PostCard post={post} setDeletePost={setDeletePost} />
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <ol className={styles["list-image"]}>
+                  {posts.map((post, index) => (
+                    <li key={index}>
+                      {post.image && <ImagePostCard post={post} />}
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </section>
           )}
-        </section>
-      )}
+        </div>
       <BottomNavigateBar />
-    </>
+    </section>
   );
 }
 

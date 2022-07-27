@@ -41,19 +41,21 @@ function PostPage() {
     <section>
       <h1 className="a11y-hidden">게시글 상세 페이지</h1>
       <HeaderForm backButton={true} menuButton={true} />
-      {post && <PostCard post={post} />}
-      {comments && (
-        <CommentList comments={comments} handleDelete={handleDelete} />
-      )}
-      <MessageInput
-        type="comment"
-        src=""
-        title="댓글"
-        placeholder="댓글 입력하기..."
-        buttonText="게시"
-        inputRef={inputRef}
-        onClick={handleTextInput}
-      />
+      <div className="wrapper-contents">
+        {post && <PostCard post={post} />}
+        {comments && (
+          <CommentList comments={comments} handleDelete={handleDelete} />
+        )}
+        <MessageInput
+          type="comment"
+          src=""
+          title="댓글"
+          placeholder="댓글 입력하기..."
+          buttonText="게시"
+          inputRef={inputRef}
+          onClick={handleTextInput}
+        />
+      </div>
     </section>
   );
 }
