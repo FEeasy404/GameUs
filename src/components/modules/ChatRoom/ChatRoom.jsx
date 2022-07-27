@@ -15,12 +15,13 @@ function ChatRoom() {
       <UserChat
         text={"안녕하세요. 주인공 이름이 젤다인가요오오오오"}
         date={"12:41"}
-      />{" "}
+      />
       <MyChat text={"네 말씀하세요."} date={"12:50"} />
       <MyChat
         image="https://img.insight.co.kr/static/2020/01/30/700/j088zi88gyw66dup9kr2.jpg"
         date={"12:51"}
       />
+      <UserChat text={"주인공 이름이 젤다인가요?"} date={"12:52"} />
     </div>
   );
 }
