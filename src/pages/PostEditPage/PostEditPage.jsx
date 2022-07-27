@@ -1,32 +1,40 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
-import { uploadData } from "./UploadAPI";
+import { getPostData, editPostData } from "./PostEditPageAPI";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import UploadForm from "../../components/organisms/UploadForm/UploadForm";
 
 function UploadPage() {
+  let { postId } = useParams();
   const navigate = useNavigate();
   const [text, setText] = useState("");
   const [images, setImages] = useState([]);
   const myAccountname = window.localStorage.getItem("accountname");
 
+  useEffect(() => {
+    getPostData(postId, setText, setImages);
+  }, [postId]);
+
   //이미지 업로드
   async function handleuploadImages(images) {
     const imageArr = [];
     for (let file of images) {
-      imageArr.push(await handleImageSize(file.data));
+      if (file.data) {
+        const resizedImage = await handleImageSize(file.data);
+        imageArr.push(await uploadImage(resizedImage));
+      } else {
+        imageArr.push(file.src);
+      }
     }
-    return await uploadImage(imageArr);
+    return imageArr.join(",");
   }
 
   //업로드 버튼
   async function handleUploadButton() {
     const imageNames = await handleuploadImages(images);
-    await uploadData(imageNames, text);
-    //메모리 누수 방지
-    images.forEach((file) => URL.revokeObjectURL(file.src));
+    await editPostData(postId, imageNames, text);
     navigate(`/profile/${myAccountname}`);
   }
 
@@ -39,8 +47,13 @@ function UploadPage() {
         onClick={handleUploadButton}
         active={text && true}
       />
-      <div className="wrapper-contents">
-        <UploadForm images={images} setText={setText} setImages={setImages} />
+      <div className="wrapper-contents">  
+        <UploadForm
+          images={images}
+          setText={setText}
+          setImages={setImages}
+          text={text}
+        />
       </div>
     </section>
   );

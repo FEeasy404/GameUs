@@ -11,6 +11,7 @@ function InputBox({
   onChange,
   maxLength,
   innerRef,
+  onKeyDown,
 }) {
   const errorClass = error ? "error" : "";
   return (
@@ -28,6 +29,7 @@ function InputBox({
         onChange={onChange}
         maxLength={maxLength}
         ref={innerRef}
+        onKeyDown={onKeyDown}
       />
       {error && <small className={styles["text-error"]}>{error}</small>}
     </div>
