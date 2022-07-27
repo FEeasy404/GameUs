@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import Button from "../../components/atoms/Button/Button";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
@@ -19,7 +19,7 @@ function HomePage() {
   const TOKEN = window.localStorage.getItem("token");
 
   // 팔로우하는 유저의 게시글 목록을 posts state에 받아옵니다.
-  useEffect(() => {
+  useLayoutEffect(() => {
     async function getPostDatas() {
       try {
         const response = await fetch(BASE_URL + REQ_PATH, {
@@ -38,7 +38,6 @@ function HomePage() {
         //   post.image = imageData[index];
         // });
         setPosts(result.posts);
-        console.log(posts);
       } catch (error) {
         console.log(error.message);
       }
@@ -52,28 +51,30 @@ function HomePage() {
     <section>
       <h1 className="a11y-hidden">게임어스 홈 피드</h1>
       <HeaderForm title={"홈 피드"} searchButton={true} titleSize={"large"} />
-      {posts.length === 0 && (
-        <div className={styles["container-search_notice"]}>
-          <img src={catImageURL} />
-          <p className={styles["text"]}>유저를 검색해 팔로우 해보세요!</p>
-          <Button
-            href={"/search"}
-            size="medium"
-            label={"검색하기"}
-            active={true}
-            primary={true}
-          />
-        </div>
-      )}
-      {posts.length !== 0 && (
-        <ul>
-          {posts.map((post, index) => (
-            <li key={index}>
-              <PostCard post={post} />
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="wrapper-contents">
+        {posts.length === 0 && (
+          <div className={styles["container-search_notice"]}>
+            <img src={catImageURL} />
+            <p className={styles["text"]}>유저를 검색해 팔로우 해보세요!</p>
+            <Button
+              href={"/search"}
+              size="medium"
+              label={"검색하기"}
+              active={true}
+              primary={true}
+            />
+          </div>
+        )}
+        {posts.length !== 0 && (
+          <ul>
+            {posts.map((post, index) => (
+              <li key={index}>
+                <PostCard post={post} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
       <BottomNavigateBar />
     </section>
   );

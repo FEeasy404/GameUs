@@ -54,6 +54,11 @@ function ProfileSetting({ value, setValue, error, setError }) {
         setError={setError}
         usernameInput={usernameInput}
         accountnameInput={accountnameInput}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            handleRegister();
+          }
+        }}
       />
       <Button
         size="large"

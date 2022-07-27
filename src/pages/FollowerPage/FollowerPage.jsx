@@ -24,7 +24,9 @@ function FollowerPage() {
         titleSize="large"
         menuButton={false}
       />
-      {followers && <FollowList list={followers} />}
+      <div className="wrapper-contents">
+        {followers && <FollowList list={followers} />}
+      </div>
       <BottomNavigateBar />
     </section>
   );

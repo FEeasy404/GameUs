@@ -17,6 +17,8 @@ import PostPage from "./pages/PostPage/PostPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ChatListPage from "./pages/ChatListPage/ChatListPage";
 import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
+import PostEditPage from "./pages/PostEditPage/PostEditPage";
+
 
 function App() {
   return (
@@ -44,7 +46,12 @@ function App() {
         />
         <Route path="/post" element={<UploadPage />} />
         <Route path="/post/:postId" element={<PostPage />} />
+<<<<<<< HEAD
         <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
+=======
+        <Route path="/chatroom" element={<ChatRoomPage />} />
+        <Route path="/post/edit/:postId" element={<PostEditPage />} />
+>>>>>>> 8d46dc879c5d6de63d4dd1463590396408e562cc
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
