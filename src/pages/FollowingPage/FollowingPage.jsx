@@ -9,7 +9,7 @@ import { getFollowings } from "./FollowingPageAPI";
 function FollowingPage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
   let { accountname } = useParams();
-  const [followings, setFollowings] = useState([]);
+  const [followings, setFollowings] = useState(null);
 
   useEffect(() => {
     getFollowings(accountname, setFollowings);

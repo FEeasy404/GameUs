@@ -9,7 +9,7 @@ import { getFollowers } from "./FollowerPageAPI";
 function FollowerPage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
   let { accountname } = useParams();
-  const [followers, setFollowers] = useState([]);
+  const [followers, setFollowers] = useState(null);
 
   useEffect(() => {
     getFollowers(accountname, setFollowers);
@@ -24,6 +24,7 @@ function FollowerPage() {
         titleSize="large"
         menuButton={false}
       />
+
       <div className="wrapper-contents">
         {followers && <FollowList list={followers} />}
       </div>
