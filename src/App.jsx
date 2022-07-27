@@ -44,7 +44,7 @@ function App() {
         />
         <Route path="/post" element={<UploadPage />} />
         <Route path="/post/:postId" element={<PostPage />} />
-        <Route path="/chatroom" element={<ChatRoomPage />} />
+        <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
