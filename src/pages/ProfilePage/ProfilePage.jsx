@@ -21,6 +21,7 @@ function ProfilePage() {
   const [isAlbum, setAlbum] = useState(false);
   const [isMyProfile, setIsMyProfile] = useState("");
   const [isDeletePost, setDeletePost] = useState("");
+  const [isDeleteProduct, setDeleteProduct] = useState("");
 
   const myAccountname = window.localStorage.getItem("accountname");
 
@@ -33,7 +34,7 @@ function ProfilePage() {
     }
     getProfile(accountname, setProfile);
     getProducts(accountname, setProducts);
-  }, [accountname, myAccountname]);
+  }, [accountname, myAccountname, isDeleteProduct]);
 
   useEffect(() => {
     getPosts(accountname, setPosts);
@@ -44,7 +45,11 @@ function ProfilePage() {
       <h1 className="a11y-hidden">프로필 페이지</h1>
       <HeaderForm backButton={true} menuButton={true} />
       <UserProfile isMyProfile={isMyProfile} userProfile={profile} />
-      <ProductList isMyProfile={isMyProfile} products={products} />
+      <ProductList
+        isMyProfile={isMyProfile}
+        products={products}
+        setDeleteProduct={setDeleteProduct}
+      />
       {posts.length != 0 && (
         <section>
           <PostHeader isAlbum={isAlbum} setAlbum={setAlbum} />
