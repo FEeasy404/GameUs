@@ -10,7 +10,7 @@ function NavItem({link, label, icon}) {
         to={link} 
         className={`${styles.link} ${styles[icon]} ${currunt ? styles.active : null}`}
       >
-        <span>{label}</span>
+        <span className={styles.label}>{label}</span>
       </Link>
   )
 }
