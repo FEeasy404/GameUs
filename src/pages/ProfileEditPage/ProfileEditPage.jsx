@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import ProfileForm from "../../components/modules/ProfileForm/ProfileForm";
-import styles from "./profileEditPage.module.css";
 import { editProfile } from "./ProfileEditPageAPI";
 import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
@@ -53,7 +52,7 @@ function ProfileEditPage() {
   }
 
   return (
-    <section className={styles["wrapper-profile"]}>
+    <section className="wrapper-padding">
       <h1 className="a11y-hidden">프로필 수정 페이지</h1>
       <HeaderForm
         backButton={true}

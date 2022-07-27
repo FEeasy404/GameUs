@@ -1,6 +1,7 @@
 import React from "react";
 import UserFollow from "../../modules/UserFollow/UserFollow";
 import styles from "./followList.module.css";
+import Logo from "../../../assets/icon-404-cat.png";
 
 function FollowList({ list }) {
   return list.length > 0 ? (
@@ -15,7 +16,7 @@ function FollowList({ list }) {
     </ul>
   ) : (
     <div className={styles["wrapper-message"]}>
-      <p className={`${styles["emoji"]}`}>😥</p>
+      <img src={Logo} />
       <p>아직 아무도 없어요.</p>
     </div>
   );

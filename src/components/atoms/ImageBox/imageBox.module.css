@@ -8,8 +8,8 @@
 }
 
 .image img {
-  max-height: 100%;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -27,11 +27,6 @@
 .square {
   width: 114px;
   height: 114px;
-}
-
-.square img {
-  height: 100%;
-  width: 100%;
 }
 
 /* 댓글에서 사용되는 프로필 이미지입니다. */
@@ -82,19 +77,9 @@
   max-width: 400px;
 }
 
-.rounded_square.medium_large img {
-  height: 100%;
-  width: 100%;
-}
-
 /* 상품 등록 페이지에서 사용될 이미지입니다. */
 .rounded_square.large {
   max-width: 320px;
   height: 204px;
   background-color: var(--whitegray-color);
-}
-
-.rounded_square img {
-  height: 100%;
-  width: 100%;
 }
