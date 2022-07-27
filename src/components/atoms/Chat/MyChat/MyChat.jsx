@@ -7,7 +7,7 @@ function MyChat({ text, image, date }) {
     <div className={styles["wrapper-mychat"]}>
       <span className={styles["date-mychat"]}>{date}</span>
       {!image ? (
-        <div className={styles["mychatbox"]}>
+        <div className={styles["box-mychat"]}>
           <p className={styles["text-mychat"]}>{text}</p>
         </div>
       ) : (

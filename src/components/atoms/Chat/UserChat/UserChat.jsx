@@ -10,7 +10,7 @@ function UserChat({ text, date }) {
         type={"circle"}
         size={"medium_small"}
       />
-      <div className={styles["userchatbox"]}>
+      <div className={styles["box-userchat"]}>
         <p className={styles["text-userchat"]}>{text}</p>
       </div>
       <span className={styles["date-userchat"]}>{date}</span>
