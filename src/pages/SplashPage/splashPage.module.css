@@ -5,7 +5,6 @@
 .wrapper-splash {
   box-sizing: border-box;
   height: 100vh;
-  margin: -48px auto -60px;
   padding: 82px;
   display: flex;
   flex-direction: column;
