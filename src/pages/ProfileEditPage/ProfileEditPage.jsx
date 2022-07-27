@@ -75,6 +75,11 @@ function ProfileEditPage() {
         setError={setError}
         usernameInput={usernameInput}
         accountnameInput={accountnameInput}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            handleEdit();
+          }
+        }}
       />
     </section>
   );
