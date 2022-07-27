@@ -40,7 +40,7 @@ function ProfilePage() {
   useEffect(() => {
     getProducts(accountname, setProducts);
   }, [isDeleteProduct]);
-  
+
   useEffect(() => {
     getPosts(accountname, setPosts);
   }, [isDeletePost]);
@@ -54,7 +54,7 @@ function ProfilePage() {
           <UserProfile isMyProfile={isMyProfile} userProfile={profile} />
         )}
         {products && (
-           <ProductList
+          <ProductList
             isMyProfile={isMyProfile}
             products={products}
             setDeleteProduct={setDeleteProduct}
@@ -73,11 +73,14 @@ function ProfilePage() {
               </ol>
             ) : (
               <ol className={styles["list-image"]}>
-                {posts.map((post, index) => (
-                  <li key={index}>
-                    {post.image && <ImagePostCard post={post} />}
-                  </li>
-                ))}
+                {posts.map(
+                  (post, index) =>
+                    post.image && (
+                      <li key={index}>
+                        <ImagePostCard post={post} />
+                      </li>
+                    )
+                )}
               </ol>
             )}
           </section>

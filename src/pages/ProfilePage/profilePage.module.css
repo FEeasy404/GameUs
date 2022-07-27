@@ -1,7 +1,32 @@
 .list-image {
-  display: flex;
-  /* justify-content: center; */
-  flex-wrap: wrap;
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(6, 114px);
   gap: 8px;
   padding: 9px 16px;
+}
+
+@media screen and (max-width: 740px) {
+  .list-image {
+    grid-template-columns: repeat(5, 114px);
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .list-image {
+    grid-template-columns: repeat(4, 114px);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .list-image {
+    grid-template-columns: repeat(3, 114px);
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .list-image {
+    grid-template-columns: repeat(2, 114px);
+  }
 }
