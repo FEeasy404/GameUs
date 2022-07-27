@@ -13,6 +13,7 @@ function CommentForm({
   createTime,
   text,
   handleDelete,
+  handleReport,
 }) {
   const navigate = useNavigate();
   const [onModal, setOnModal] = useState(false);
@@ -42,7 +43,7 @@ function CommentForm({
           buttons={
             myAccountname === accoutName
               ? [{ text: "삭제", onClick: () => handleDelete(id) }]
-              : [{ text: "신고" }]
+              : [{ text: "신고", onClick: () => handleReport(id) }]
           }
           name="댓글"
         />

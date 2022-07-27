@@ -5,6 +5,7 @@ import {
   getPostComment,
   uploadComment,
   deleteComment,
+  reportComment,
 } from "./PostPageAPI";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
@@ -37,6 +38,11 @@ function PostPage() {
     setChangeComments(commentId);
   }
 
+  //댓글 신고
+  async function handleReport(commentId) {
+    await reportComment(post.id, commentId);
+  }
+
   return (
     <section>
       <h1 className="a11y-hidden">게시글 상세 페이지</h1>
@@ -44,7 +50,11 @@ function PostPage() {
       <div className="wrapper-contents">
         {post && <PostCard post={post} />}
         {comments && (
-          <CommentList comments={comments} handleDelete={handleDelete} />
+          <CommentList
+            comments={comments}
+            handleDelete={handleDelete}
+            handleReport={handleReport}
+          />
         )}
         <MessageInput
           type="comment"
