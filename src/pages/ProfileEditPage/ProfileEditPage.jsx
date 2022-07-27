@@ -67,20 +67,22 @@ function ProfileEditPage() {
         }
         onClick={handleEdit}
       />
-      <ProfileForm
-        setAccountnameValid={setAccountnameValid}
-        value={value}
-        setValue={setValue}
-        error={error}
-        setError={setError}
-        usernameInput={usernameInput}
-        accountnameInput={accountnameInput}
-        onKeyDown={(event) => {
-          if (event.key === "Enter") {
-            handleEdit();
-          }
-        }}
-      />
+      <div className="wrapper-contents">
+        <ProfileForm
+          setAccountnameValid={setAccountnameValid}
+          value={value}
+          setValue={setValue}
+          error={error}
+          setError={setError}
+          usernameInput={usernameInput}
+          accountnameInput={accountnameInput}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              handleEdit();
+            }
+          }}
+        />
+      </div>
     </section>
   );
 }

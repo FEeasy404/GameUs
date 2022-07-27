@@ -19,28 +19,29 @@ function ChatListPage() {
     read: true,
   };
   const chatData = [item1, item2];
-  console.log(chatData);
 
   return (
     <section>
       <h1 className="a11y-hidden">채팅목록</h1>
       <HeaderForm backButton={true} menuButton={true} />
-      <ul className={styles["list-chat"]}>
-        {chatData.map((item, index) => (
-          <li key={index} className={styles["item-chat"]}>
-            <div className={`${styles.left} ${item.read ? "" : styles.unread}`}>
-              <ImageBox type={"circle"} size={"medium_small"} />
-            </div>
-            <div className={styles.right}>
-              <strong className={styles.username}>{item.username}</strong>
-              <div className={styles["info-message"]}>
-                <span className={styles.message}>{item.message}</span>
-                <span className={styles.date}>{item.date}</span>
+      <div className="wrapper-contents">
+        <ul className={styles["list-chat"]}>
+          {chatData.map((item, index) => (
+            <li key={index} className={styles["item-chat"]}>
+              <div className={`${styles.left} ${item.read ? "" : styles.unread}`}>
+                <ImageBox type={"circle"} size={"medium_small"} />
               </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+              <div className={styles.right}>
+                <strong className={styles.username}>{item.username}</strong>
+                <div className={styles["info-message"]}>
+                  <span className={styles.message}>{item.message}</span>
+                  <span className={styles.date}>{item.date}</span>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
       <BottomNavigateBar />
     </section>
   );
