@@ -3,6 +3,7 @@ import styles from "./bottomNavigateBar.module.css";
 
 function BottomNavigateBar() {
   const accountname = localStorage.getItem("accountname");
+
   return (
     <nav className={styles["nav"]}>
       <ul className={styles["list-nav"]}>
