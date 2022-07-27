@@ -49,7 +49,7 @@ function HomePage() {
   // post 배열의 길이가 1이 아니면 PostCard로 List를 만듭니다.
   return (
     <section>
-      <h1 className="a11y-hidden">게임어스 홈 피드</h1>
+      <h2 className="a11y-hidden">게임어스 홈 피드</h2>
       <HeaderForm title={"홈 피드"} searchButton={true} titleSize={"large"} />
       <div className="wrapper-contents">
         {posts.length === 0 && (

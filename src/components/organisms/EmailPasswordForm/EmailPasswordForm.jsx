@@ -13,7 +13,7 @@ function EmailPasswordForm({
 }) {
   return (
     <section className="wrapper-padding">
-      <h1 className={styles["title"]}>{title}</h1>
+      <h2 className={styles["title"]}>{title}</h2>
       <LoginForm
         label={label}
         value={value}

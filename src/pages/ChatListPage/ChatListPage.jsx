@@ -22,7 +22,7 @@ function ChatListPage() {
 
   return (
     <section>
-      <h1 className="a11y-hidden">채팅목록</h1>
+      <h2 className="a11y-hidden">채팅목록</h2>
       <HeaderForm backButton={true} menuButton={true} />
       <div className="wrapper-contents">
         <ul className={styles["list-chat"]}>

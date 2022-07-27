@@ -41,7 +41,7 @@ function ProfilePage() {
 
   return (
     <section>
-      <h1 className="a11y-hidden">프로필 페이지</h1>
+      <h2 className="a11y-hidden">프로필 페이지</h2>
       <HeaderForm backButton={true} menuButton={true} />
       <div className="wrapper-contents">
         <UserProfile isMyProfile={isMyProfile} userProfile={profile} />

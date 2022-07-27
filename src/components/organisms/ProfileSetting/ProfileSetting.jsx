@@ -44,7 +44,7 @@ function ProfileSetting({ value, setValue, error, setError }) {
 
   return (
     <section className={"wrapper-padding"}>
-      <h1 className={styles["title"]}>프로필 설정</h1>
+      <h2 className={styles["title"]}>프로필 설정</h2>
       <p className={styles["message"]}>나중에 언제든지 변경할 수 있습니다.</p>
       <ProfileForm
         setAccountnameValid={setAccountnameValid}

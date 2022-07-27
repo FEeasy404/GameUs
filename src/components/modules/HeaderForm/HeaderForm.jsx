@@ -37,7 +37,7 @@ function HeaderForm({
             onClick={() => navigate(-1)}
           />
         )}
-        {title && <h1 className={styles[titleSize]}>{title}</h1>}
+        {title && <h2 className={styles[titleSize]}>{title}</h2>}
         {searchButton && (
           <IconButton
             type="search"

@@ -5,7 +5,7 @@ import styles from "./postHeader.module.css";
 function PostHeader({ isAlbum, setAlbum }) {
   return (
     <div className={styles["wrapper-header"]}>
-      <h1 className="a11y-hidden">나의 게시글 목록</h1>
+      <h2 className="a11y-hidden">나의 게시글 목록</h2>
       <IconButton
         text="리스트형으로 보기"
         type="list"

@@ -64,7 +64,7 @@ function AddProductPage() {
 
   return (
     <section>
-      <h1 className="a11y-hidden">상품 등록 페이지</h1>
+      <h2 className="a11y-hidden">상품 등록 페이지</h2>
       <HeaderForm
         backButton={true}
         button="저장"

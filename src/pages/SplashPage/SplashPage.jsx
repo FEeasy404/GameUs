@@ -21,7 +21,7 @@ function SplashPage() {
   }, []);
   return (
     <section className={styles["wrapper-splash"]}>
-      <h1 className="a11y-hidden">게임어스</h1>
+      <h2 className="a11y-hidden">게임어스</h2>
       <img
         className={visible ? styles["logo-main"] : styles["logo-main-hide"]}
         src={Logo}
