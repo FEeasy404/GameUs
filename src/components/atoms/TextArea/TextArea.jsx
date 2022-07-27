@@ -1,9 +1,9 @@
-import { useRef, useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import styles from "./textArea.module.css";
 
-function TextArea({ label, handleText }) {
-  const textRef = useRef();
+function TextArea({ label, handleText, text }) {
   //textarea 높이 조절
+  const textRef = useRef();
   const textAreaResize = useCallback(() => {
     const textBox = textRef.current;
     textBox.style.height = "auto";
@@ -13,7 +13,9 @@ function TextArea({ label, handleText }) {
   //컴포넌트가 mount될때 textarea에 focus
   useEffect(() => {
     textRef.current.focus();
-  }, []);
+    text && (textRef.current.value = text);
+    textAreaResize();
+  }, [text]);
 
   return (
     <>
