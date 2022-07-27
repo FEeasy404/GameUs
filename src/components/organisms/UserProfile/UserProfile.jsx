@@ -8,10 +8,10 @@ function UserProfile({ isMyProfile, userProfile }) {
   return (
     <section className={styles["wrapper-profile"]}>
       <UserProfileBox
-        src={userProfile.image}
-        userName={userProfile.username}
-        userId={userProfile.accountname}
-        userIntroduce={userProfile.intro}
+        image={userProfile.image}
+        username={userProfile.username}
+        accountname={userProfile.accountname}
+        intro={userProfile.intro}
         followerCount={userProfile.followerCount}
         followingCount={userProfile.followingCount}
       />
