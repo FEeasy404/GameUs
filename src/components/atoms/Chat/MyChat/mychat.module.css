@@ -5,7 +5,7 @@
   margin-right: 16px;
 }
 
-.mychatbox {
+.box-mychat {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,17 +18,15 @@
 .date-mychat {
   display: flex;
   align-items: flex-end;
-  font-family: "Spoqa Han Sans Neo";
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
   line-height: 13px;
-  color: #767676;
+  color: var(--darkgray-color);
   margin-right: 6px;
 }
 
 .text-mychat {
-  font-family: "Spoqa Han Sans Neo";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
