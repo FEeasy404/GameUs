@@ -33,10 +33,9 @@ function ProfilePage() {
     }
     getProfile(accountname, setProfile);
     getProducts(accountname, setProducts);
-    getPosts(accountname, setPosts);
   }, [accountname, myAccountname]);
 
-useEffect(() => {
+  useEffect(() => {
     getPosts(accountname, setPosts);
   }, [accountname, isDeletePost]);
 
