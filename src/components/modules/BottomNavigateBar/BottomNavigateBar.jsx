@@ -8,7 +8,7 @@ function BottomNavigateBar() {
     <nav className={styles["nav"]}>
       <ul className={styles["list-nav"]}>
         <li className={`${styles["item-nav"]} ${styles["home"]}`}>
-          <NavItem link={"/"} label={"홈"} icon={"home"} />
+          <NavItem link={"/feed"} label={"홈"} icon={"home"} />
         </li>
         <li className={`${styles["item-nav"]} ${styles["chat"]}`}>
           <NavItem link={"/chat"} label={"채팅"} icon={"chat"} />
