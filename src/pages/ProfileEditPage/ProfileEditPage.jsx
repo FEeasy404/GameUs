@@ -52,7 +52,7 @@ function ProfileEditPage() {
   }
 
   return (
-    <section className={styles["wrapper-profile"]}>
+    <section className="wrapper-padding">
       <h2 className="a11y-hidden">프로필 수정 페이지</h2>
       <HeaderForm
         backButton={true}
