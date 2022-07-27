@@ -12,6 +12,7 @@ function ProfileForm({
   usernameInput,
   accountnameInput,
   setAccountnameValid,
+  onKeyDown,
 }) {
   // 계정 ID 검사 정규식입니다.
   const accountnameRegExp = /^[a-zA-Z0-9_.]+$/i;
@@ -145,6 +146,7 @@ function ProfileForm({
         placeholder="자신과 판매할 상품에 대해 소개해 주세요!"
         value={value.intro}
         onChange={handleInputValue}
+        onKeyDown={onKeyDown}
       />
     </div>
   );
