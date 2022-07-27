@@ -4,9 +4,7 @@ import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
 import { uploadData } from "./UploadAPI";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
-import ImageInputButton from "../../components/atoms/ImageInputButton/ImageInputButton";
 import UploadForm from "../../components/organisms/UploadForm/UploadForm";
-import styles from "./uploadPage.module.css";
 
 function UploadPage() {
   const navigate = useNavigate();
@@ -14,42 +12,6 @@ function UploadPage() {
   const [images, setImages] = useState([]);
   const myAccountname = window.localStorage.getItem("accountname");
 
-  //텍스트 처리
-  function handleText(event) {
-    setText(event.target.value);
-  }
-  //이미지 삭제 버튼
-  function handleDeleteBtn(key) {
-    const imagesArr = images.filter((item) => item.key !== key);
-    setImages(imagesArr);
-  }
-  //이미지 프리뷰
-  function previewMultipleImages(files) {
-    const copyImages = [...images];
-    for (let i = 0; i < files.length; i++) {
-      const image = {
-        key: Date.now() + i,
-        src: URL.createObjectURL(files[i]),
-        data: files[i],
-      };
-      if (files.length === 1) {
-        copyImages.unshift(image);
-      } else {
-        copyImages.push(image);
-      }
-    }
-    return copyImages;
-  }
-  function saveImage(event) {
-    const files = event.target.files;
-    if (!files) return;
-    if (images.length + files.length > 3) {
-      alert("이미지는 3개까지 업로드 가능합니다.");
-      return;
-    }
-    const imageData = previewMultipleImages(files);
-    setImages(imageData);
-  }
   //이미지 업로드
   async function handleuploadImages(images) {
     const imageArr = [];
@@ -69,7 +31,7 @@ function UploadPage() {
   }
 
   return (
-    <section className={styles["wrapper-page"]}>
+    <section>
       <h1 className="a11y-hidden">상품 등록 페이지</h1>
       <HeaderForm
         backButton={true}
@@ -77,14 +39,7 @@ function UploadPage() {
         onClick={handleUploadButton}
         active={text && true}
       />
-      <UploadForm
-        images={images}
-        handleText={handleText}
-        handleDeleteBtn={handleDeleteBtn}
-      />
-      <div className={styles["wrapper-bottom"]}>
-        <ImageInputButton saveImage={saveImage} size="medium" multiple={true} />
-      </div>
+      <UploadForm images={images} setText={setText} setImages={setImages} />
     </section>
   );
 }
