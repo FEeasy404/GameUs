@@ -106,7 +106,7 @@ function LoginForm({ label, setEmailPasswordValid }) {
         // 로컬 스토리지에 토큰 저장
         window.localStorage.setItem("token", result.user.token);
 
-        navigate("/");
+        navigate("/feed");
       } catch (error) {
         console.log(error.message);
       }
