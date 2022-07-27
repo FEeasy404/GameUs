@@ -21,6 +21,7 @@ function ProfilePage() {
   const [isAlbum, setAlbum] = useState(false);
   const [isMyProfile, setIsMyProfile] = useState("");
   const [isDeletePost, setDeletePost] = useState("");
+  const [isDeleteProduct, setDeleteProduct] = useState("");
 
   const myAccountname = window.sessionStorage.getItem("accountname");
 
@@ -37,6 +38,10 @@ function ProfilePage() {
   }, [accountname, myAccountname]);
 
   useEffect(() => {
+    getProducts(accountname, setProducts);
+  }, [isDeleteProduct]);
+  
+  useEffect(() => {
     getPosts(accountname, setPosts);
   }, [isDeletePost]);
 
@@ -49,7 +54,11 @@ function ProfilePage() {
           <UserProfile isMyProfile={isMyProfile} userProfile={profile} />
         )}
         {products && (
-          <ProductList isMyProfile={isMyProfile} products={products} />
+           <ProductList
+            isMyProfile={isMyProfile}
+            products={products}
+            setDeleteProduct={setDeleteProduct}
+          />
         )}
         {posts && posts.length != 0 && (
           <section>

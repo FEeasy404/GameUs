@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import Product from "../../modules/Product/Product";
 import styles from "./productList.module.css";
 import Modal from "../Modal/Modal";
+import { deleteProduct } from "./ProductListAPI";
 
-function ProductList({ isMyProfile, products }) {
+function ProductList({ isMyProfile, products, setDeleteProduct }) {
   const [onModal, setOnModal] = useState(false);
   const [link, setLink] = useState("");
+  const [productId, setProductId] = useState("");
 
-  function handleDeletePost() {
-    // 상품 게시글 삭제 함수입니다.
+  //상품 게시글 삭제
+  async function handleDeletePost(productId) {
+    await deleteProduct(productId);
+    setDeleteProduct(productId);
   }
 
   function handleEditPost() {
@@ -33,6 +37,7 @@ function ProductList({ isMyProfile, products }) {
                     if (isMyProfile) {
                       setLink(product.link);
                       setOnModal(!onModal);
+                      setProductId(product.id);
                     } else {
                       navigateLink(product.link);
                     }
@@ -52,7 +57,7 @@ function ProductList({ isMyProfile, products }) {
         <Modal
           onClose={() => setOnModal(false)}
           buttons={[
-            { text: "삭제", onClick: handleDeletePost },
+            { text: "삭제", onClick: () => handleDeletePost(productId) },
             { text: "수정", onClick: handleEditPost },
             {
               text: "웹사이트에서 상품 보기",
