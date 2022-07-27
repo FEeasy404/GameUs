@@ -166,6 +166,11 @@ function LoginForm({
         onChange={handleInputValue}
         error={error.password}
         innerRef={passwordInput}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            label === "로그인" ? handleSubmitLogin() : handleCheckEmail();
+          }
+        }}
       />
       <Button
         href={null}
