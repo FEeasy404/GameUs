@@ -14,11 +14,13 @@ import BottomNavigateBar from "../../components/modules/BottomNavigateBar/Bottom
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
   let { accountname } = useParams();
+
   const [profile, setProfile] = useState({});
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [isAlbum, setAlbum] = useState(false);
   const [isMyProfile, setIsMyProfile] = useState("");
+  const [isDeletePost, setDeletePost] = useState("");
 
   const myAccountname = window.localStorage.getItem("accountname");
 
@@ -31,8 +33,11 @@ function ProfilePage() {
     }
     getProfile(accountname, setProfile);
     getProducts(accountname, setProducts);
-    getPosts(accountname, setPosts);
   }, [accountname, myAccountname]);
+
+  useEffect(() => {
+    getPosts(accountname, setPosts);
+  }, [accountname, isDeletePost]);
 
   return (
     <>
@@ -47,7 +52,7 @@ function ProfilePage() {
             <ol>
               {posts.map((post, index) => (
                 <li key={index}>
-                  <PostCard post={post} />
+                  <PostCard post={post} setDeletePost={setDeletePost} />
                 </li>
               ))}
             </ol>
