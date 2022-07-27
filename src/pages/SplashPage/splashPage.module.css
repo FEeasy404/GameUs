@@ -1,0 +1,34 @@
+/* body {
+  background-color: #080a24;
+} */
+
+.wrapper-splash {
+  box-sizing: border-box;
+  height: 100vh;
+  margin: -48px auto -60px;
+  padding: 82px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url(/src/assets/background-splash.svg);
+}
+
+.logo-main {
+  display: block;
+  width: 194px;
+  height: 172px;
+  opacity: 1;
+  transition: 2s opacity ease-out;
+}
+
+.logo-main-hide {
+  opacity: 0;
+}
+
+.button-start {
+  display: block;
+  width: 271px;
+  height: 98px;
+  background-image: url(/src/assets/button-splash.svg);
+}

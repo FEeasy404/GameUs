@@ -1,30 +1,25 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputBox from "../../atoms/InputBox/InputBox";
 import Button from "../../atoms/Button/Button";
-import { RegisterContext } from "../../../contexts/RegisterContext";
 import styles from "./loginForm.module.css";
 import { BASE_URL } from "../../../common/BASE_URL";
+import { postLogin } from "../../../pages/LoginPage/LoginPageAPI";
 
-function LoginForm({ label, setEmailPasswordValid }) {
-  const [value, setValue] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [error, setError] = useState({
-    email: "",
-    password: "",
-  });
-
+function LoginForm({
+  label,
+  value,
+  setValue,
+  error,
+  setError,
+  setEmailPasswordValid,
+}) {
   // 이메일이 이미 가입되어 있으면 false, 가입 가능하면 true입니다.
   const [isEmailValid, setEmailValid] = useState(false);
 
   // 포커스를 잃었는지(blur) 체크하기 위해 사용했습니다.
   const emailInput = useRef();
   const passwordInput = useRef();
-  // useContext를 이용하여 회원 가입 정보를 가져옵니다.
-  const { registerData, setRegisterData } = useContext(RegisterContext);
   // 이메일 검사 정규식입니다.
   const emailRegExp = /^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i;
 
@@ -80,43 +75,33 @@ function LoginForm({ label, setEmailPasswordValid }) {
   async function handleSubmitLogin() {
     // 로그인은 버튼 눌렀을 때 유효성 검사를 하므로 여기에서 함수를 실행시킵니다.
     if (error && checkEmailError() && checkPasswordError()) {
-      const reqBody = {
+      const reqData = {
         user: {
           ...value,
         },
       };
-      try {
-        const data = await fetch(BASE_URL + "/user/login", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(reqBody),
+      const result = await postLogin(reqData, error, setError);
+      if (result.status === 422) {
+        setError({
+          ...error,
+          password: "이메일 또는 비밀번호가 일치하지 않습니다.",
         });
-        const result = await data.json();
-        // 이메일, 비밀번호가 일치하지 않는 경우
-        if (result.status === 422) {
-          setError({ ...error, password: result.message });
-          emailInput.current.focus();
-        }
-        // 이메일, 비밀번호가 둘 다 빈 경우는 아예 버튼을 disabled 시켰기 때문에 따로 에러 메시지를 띄우지 않게 했습니다.
-
+      } else {
         // 로컬 스토리지에 accountname 저장
         window.localStorage.setItem("accountname", result.user.accountname);
         // 로컬 스토리지에 토큰 저장
         window.localStorage.setItem("token", result.user.token);
-
         navigate("/feed");
-      } catch (error) {
-        console.log(error.message);
       }
+      // if (!error.email && !error.password) {
+      // }
     }
   }
 
   // 회원 가입에서는 blur일 때 유효성 검사를 진행합니다.
   async function checkEmailValid() {
     // 이미 존재하는 이메일인지 검사합니다.
-    const reqBody = {
+    const reqData = {
       user: {
         email: value.email,
       },
@@ -127,7 +112,7 @@ function LoginForm({ label, setEmailPasswordValid }) {
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify(reqBody),
+        body: JSON.stringify(reqData),
       });
       const result = await data.json();
 
@@ -149,13 +134,6 @@ function LoginForm({ label, setEmailPasswordValid }) {
     passwordInput.current.blur();
     // 에러가 없고 이메일이 유효하다면 context에 이메일, 비밀번호를 저장합니다.
     if (!error.email && !error.password && isEmailValid) {
-      const data = registerData;
-      data.user = {
-        ...data.user,
-        email: value.email,
-        password: value.password,
-      };
-      setRegisterData(data);
       setEmailPasswordValid(true); // 이메일과 비밀번호에 문제가 없으면 true로 변경
     }
   }
