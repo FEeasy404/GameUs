@@ -15,15 +15,15 @@ function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
   let { accountname } = useParams();
 
-  const [profile, setProfile] = useState({});
-  const [products, setProducts] = useState([]);
-  const [posts, setPosts] = useState([]);
+  const [profile, setProfile] = useState(null);
+  const [products, setProducts] = useState(null);
+  const [posts, setPosts] = useState(null);
   const [isAlbum, setAlbum] = useState(false);
   const [isMyProfile, setIsMyProfile] = useState("");
   const [isDeletePost, setDeletePost] = useState("");
   const [isDeleteProduct, setDeleteProduct] = useState("");
 
-  const myAccountname = window.localStorage.getItem("accountname");
+  const myAccountname = window.sessionStorage.getItem("accountname");
 
   useEffect(() => {
     // 사용자의 프로필 정보를 받아오는 함수입니다.
@@ -34,46 +34,55 @@ function ProfilePage() {
     }
     getProfile(accountname, setProfile);
     getProducts(accountname, setProducts);
-  }, [accountname, myAccountname, isDeleteProduct]);
+    getPosts(accountname, setPosts);
+  }, [accountname, myAccountname]);
 
   useEffect(() => {
+    getProducts(accountname, setProducts);
+  }, [isDeleteProduct]);
+  
+  useEffect(() => {
     getPosts(accountname, setPosts);
-  }, [accountname, isDeletePost]);
+  }, [isDeletePost]);
 
   return (
     <section>
       <h1 className="a11y-hidden">프로필 페이지</h1>
       <HeaderForm backButton={true} menuButton={true} />
-       <div className="wrapper-contents">
+      <div className="wrapper-contents">
+        {profile && (
           <UserProfile isMyProfile={isMyProfile} userProfile={profile} />
-          <ProductList
+        )}
+        {products && (
+           <ProductList
             isMyProfile={isMyProfile}
             products={products}
             setDeleteProduct={setDeleteProduct}
           />
-          {posts.length != 0 && (
-            <section>
-              <PostHeader isAlbum={isAlbum} setAlbum={setAlbum} />
-              {!isAlbum ? (
-                <ol>
-                  {posts.map((post, index) => (
-                    <li key={index}>
-                      <PostCard post={post} setDeletePost={setDeletePost} />
-                    </li>
-                  ))}
-                </ol>
-              ) : (
-                <ol className={styles["list-image"]}>
-                  {posts.map((post, index) => (
-                    <li key={index}>
-                      {post.image && <ImagePostCard post={post} />}
-                    </li>
-                  ))}
-                </ol>
-              )}
-            </section>
-          )}
-        </div>
+        )}
+        {posts && posts.length != 0 && (
+          <section>
+            <PostHeader isAlbum={isAlbum} setAlbum={setAlbum} />
+            {!isAlbum ? (
+              <ol>
+                {posts.map((post, index) => (
+                  <li key={index}>
+                    <PostCard post={post} setDeletePost={setDeletePost} />
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <ol className={styles["list-image"]}>
+                {posts.map((post, index) => (
+                  <li key={index}>
+                    {post.image && <ImagePostCard post={post} />}
+                  </li>
+                ))}
+              </ol>
+            )}
+          </section>
+        )}
+      </div>
       <BottomNavigateBar />
     </section>
   );
