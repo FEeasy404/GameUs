@@ -16,7 +16,7 @@ function LoginPage() {
   });
 
   return (
-    <>
+    <div className="wrapper-contents">
       <EmailPasswordForm
         title="로그인"
         label="로그인"
@@ -28,7 +28,7 @@ function LoginPage() {
       <Link to="/register" className={styles["link-email"]}>
         이메일로 회원가입
       </Link>
-    </>
+    </div>
   );
 }
 

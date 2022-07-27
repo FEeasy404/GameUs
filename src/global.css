@@ -16,11 +16,6 @@ html {
     sans-serif;
 }
 
-/* UI 여백 */
-body {
-  padding: 48px 0 60px;
-}
-
 /* 모듈 */
 .a11y-hidden {
   overflow: hidden;
@@ -40,6 +35,10 @@ body {
 
 .wrapper-padding {
   padding: 34px;
+}
+
+.wrapper-contents {
+  margin: 48px 0 60px;
 }
 
 /* scroll */
