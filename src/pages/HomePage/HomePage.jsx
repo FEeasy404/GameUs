@@ -8,7 +8,7 @@ import styles from "./homePage.module.css";
 import { BASE_URL } from "../../common/BASE_URL";
 
 function HomePage() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(null);
   // 화면에 보이는 포스트 개수를 post_limit에 지정합니다.
   let post_limit = 10;
   // 보지 않을 포스트 개수를 post_skip에 저장합니다. 이후 skip_amount만큼 증가합니다.
@@ -52,7 +52,8 @@ function HomePage() {
       <h2 className="a11y-hidden">게임어스 홈 피드</h2>
       <HeaderForm title={"홈 피드"} searchButton={true} titleSize={"large"} />
       <div className="wrapper-contents">
-        {posts.length === 0 && (
+        {posts &&
+        (posts.length === 0 ? (
           <div className={styles["container-search_notice"]}>
             <img src={catImageURL} />
             <p className={styles["text"]}>유저를 검색해 팔로우 해보세요!</p>
@@ -64,8 +65,7 @@ function HomePage() {
               primary={true}
             />
           </div>
-        )}
-        {posts.length !== 0 && (
+        ) : (
           <ul>
             {posts.map((post, index) => (
               <li key={index}>
@@ -73,7 +73,7 @@ function HomePage() {
               </li>
             ))}
           </ul>
-        )}
+        ))}
       </div>
       <BottomNavigateBar />
     </section>

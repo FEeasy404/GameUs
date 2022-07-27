@@ -1,6 +1,6 @@
 .list-follow {
   margin: 0 auto;
-  padding: 0 34px;
+  padding: 10px 34px;
 }
 
 .list-follow li {
@@ -8,13 +8,12 @@
 }
 
 .wrapper-message {
-  margin: 50px auto;
-  text-align: center;
+  margin-top: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
+  gap: 10px;
   color: var(--middlegray-color);
-}
-
-.emoji {
-  margin: 20px auto;
-  font-size: 6rem;
 }

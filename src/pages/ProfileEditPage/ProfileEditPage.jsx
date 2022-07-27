@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import ProfileForm from "../../components/modules/ProfileForm/ProfileForm";
-import styles from "./profileEditPage.module.css";
 import { editProfile } from "./ProfileEditPageAPI";
 import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
