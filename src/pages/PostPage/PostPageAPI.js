@@ -66,7 +66,7 @@ async function deleteComment(TOKEN, postId, commentId) {
   }
 }
 
-async function reportComment(postId, commentId) {
+async function reportComment(TOKEN, postId, commentId) {
   try {
     await fetch(BASE_URL + `/post/${postId}/comments/${commentId}/report`, {
       method: "POST",

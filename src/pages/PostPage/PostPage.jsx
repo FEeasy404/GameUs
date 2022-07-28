@@ -43,7 +43,7 @@ function PostPage() {
 
   //댓글 신고
   async function handleReport(commentId) {
-    await reportComment(post.id, commentId);
+    await reportComment(user.token, post.id, commentId);
   }
 
   return (
