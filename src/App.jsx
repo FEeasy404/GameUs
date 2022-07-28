@@ -17,8 +17,10 @@ import HomePage from "./pages/HomePage/HomePage";
 import PostPage from "./pages/PostPage/PostPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ChatListPage from "./pages/ChatListPage/ChatListPage";
+import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
 import PostEditPage from "./pages/PostEditPage/PostEditPage";
 import { LoginedUserContext } from "./contexts/LoginedUserContext";
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -63,6 +65,7 @@ function App() {
           <Route path="/post" element={<UploadPage />} />
           <Route path="/post/:postId" element={<PostPage />} />
           <Route path="/post/edit/:postId" element={<PostEditPage />} />
+          <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
           <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </div>
