@@ -1,0 +1,9 @@
+.wrapper-chatroom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #f7f7f7;
+  height: 100vh;
+  margin-top: -48px;
+  margin-bottom: -60px;
+}
