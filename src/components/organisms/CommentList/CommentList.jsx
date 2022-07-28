@@ -29,7 +29,7 @@ function CommentList({ comments, handleDelete, handleReport }) {
             <CommentForm
               id={item.id}
               src={item.author.image}
-              accoutName={item.author.accountname}
+              accountName={item.author.accountname}
               userName={item.author.username}
               createTime={getTimeStamp(item.createdAt)}
               text={item.content}

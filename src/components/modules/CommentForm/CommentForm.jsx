@@ -10,7 +10,7 @@ import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 function CommentForm({
   id,
   src,
-  accoutName,
+  accountName,
   userName,
   createTime,
   text,
@@ -26,7 +26,7 @@ function CommentForm({
       <div className={styles["wrapper-comment"]}>
         <ImageBox src={src} type="circle" size="small" alt="프로필 이미지" />
         <div className={styles["comment_info"]}>
-          <strong onClick={() => navigate(`/profile/${accoutName}`)}>
+          <strong onClick={() => navigate(`/profile/${accountName}`)}>
             {userName}
           </strong>
           <small>{`· ${createTime}`}</small>
@@ -43,7 +43,7 @@ function CommentForm({
         <Modal
           onClose={() => setOnModal(false)}
           buttons={
-            user.accountname === accoutName
+            user.accountname === accountName
               ? [{ text: "삭제", onClick: () => handleDelete(id) }]
               : [{ text: "신고", onClick: () => handleReport(id) }]
           }
