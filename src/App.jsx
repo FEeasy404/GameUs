@@ -22,52 +22,59 @@ import PostEditPage from "./pages/PostEditPage/PostEditPage";
 import { LoginedUserContext } from "./contexts/LoginedUserContext";
 
 function App() {
-  const [user, setUser] = useState({});
+  const loginedToken = window.sessionStorage.getItem("token");
+  const loginedAccountname = window.sessionStorage.getItem("accountname");
+  const loginedImage = window.sessionStorage.getItem("image");
+  const [user, setUser] = useState({
+    token: loginedToken,
+    accountname: loginedAccountname,
+    image: loginedImage,
+  });
 
   useEffect(() => {
-    const loginedToken = window.sessionStorage.getItem("token");
-    const loginedAccountname = window.sessionStorage.getItem("accountname");
-    const loginedImage = window.sessionStorage.getItem("image");
-    const loginedData = {
-      token: loginedToken,
-      accountname: loginedAccountname,
-      image: loginedImage,
-    };
+    const loginedData = user;
     setUser(loginedData);
+    if (window.performance) {
+      if (PerformanceNavigationTiming === 1) {
+        setUser(loginedData);
+      }
+    }
   }, []);
 
   return (
     <LoginedUserContext.Provider value={{ user, setUser }}>
-      <div className="max-width">
-        <h1 className="a11y-hidden">게임어스</h1>
-        <Routes>
-          <Route path="/" element={<SplashPage />} />
-          <Route path="/feed" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/chat" element={<ChatListPage />} />
-          <Route path="/product" element={<AddProductPage />} />
-          <Route path="/profile/:accountname" element={<ProfilePage />} />
-          <Route
-            path="/profile/:accountname/follower"
-            element={<FollowerPage />}
-          />
-          <Route
-            path="/profile/:accountname/following"
-            element={<FollowingPage />}
-          />
-          <Route
-            path="/profile/:accountname/edit"
-            element={<ProfileEditPage />}
-          />
-          <Route path="/post" element={<UploadPage />} />
-          <Route path="/post/:postId" element={<PostPage />} />
-          <Route path="/post/edit/:postId" element={<PostEditPage />} />
-          <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
-          <Route path="/*" element={<ErrorPage />} />
-        </Routes>
-      </div>
+      {user && (
+        <div className="max-width">
+          <h1 className="a11y-hidden">게임어스</h1>
+          <Routes>
+            <Route path="/" element={<SplashPage />} />
+            <Route path="/feed" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/chat" element={<ChatListPage />} />
+            <Route path="/product" element={<AddProductPage />} />
+            <Route path="/profile/:accountname" element={<ProfilePage />} />
+            <Route
+              path="/profile/:accountname/follower"
+              element={<FollowerPage />}
+            />
+            <Route
+              path="/profile/:accountname/following"
+              element={<FollowingPage />}
+            />
+            <Route
+              path="/profile/:accountname/edit"
+              element={<ProfileEditPage />}
+            />
+            <Route path="/post" element={<UploadPage />} />
+            <Route path="/post/:postId" element={<PostPage />} />
+            <Route path="/post/edit/:postId" element={<PostEditPage />} />
+            <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
+            <Route path="/*" element={<ErrorPage />} />
+          </Routes>
+        </div>
+      )}
     </LoginedUserContext.Provider>
   );
 }

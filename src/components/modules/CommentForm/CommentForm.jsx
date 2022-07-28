@@ -4,6 +4,8 @@ import styles from "./commentForm.module.css";
 import IconButton from "../../atoms/IconButton/IconButton";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import Modal from "../../../components/organisms/Modal/Modal";
+import { useContext } from "react";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 
 function CommentForm({
   id,
@@ -17,7 +19,7 @@ function CommentForm({
 }) {
   const navigate = useNavigate();
   const [onModal, setOnModal] = useState(false);
-  const myAccountname = window.localStorage.getItem("accountname");
+  const { user } = useContext(LoginedUserContext);
 
   return (
     <>
@@ -41,7 +43,7 @@ function CommentForm({
         <Modal
           onClose={() => setOnModal(false)}
           buttons={
-            myAccountname === accoutName
+            user.accoutname === accoutName
               ? [{ text: "삭제", onClick: () => handleDelete(id) }]
               : [{ text: "신고", onClick: () => handleReport(id) }]
           }

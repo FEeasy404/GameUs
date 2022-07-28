@@ -19,14 +19,7 @@ function SplashPage() {
     }
   }
   useEffect(() => {
-    const loginedToken = window.sessionStorage.getItem("token");
-    const loginedAccountname = window.sessionStorage.getItem("accountname");
-    const loginedImage = window.sessionStorage.getItem("image");
-    const loginedData = {
-      token: loginedToken,
-      accountname: loginedAccountname,
-      image: loginedImage,
-    };
+    const loginedData = user;
     setUser(loginedData);
     setVisible(true);
   }, []);

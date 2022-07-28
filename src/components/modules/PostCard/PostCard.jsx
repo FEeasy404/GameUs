@@ -10,6 +10,8 @@ import Modal from "../../../components/organisms/Modal/Modal";
 import { Link } from "react-router-dom";
 import { deletePost, reportPost } from "./PostCardAPI";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 
 function ImageListMaker({ image }) {
   const imageData = image.split(",");
@@ -35,7 +37,7 @@ function ImageListMaker({ image }) {
 function PostCard({ post, setDeletePost }) {
   const navigate = useNavigate();
   const [onModal, setOnModal] = useState(false);
-  const myAccountname = window.localStorage.getItem("accountname");
+  const { user } = useContext(LoginedUserContext);
   const author = post.author;
   async function handlePostDelete(postId) {
     await deletePost(postId, setDeletePost);
@@ -84,7 +86,7 @@ function PostCard({ post, setDeletePost }) {
         <Modal
           onClose={() => setOnModal(false)}
           buttons={
-            myAccountname === author.accountname
+            user.accountname === author.accountname
               ? [
                   { text: "삭제", onClick: () => handlePostDelete(post.id) },
                   { text: "수정", onClick: () => handlePostChange(post.id) },

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HeaderInput from "../../atoms/HeaderInput/HeaderInput";
 import IconButton from "../../atoms/IconButton/IconButton";
 import Button from "../../atoms/Button/Button";
 import styles from "./headerForm.module.css";
 import Modal from "../../../components/organisms/Modal/Modal";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 
 function HeaderForm({
   backButton,
@@ -21,9 +22,17 @@ function HeaderForm({
   let navigate = useNavigate();
   const classButton = button ? "button" : "";
   const [onModal, setOnModal] = useState(false);
+  const { setUser } = useContext(LoginedUserContext);
+
   //로그아웃 함수
   function handleLogout() {
     window.sessionStorage.clear();
+    setUser({
+      token: null,
+      accountname: null,
+      image: null,
+    });
+
     navigate("/");
   }
   return (
