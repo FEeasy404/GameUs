@@ -14,24 +14,17 @@ import { useContext } from "react";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 
 function ImageListMaker({ image }) {
+  if (!image) return null;
   const imageData = image.split(",");
-  //이미지가 없을 경우 빈 태그 리턴
-  if (!image) return <></>;
-  else {
-    return (
-      <ul className={styles["list-images"]}>
-        {imageData.map((item, index) => (
-          <li key={index} className={styles["item-image"]}>
-            <ImageBox
-              src={item}
-              type={"rounded_square"}
-              size={"medium_large"}
-            />
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  return (
+    <ul className={styles["list-images"]}>
+      {imageData.map((item, index) => (
+        <li key={index} className={styles["item-image"]}>
+          <ImageBox src={item} type={"rounded_square"} size={"medium_large"} />
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 function PostCard({ post, setDeletePost }) {
