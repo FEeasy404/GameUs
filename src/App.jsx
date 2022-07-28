@@ -21,7 +21,6 @@ import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
 import PostEditPage from "./pages/PostEditPage/PostEditPage";
 import { LoginedUserContext } from "./contexts/LoginedUserContext";
 
-
 function App() {
   const [user, setUser] = useState({});
 
