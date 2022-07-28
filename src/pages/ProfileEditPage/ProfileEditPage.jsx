@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import ProfileForm from "../../components/modules/ProfileForm/ProfileForm";
 import { editProfile } from "./ProfileEditPageAPI";
 import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function ProfileEditPage() {
   const [value, setValue] = useState({
@@ -26,6 +27,7 @@ function ProfileEditPage() {
   const usernameInput = useRef();
   const accountnameInput = useRef();
 
+  const { user } = useContext(LoginedUserContext);
   const navigate = useNavigate();
 
   async function handleEdit() {
@@ -46,7 +48,7 @@ function ProfileEditPage() {
       }
 
       const reqData = { user: { ...data } };
-      await editProfile(reqData);
+      await editProfile(user.token, reqData);
       navigate(`/profile/${value.accountname}`);
     }
   }

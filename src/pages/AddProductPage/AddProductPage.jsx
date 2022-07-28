@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
 import { postProduct } from "./AddProductPageAPI";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import AddProduct from "../../components/organisms/AddProduct/AddProduct";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function AddProductPage() {
   const navigate = useNavigate();
@@ -14,7 +15,9 @@ function AddProductPage() {
   const [link, setLink] = useState("");
   const [nameError, setNameError] = useState(false);
   const [priceError, setPriceError] = useState(false);
-  const myAccountname = window.sessionStorage.getItem("accountname");
+
+  const { user } = useContext(LoginedUserContext);
+
   //이미지 프리뷰
   async function saveImage(event) {
     const file = event.target.files[0];
@@ -57,9 +60,9 @@ function AddProductPage() {
   async function handleSubmit() {
     const compressedFile = await handleImageSize(image.data);
     const fileUrl = await uploadImage(compressedFile);
-    await postProduct(name, price, link, fileUrl);
+    await postProduct(user.token, name, price, link, fileUrl);
     URL.revokeObjectURL(image.src);
-    navigate(`/profile/${myAccountname}`);
+    navigate(`/profile/${user.accountname}`);
   }
 
   return (

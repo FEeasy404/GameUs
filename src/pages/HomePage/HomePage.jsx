@@ -6,6 +6,8 @@ import catImageURL from "../../assets/icon-404-cat.png";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
 import styles from "./homePage.module.css";
 import { BASE_URL } from "../../common/BASE_URL";
+import { useContext } from "react";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function HomePage() {
   const [posts, setPosts] = useState(null);
@@ -16,7 +18,8 @@ function HomePage() {
   // const skip_amount = 5;
 
   const REQ_PATH = `/post/feed/?limit=${post_limit}&skip=${post_skip}`;
-  const TOKEN = window.sessionStorage.getItem("token");
+
+  const { user } = useContext(LoginedUserContext);
 
   // 팔로우하는 유저의 게시글 목록을 posts state에 받아옵니다.
   useLayoutEffect(() => {
@@ -25,7 +28,7 @@ function HomePage() {
         const response = await fetch(BASE_URL + REQ_PATH, {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${TOKEN}`,
+            Authorization: `Bearer ${user.token}`,
             "Content-type": "application/json",
           },
         });

@@ -1,8 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-const TOKEN = window.sessionStorage.getItem("token");
-
-async function getPostData(postId, setText, setImages) {
+async function getPostData(TOKEN, postId, setText, setImages) {
   try {
     const response = await fetch(BASE_URL + `/post/${postId}`, {
       method: "GET",
@@ -29,7 +27,7 @@ async function getPostData(postId, setText, setImages) {
   }
 }
 
-async function editPostData(postId, imageNames, text) {
+async function editPostData(TOKEN, postId, imageNames, text) {
   const imageData = imageNames ? imageNames : "";
   const data = {
     post: {

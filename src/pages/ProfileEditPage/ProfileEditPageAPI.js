@@ -1,8 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-const TOKEN = window.sessionStorage.getItem("token");
-
-async function editProfile(reqData) {
+async function editProfile(TOKEN, reqData) {
   try {
     const data = await fetch(BASE_URL + "/user", {
       method: "PUT",

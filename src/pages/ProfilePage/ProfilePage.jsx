@@ -10,6 +10,8 @@ import ImagePostCard from "../../components/modules/ImagePostCard/ImagePostCard"
 import styles from "./profilePage.module.css";
 import { getProfile, getProducts, getPosts } from "./ProfilePageAPI";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
+import { useContext } from "react";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
@@ -23,26 +25,26 @@ function ProfilePage() {
   const [isDeletePost, setDeletePost] = useState("");
   const [isDeleteProduct, setDeleteProduct] = useState("");
 
-  const myAccountname = window.sessionStorage.getItem("accountname");
+  const { user } = useContext(LoginedUserContext);
 
   useEffect(() => {
     // 사용자의 프로필 정보를 받아오는 함수입니다.
-    if (myAccountname === accountname) {
+    if (user.accountname === accountname) {
       setIsMyProfile(true);
     } else {
       setIsMyProfile(false);
     }
-    getProfile(accountname, setProfile);
-    getProducts(accountname, setProducts);
-    getPosts(accountname, setPosts);
-  }, [accountname, myAccountname]);
+    getProfile(user.token, accountname, setProfile);
+    getProducts(user.token, accountname, setProducts);
+    getPosts(user.token, accountname, setPosts);
+  }, [accountname, user]);
 
   useEffect(() => {
-    getProducts(accountname, setProducts);
+    getProducts(user.token, accountname, setProducts);
   }, [isDeleteProduct]);
 
   useEffect(() => {
-    getPosts(accountname, setPosts);
+    getPosts(user.token, accountname, setPosts);
   }, [isDeletePost]);
 
   return (

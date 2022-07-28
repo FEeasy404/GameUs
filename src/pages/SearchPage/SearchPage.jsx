@@ -41,7 +41,7 @@ function SearchPage() {
               </div>
             </Link>
           </li>
-        </ul>        
+        </ul>
       </div>
       <BottomNavigateBar />
     </section>

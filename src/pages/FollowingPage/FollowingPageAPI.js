@@ -1,8 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-const TOKEN = window.sessionStorage.getItem("token");
-
-async function getFollowings(accountname, setFollowings) {
+async function getFollowings(TOKEN, accountname, setFollowings) {
   try {
     const data = await fetch(
       BASE_URL + `/profile/${accountname}/following?limit=Infinity`,

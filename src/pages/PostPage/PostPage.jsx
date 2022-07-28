@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import { useParams } from "react-router-dom";
 import {
   getPostData,
@@ -10,6 +10,7 @@ import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
 import CommentList from "../../components/organisms/CommentList/CommentList";
 import MessageInput from "../../components/modules/MessageInput/MessageInput";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function PostPage() {
   let { postId } = useParams();
@@ -17,24 +18,25 @@ function PostPage() {
   const [post, setPost] = useState();
   const [comments, setComments] = useState([]);
   const [changeComments, setChangeComments] = useState(false);
-  const myImage = window.sessionStorage.getItem("image");
+ 
+  const { user } = useContext(LoginedUserContext);
 
   useEffect(() => {
-    getPostComment(postId, setComments);
-    getPostData(postId, setPost);
+    getPostComment(user.token, postId, setComments);
+    getPostData(user.token, postId, setPost);
   }, [postId, changeComments]);
 
   //댓글 입력 및 추가
   async function handleTextInput() {
     const inputText = inputRef.current.value;
     inputRef.current.value = "";
-    await uploadComment(postId, inputText);
+    await uploadComment(user.token, postId, inputText);
     setChangeComments(inputText);
   }
 
   //댓글 삭제
   async function handleDelete(commentId) {
-    await deleteComment(postId, commentId);
+    await deleteComment(user.token, postId, commentId);
     setChangeComments(commentId);
   }
 
@@ -49,7 +51,7 @@ function PostPage() {
         )}
         <MessageInput
           type="comment"
-          src={myImage}
+          src={user.image}
           title="댓글"
           placeholder="댓글 입력하기..."
           buttonText="게시"
