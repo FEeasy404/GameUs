@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
 import { uploadData } from "./UploadAPI";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import UploadForm from "../../components/organisms/UploadForm/UploadForm";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function UploadPage() {
   const navigate = useNavigate();
   const [text, setText] = useState("");
   const [images, setImages] = useState([]);
-  const myAccountname = window.localStorage.getItem("accountname");
+  const { user } = useContext(LoginedUserContext);
 
   //이미지 업로드
   async function handleuploadImages(images) {
@@ -24,10 +25,10 @@ function UploadPage() {
   //업로드 버튼
   async function handleUploadButton() {
     const imageNames = await handleuploadImages(images);
-    await uploadData(imageNames, text);
+    await uploadData(user.token, imageNames, text);
     //메모리 누수 방지
     images.forEach((file) => URL.revokeObjectURL(file.src));
-    navigate(`/profile/${myAccountname}`);
+    navigate(`/profile/${user.accountname}`);
   }
 
   return (

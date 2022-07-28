@@ -1,7 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-async function getFollowers(accountname, setFollowers) {
-  const TOKEN = window.localStorage.getItem("token");
+async function getFollowers(TOKEN, accountname, setFollowers) {
   try {
     const data = await fetch(
       BASE_URL + `/profile/${accountname}/follower?limit=Infinity`,

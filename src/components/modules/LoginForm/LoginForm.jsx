@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputBox from "../../atoms/InputBox/InputBox";
 import Button from "../../atoms/Button/Button";
 import styles from "./loginForm.module.css";
 import { BASE_URL } from "../../../common/BASE_URL";
 import { postLogin } from "../../../pages/LoginPage/LoginPageAPI";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 
 function LoginForm({
   label,
@@ -24,6 +25,8 @@ function LoginForm({
   const emailRegExp = /^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i;
 
   const navigate = useNavigate();
+
+  const { setUser } = useContext(LoginedUserContext);
 
   // email과 password 내용이 바뀌면 에러가 표시되지 않도록 비웁니다.
   useEffect(() => {
@@ -87,14 +90,20 @@ function LoginForm({
           password: "이메일 또는 비밀번호가 일치하지 않습니다.",
         });
       } else {
-        // 로컬 스토리지에 accountname 저장
-        window.localStorage.setItem("accountname", result.user.accountname);
-        // 로컬 스토리지에 토큰 저장
-        window.localStorage.setItem("token", result.user.token);
+        // 토큰 검증 과정 필요
+
+        // 검증이 끝나면 세션 스토리지에 토큰, 계정 ID, 이미지 저장
+        window.sessionStorage.setItem("token", result.user.token);
+        window.sessionStorage.setItem("accountname", result.user.accountname);
+        window.sessionStorage.setItem("image", result.user.image);
+        const loginedData = {
+          token: window.sessionStorage.getItem("token"),
+          accountname: window.sessionStorage.getItem("accountname"),
+          image: window.sessionStorage.getItem("image"),
+        };
+        setUser(loginedData);
         navigate("/feed");
       }
-      // if (!error.email && !error.password) {
-      // }
     }
   }
 

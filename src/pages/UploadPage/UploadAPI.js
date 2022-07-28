@@ -1,8 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-const TOKEN = window.localStorage.getItem("token");
-
-async function uploadData(imageNames, text) {
+async function uploadData(TOKEN, imageNames, text) {
   const imageData = imageNames ? imageNames : "";
   const data = {
     post: {

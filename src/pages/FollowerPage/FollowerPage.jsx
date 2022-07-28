@@ -5,14 +5,17 @@ import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
 import FollowList from "../../components/organisms/FollowList/FollowList";
 import { getFollowers } from "./FollowerPageAPI";
+import { useContext } from "react";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function FollowerPage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
   let { accountname } = useParams();
   const [followers, setFollowers] = useState(null);
+  const { user } = useContext(LoginedUserContext);
 
   useEffect(() => {
-    getFollowers(accountname, setFollowers);
+    getFollowers(user.token, accountname, setFollowers);
   }, [accountname]);
 
   return (

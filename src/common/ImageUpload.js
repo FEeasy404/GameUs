@@ -1,4 +1,4 @@
-import { BASE_URL } from "./BASE_URL.jsx";
+import { BASE_URL } from "./BASE_URL";
 
 //이미지 업로드 - 한 개, 여러개
 async function uploadImage(files) {

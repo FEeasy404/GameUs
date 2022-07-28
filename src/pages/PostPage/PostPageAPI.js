@@ -1,8 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-const TOKEN = window.localStorage.getItem("token");
-
-async function getPostData(postId, setPost) {
+async function getPostData(TOKEN, postId, setPost) {
   try {
     const response = await fetch(BASE_URL + `/post/${postId}`, {
       method: "GET",
@@ -18,7 +16,7 @@ async function getPostData(postId, setPost) {
   }
 }
 
-async function getPostComment(postId, setComments) {
+async function getPostComment(TOKEN, postId, setComments) {
   try {
     const response = await fetch(BASE_URL + `/post/${postId}/comments`, {
       method: "GET",
@@ -34,7 +32,7 @@ async function getPostComment(postId, setComments) {
   }
 }
 
-async function uploadComment(postId, text) {
+async function uploadComment(TOKEN, postId, text) {
   const commentData = {
     comment: {
       content: text,
@@ -54,7 +52,7 @@ async function uploadComment(postId, text) {
   }
 }
 
-async function deleteComment(postId, commentId) {
+async function deleteComment(TOKEN, postId, commentId) {
   try {
     await fetch(BASE_URL + `/post/${postId}/comments/${commentId}`, {
       method: "DELETE",
@@ -68,7 +66,7 @@ async function deleteComment(postId, commentId) {
   }
 }
 
-async function reportComment(postId, commentId) {
+async function reportComment(TOKEN, postId, commentId) {
   try {
     await fetch(BASE_URL + `/post/${postId}/comments/${commentId}/report`, {
       method: "POST",

@@ -1,8 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-const TOKEN = window.localStorage.getItem("token");
-
-async function getProfile(accountname, setProfile) {
+async function getProfile(TOKEN, accountname, setProfile) {
   try {
     const data = await fetch(BASE_URL + `/profile/${accountname}`, {
       method: "GET",
@@ -19,7 +17,7 @@ async function getProfile(accountname, setProfile) {
 }
 
 // 사용자의 상품 리스트를 받아오는 함수입니다.
-async function getProducts(accountname, setProducts) {
+async function getProducts(TOKEN, accountname, setProducts) {
   try {
     const data = await fetch(BASE_URL + `/product/${accountname}`, {
       method: "GET",
@@ -35,7 +33,7 @@ async function getProducts(accountname, setProducts) {
   }
 }
 
-async function getPosts(accountname, setPosts) {
+async function getPosts(TOKEN, accountname, setPosts) {
   try {
     const data = await fetch(BASE_URL + `/post/${accountname}/userpost`, {
       method: "GET",

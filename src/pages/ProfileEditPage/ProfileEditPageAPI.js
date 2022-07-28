@@ -1,7 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-async function editProfile(reqData) {
-  const TOKEN = window.localStorage.getItem("token");
+async function editProfile(TOKEN, reqData) {
   try {
     const data = await fetch(BASE_URL + "/user", {
       method: "PUT",

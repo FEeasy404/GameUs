@@ -1,20 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
 import { getPostData, editPostData } from "./PostEditPageAPI";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import UploadForm from "../../components/organisms/UploadForm/UploadForm";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function UploadPage() {
   let { postId } = useParams();
   const navigate = useNavigate();
   const [text, setText] = useState("");
   const [images, setImages] = useState([]);
-  const myAccountname = window.localStorage.getItem("accountname");
+
+  const { user } = useContext(LoginedUserContext);
 
   useEffect(() => {
-    getPostData(postId, setText, setImages);
+    getPostData(user.token, postId, setText, setImages);
   }, [postId]);
 
   //이미지 업로드
@@ -34,8 +36,8 @@ function UploadPage() {
   //업로드 버튼
   async function handleUploadButton() {
     const imageNames = await handleuploadImages(images);
-    await editPostData(postId, imageNames, text);
-    navigate(`/profile/${myAccountname}`);
+    await editPostData(user.token, postId, imageNames, text);
+    navigate(`/profile/${user.accountname}`);
   }
 
   return (
@@ -47,7 +49,7 @@ function UploadPage() {
         onClick={handleUploadButton}
         active={text && true}
       />
-      <div className="wrapper-contents">  
+      <div className="wrapper-contents">
         <UploadForm
           images={images}
           setText={setText}
