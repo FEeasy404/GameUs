@@ -43,7 +43,7 @@ function CommentForm({
         <Modal
           onClose={() => setOnModal(false)}
           buttons={
-            user.accoutname === accoutName
+            user.accountname === accoutName
               ? [{ text: "삭제", onClick: () => handleDelete(id) }]
               : [{ text: "신고", onClick: () => handleReport(id) }]
           }
