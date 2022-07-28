@@ -20,7 +20,7 @@ function getTimeStamp(createdAt) {
   return `${Math.floor(elapsedYear)}년 전`;
 }
 
-function CommentList({ comments, handleDelete }) {
+function CommentList({ comments, handleDelete, handleReport }) {
   return (
     <ul className={styles["wrapper-comment"]}>
       {comments.map((item) => {
@@ -34,6 +34,7 @@ function CommentList({ comments, handleDelete }) {
               createTime={getTimeStamp(item.createdAt)}
               text={item.content}
               handleDelete={handleDelete}
+              handleReport={handleReport}
             />
           </li>
         );

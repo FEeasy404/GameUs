@@ -68,4 +68,24 @@ async function deleteComment(postId, commentId) {
   }
 }
 
-export { getPostData, getPostComment, uploadComment, deleteComment };
+async function reportComment(postId, commentId) {
+  try {
+    await fetch(BASE_URL + `/post/${postId}/comments/${commentId}/report`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-type": "application/json",
+      },
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export {
+  getPostData,
+  getPostComment,
+  uploadComment,
+  deleteComment,
+  reportComment,
+};
