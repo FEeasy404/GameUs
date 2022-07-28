@@ -10,7 +10,7 @@
 }
 
 .active {
-  color: #F26E22;
+  color: var(--main-color);
 }
 
 .home::before {

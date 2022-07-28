@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import Button from "../../components/atoms/Button/Button";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
@@ -22,7 +22,7 @@ function HomePage() {
   const { user } = useContext(LoginedUserContext);
 
   // 팔로우하는 유저의 게시글 목록을 posts state에 받아옵니다.
-  useLayoutEffect(() => {
+  useEffect(() => {
     async function getPostDatas() {
       try {
         const response = await fetch(BASE_URL + REQ_PATH, {

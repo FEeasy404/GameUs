@@ -1,8 +1,10 @@
+import { useContext } from "react";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import NavItem from "../../atoms/NavItem/NavItem";
 import styles from "./bottomNavigateBar.module.css";
 
 function BottomNavigateBar() {
-  const accountname = window.sessionStorage.getItem("accountname");
+  const { user } = useContext(LoginedUserContext);
 
   return (
     <nav className={styles["nav"]}>
@@ -18,7 +20,7 @@ function BottomNavigateBar() {
         </li>
         <li className={`${styles["item-nav"]} ${styles["profile"]}`}>
           <NavItem
-            link={`/profile/${accountname}`}
+            link={`/profile/${user.accountname}`}
             label={"프로필"}
             icon={"profile"}
           />
