@@ -1,10 +1,9 @@
-/* body {
-  background-color: #080a24;
-} */
-
 .wrapper-splash {
-  box-sizing: border-box;
-  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 82px;
   display: flex;
   flex-direction: column;
