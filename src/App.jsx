@@ -22,10 +22,13 @@ import PostEditPage from "./pages/PostEditPage/PostEditPage";
 import { LoginedUserContext } from "./contexts/LoginedUserContext";
 
 function App() {
+  const loginedToken = window.sessionStorage.getItem("token");
+  const loginedAccountname = window.sessionStorage.getItem("accountname");
+  const loginedImage = window.sessionStorage.getItem("image");
   const [user, setUser] = useState({
-    token: window.sessionStorage.getItem("token"),
-    accountname: window.sessionStorage.getItem("accountname"),
-    image: window.sessionStorage.getItem("image"),
+    token: loginedToken,
+    accountname: loginedAccountname,
+    image: loginedImage,
   });
 
   useEffect(() => {
