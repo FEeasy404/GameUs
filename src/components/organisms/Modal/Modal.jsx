@@ -9,9 +9,9 @@ function Modal({ onClose, buttons, name }) {
   const [requestData, setRequestData] = useState();
   //버튼 클릭시 재확인 모달을 띄울지, 그냥 함수를 실행할지 판단
   function handleButtonClick(text, onClick) {
-    if (text === "삭제" || text === "로그아웃") {
+    if (text === "삭제" || text === "로그아웃" || text === "신고") {
       setRequestModal(!requestModal);
-      setRequestData({ name, onClick });
+      setRequestData({ name, onClick, text });
       return;
     }
     onClick();

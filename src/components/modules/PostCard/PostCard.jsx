@@ -8,7 +8,7 @@ import styles from "./postCard.module.css";
 import IconButton from "../../atoms/IconButton/IconButton";
 import Modal from "../../../components/organisms/Modal/Modal";
 import { Link } from "react-router-dom";
-import { deletePost } from "./PostCardAPI";
+import { deletePost, reportPost } from "./PostCardAPI";
 import { useNavigate } from "react-router-dom";
 
 function ImageListMaker({ image }) {
@@ -43,6 +43,9 @@ function PostCard({ post, setDeletePost }) {
   }
   function handlePostChange(postId) {
     navigate(`/post/edit/${postId}`);
+  }
+  async function handlePostReport(postId) {
+    await reportPost(postId);
   }
   return (
     <>
@@ -86,7 +89,7 @@ function PostCard({ post, setDeletePost }) {
                   { text: "삭제", onClick: () => handlePostDelete(post.id) },
                   { text: "수정", onClick: () => handlePostChange(post.id) },
                 ]
-              : [{ text: "신고" }]
+              : [{ text: "신고", onClick: () => handlePostReport(post.id) }]
           }
           name="게시글"
         />

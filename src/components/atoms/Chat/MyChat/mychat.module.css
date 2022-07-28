@@ -1,0 +1,39 @@
+.wrapper-mychat {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 16px;
+}
+
+.box-mychat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  max-width: 240px;
+  word-break: keep-all;
+  border-radius: 10px 0px 10px 10px;
+}
+
+.date-mychat {
+  display: flex;
+  align-items: flex-end;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 13px;
+  color: var(--darkgray-color);
+  margin-right: 6px;
+}
+
+.text-mychat {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  margin: 12px;
+}
+
+.image {
+  margin-bottom: 20px;
+}
