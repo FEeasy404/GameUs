@@ -1,14 +1,16 @@
+import { useContext } from "react";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import TextArea from "../../atoms/TextArea/TextArea";
 import styles from "./uploadText.module.css";
 
 function UploadText({ handleText, text }) {
-  const myImage = window.sessionStorage.getItem("image");
+  const { user } = useContext(LoginedUserContext);
 
   return (
     <div className={styles["wrapper-post"]}>
       <ImageBox
-        src={myImage}
+        src={user.image}
         type="circle"
         size="medium_small"
         alt="프로필 이미지"

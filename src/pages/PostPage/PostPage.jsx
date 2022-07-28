@@ -18,7 +18,7 @@ function PostPage() {
   const [post, setPost] = useState();
   const [comments, setComments] = useState([]);
   const [changeComments, setChangeComments] = useState(false);
- 
+
   const { user } = useContext(LoginedUserContext);
 
   useEffect(() => {
