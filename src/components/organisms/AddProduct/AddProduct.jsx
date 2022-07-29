@@ -2,7 +2,16 @@ import ImageInputForm from "../../modules/ImageInputForm/ImageInputForm";
 import ProductTextInput from "../../modules/ProductTextInput/ProductTextInput";
 import styles from "./addProduct.module.css";
 
-function AddProduct({ setName, setPrice, setLink, setImage, image }) {
+function AddProduct({
+  setName,
+  setPrice,
+  setLink,
+  setImage,
+  image,
+  name,
+  price,
+  link,
+}) {
   //이미지 프리뷰
   async function saveImage(event) {
     const file = event.target.files[0];
@@ -28,6 +37,9 @@ function AddProduct({ setName, setPrice, setLink, setImage, image }) {
         setName={setName}
         setPrice={setPrice}
         setLink={setLink}
+        name={name}
+        price={price}
+        link={link}
       />
     </section>
   );
