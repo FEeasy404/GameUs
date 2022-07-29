@@ -12,9 +12,23 @@
   text-overflow: ellipsis;
 }
 
-.product_price {
+.product_price,
+.product_price_overflow {
+  display: block;
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: var(--main-color);
+}
+
+.product_price::after {
+  content: "원";
+}
+
+.product_price_overflow::before {
+  content: "원";
+  float: right;
 }
