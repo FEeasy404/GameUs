@@ -21,18 +21,16 @@ function ProfilePage() {
   const [products, setProducts] = useState(null);
   const [posts, setPosts] = useState(null);
   const [isAlbum, setAlbum] = useState(false);
-  const [isMyProfile, setIsMyProfile] = useState("");
-  const [isDeletePost, setDeletePost] = useState("");
-  const [isDeleteProduct, setDeleteProduct] = useState("");
+  const [isMyProfile, setMyProfile] = useState(null);
 
   const { user } = useContext(LoginedUserContext);
 
   useEffect(() => {
     // 사용자의 프로필 정보를 받아오는 함수입니다.
     if (user.accountname === accountname) {
-      setIsMyProfile(true);
+      setMyProfile(true);
     } else {
-      setIsMyProfile(false);
+      setMyProfile(false);
     }
     getProfile(user.token, accountname, setProfile);
     getProducts(user.token, accountname, setProducts);
@@ -40,12 +38,16 @@ function ProfilePage() {
   }, [accountname, user]);
 
   useEffect(() => {
+    getProfile(user.token, accountname, setProfile);
+  }, [profile]);
+
+  useEffect(() => {
     getProducts(user.token, accountname, setProducts);
-  }, [isDeleteProduct]);
+  }, [products]);
 
   useEffect(() => {
     getPosts(user.token, accountname, setPosts);
-  }, [isDeletePost]);
+  }, [posts]);
 
   return (
     <section>
@@ -59,7 +61,6 @@ function ProfilePage() {
           <ProductList
             isMyProfile={isMyProfile}
             products={products}
-            setDeleteProduct={setDeleteProduct}
           />
         )}
         {posts && posts.length != 0 && (
@@ -69,7 +70,8 @@ function ProfilePage() {
               <ol>
                 {posts.map((post, index) => (
                   <li key={index}>
-                    <PostCard post={post} setDeletePost={setDeletePost} />
+                    <PostCard post={post}
+                    />
                   </li>
                 ))}
               </ol>
