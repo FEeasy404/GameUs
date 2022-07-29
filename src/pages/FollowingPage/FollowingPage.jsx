@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
@@ -15,7 +14,7 @@ function FollowingPage() {
 
   useEffect(() => {
     getFollowings(user.token, accountname, setFollowings);
-  }, [accountname]);
+  }, [accountname, followings]);
 
   return (
     <section>
