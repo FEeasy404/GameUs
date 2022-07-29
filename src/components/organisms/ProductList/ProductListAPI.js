@@ -1,7 +1,6 @@
 import { BASE_URL } from "../../../common/BASE_URL";
-const TOKEN = window.localStorage.getItem("token");
 
-async function deleteProduct(productId) {
+async function deleteProduct(TOKEN, productId) {
   try {
     await fetch(BASE_URL + `/product/${productId}`, {
       method: "DELETE",

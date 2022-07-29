@@ -3,16 +3,18 @@ import Product from "../../modules/Product/Product";
 import styles from "./productList.module.css";
 import Modal from "../Modal/Modal";
 import { deleteProduct } from "./ProductListAPI";
+import { useContext } from "react";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 
-function ProductList({ isMyProfile, products, setDeleteProduct }) {
+function ProductList({ isMyProfile, products }) {
   const [onModal, setOnModal] = useState(false);
   const [link, setLink] = useState("");
   const [productId, setProductId] = useState("");
+  const { user } = useContext(LoginedUserContext);
 
   //상품 게시글 삭제
   async function handleDeletePost(productId) {
-    await deleteProduct(productId);
-    setDeleteProduct(productId);
+    await deleteProduct(user.token, productId);
   }
 
   function handleEditPost() {

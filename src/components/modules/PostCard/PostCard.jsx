@@ -27,20 +27,20 @@ function ImageListMaker({ image }) {
   );
 }
 
-function PostCard({ post, setDeletePost }) {
+function PostCard({ post }) {
   const navigate = useNavigate();
   const [onModal, setOnModal] = useState(false);
   const { user } = useContext(LoginedUserContext);
   const author = post.author;
   async function handlePostDelete(postId) {
-    await deletePost(postId, setDeletePost);
+    await deletePost(user.token, postId);
     navigate(`/profile/${author.accountname}`);
   }
   function handlePostChange(postId) {
     navigate(`/post/edit/${postId}`);
   }
   async function handlePostReport(postId) {
-    await reportPost(postId);
+    await reportPost(user.token, postId);
   }
   return (
     <>

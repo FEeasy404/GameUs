@@ -1,8 +1,7 @@
 import { BASE_URL } from "../../../common/BASE_URL";
-const TOKEN = window.localStorage.getItem("token");
 
 //게시물 삭제
-async function deletePost(postId, setDeletePost) {
+async function deletePost(TOKEN, postId, setDeletePost) {
   try {
     await fetch(BASE_URL + `/post/${postId}`, {
       method: "DELETE",
@@ -18,7 +17,7 @@ async function deletePost(postId, setDeletePost) {
 }
 
 //게시물 신고
-async function reportPost(postId) {
+async function reportPost(TOKEN, postId) {
   try {
     await fetch(BASE_URL + `/post/${postId}/report`, {
       method: "POST",
