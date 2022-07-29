@@ -7,7 +7,7 @@ import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import UploadForm from "../../components/organisms/UploadForm/UploadForm";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
-function UploadPage() {
+function PostEditPage() {
   let { postId } = useParams();
   const navigate = useNavigate();
   const [text, setText] = useState("");
@@ -61,4 +61,4 @@ function UploadPage() {
   );
 }
 
-export default UploadPage;
+export default PostEditPage;
