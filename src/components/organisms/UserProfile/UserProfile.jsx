@@ -18,7 +18,9 @@ function UserProfile({ isMyProfile, userProfile }) {
       {isMyProfile ? (
         <MyProfileButton />
       ) : (
-        <ProfileButton isFollowing={userProfile.isFollowing} />
+        <ProfileButton
+          userProfile={userProfile}
+        />
       )}
     </section>
   );

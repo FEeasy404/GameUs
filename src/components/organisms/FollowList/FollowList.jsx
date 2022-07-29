@@ -9,7 +9,7 @@ function FollowList({ list }) {
       {list.map((user) => {
         return (
           <li key={user._id}>
-            <UserFollow user={user} />
+            <UserFollow userProfile={user} />
           </li>
         );
       })}
