@@ -27,7 +27,7 @@ function ProfileEditPage() {
   const usernameInput = useRef();
   const accountnameInput = useRef();
 
-  const { user } = useContext(LoginedUserContext);
+  const { user, setUser } = useContext(LoginedUserContext);
   const navigate = useNavigate();
 
   async function handleEdit() {
@@ -48,7 +48,10 @@ function ProfileEditPage() {
       }
 
       const reqData = { user: { ...data } };
-      await editProfile(user.token, reqData);
+      const newAccountname = await editProfile(user.token, reqData);
+      window.sessionStorage.setItem("accountname", newAccountname);
+      const updatedUser = { ...user, accountname: newAccountname };
+      setUser(updatedUser);
       navigate(`/profile/${value.accountname}`);
     }
   }
