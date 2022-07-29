@@ -2,19 +2,20 @@ import ImageInputForm from "../../modules/ImageInputForm/ImageInputForm";
 import ProductTextInput from "../../modules/ProductTextInput/ProductTextInput";
 import styles from "./addProduct.module.css";
 
-function AddProduct({
-  saveImage,
-  image,
-  handleName,
-  handlePrice,
-  handleLink,
-  maxLength,
-  nameError,
-  priceError,
-}) {
+function AddProduct({ setName, setPrice, setLink, setImage, image }) {
+  //이미지 프리뷰
+  async function saveImage(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const image = {
+      src: URL.createObjectURL(file),
+      data: file,
+    };
+    setImage(image);
+  }
   return (
     <section className={`${styles["wrapper-form"]} wrapper-padding`}>
-      <h2>이미지 등록</h2>
+      <h3>이미지 등록</h3>
       <ImageInputForm
         a11y="이미지 미리보기"
         boxType="rounded_square"
@@ -24,12 +25,9 @@ function AddProduct({
         image={image}
       />
       <ProductTextInput
-        handleName={handleName}
-        handlePrice={handlePrice}
-        handleLink={handleLink}
-        maxLength={maxLength}
-        nameError={nameError}
-        priceError={priceError}
+        setName={setName}
+        setPrice={setPrice}
+        setLink={setLink}
       />
     </section>
   );
