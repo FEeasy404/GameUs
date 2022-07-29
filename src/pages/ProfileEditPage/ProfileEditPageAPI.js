@@ -11,7 +11,7 @@ async function editProfile(TOKEN, reqData) {
       body: JSON.stringify(reqData),
     });
     const result = await data.json();
-    window.localStorage.setItem("accountname", result.user.accountname);
+    return result.user.accountname;
   } catch (error) {
     console.log(error.message);
   }
