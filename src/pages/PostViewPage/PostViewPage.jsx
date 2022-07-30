@@ -53,14 +53,12 @@ function PostViewPage() {
       <HeaderForm backButton={true} menuButton={true} />
       {post && comments ? (
         <div className="wrapper-contents">
-          {post && <PostCard post={post} />}
-          {comments && (
-            <CommentList
-              comments={comments}
-              handleDelete={handleDelete}
-              handleReport={handleReport}
-            />
-          )}
+          <PostCard post={post} />
+          <CommentList
+            comments={comments}
+            handleDelete={handleDelete}
+            handleReport={handleReport}
+          />
           <MessageInput
             type="comment"
             src={user.image}
