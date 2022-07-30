@@ -6,19 +6,20 @@ import "./global.css";
 import SplashPage from "./pages/SplashPage/SplashPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import AddProductPage from "./pages/AddProductPage/AddProductPage";
+import ProductUploadPage from "./pages/ProductUploadPage/ProductUploadPage";
+import ProductEditPage from "./pages/ProductEditPage/ProductEditPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import ProfileEditPage from "./pages/ProfileEditPage/ProfileEditPage";
-import UploadPage from "./pages/UploadPage/UploadPage";
+import PostViewPage from "./pages/PostViewPage/PostViewPage";
+import PostUploadPage from "./pages/PostUploadPage/PostUploadPage";
+import PostEditPage from "./pages/PostEditPage/PostEditPage";
 import FollowerPage from "./pages/FollowerPage/FollowerPage";
 import FollowingPage from "./pages/FollowingPage/FollowingPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import HomePage from "./pages/HomePage/HomePage";
-import PostPage from "./pages/PostPage/PostPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ChatListPage from "./pages/ChatListPage/ChatListPage";
 import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
-import PostEditPage from "./pages/PostEditPage/PostEditPage";
 import { LoginedUserContext } from "./contexts/LoginedUserContext";
 
 function App() {
@@ -53,7 +54,11 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/chat" element={<ChatListPage />} />
-            <Route path="/product" element={<AddProductPage />} />
+            <Route path="/product" element={<ProductUploadPage />} />
+            <Route
+              path="/product/edit/:productId"
+              element={<ProductEditPage />}
+            />
             <Route path="/profile/:accountname" element={<ProfilePage />} />
             <Route
               path="/profile/:accountname/follower"
@@ -67,8 +72,8 @@ function App() {
               path="/profile/:accountname/edit"
               element={<ProfileEditPage />}
             />
-            <Route path="/post" element={<UploadPage />} />
-            <Route path="/post/:postId" element={<PostPage />} />
+            <Route path="/post" element={<PostUploadPage />} />
+            <Route path="/post/:postId" element={<PostViewPage />} />
             <Route path="/post/edit/:postId" element={<PostEditPage />} />
             <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
             <Route path="/*" element={<ErrorPage />} />

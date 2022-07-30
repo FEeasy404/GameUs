@@ -6,14 +6,14 @@ import {
   uploadComment,
   deleteComment,
   reportComment,
-} from "./PostPageAPI";
+} from "./PostViewPageAPI";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
 import CommentList from "../../components/organisms/CommentList/CommentList";
 import MessageInput from "../../components/modules/MessageInput/MessageInput";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
-function PostPage() {
+function PostViewPage() {
   let { postId } = useParams();
   const inputRef = useRef();
   const [post, setPost] = useState();
@@ -73,4 +73,4 @@ function PostPage() {
   );
 }
 
-export default PostPage;
+export default PostViewPage;
