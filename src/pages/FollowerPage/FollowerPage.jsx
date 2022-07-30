@@ -5,6 +5,7 @@ import BottomNavigateBar from "../../components/modules/BottomNavigateBar/Bottom
 import FollowList from "../../components/organisms/FollowList/FollowList";
 import { getFollowers } from "./FollowerPageAPI";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
+import Loading from "../../components/modules/Loading/Loading";
 
 function FollowerPage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
@@ -26,7 +27,11 @@ function FollowerPage() {
         menuButton={false}
       />
       <div className="wrapper-contents">
-        {followers && <FollowList list={followers} setFollowers={setFollowers} />}
+        {followers ? (
+          <FollowList list={followers} setFollowers={setFollowers} />
+        ) : (
+          <Loading />
+        )}
       </div>
       <BottomNavigateBar />
     </section>
