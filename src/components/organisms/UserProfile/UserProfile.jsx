@@ -4,7 +4,7 @@ import MyProfileButton from "../../modules/MyProfileButton/MyProfileButton";
 import ProfileButton from "../../modules/ProfileButton/ProfileButton";
 import styles from "./userProfile.module.css";
 
-function UserProfile({ isMyProfile, userProfile }) {
+function UserProfile({ isMyProfile, userProfile, setProfile }) {
   return (
     <section className={styles["wrapper-profile"]}>
       <UserProfileBox
@@ -18,12 +18,10 @@ function UserProfile({ isMyProfile, userProfile }) {
       {isMyProfile ? (
         <MyProfileButton />
       ) : (
-        <ProfileButton
-          userProfile={userProfile}
-        />
+        <ProfileButton userProfile={userProfile} setProfile={setProfile} />
       )}
     </section>
   );
 }
 
-export default UserProfile;
+export default React.memo(UserProfile);

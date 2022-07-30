@@ -5,8 +5,9 @@ import { followUser } from "../../../common/FollowUser";
 import { unfollowUser } from "../../../common/UnfollowUser";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import styles from "./profileButton.module.css";
+import { getProfile } from "../../../pages/ProfilePage/ProfilePageAPI";
 
-function ProfileButton({ userProfile }) {
+function ProfileButton({ userProfile, setProfile }) {
   const { user } = useContext(LoginedUserContext);
   const [isFollow, setFollow] = useState(userProfile.isfollow);
 
@@ -23,9 +24,12 @@ function ProfileButton({ userProfile }) {
         active={true}
         primary={isFollow ? false : true}
         onClick={() => {
-          isFollow
-            ? unfollowUser(user.token, userProfile.accountname)
-            : followUser(user.token, userProfile.accountname);
+          if (isFollow) {
+            unfollowUser(user.token, userProfile.accountname);
+          } else {
+            followUser(user.token, userProfile.accountname);
+          }
+          getProfile(user.token, userProfile.accountname, setProfile);
         }}
       />
       <IconButton type="share" text="공유하기" />

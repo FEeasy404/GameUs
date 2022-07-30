@@ -12,6 +12,7 @@ import { deletePost, reportPost } from "./PostCardAPI";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
+import { getPosts } from "../../../pages/ProfilePage/ProfilePageAPI";
 
 function ImageListMaker({ image }) {
   if (!image) return null;
@@ -27,13 +28,14 @@ function ImageListMaker({ image }) {
   );
 }
 
-function PostCard({ post }) {
+function PostCard({ post, setPosts }) {
   const navigate = useNavigate();
   const [onModal, setOnModal] = useState(false);
   const { user } = useContext(LoginedUserContext);
   const author = post.author;
   async function handlePostDelete(postId) {
     await deletePost(user.token, postId);
+    getPosts(user.token, user.accountname, setPosts);
     navigate(`/profile/${author.accountname}`);
   }
   function handlePostChange(postId) {
