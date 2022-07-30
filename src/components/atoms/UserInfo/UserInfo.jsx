@@ -6,7 +6,9 @@ function UserInfo({ username, accountname, intro }) {
     <div className={styles["info-wrapper"]}>
       <strong className={styles["user_name"]}>{username}</strong>
       <p className={styles["user_id"]}>@ {accountname}</p>
-      <p className={styles["user_introduce"]}>{intro}</p>
+      <p className={styles["user_introduce"]} title={intro}>
+        {intro}
+      </p>
     </div>
   );
 }
