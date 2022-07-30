@@ -11,6 +11,7 @@ import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
 import CommentList from "../../components/organisms/CommentList/CommentList";
 import MessageInput from "../../components/modules/MessageInput/MessageInput";
+import Loading from "../../components/modules/Loading/Loading";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function PostViewPage() {
@@ -50,25 +51,27 @@ function PostViewPage() {
     <section>
       <h2 className="a11y-hidden">게시글 상세 페이지</h2>
       <HeaderForm backButton={true} menuButton={true} />
-      <div className="wrapper-contents">
-        {post && <PostCard post={post} />}
-        {comments && (
+      {post && comments ? (
+        <div className="wrapper-contents">
+          <PostCard post={post} />
           <CommentList
             comments={comments}
             handleDelete={handleDelete}
             handleReport={handleReport}
           />
-        )}
-        <MessageInput
-          type="comment"
-          src={user.image}
-          title="댓글"
-          placeholder="댓글 입력하기..."
-          buttonText="게시"
-          inputRef={inputRef}
-          onClick={handleTextInput}
-        />
-      </div>
+          <MessageInput
+            type="comment"
+            src={user.image}
+            title="댓글"
+            placeholder="댓글 입력하기..."
+            buttonText="게시"
+            inputRef={inputRef}
+            onClick={handleTextInput}
+          />
+        </div>
+      ) : (
+        <Loading />
+      )}
     </section>
   );
 }

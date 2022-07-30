@@ -1,0 +1,104 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  background-color: white;
+}
+
+.balls {
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 45%;
+}
+
+.ball1,
+.ball2,
+.ball3 {
+  margin: 0 5px;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 2s infinite
+    cubic-bezier(0.62, 0.28, 0.23, 0.99) both;
+  animation: bouncedelay 2s infinite cubic-bezier(0.62, 0.28, 0.23, 0.99) both;
+}
+
+.ball1 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.ball2 {
+  -webkit-animation-delay: -0.08s;
+  animation-delay: -0.08s;
+}
+
+@keyframes bouncedelay {
+  0% {
+    bottom: 0;
+    background-color: var(--main-color);
+  }
+  16.66% {
+    bottom: 40px;
+    background-color: var(--disabled-color);
+  }
+  33.33% {
+    bottom: 0px;
+    background-color: var(--darkgray-color);
+  }
+  50% {
+    bottom: 40px;
+    background-color: var(--middlegray-color);
+  }
+  66.66% {
+    bottom: 0px;
+    background-color: var(--lightgray-color);
+  }
+  83.33% {
+    bottom: 40px;
+    background-color: var(--disabled-color);
+  }
+  100% {
+    bottom: 0;
+    background-color: #03a9f4;
+  }
+}
+
+@-webkit-keyframes bouncedelay {
+  0% {
+    bottom: 0;
+    background-color: var(--main-color);
+  }
+  16.66% {
+    bottom: 40px;
+    background-color: var(--disabled-color);
+  }
+  33.33% {
+    bottom: 0px;
+    background-color: var(--darkgray-color);
+  }
+  50% {
+    bottom: 40px;
+    background-color: var(--middlegray-color);
+  }
+  66.66% {
+    bottom: 0px;
+    background-color: var(--lightgray-color);
+  }
+  83.33% {
+    bottom: 40px;
+    background-color: var(--disabled-color);
+  }
+  100% {
+    bottom: 0;
+    background-color: #03a9f4;
+  }
+}

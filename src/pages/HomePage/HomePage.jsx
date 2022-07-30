@@ -4,6 +4,7 @@ import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import PostCard from "../../components/modules/PostCard/PostCard";
 import catImageURL from "../../assets/icon-404-cat.png";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
+import Loading from "../../components/modules/Loading/Loading";
 import styles from "./homePage.module.css";
 import { BASE_URL } from "../../common/BASE_URL";
 import { useContext } from "react";
@@ -33,13 +34,6 @@ function HomePage() {
           },
         });
         const result = await response.json();
-        // // image 프로퍼티의 여러 개 담긴 image url을 나눠 배열로 만듭니다.
-        // const imageData = result.posts.map((item) => item.image.split(","));
-
-        // // posts의 각 게시글 image 프로퍼티를 처리된 imageData로 대체합니다.
-        // result.posts.map((post, index) => {
-        //   post.image = imageData[index];
-        // });
         setPosts(result.posts);
       } catch (error) {
         console.log(error.message);
@@ -55,8 +49,8 @@ function HomePage() {
       <h2 className="a11y-hidden">게임어스 홈 피드</h2>
       <HeaderForm title={"홈 피드"} searchButton={true} titleSize={"large"} />
       <div className="wrapper-contents">
-        {posts &&
-          (posts.length === 0 ? (
+        {posts ? (
+          posts.length === 0 ? (
             <div className={styles["container-search_notice"]}>
               <img src={catImageURL} />
               <p className={styles["text"]}>유저를 검색해 팔로우 해보세요!</p>
@@ -76,7 +70,10 @@ function HomePage() {
                 </li>
               ))}
             </ul>
-          ))}
+          )
+        ) : (
+          <Loading />
+        )}
       </div>
       <BottomNavigateBar />
     </section>
