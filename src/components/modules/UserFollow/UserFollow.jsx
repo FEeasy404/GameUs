@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import UserNameIntroduce from "../../atoms/UserNameIntroduce/UserNameIntroduce";
 import Button from "../../atoms/Button/Button";
@@ -7,13 +7,16 @@ import styles from "./userFollow.module.css";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import { followUser } from "../../../common/FollowUser";
 import { unfollowUser } from "../../../common/UnfollowUser";
+import { getFollowers } from "../../../pages/FollowerPage/FollowerPageAPI";
+import { getFollowings } from "../../../pages/FollowingPage/FollowingPageAPI";
 
-function UserFollow({ userProfile }) {
+function UserFollow({ userProfile, setFollowers, setFollowings }) {
   const { user } = useContext(LoginedUserContext);
-  const [isFollow, setFollow] = useState(userProfile.isfollow);
+  const [isFollowing, setFollowing] = useState(userProfile.isfollow);
+  let { accountname } = useParams();
 
   useEffect(() => {
-    setFollow(userProfile.isfollow);
+    setFollowing(userProfile.isfollow);
   }, [userProfile.isfollow]);
 
   return (
@@ -36,14 +39,21 @@ function UserFollow({ userProfile }) {
       {user.accountname !== userProfile.accountname && (
         <Button
           size="small"
-          label={isFollow ? "취소" : "팔로우"}
+          label={isFollowing ? "취소" : "팔로우"}
           active={true}
-          primary={isFollow ? false : true}
-          onClick={() =>
-            isFollow
-              ? unfollowUser(user.token, userProfile.accountname)
-              : followUser(user.token, userProfile.accountname)
-          }
+          primary={isFollowing ? false : true}
+          onClick={() => {
+            if (isFollowing) {
+              unfollowUser(user.token, userProfile.accountname);
+            } else {
+              followUser(user.token, userProfile.accountname);
+            }
+            if (setFollowers) {
+              getFollowers(user.token, accountname, setFollowers);
+            } else {
+              getFollowings(user.token, accountname, setFollowings);
+            }
+          }}
         />
       )}
     </div>

@@ -14,7 +14,7 @@ function FollowingPage() {
 
   useEffect(() => {
     getFollowings(user.token, accountname, setFollowings);
-  }, [accountname, followings]);
+  }, [accountname]);
 
   return (
     <section>
@@ -26,7 +26,7 @@ function FollowingPage() {
         menuButton={false}
       />
       <div className="wrapper-contents">
-        {followings && <FollowList list={followings} />}
+        {followings && <FollowList list={followings} setFollowings={setFollowings} />}
       </div>
       <BottomNavigateBar />
     </section>
