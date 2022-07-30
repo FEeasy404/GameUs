@@ -6,8 +6,10 @@ import Modal from "../Modal/Modal";
 import { deleteProduct } from "./ProductListAPI";
 import { useContext } from "react";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
+import { getProducts } from "../../../pages/ProfilePage/ProfilePageAPI";
 
-function ProductList({ isMyProfile, products }) {
+
+function ProductList({ isMyProfile, products, setProducts }) {
   const navigate = useNavigate();
   const [onModal, setOnModal] = useState(false);
   const [link, setLink] = useState("");
@@ -17,6 +19,7 @@ function ProductList({ isMyProfile, products }) {
   //상품 삭제
   async function handleDeletePost(productId) {
     await deleteProduct(user.token, productId);
+    getProducts(user.token, user.accountname, setProducts);
   }
 
   //상품 수정

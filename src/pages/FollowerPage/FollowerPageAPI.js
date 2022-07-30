@@ -14,6 +14,7 @@ async function getFollowers(TOKEN, accountname, setFollowers) {
     );
     const result = await data.json();
     setFollowers(result);
+    console.log("rendering...");
   } catch (error) {
     console.log(error.message);
   }

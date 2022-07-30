@@ -3,13 +3,13 @@ import UserFollow from "../../modules/UserFollow/UserFollow";
 import styles from "./followList.module.css";
 import Logo from "../../../assets/icon-404-cat.png";
 
-function FollowList({ list }) {
+function FollowList({ list, setFollowers, setFollowings }) {
   return list.length > 0 ? (
     <ul className={styles["list-follow"]}>
       {list.map((user) => {
         return (
           <li key={user._id}>
-            <UserFollow userProfile={user} />
+            <UserFollow userProfile={user} setFollowers={setFollowers} setFollowings={setFollowings} />
           </li>
         );
       })}

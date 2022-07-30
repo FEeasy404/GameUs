@@ -14,7 +14,7 @@ function FollowerPage() {
 
   useEffect(() => {
     getFollowers(user.token, accountname, setFollowers);
-  }, [accountname, followers]);
+  }, [accountname]);
 
   return (
     <section>
@@ -26,7 +26,7 @@ function FollowerPage() {
         menuButton={false}
       />
       <div className="wrapper-contents">
-        {followers && <FollowList list={followers} />}
+        {followers && <FollowList list={followers} setFollowers={setFollowers} />}
       </div>
       <BottomNavigateBar />
     </section>
