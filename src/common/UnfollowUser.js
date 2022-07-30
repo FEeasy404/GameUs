@@ -1,8 +1,8 @@
-import { BASE_URL } from "../../../common/BASE_URL";
+import { BASE_URL } from "./BASE_URL";
 
-async function deleteProduct(TOKEN, productId) {
+async function unfollowUser(TOKEN, accountname) {
   try {
-    await fetch(BASE_URL + `/product/${productId}`, {
+    await fetch(BASE_URL + `/profile/${accountname}/unfollow`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${TOKEN}`,
@@ -13,5 +13,4 @@ async function deleteProduct(TOKEN, productId) {
     console.log(error.message);
   }
 }
-
-export { deleteProduct };
+export { unfollowUser };

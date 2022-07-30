@@ -48,9 +48,17 @@ function ProfileEditPage() {
       }
 
       const reqData = { user: { ...data } };
-      const newAccountname = await editProfile(user.token, reqData);
-      window.sessionStorage.setItem("accountname", newAccountname);
-      const updatedUser = { ...user, accountname: newAccountname };
+      const updatedData = await editProfile(user.token, reqData);
+      window.sessionStorage.setItem(
+        "accountname",
+        updatedData.user.accountname
+      );
+      window.sessionStorage.setItem("image", updatedData.user.image);
+      const updatedUser = {
+        ...user,
+        accountname: updatedData.user.accountname,
+        image: updatedData.user.image,
+      };
       setUser(updatedUser);
       navigate(`/profile/${value.accountname}`);
     }

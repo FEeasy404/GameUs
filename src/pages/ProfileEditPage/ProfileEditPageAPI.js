@@ -11,7 +11,7 @@ async function editProfile(TOKEN, reqData) {
       body: JSON.stringify(reqData),
     });
     const result = await data.json();
-    return result.user.accountname;
+    return result;
   } catch (error) {
     console.log(error.message);
   }

@@ -1,11 +1,9 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
 import FollowList from "../../components/organisms/FollowList/FollowList";
 import { getFollowers } from "./FollowerPageAPI";
-import { useContext } from "react";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function FollowerPage() {
@@ -16,7 +14,7 @@ function FollowerPage() {
 
   useEffect(() => {
     getFollowers(user.token, accountname, setFollowers);
-  }, [accountname]);
+  }, [accountname, followers]);
 
   return (
     <section>
