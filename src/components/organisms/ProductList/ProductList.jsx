@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Product from "../../modules/Product/Product";
 import styles from "./productList.module.css";
 import Modal from "../Modal/Modal";
@@ -7,18 +8,20 @@ import { useContext } from "react";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 
 function ProductList({ isMyProfile, products }) {
+  const navigate = useNavigate();
   const [onModal, setOnModal] = useState(false);
   const [link, setLink] = useState("");
   const [productId, setProductId] = useState("");
   const { user } = useContext(LoginedUserContext);
 
-  //상품 게시글 삭제
+  //상품 삭제
   async function handleDeletePost(productId) {
     await deleteProduct(user.token, productId);
   }
 
+  //상품 수정
   function handleEditPost() {
-    // 상품 게시글 수정 함수입니다.
+    navigate(`/product/edit/${productId}`);
   }
 
   function navigateLink(link) {
@@ -60,7 +63,7 @@ function ProductList({ isMyProfile, products }) {
           onClose={() => setOnModal(false)}
           buttons={[
             { text: "삭제", onClick: () => handleDeletePost(productId) },
-            { text: "수정", onClick: handleEditPost },
+            { text: "수정", onClick: () => handleEditPost(productId) },
             {
               text: "웹사이트에서 상품 보기",
               onClick: () => navigateLink(link),
