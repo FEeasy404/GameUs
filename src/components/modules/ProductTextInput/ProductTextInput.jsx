@@ -1,13 +1,36 @@
+import { useState } from "react";
 import InputBox from "../../atoms/InputBox/InputBox";
 
-function ProductTextInput({
-  handleName,
-  handlePrice,
-  handleLink,
-  maxLength,
-  nameError,
-  priceError,
-}) {
+function ProductTextInput({ setName, setPrice, setLink }) {
+  const [nameError, setNameError] = useState(false);
+  const [priceError, setPriceError] = useState(false);
+  //상품명 처리
+  function handleName(event) {
+    const name = event.target.value.trim();
+    setName(name);
+    if (name.length < 2) {
+      setNameError(true);
+      return;
+    }
+    setNameError(false);
+  }
+  //가격 처리
+  function handlePrice(event) {
+    const price = event.target.value.replace(/,/g, "");
+    if (!price) return;
+    if (isNaN(price)) {
+      setPriceError(true);
+      event.target.value = "";
+      return;
+    }
+    setPriceError(false);
+    event.target.value = Number(price).toLocaleString("en-US");
+    setPrice(Number(price));
+  }
+  //링크 처리
+  function handleLink(event) {
+    setLink(event.target.value.trim());
+  }
   return (
     <div>
       <InputBox
@@ -15,8 +38,8 @@ function ProductTextInput({
         type="text"
         name="상품명"
         placeholder="2~15자 이내여야 합니다."
+        maxLength="15"
         onChange={handleName}
-        maxLength={maxLength}
         error={nameError && "상품명은 2~15자 이내여야 합니다."}
       />
       <InputBox
@@ -24,6 +47,7 @@ function ProductTextInput({
         type="text"
         name="가격"
         placeholder="숫자만 입력 가능합니다."
+        maxLength="11"
         onChange={handlePrice}
         error={priceError && "숫자만 입력 가능합니다"}
       />
