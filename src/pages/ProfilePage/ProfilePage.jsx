@@ -9,6 +9,7 @@ import BottomNavigateBar from "../../components/modules/BottomNavigateBar/Bottom
 import { useContext } from "react";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 import PostList from "../../components/organisms/PostList/PostList";
+import Loading from "../../components/modules/Loading/Loading";
 
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
@@ -36,66 +37,29 @@ function ProfilePage() {
     setUserProfile();
   }, [accountname, user]);
 
-  // useEffect(() => {
-  //   async function setUserProfile() {
-  //     const userProfile = await getProfile(user.token, accountname);
-  //     setProfile(userProfile);
-  //   }
-  //   setUserProfile();
-  // }, [profile]);
-
-  // useEffect(() => {
-  //   getProducts(user.token, accountname, setProducts);
-  // }, [products]);
-
-  // useEffect(() => {
-  //   getPosts(user.token, accountname, setPosts);
-  // }, [posts]);
-
   return (
     <section>
       <h2 className="a11y-hidden">프로필 페이지</h2>
       <HeaderForm backButton={true} menuButton={true} />
       <div className="wrapper-contents">
-        {profile && (
-          <UserProfile
-            isMyProfile={isMyProfile}
-            userProfile={profile}
-            setProfile={setProfile}
-          />
-        )}
-        {products && (
-          <ProductList
-            isMyProfile={isMyProfile}
-            products={products}
-            setProducts={setProducts}
-          />
-        )}
-        {posts && posts.length != 0 && (
-          // <section>
-          //   <PostHeader isAlbum={isAlbum} setAlbum={setAlbum} />
-          //   {!isAlbum ? (
-          //     <ol>
-          //       {posts.map((post, index) => (
-          //         <li key={index}>
-          //           <PostCard post={post} />
-          //         </li>
-          //       ))}
-          //     </ol>
-          //   ) : (
-          //     <ol className={styles["list-image"]}>
-          //       {posts.map(
-          //         (post, index) =>
-          //           post.image && (
-          //             <li key={index}>
-          //               <ImagePostCard post={post} />
-          //             </li>
-          //           )
-          //       )}
-          //     </ol>
-          //   )}
-          // </section>
-          <PostList posts={posts} setPosts={setPosts} />
+        {profile && products && posts ? (
+          <>
+            <UserProfile
+              isMyProfile={isMyProfile}
+              userProfile={profile}
+              setProfile={setProfile}
+            />
+            <ProductList
+              isMyProfile={isMyProfile}
+              products={products}
+              setProducts={setProducts}
+            />
+            {posts.length != 0 && (
+              <PostList posts={posts} setPosts={setPosts} />
+            )}
+          </>
+        ) : (
+          <Loading />
         )}
       </div>
       <BottomNavigateBar />
