@@ -143,10 +143,11 @@ function ProfileForm({
         id="intro"
         name="소개"
         type="text"
-        placeholder="자신과 판매할 상품에 대해 소개해 주세요!"
+        placeholder="자신과 판매할 상품에 대해 20자 이내로 소개해 주세요!"
         value={value.intro}
         onChange={handleInputValue}
         onKeyDown={onKeyDown}
+        maxLength={20}
       />
     </div>
   );

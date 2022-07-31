@@ -19,7 +19,11 @@
 }
 
 .user_introduce {
+  max-width: 300px;
   font-size: 1.4rem;
   line-height: 18px;
   color: var(--darkgray-color);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
