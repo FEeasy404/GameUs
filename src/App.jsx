@@ -54,6 +54,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/chat" element={<ChatListPage />} />
+            <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
             <Route path="/product" element={<ProductUploadPage />} />
             <Route
               path="/product/edit/:productId"
@@ -75,7 +76,6 @@ function App() {
             <Route path="/post" element={<PostUploadPage />} />
             <Route path="/post/:postId" element={<PostViewPage />} />
             <Route path="/post/edit/:postId" element={<PostEditPage />} />
-            <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
             <Route path="/*" element={<ErrorPage />} />
           </Routes>
         </div>

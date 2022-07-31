@@ -4,24 +4,31 @@ import UserChat from "../../atoms/Chat/UserChat/UserChat";
 import MyChat from "../../atoms/Chat/MyChat/MyChat";
 
 function ChatRoom() {
+  // 유저이미지 더미데이터입니다.
+  const image = "https://i.imgur.com/Cu85FEk.jpg";
+
   return (
     <div className={styles["wrapper-chatroom"]}>
       <UserChat
         text={
-          "광대한 세계를 무대로 어디로 가든, 무엇을 하든, 모험의 모든 것을 당신이 원하는 대로 할 수 있습니다. 야생 동물을 사냥하며 지낼 것인가? 몬스터를 퇴치하러 갈 것인가? 절경 포인트를 보러 다닐 것인가? 달리고, 헤엄치고, 날고, 높은 곳을 오르고, 광활한 세계에서 본인이 마음먹은 대로 모험할 수 있습니다. Nintendo Switch를 통해, 자택의 TV로 느긋하게 플레이 하다가 그대로 들고 나가 외출 중에도 계속해서 모험을 즐길 수 있는 등, 자유로운 플레이 스타일로 즐길 수 있습니다."
+          "안녕하세요!! 저 이번에 처음 닌텐도 샀는데 궁금한 게 있어서 연락드려요"
         }
         date={"12:39"}
-      />
+        image={image}
+        />
       <UserChat
-        text={"안녕하세요. 주인공 이름이 젤다인가요오오오오"}
+        text={"닌텐도 게임 자주 하시는 것 같아서요"}
         date={"12:41"}
-      />
-      <MyChat text={"네 말씀하세요."} date={"12:50"} />
+        image={image}
+        />
+      <MyChat text={"아 네네 뉴비 환영이죠 ^^"} date={"12:50"} />
+      <MyChat text={"어떤 게 궁금하세요?"} date={"12:50"} />
       <MyChat
         image="https://img.insight.co.kr/static/2020/01/30/700/j088zi88gyw66dup9kr2.jpg"
         date={"12:51"}
-      />
-      <UserChat text={"주인공 이름이 젤다인가요?"} date={"12:52"} />
+        />
+      <UserChat text={"젤다의 전설"} date={"12:52"} image={image}/>
+      <UserChat text={"주인공 이름이 젤다인가요?"} date={"12:52"} image={image}/>
     </div>
   );
 }

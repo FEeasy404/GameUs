@@ -28,15 +28,15 @@ function SearchPage() {
             </Link>
           </li>
           <li>
-            <Link to={"/profile/jordi3"} className={styles["container-user"]}>
+            <Link to={"/profile/marshal7"} className={styles["container-user"]}>
               <ImageBox
-                src={"https://mandarin.api.weniv.co.kr/1657961502180.png"}
+                src={"https://mandarin.api.weniv.co.kr/1657869447576.png"}
                 type={"circle"}
                 size={"medium"}
                 alt={"jordi3"}
               />
               <div className={styles["info-user"]}>
-                <strong className={styles["username"]}>죠르디</strong>
+                <strong className={styles["username"]}>쭈니</strong>
                 <span className={styles["id"]}>jordi3</span>
               </div>
             </Link>

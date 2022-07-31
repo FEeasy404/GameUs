@@ -2,11 +2,11 @@ import React from "react";
 import ImageBox from "../../ImageBox/ImageBox";
 import styles from "./userchat.module.css";
 
-function UserChat({ text, date }) {
+function UserChat({ text, date, image }) {
   return (
     <div className={styles["wrapper-userchat"]}>
       <ImageBox
-        src="https://mandarin.api.weniv.co.kr/1658306906297.png"
+        src={image ? image : "https://mandarin.api.weniv.co.kr/1658306906297.png"}
         type={"circle"}
         size={"medium_small"}
       />
