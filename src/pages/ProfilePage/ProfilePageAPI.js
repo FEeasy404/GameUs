@@ -10,9 +10,14 @@ async function getProfile(TOKEN, accountname, setProfile) {
       },
     });
     const result = await data.json();
-    setProfile(result.profile);
+    if (result.status === "404") {
+      throw result;
+    } else {
+      setProfile(result.profile);
+    }
   } catch (error) {
     console.log(error.message);
+    return error;
   }
 }
 
@@ -27,6 +32,7 @@ async function getProducts(TOKEN, accountname, setProducts) {
       },
     });
     const result = await data.json();
+
     setProducts(result);
   } catch (error) {
     console.log(error.message);

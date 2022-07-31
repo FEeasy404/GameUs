@@ -6,8 +6,8 @@ function NavItem({link, label, icon}) {
   const currunt = location.pathname === link;
 
   return (
-      <Link 
-        to={link} 
+      <Link
+        to={link}
         className={`${styles.link} ${styles[icon]} ${currunt ? styles.active : null}`}
       >
         <span className={styles.label}>{label}</span>
