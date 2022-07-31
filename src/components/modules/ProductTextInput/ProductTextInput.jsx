@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputBox from "../../atoms/InputBox/InputBox";
 
-function ProductTextInput({ setName, setPrice, setLink }) {
+function ProductTextInput({ setName, setPrice, setLink, name, price, link }) {
   const [nameError, setNameError] = useState(false);
   const [priceError, setPriceError] = useState(false);
   //상품명 처리
@@ -17,7 +17,6 @@ function ProductTextInput({ setName, setPrice, setLink }) {
   //가격 처리
   function handlePrice(event) {
     const price = event.target.value.replace(/,/g, "");
-    if (!price) return;
     if (isNaN(price)) {
       setPriceError(true);
       event.target.value = "";
@@ -41,6 +40,7 @@ function ProductTextInput({ setName, setPrice, setLink }) {
         maxLength="15"
         onChange={handleName}
         error={nameError && "상품명은 2~15자 이내여야 합니다."}
+        value={name && name}
       />
       <InputBox
         id="price"
@@ -50,6 +50,7 @@ function ProductTextInput({ setName, setPrice, setLink }) {
         maxLength="11"
         onChange={handlePrice}
         error={priceError && "숫자만 입력 가능합니다"}
+        value={price && price.toLocaleString("en-US")}
       />
       <InputBox
         id="link"
@@ -57,6 +58,7 @@ function ProductTextInput({ setName, setPrice, setLink }) {
         name="판매 링크"
         placeholder="URL을 입력해주세요."
         onChange={handleLink}
+        value={link && link}
       />
     </div>
   );
