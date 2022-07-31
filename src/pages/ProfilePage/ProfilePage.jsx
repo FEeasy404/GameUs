@@ -1,20 +1,19 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
 import UserProfile from "../../components/organisms/UserProfile/UserProfile";
 import ProductList from "../../components/organisms/ProductList/ProductList";
 import { getProfile, getProducts, getPosts } from "./ProfilePageAPI";
 import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
-import { useContext } from "react";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 import PostList from "../../components/organisms/PostList/PostList";
 import Loading from "../../components/modules/Loading/Loading";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.
   let { accountname } = useParams();
-
+  const [isNotFound, setNotFound] = useState(false);
   const [profile, setProfile] = useState(null);
   const [products, setProducts] = useState(null);
   const [posts, setPosts] = useState(null);
@@ -30,9 +29,17 @@ function ProfilePage() {
       setMyProfile(false);
     }
     async function setUserProfile() {
-      await getProfile(user.token, accountname, setProfile);
-      await getProducts(user.token, accountname, setProducts);
-      await getPosts(user.token, accountname, setPosts);
+      try {
+        const error = await getProfile(user.token, accountname, setProfile);
+        if (error && error.status === "404") {
+          throw new Error("User Not Found");
+        }
+        await getProducts(user.token, accountname, setProducts);
+        await getPosts(user.token, accountname, setPosts);
+      } catch (error) {
+        setNotFound(true);
+        console.log(error.message);
+      }
     }
     setUserProfile();
   }, [accountname, user]);
@@ -41,27 +48,31 @@ function ProfilePage() {
     <section>
       <h2 className="a11y-hidden">프로필 페이지</h2>
       <HeaderForm backButton={true} menuButton={true} />
-      <div className="wrapper-contents">
-        {profile && products && posts ? (
-          <>
-            <UserProfile
-              isMyProfile={isMyProfile}
-              userProfile={profile}
-              setProfile={setProfile}
-            />
-            <ProductList
-              isMyProfile={isMyProfile}
-              products={products}
-              setProducts={setProducts}
-            />
-            {posts.length != 0 && (
-              <PostList posts={posts} setPosts={setPosts} />
-            )}
-          </>
-        ) : (
-          <Loading />
-        )}
-      </div>
+      {isNotFound ? (
+        <ErrorPage />
+      ) : (
+        <div className="wrapper-contents">
+          {profile && products && posts ? (
+            <>
+              <UserProfile
+                isMyProfile={isMyProfile}
+                userProfile={profile}
+                setProfile={setProfile}
+              />
+              <ProductList
+                isMyProfile={isMyProfile}
+                products={products}
+                setProducts={setProducts}
+              />
+              {posts.length != 0 && (
+                <PostList posts={posts} setPosts={setPosts} />
+              )}
+            </>
+          ) : (
+            <Loading />
+          )}
+        </div>
+      )}
       <BottomNavigateBar />
     </section>
   );
