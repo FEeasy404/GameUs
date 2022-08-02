@@ -30,12 +30,14 @@ function ProfilePage() {
     }
     async function setUserProfile() {
       try {
-        const error = await getProfile(user.token, accountname, setProfile);
-        if (error && error.status === "404") {
+        const result = await getProfile(user.token, accountname);
+        if (result.status === "404") {
           throw new Error("User Not Found");
+        } else {
+          setProfile(result.profile);
+          await getProducts(user.token, accountname, setProducts);
+          await getPosts(user.token, accountname, setPosts);
         }
-        await getProducts(user.token, accountname, setProducts);
-        await getPosts(user.token, accountname, setPosts);
       } catch (error) {
         setNotFound(true);
         console.log(error.message);

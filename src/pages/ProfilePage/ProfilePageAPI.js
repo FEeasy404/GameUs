@@ -1,6 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-async function getProfile(TOKEN, accountname, setProfile) {
+async function getProfile(TOKEN, accountname) {
   try {
     const data = await fetch(BASE_URL + `/profile/${accountname}`, {
       method: "GET",
@@ -10,14 +10,9 @@ async function getProfile(TOKEN, accountname, setProfile) {
       },
     });
     const result = await data.json();
-    if (result.status === "404") {
-      throw result;
-    } else {
-      setProfile(result.profile);
-    }
+    return result;
   } catch (error) {
     console.log(error.message);
-    return error;
   }
 }
 
