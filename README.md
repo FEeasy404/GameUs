@@ -250,14 +250,14 @@ return(
 	<section>
 		<h2 className="a11y-hidden">게시글 상세 페이지</h2>
 		<HeaderForm />
-		{**post && comments** ? (
+		{post && comments ? (
 		  <div className="wrapper-contents">
 		    <PostCard post={post} />
 		    <CommentList comments={comments}/>
-		    <MessageInpu/>
+		    <MessageInput/>
 		  </div>
 		) : (
-		  **<Loading />**
+		  <Loading />
 		)}
 	</section>
 )
@@ -274,16 +274,16 @@ atom, molecule, organism을 활용해 UI는 최대한 재활용하고, API로 �
 return (
     <section>
       <h2 className="a11y-hidden">게시글 상세 페이지</h2>
-      <**HeaderForm** backButton={true} menuButton={true} /> **// molecule**
+      <HeaderForm backButton={true} menuButton={true} /> // molecule
       {post && comments ? (
         <div className="wrapper-contents">
-          <**PostCard** post={post} /> **// molecule**
-          <**CommentList** **// organism**
+          <PostCard post={post} /> // molecule
+          <CommentList // organism
             comments={comments}
             handleDelete={handleDelete}
             handleReport={handleReport}
           />
-          <**MessageInput** **// molecule**
+          <MessageInput // molecule
             type="comment"
             src={user.image}
             title="댓글"
@@ -294,7 +294,7 @@ return (
           />
         </div>
       ) : (
-        <**Loading** /> **// molecule**
+        <Loading /> // molecule
       )}
     </section>
   );
@@ -358,10 +358,10 @@ return (
 
 BUG, CUSTOM, FEATURE 세 가지 Issue 템플릿을 사용하고 있습니다.
 
-- 생성한 이슈는 **[깃허브 프로젝트](https://github.com/FEeasy404/GameUs/projects/1)**와 연결하여 진행 상황을 한눈에 볼 수 있도록 하였습니다.
+- 생성한 이슈는 [깃허브 프로젝트](https://github.com/FEeasy404/GameUs/projects/1)와 연결하여 진행 상황을 한눈에 볼 수 있도록 하였습니다.
 
 
-- **[깃허브 위키](https://github.com/FEeasy404/GameUs/wiki)**에 코딩, 커밋, PR 컨벤션을 정리해 두어 편하게 볼 수 있도록 하였습니다.
+- [깃허브 위키](https://github.com/FEeasy404/GameUs/wiki)에 코딩, 커밋, PR 컨벤션을 정리해 두어 편하게 볼 수 있도록 하였습니다.
 
 
 - PR을 작성하면 **최소 2명에게 코드 리뷰를 받은 뒤 머지**하도록 규칙을 설정해서, 디스코드 채널에 **Github 웹훅**을 연동해 PR이나 변경사항 커밋이 있을 경우 **빠르게 알림을 받을 수 있도록** 하였습니다. 
