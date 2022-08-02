@@ -52,7 +52,6 @@ function ProfileEditPage() {
   async function handleEdit() {
     usernameInput.current.blur();
     accountnameInput.current.blur();
-    console.log(isAccountnameValid);
     // 에러가 없고 계정 ID가 유효하다면 context에 이미지, 사용자 이름, 계정 ID, 소개를 저장합니다.
     if (!error.username && !error.accountname && isAccountnameValid) {
       const data = value;
@@ -68,7 +67,6 @@ function ProfileEditPage() {
       }
 
       const reqData = { user: { ...data } };
-      console.log(reqData);
       const updatedData = await editProfile(user.token, reqData);
       window.sessionStorage.setItem(
         "accountname",
@@ -82,8 +80,6 @@ function ProfileEditPage() {
       };
       setUser(updatedUser);
       navigate(`/profile/${value.accountname}`);
-    } else {
-      console.log("error");
     }
   }
 

@@ -79,8 +79,6 @@ function ProfileForm({
 
   // accountname input이 blur되었을 때 유효성 검사를 실행하는 함수입니다.
   async function checkAccountnameValid() {
-    console.log(user.accountname);
-    console.log(value.accountname);
     if (value.accountname === user.accountname) {
       setAccountnameValid(true);
     } else {
