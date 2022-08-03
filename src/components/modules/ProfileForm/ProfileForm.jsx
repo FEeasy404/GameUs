@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import InputBox from "../../atoms/InputBox/InputBox";
 import ImageInputForm from "../ImageInputForm/ImageInputForm";
 import styles from "./profileForm.module.css";
 import { BASE_URL } from "../../../common/BASE_URL";
+import { BASE_IMAGE } from "../../../common/BASE_IMAGE";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 
 function ProfileForm({
   value,
@@ -16,6 +18,7 @@ function ProfileForm({
 }) {
   // 계정 ID 검사 정규식입니다.
   const accountnameRegExp = /^[a-zA-Z0-9_.]+$/i;
+  const { user } = useContext(LoginedUserContext);
 
   // 사용자 이름과 계정 ID 내용이 바뀌면 에러가 표시되지 않도록 비웁니다.
   useEffect(() => {
@@ -24,7 +27,6 @@ function ProfileForm({
 
   useEffect(() => {
     setError({ ...error, accountname: "" });
-    setAccountnameValid(false);
   }, [value.accountname]);
 
   // 이미지를 선택하면 우선 로컬 url로 보여주는 함수입니다.
@@ -71,36 +73,42 @@ function ProfileForm({
       return false;
     }
     checkAccountnameValid();
+
     return true;
   }
 
   // accountname input이 blur되었을 때 유효성 검사를 실행하는 함수입니다.
   async function checkAccountnameValid() {
-    // 이미 존재하는 계정 ID인지 검사합니다.
-    const reqBody = {
-      user: {
-        accountname: value.accountname,
-      },
-    };
-    try {
-      const data = await fetch(BASE_URL + "/user/accountnamevalid", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
+    if (value.accountname === user.accountname) {
+      setAccountnameValid(true);
+    } else {
+      // 이미 존재하는 계정 ID인지 검사합니다.
+      const reqBody = {
+        user: {
+          accountname: value.accountname,
         },
-        body: JSON.stringify(reqBody),
-      });
-      const result = await data.json();
+      };
+      try {
+        const data = await fetch(BASE_URL + "/user/accountnamevalid", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(reqBody),
+        });
+        const result = await data.json();
 
-      if (result.message == "이미 가입된 계정ID 입니다.") {
-        setError({ ...error, accountname: result.message });
+        if (result.message == "이미 가입된 계정ID 입니다.") {
+          setError({ ...error, accountname: result.message });
+          return false;
+        }
+        // 가입된 계정 ID가 아니라면 isAccountValid를 true로 바꿉니다.
+        else {
+          setAccountnameValid(true);
+        }
+      } catch (error) {
+        console.log(error.message);
       }
-      // 가입된 계정 ID가 아니라면 isAccountValid를 true로 바꿉니다.
-      else {
-        setAccountnameValid(true);
-      }
-    } catch (error) {
-      console.log(error.message);
     }
   }
 
@@ -113,7 +121,9 @@ function ProfileForm({
         image={
           value.image
             ? value.image.src
-            : "https://mandarin.api.weniv.co.kr/1658306906297.png"
+              ? value.image.src
+              : value.image
+            : BASE_IMAGE
         }
         saveImage={handleImageValue}
       />

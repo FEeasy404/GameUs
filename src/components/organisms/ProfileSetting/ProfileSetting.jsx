@@ -6,6 +6,7 @@ import ProfileForm from "../../modules/ProfileForm/ProfileForm";
 import Button from "../../atoms/Button/Button";
 import styles from "./profileSetting.module.css";
 import { postRegister } from "../../../pages/RegisterPage/RegisterPageAPI";
+import { BASE_IMAGE } from "../../../common/BASE_IMAGE";
 
 function ProfileSetting({ value, setValue, error, setError }) {
   // 계정 ID가 이미 가입되어 있으면 false, 가입 가능하면 true입니다.
@@ -33,10 +34,9 @@ function ProfileSetting({ value, setValue, error, setError }) {
       }
       // 이미지를 선택하지 않았다면 기본 이미지로 설정됩니다.
       else {
-        data.image = "https://mandarin.api.weniv.co.kr/1658306906297.png";
+        data.image = BASE_IMAGE;
       }
       const reqData = { user: { ...data } };
-      // context에 저장된 데이터로 회원가입을 진행합니다.
       await postRegister(reqData);
       navigate("/");
     }
