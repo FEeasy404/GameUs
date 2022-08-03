@@ -112,39 +112,39 @@ contexts : useContext를 이용한 context 파일
 ------------------------------------
 
 📁public
-	├─📄favicon.ico
-	└─📄index.html
+  ├─📄favicon.ico
+  └─📄index.html
 📁src
-	├─📁assets
-	│		├─📁fonts
-	│		├─📁icons
-	│		└─📁images
-	├─📁common
-	├─📁components
-	│		├─📁atoms
-	│		│		├─📁Author
-	│		│		├─📁Button
-	│		│		├─📁Comment
-	│		│		└─ ...
-	│		├─📁molecules
-	│		│		├─📁BottomNavigateBar
-	│		│		├─📁ChatRoom
-	│		│		└─ ...
-	│		└─📁organisms
-	│		 		├─📁CommentList
-	│		 		├─📁EmailPasswordForm
-	│				└─ ...
-	├─📁pages
-	│		├─📁ChatListPage
-	│		├─📁ChatRoomPage
-	│		├─📁ErrorPage
-	│		└─ ...
-	├─📁contexts
-	├─📄App.jsx
-	├─📄index.js
-	├─🎨font.css
-	├─🎨global.css
-	└─🎨reset.css
+  ├─📁assets
+  │   ├─📁fonts
+  │   ├─📁icons
+  │   └─📁images
+  ├─📁common
+  ├─📁components
+  │   ├─📁atoms
+  │   │   ├─📁Author
+  │   │   ├─📁Button
+  │   │   ├─📁Comment
+  │   │   └─ ...
+  │   ├─📁molecules
+  │   │   ├─📁BottomNavigateBar
+  │   │   ├─📁ChatRoom
+  │   │   └─ ...
+  │   └─📁organisms
+  │       ├─📁CommentList
+  │       ├─📁EmailPasswordForm
+  │       └─ ...
+  ├─📁pages
+  │   ├─📁ChatListPage
+  │   ├─📁ChatRoomPage
+  │   ├─📁ErrorPage
+  │   └─ ...
+  ├─📁contexts
+  ├─📄App.jsx
+  ├─📄index.js
+  ├─🎨font.css
+  ├─🎨global.css
+  └─🎨reset.css
 📄.eslintrc
 📄.prettierrc
 📄package-lock.json
