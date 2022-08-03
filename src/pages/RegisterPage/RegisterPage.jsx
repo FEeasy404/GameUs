@@ -12,6 +12,7 @@ function RegisterPage() {
     username: "",
     email: "",
     password: "",
+    passwordConfirm: "",
     accountname: "",
     intro: "",
     image: "",
@@ -20,6 +21,7 @@ function RegisterPage() {
   const [error, setError] = useState({
     email: "",
     password: "",
+    passwordConfirm: "",
     username: "",
     accountname: "",
   });

@@ -38,6 +38,10 @@ function LoginForm({
     setError({ ...error, password: "" });
   }, [value.password]);
 
+  useEffect(() => {
+    setError({ ...error, passwordConfirm: "" });
+  }, [value.passwordConfirm]);
+
   // 이메일과 비밀번호 둘 다 input이므로 한꺼번에 관리합니다.
   function handleInputValue(event) {
     setValue({ ...value, [event.target.id]: event.target.value });
@@ -71,6 +75,15 @@ function LoginForm({
       return false;
     }
     // passwordInput.current.focus();
+    return true;
+  }
+
+  function checkPasswordConfirmError() {
+    // 비밀번호와 비밀번호 확인이 다른지 검사
+    if (value.password !== value.passwordConfirm) {
+      setError({ ...error, passwordConfirm: "비밀번호가 일치하지 않습니다." });
+      return false;
+    }
     return true;
   }
 
@@ -142,7 +155,12 @@ function LoginForm({
     emailInput.current.blur();
     passwordInput.current.blur();
     // 에러가 없고 이메일이 유효하다면 context에 이메일, 비밀번호를 저장합니다.
-    if (!error.email && !error.password && isEmailValid) {
+    if (
+      !error.email &&
+      !error.password &&
+      !error.passwordConfirm &&
+      isEmailValid
+    ) {
       setEmailPasswordValid(true); // 이메일과 비밀번호에 문제가 없으면 true로 변경
     }
   }
@@ -177,15 +195,31 @@ function LoginForm({
         innerRef={passwordInput}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
-            label === "로그인" ? handleSubmitLogin() : handleCheckEmail();
+            label === "로그인" && handleSubmitLogin();
           }
         }}
       />
+      {label !== "로그인" && (
+        <InputBox
+          id="passwordConfirm"
+          type="password"
+          name="비밀번호 확인"
+          value={value.passwordConfirm}
+          onBlur={value.password && checkPasswordConfirmError}
+          onChange={handleInputValue}
+          error={error.passwordConfirm}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              label !== "로그인" && handleCheckEmail();
+            }
+          }}
+        />
+      )}
       <Button
         href={null}
         size="large"
         label={label}
-        active={value.email && value.password && true}
+        active={value.email && value.password && value.passwordConfirm && true}
         primary={true}
         onClick={label === "로그인" ? handleSubmitLogin : handleCheckEmail}
       />
