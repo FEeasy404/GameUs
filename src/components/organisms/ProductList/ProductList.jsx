@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Product from "../../modules/Product/Product";
+import ProductCard from "../../modules/ProductCard/ProductCard";
 import styles from "./productList.module.css";
 import Modal from "../Modal/Modal";
 import { deleteProduct } from "./ProductListAPI";
@@ -51,7 +51,7 @@ function ProductList({ isMyProfile, products, setProducts }) {
                     }
                   }}
                 >
-                  <Product product={product} />
+                  <ProductCard product={product} />
                 </li>
               );
             })}
