@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
-import styles from "./product.module.css";
+import styles from "./productCard.module.css";
 
-function Product({ product }) {
+function ProductCard({ product }) {
   const price = useRef();
   const [isOverflow, setOverflow] = useState(false);
 
@@ -38,4 +38,4 @@ function Product({ product }) {
   );
 }
 
-export default Product;
+export default ProductCard;
