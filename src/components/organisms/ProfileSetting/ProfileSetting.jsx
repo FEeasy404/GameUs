@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleImageSize } from "../../../common/ImageResize";
 import { uploadImage } from "../../../common/ImageUpload";
-import ProfileForm from "../../modules/ProfileForm/ProfileForm";
+import ProfileForm from "../../molecules/ProfileForm/ProfileForm";
 import Button from "../../atoms/Button/Button";
 import styles from "./profileSetting.module.css";
 import { postRegister } from "../../../pages/RegisterPage/RegisterPageAPI";

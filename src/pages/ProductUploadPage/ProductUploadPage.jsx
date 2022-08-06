@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
 import { postProduct } from "./ProductUploadPageAPI";
-import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
 import AddProduct from "../../components/organisms/AddProduct/AddProduct";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 

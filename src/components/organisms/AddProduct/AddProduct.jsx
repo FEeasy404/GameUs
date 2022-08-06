@@ -1,5 +1,5 @@
-import ImageInputForm from "../../modules/ImageInputForm/ImageInputForm";
-import ProductTextInput from "../../modules/ProductTextInput/ProductTextInput";
+import ImageInputForm from "../../molecules/ImageInputForm/ImageInputForm";
+import ProductTextInput from "../../molecules/ProductTextInput/ProductTextInput";
 import styles from "./addProduct.module.css";
 
 function AddProduct({

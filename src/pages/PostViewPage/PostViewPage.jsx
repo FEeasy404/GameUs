@@ -7,11 +7,11 @@ import {
   deleteComment,
   reportComment,
 } from "./PostViewPageAPI";
-import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
-import PostCard from "../../components/modules/PostCard/PostCard";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
+import PostCard from "../../components/molecules/PostCard/PostCard";
 import CommentList from "../../components/organisms/CommentList/CommentList";
-import MessageInput from "../../components/modules/MessageInput/MessageInput";
-import Loading from "../../components/modules/Loading/Loading";
+import MessageInput from "../../components/molecules/MessageInput/MessageInput";
+import Loading from "../../components/molecules/Loading/Loading";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function PostViewPage() {

@@ -1,5 +1,5 @@
 import React from "react";
-import UserFollow from "../../modules/UserFollow/UserFollow";
+import UserFollow from "../../molecules/UserFollow/UserFollow";
 import styles from "./followList.module.css";
 import Logo from "../../../assets/icon-404-cat.png";
 

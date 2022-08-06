@@ -1,8 +1,8 @@
 import ReactDom from "react-dom";
 import { useState } from "react";
 import styles from "./modal.module.css";
-import ModalNormal from "../../modules/ModalNormal/ModalNormal";
-import ModalRequestion from "../../modules/ModalRequestion/ModalRequestion";
+import ModalNormal from "../../molecules/ModalNormal/ModalNormal";
+import ModalRequestion from "../../molecules/ModalRequestion/ModalRequestion";
 
 function Modal({ onClose, buttons, name }) {
   const [requestModal, setRequestModal] = useState(false);
