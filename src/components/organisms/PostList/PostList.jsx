@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import styles from "./postList.module.css";
-import PostHeader from "../../modules/PostHeader/PostHeader";
-import PostCard from "../../modules/PostCard/PostCard";
-import ImagePostCard from "../../modules/ImagePostCard/ImagePostCard";
+import PostHeader from "../../molecules/PostHeader/PostHeader";
+import PostCard from "../../molecules/PostCard/PostCard";
+import ImagePostCard from "../../molecules/ImagePostCard/ImagePostCard";
 
 function PostList({ posts, setPosts }) {
   const [isAlbum, setAlbum] = useState(false);

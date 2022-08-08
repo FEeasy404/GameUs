@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
 import UserProfile from "../../components/organisms/UserProfile/UserProfile";
 import ProductList from "../../components/organisms/ProductList/ProductList";
 import { getProfile, getProducts, getPosts } from "./ProfilePageAPI";
-import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
+import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 import PostList from "../../components/organisms/PostList/PostList";
-import Loading from "../../components/modules/Loading/Loading";
+import Loading from "../../components/molecules/Loading/Loading";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 
 function ProfilePage() {

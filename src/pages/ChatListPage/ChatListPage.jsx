@@ -1,7 +1,7 @@
 import React from "react";
 import ImageBox from "../../components/atoms/ImageBox/ImageBox";
-import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
-import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
+import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
 import styles from "./chatListPage.module.css";
 import { Link } from "react-router-dom";
 

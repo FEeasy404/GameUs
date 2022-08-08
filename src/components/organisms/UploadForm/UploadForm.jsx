@@ -1,5 +1,5 @@
-import UploadText from "../../modules/UploadText/UploadText";
-import UploadImage from "../../modules/UploadImage/UploadImage";
+import UploadText from "../../molecules/UploadText/UploadText";
+import UploadImage from "../../molecules/UploadImage/UploadImage";
 import ImageInputButton from "../../atoms/ImageInputButton/ImageInputButton";
 import styles from "./uploadForm.module.css";
 

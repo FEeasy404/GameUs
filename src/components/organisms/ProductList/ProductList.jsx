@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ProductCard from "../../modules/ProductCard/ProductCard";
+import ProductCard from "../../molecules/ProductCard/ProductCard";
 import styles from "./productList.module.css";
 import Modal from "../Modal/Modal";
 import { deleteProduct } from "./ProductListAPI";

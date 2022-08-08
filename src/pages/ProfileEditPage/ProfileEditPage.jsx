@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
-import ProfileForm from "../../components/modules/ProfileForm/ProfileForm";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
+import ProfileForm from "../../components/molecules/ProfileForm/ProfileForm";
 import { editProfile } from "./ProfileEditPageAPI";
 import { handleImageSize } from "../../common/ImageResize";
 import { uploadImage } from "../../common/ImageUpload";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 import { getProfile } from "../ProfilePage/ProfilePageAPI";
-import Loading from "../../components/modules/Loading/Loading";
+import Loading from "../../components/molecules/Loading/Loading";
 
 function ProfileEditPage() {
   const [value, setValue] = useState({

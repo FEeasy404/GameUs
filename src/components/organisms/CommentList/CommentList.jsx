@@ -1,5 +1,5 @@
 import styles from "./commentList.module.css";
-import CommentForm from "../../modules/CommentForm/CommentForm";
+import CommentForm from "../../molecules/CommentForm/CommentForm";
 
 //날짜 계산
 function getTimeStamp(createdAt) {

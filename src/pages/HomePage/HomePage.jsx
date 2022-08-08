@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import Button from "../../components/atoms/Button/Button";
-import HeaderForm from "../../components/modules/HeaderForm/HeaderForm";
-import PostCard from "../../components/modules/PostCard/PostCard";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
+import PostCard from "../../components/molecules/PostCard/PostCard";
 import catImageURL from "../../assets/icon-404-cat.png";
-import BottomNavigateBar from "../../components/modules/BottomNavigateBar/BottomNavigateBar";
-import Loading from "../../components/modules/Loading/Loading";
+import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
+import Loading from "../../components/molecules/Loading/Loading";
 import styles from "./homePage.module.css";
 import { BASE_URL } from "../../common/BASE_URL";
 import { useContext } from "react";

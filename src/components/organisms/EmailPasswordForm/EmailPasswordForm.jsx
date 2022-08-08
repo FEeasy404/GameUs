@@ -1,5 +1,5 @@
 import React from "react";
-import LoginForm from "../../modules/LoginForm/LoginForm";
+import LoginForm from "../../molecules/LoginForm/LoginForm";
 import styles from "./emailPasswordForm.module.css";
 
 function EmailPasswordForm({
