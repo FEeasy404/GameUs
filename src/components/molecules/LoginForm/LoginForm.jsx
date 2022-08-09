@@ -219,7 +219,11 @@ function LoginForm({
         href={null}
         size="large"
         label={label}
-        active={value.email && value.password && value.passwordConfirm && true}
+        active={
+          label === "로그인"
+            ? value.email && value.password && true
+            : value.email && value.password && value.passwordConfirm && true
+        }
         primary={true}
         onClick={label === "로그인" ? handleSubmitLogin : handleCheckEmail}
       />
