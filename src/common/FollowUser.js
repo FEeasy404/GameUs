@@ -1,6 +1,6 @@
 import { BASE_URL } from "./BASE_URL";
 
-async function followUser(TOKEN, accountname) {
+async function followUser(TOKEN, accountname, setChangeFollow) {
   try {
     await fetch(BASE_URL + `/profile/${accountname}/follow`, {
       method: "POST",
@@ -12,5 +12,6 @@ async function followUser(TOKEN, accountname) {
   } catch (error) {
     console.log(error.message);
   }
+  setChangeFollow(accountname + "true");
 }
 export { followUser };

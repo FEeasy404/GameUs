@@ -7,7 +7,7 @@ import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import styles from "./profileButton.module.css";
 import { getProfile } from "../../../pages/ProfilePage/ProfilePageAPI";
 
-function ProfileButton({ userProfile, setProfile }) {
+function ProfileButton({ userProfile, setProfile, setChangeFollow }) {
   const { user } = useContext(LoginedUserContext);
   const [isFollow, setFollow] = useState(userProfile.isfollow);
 
@@ -25,9 +25,9 @@ function ProfileButton({ userProfile, setProfile }) {
         primary={isFollow ? false : true}
         onClick={() => {
           if (isFollow) {
-            unfollowUser(user.token, userProfile.accountname);
+            unfollowUser(user.token, userProfile.accountname, setChangeFollow);
           } else {
-            followUser(user.token, userProfile.accountname);
+            followUser(user.token, userProfile.accountname, setChangeFollow);
           }
           getProfile(user.token, userProfile.accountname, setProfile);
         }}
