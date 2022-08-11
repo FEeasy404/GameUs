@@ -10,7 +10,12 @@ import { unfollowUser } from "../../../common/UnfollowUser";
 import { getFollowers } from "../../../pages/FollowerPage/FollowerPageAPI";
 import { getFollowings } from "../../../pages/FollowingPage/FollowingPageAPI";
 
-function UserFollow({ userProfile, setFollowers, setFollowings }) {
+function UserFollow({
+  userProfile,
+  setFollowers,
+  setFollowings,
+  setChangeFollow,
+}) {
   const { user } = useContext(LoginedUserContext);
   const [isFollowing, setFollowing] = useState(userProfile.isfollow);
   let { accountname } = useParams();
@@ -44,9 +49,9 @@ function UserFollow({ userProfile, setFollowers, setFollowings }) {
           primary={isFollowing ? false : true}
           onClick={() => {
             if (isFollowing) {
-              unfollowUser(user.token, userProfile.accountname);
+              unfollowUser(user.token, userProfile.accountname, setChangeFollow);
             } else {
-              followUser(user.token, userProfile.accountname);
+              followUser(user.token, userProfile.accountname, setChangeFollow);
             }
             if (setFollowers) {
               getFollowers(user.token, accountname, setFollowers);

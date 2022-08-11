@@ -4,7 +4,12 @@ import MyProfileButton from "../../molecules/MyProfileButton/MyProfileButton";
 import ProfileButton from "../../molecules/ProfileButton/ProfileButton";
 import styles from "./userProfile.module.css";
 
-function UserProfile({ isMyProfile, userProfile, setProfile }) {
+function UserProfile({
+  isMyProfile,
+  userProfile,
+  setProfile,
+  setChangeFollow,
+}) {
   return (
     <section className={styles["wrapper-profile"]}>
       <UserProfileBox
@@ -18,10 +23,14 @@ function UserProfile({ isMyProfile, userProfile, setProfile }) {
       {isMyProfile ? (
         <MyProfileButton />
       ) : (
-        <ProfileButton userProfile={userProfile} setProfile={setProfile} />
+        <ProfileButton
+          userProfile={userProfile}
+          setProfile={setProfile}
+          setChangeFollow={setChangeFollow}
+        />
       )}
     </section>
   );
 }
 
-export default React.memo(UserProfile);
+export default UserProfile;

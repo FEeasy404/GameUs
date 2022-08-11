@@ -12,10 +12,11 @@ function FollowerPage() {
   let { accountname } = useParams();
   const [followers, setFollowers] = useState(null);
   const { user } = useContext(LoginedUserContext);
+  const [isChangeFollow, setChangeFollow] = useState("");
 
   useEffect(() => {
     getFollowers(user.token, accountname, setFollowers);
-  }, [accountname]);
+  }, [accountname, isChangeFollow]);
 
   return (
     <section>
@@ -28,7 +29,11 @@ function FollowerPage() {
       />
       <div className="wrapper-contents">
         {followers ? (
-          <FollowList list={followers} setFollowers={setFollowers} />
+          <FollowList
+            list={followers}
+            setFollowers={setFollowers}
+            setChangeFollow={setChangeFollow}
+          />
         ) : (
           <Loading />
         )}
