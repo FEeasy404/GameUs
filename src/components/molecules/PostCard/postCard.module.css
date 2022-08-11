@@ -10,6 +10,7 @@
 
 .profile {
   grid-row: 1 / -1;
+  height: fit-content;
 }
 
 .container-user {
