@@ -2,7 +2,7 @@
 
 ## 프로젝트 소개
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f4998c12-4909-417f-ad82-036de22cbd4b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T145225Z&X-Amz-Expires=86400&X-Amz-Signature=14dc10df0c6dd111ff2b7f2f6148ddfa9ca3378f57bd977f5bcf57bd47287f57&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" >
+![게임어스-발표(날짜수정)](https://user-images.githubusercontent.com/102498600/184269360-05b249db-c1d8-4aad-a6ba-ab05ca124f25.png)
 
 > **게임과 관련된 모든 것, 게임어스**는 게임 칩, 게임기 등 게임에 관련된 물품을 사고 파는 중고거래 커뮤니티입니다.
 > 
