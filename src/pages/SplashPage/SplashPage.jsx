@@ -1,15 +1,14 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 import Logo from "../../assets/logo-main.svg";
 import styles from "./splashPage.module.css";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function SplashPage() {
   const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
-  const { user, setUser } = useContext(LoginedUserContext);
+  const { user } = useContext(LoginedUserContext);
 
   function handleNavigate() {
     if (!user.token) {
@@ -19,10 +18,9 @@ function SplashPage() {
     }
   }
   useEffect(() => {
-    const loginedData = user;
-    setUser(loginedData);
     setVisible(true);
   }, []);
+
   return (
     <section className={styles["wrapper-splash"]}>
       <h2 className="a11y-hidden">게임어스</h2>
