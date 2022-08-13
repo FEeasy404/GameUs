@@ -31,9 +31,10 @@ function PostViewPage() {
   //댓글 입력 및 추가
   async function handleTextInput() {
     const inputText = inputRef.current.value;
+    if (inputText == "") return;
+    let commentId = await uploadComment(user.token, postId, inputText);
+    setChangeComments(commentId);
     inputRef.current.value = "";
-    await uploadComment(user.token, postId, inputText);
-    setChangeComments(inputText);
   }
 
   //댓글 삭제
