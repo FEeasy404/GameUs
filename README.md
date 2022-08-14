@@ -13,10 +13,10 @@
 ### [개요]
 
 > 🎮 **게임과 관련된 모든 것, 게임어스**는 게임 칩, 게임기 등 게임에 관련된 물품을 사고 파는 **중고거래 커뮤니티**입니다. <br><br>
-> 게임을 좋아하는 팀원들이 모여, 게임만을 거래하는 중고 거래 사이트를 제작하였습니다. <br><br>
+> 게임을 좋아하는 팀원들이 모여, 게임 물품 전용 중고 거래 사이트를 제작하였습니다. <br><br>
 > 팔고 싶은 게임 관련 물품을 자신의 프로필에 올려 판매 할 수 있습니다. <br><br>
-> 게임으로 가득찬 나의 일상을 글과 사진으로 게시물을 작성하여 다른 유저에게 공유할 수 있습니다. <br><br>
-> 나와 취향이 비슷한 여러 유저를 팔로우하여 피드에서 게시물을 구경할 수 있으며, 댓글을 남기고 좋아요를 누를 수 있습니다. <br>
+> 게임으로 가득찬 나의 일상을 글과 사진이 담긴 게시물을 작성하여 다른 유저에게 공유할 수 있습니다. <br><br>
+> 나와 취향이 비슷한 여러 유저를 검색후 팔로우하여 피드에서 게시물을 구경할 수 있으며, 댓글을 남기고 좋아요를 누를 수 있습니다. <br>
 
 ###  [링크]
 
@@ -53,6 +53,7 @@
 - 댓글 등록, 삭제, 신고 기능 구현
 - 이미지 리사이즈 및 이미지 업로드 기능 구현
 - 모달 마크업 및 기능 구현
+- 검색 기능 구현
 
 ### **😛 여다희** 
 
@@ -298,7 +299,7 @@ return(
 ### 3) 웹 접근성을 높이기 위한 노력
 - 상단에 텍스트가 없는 디자인의 페이지의 경우에는 **`a11y-hidden`** 클래스를 이용하여 페이지 설명을 숨겨주었습니다.
 <div align="center">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/806b35be-42ba-44ab-83cb-2f55ad778ec5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T152702Z&X-Amz-Expires=86400&X-Amz-Signature=2e53bfe44a58e8effe0d1ca74819385fb61aa21b297f6b0ea51186d1439463a9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" width="400">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/806b35be-42ba-44ab-83cb-2f55ad778ec5/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220814%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220814T115242Z&X-Amz-Expires=86400&X-Amz-Signature=2ee099b3987d626f96f1388add832599f992e2595810d696121b1412039d09a8&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" width="450">
 </div>
 
 <br> 
@@ -321,6 +322,10 @@ return(
 ## 8. 우리팀의 스페셜 포인트
 
 ### 1) 프로젝트 스터디 진행
+
+<div align="center">
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F89ee2841-86bd-4cd6-8601-b45781e8bceb%2FUntitled.png?table=block&id=ec1df9a8-77d2-401b-8c64-d891b1af2e16&spaceId=bf59a660-6bb4-424d-a168-656040a440f5&width=2000&userId=636e72fd-92fe-465e-ba07-e3b36c709626&cache=v2" width="450">
+</div>
 
 프로젝트를 시작하기 전 필요한 지식들에 관해 스터디를 진행했습니다. ([📚스터디 디렉토리](https://github.com/FEeasy404/FE-Easy-DevNote))
 
@@ -362,7 +367,7 @@ return(
 > PR에는 이슈를 링크해 어떻게 해결했는지, 어떤 글을 참고했는 지에 대한 설명과 중점적으로 봐주었으면 하는 부분을 명시해 효율적인 코드 리뷰를 유도하였습니다.
 
 <div align="center">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3bd929dd-1743-4ffb-b26d-9db80fb962dd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T153134Z&X-Amz-Expires=86400&X-Amz-Signature=2c2ef7ef29d15b3f4670d3bd742f20d893a989ff87d57c5e62b9e0f945e59968&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" width="600">
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3bd929dd-1743-4ffb-b26d-9db80fb962dd%2FUntitled.png?table=block&id=93d30f0d-5e58-4fce-b838-dd3c7595cd1b&spaceId=bf59a660-6bb4-424d-a168-656040a440f5&width=2000&userId=636e72fd-92fe-465e-ba07-e3b36c709626&cache=v2" width="600">
 </div>
 
 <br>
@@ -389,7 +394,7 @@ BUG, CUSTOM, FEATURE 세 가지 Issue 템플릿을 만들어 사용하였습니�
 > **디스코드 웹 훅**<br>
 > PR을 작성하면 **최소 2명에게 코드 리뷰를 받은 뒤 머지**하도록 규칙을 설정해서, 디스코드 채널에 Github 웹훅을 연동해 PR이나 변경사항 커밋이 있을 경우 빠르게 알림을 받을 수 있도록하였습니다. 
 <div align="center">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e86a472f-f7e8-47a5-a099-d3ece6a3033e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T153546Z&X-Amz-Expires=86400&X-Amz-Signature=6d6093b6ab6c13a951fe9ebcd89859b0241e0a6f5407863af68c24a73e4d5c27&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" width="500">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e86a472f-f7e8-47a5-a099-d3ece6a3033e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220814%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220814T115648Z&X-Amz-Expires=86400&X-Amz-Signature=0123e87d51e08b8ecb78bd3c950ab8033949ef344ed2eca34da2278441a8d4cf&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" width="600">
 </div>
 
 <br>
