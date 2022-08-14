@@ -21,3 +21,12 @@
   font-weight: 400;
   color: var(--darkgray-color);
 }
+
+.word-colored {
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+.username .word-colored {
+  font-weight: 600;
+}
