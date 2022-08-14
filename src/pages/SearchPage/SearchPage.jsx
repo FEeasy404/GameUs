@@ -1,14 +1,14 @@
 import { useState, useContext, useCallback } from "react";
-import { Link } from "react-router-dom";
-import styles from "./searchPage.module.css";
-import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
-import ImageBox from "../../components/atoms/ImageBox/ImageBox";
-import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
 import { getSearchUser } from "./SearchPageAPI";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
+import styles from "./searchPage.module.css";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
+import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
+import SearchCard from "../../components/molecules/SearchCard/SearchCard";
 
 function SearchPage() {
   const [searchUser, setSeacrhUser] = useState(null);
+  const [keyword, setkeyword] = useState("");
   const { user } = useContext(LoginedUserContext);
   const handleInputText = useCallback((event) => {
     let keyword = event.target.value;
@@ -16,6 +16,7 @@ function SearchPage() {
       setSeacrhUser(null);
       return;
     }
+    setkeyword(keyword);
     getSearchUser(user.token, keyword, setSeacrhUser);
   });
   return (
@@ -28,23 +29,7 @@ function SearchPage() {
             searchUser.map((user) => {
               return (
                 <li key={user._id}>
-                  <Link
-                    to={`/profile/${user.accountname}`}
-                    className={styles["container-user"]}
-                  >
-                    <ImageBox
-                      type={"circle"}
-                      size={"medium"}
-                      src={user.image}
-                      alt={user.accountname}
-                    />
-                    <div className={styles["info-user"]}>
-                      <strong className={styles["username"]}>
-                        {user.username}
-                      </strong>
-                      <span className={styles["id"]}>{user.accountname}</span>
-                    </div>
-                  </Link>
+                  <SearchCard user={user} keyword={keyword} />
                 </li>
               );
             })}
