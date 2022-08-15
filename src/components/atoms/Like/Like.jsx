@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import styles from "./like.module.css";
 import { heartPost, unheartPost } from "../../molecules/PostCard/PostCardAPI";
-// import { useEffect } from "react";
 
 function Like({ postId, hearted, heartCount }) {
   const [like, setLike] = useState(hearted);
