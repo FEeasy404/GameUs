@@ -1,6 +1,7 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./searchCard.module.css";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
+import styles from "./searchCard.module.css";
 
 function SearchCard({ user, keyword }) {
   function handlekeywordColor(userString) {

@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { handleImageSize } from "../../common/ImageResize";
-import { uploadImage } from "../../common/ImageUpload";
-import { uploadData } from "./PostUploadPageAPI";
 import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
 import UploadForm from "../../components/organisms/UploadForm/UploadForm";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
+import { handleImageSize } from "../../common/ImageResize";
+import { uploadImage } from "../../common/ImageUpload";
+import { uploadData } from "./PostUploadPageAPI";
 
 function PostUploadPage() {
   const navigate = useNavigate();

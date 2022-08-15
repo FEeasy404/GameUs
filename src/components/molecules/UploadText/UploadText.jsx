@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
+import React, { useContext } from "react";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import TextArea from "../../atoms/TextArea/TextArea";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import styles from "./uploadText.module.css";
 
 function UploadText({ handleText, text }) {

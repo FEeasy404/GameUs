@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../../atoms/Button/Button";
+import ProfileForm from "../../molecules/ProfileForm/ProfileForm";
+import { BASE_IMAGE } from "../../../common/BASE_IMAGE";
 import { handleImageSize } from "../../../common/ImageResize";
 import { uploadImage } from "../../../common/ImageUpload";
-import ProfileForm from "../../molecules/ProfileForm/ProfileForm";
-import Button from "../../atoms/Button/Button";
-import styles from "./profileSetting.module.css";
 import { postRegister } from "../../../pages/RegisterPage/RegisterPageAPI";
-import { BASE_IMAGE } from "../../../common/BASE_IMAGE";
+import styles from "./profileSetting.module.css";
 
 function ProfileSetting({ value, setValue, error, setError }) {
   // 계정 ID가 이미 가입되어 있으면 false, 가입 가능하면 true입니다.

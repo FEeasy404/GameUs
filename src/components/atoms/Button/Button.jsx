@@ -1,12 +1,13 @@
-import styles from "./button.module.css";
+import React from "react";
 import { Link } from "react-router-dom";
+import styles from "./button.module.css";
 
 function Button({ href, size, label, active, primary, onClick }) {
   const classList = ["button", size];
   primary ? null : classList.push("secondary");
   active ? null : classList.push("disabled");
 
-  const CLASS_LIST = classList.map((item)=>(styles[item])).join(" ");
+  const CLASS_LIST = classList.map((item) => styles[item]).join(" ");
 
   return (
     <>
@@ -15,11 +16,7 @@ function Button({ href, size, label, active, primary, onClick }) {
           {label}
         </Link>
       ) : (
-        <button
-          type="button"
-          onClick={onClick}
-          className={CLASS_LIST}
-        >
+        <button type="button" onClick={onClick} className={CLASS_LIST}>
           {label}
         </button>
       )}

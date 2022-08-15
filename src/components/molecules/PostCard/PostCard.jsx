@@ -1,18 +1,15 @@
-import React from "react";
-import { useState } from "react";
-import ImageBox from "../../atoms/ImageBox/ImageBox";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Author from "../../atoms/Author/Author";
-import InfoIconGroup from "../InfoIconGroup/InfoIconGroup";
-import PostDate from "../../atoms/PostDate/PostDate";
-import styles from "./postCard.module.css";
 import IconButton from "../../atoms/IconButton/IconButton";
-import Modal from "../../../components/organisms/Modal/Modal";
-import { Link } from "react-router-dom";
-import { deletePost, reportPost } from "./PostCardAPI";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import ImageBox from "../../atoms/ImageBox/ImageBox";
+import PostDate from "../../atoms/PostDate/PostDate";
+import InfoIconGroup from "../../molecules/InfoIconGroup/InfoIconGroup";
+import Modal from "../../organisms/Modal/Modal";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
+import { deletePost, reportPost } from "./PostCardAPI";
 import { getPosts } from "../../../pages/ProfilePage/ProfilePageAPI";
+import styles from "./postCard.module.css";
 
 function ImageListMaker({ image }) {
   if (!image) return null;

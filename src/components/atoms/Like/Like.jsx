@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
-import styles from "./like.module.css";
 import { heartPost, unheartPost } from "../../molecules/PostCard/PostCardAPI";
+import styles from "./like.module.css";
 
 function Like({ postId, hearted, heartCount }) {
   const [like, setLike] = useState(hearted);

@@ -1,6 +1,7 @@
-import UploadText from "../../molecules/UploadText/UploadText";
-import UploadImage from "../../molecules/UploadImage/UploadImage";
+import React from "react";
 import ImageInputButton from "../../atoms/ImageInputButton/ImageInputButton";
+import UploadImage from "../../molecules/UploadImage/UploadImage";
+import UploadText from "../../molecules/UploadText/UploadText";
 import styles from "./uploadForm.module.css";
 
 function UploadForm({ images, setText, setImages, text }) {

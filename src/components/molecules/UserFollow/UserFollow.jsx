@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Button from "../../atoms/Button/Button";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import UserNameIntroduce from "../../atoms/UserNameIntroduce/UserNameIntroduce";
-import Button from "../../atoms/Button/Button";
-import styles from "./userFollow.module.css";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import { followUser } from "../../../common/FollowUser";
 import { unfollowUser } from "../../../common/UnfollowUser";
 import { getFollowers } from "../../../pages/FollowerPage/FollowerPageAPI";
 import { getFollowings } from "../../../pages/FollowingPage/FollowingPageAPI";
+import styles from "./userFollow.module.css";
 
 function UserFollow({
   userProfile,

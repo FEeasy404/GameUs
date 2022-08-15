@@ -1,10 +1,10 @@
-import { useState, useContext, useCallback } from "react";
-import { getSearchUser } from "./SearchPageAPI";
-import { LoginedUserContext } from "../../contexts/LoginedUserContext";
-import styles from "./searchPage.module.css";
-import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
+import React, { useState, useContext, useCallback } from "react";
 import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
 import SearchCard from "../../components/molecules/SearchCard/SearchCard";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
+import { getSearchUser } from "./SearchPageAPI";
+import styles from "./searchPage.module.css";
 
 function SearchPage() {
   const [searchUser, setSeacrhUser] = useState(null);

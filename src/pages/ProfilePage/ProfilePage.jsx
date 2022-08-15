@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
-import UserProfile from "../../components/organisms/UserProfile/UserProfile";
-import ProductList from "../../components/organisms/ProductList/ProductList";
-import { getProfile, getProducts, getPosts } from "./ProfilePageAPI";
 import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
-import { LoginedUserContext } from "../../contexts/LoginedUserContext";
-import PostList from "../../components/organisms/PostList/PostList";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
 import Loading from "../../components/molecules/Loading/Loading";
+import ProductList from "../../components/organisms/ProductList/ProductList";
+import PostList from "../../components/organisms/PostList/PostList";
+import UserProfile from "../../components/organisms/UserProfile/UserProfile";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
+import { getProfile, getProducts, getPosts } from "./ProfilePageAPI";
 
 function ProfilePage() {
   // useParams()를 사용하여 url에 있는 파라미터(accountname)를 받아옵니다.

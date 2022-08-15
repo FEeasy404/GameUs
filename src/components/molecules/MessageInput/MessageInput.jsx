@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import styles from "./messageInput.module.css";
+import React, { useEffect, useState } from "react";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import ImageInputButton from "../../atoms/ImageInputButton/ImageInputButton";
+import styles from "./messageInput.module.css";
 
 function MessageInput({
   type,

@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../../atoms/Button/Button";
 import HeaderInput from "../../atoms/HeaderInput/HeaderInput";
 import IconButton from "../../atoms/IconButton/IconButton";
-import Button from "../../atoms/Button/Button";
-import styles from "./headerForm.module.css";
-import Modal from "../../../components/organisms/Modal/Modal";
+import Modal from "../../organisms/Modal/Modal";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
+import styles from "./headerForm.module.css";
 
 function HeaderForm({
   backButton,

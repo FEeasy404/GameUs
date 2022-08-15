@@ -1,9 +1,9 @@
 import React from "react";
-import ImageBox from "../../components/atoms/ImageBox/ImageBox";
-import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
-import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
-import styles from "./chatListPage.module.css";
 import { Link } from "react-router-dom";
+import ImageBox from "../../components/atoms/ImageBox/ImageBox";
+import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
+import styles from "./chatListPage.module.css";
 
 function ChatListPage() {
   // 더미 데이터

@@ -1,8 +1,7 @@
-import React from "react";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
-import Logo from "../../assets/logo-main.svg";
+import MainLogo from "../../assets/logo-main.svg";
 import styles from "./splashPage.module.css";
 
 function SplashPage() {
@@ -26,7 +25,7 @@ function SplashPage() {
       <h2 className="a11y-hidden">게임어스</h2>
       <img
         className={visible ? styles["logo-main"] : styles["logo-main-hide"]}
-        src={Logo}
+        src={MainLogo}
       />
       <button className={styles["button-start"]} onClick={handleNavigate}>
         <span className="a11y-hidden">시작하기</span>

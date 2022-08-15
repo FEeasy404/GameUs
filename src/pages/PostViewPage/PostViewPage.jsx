@@ -1,5 +1,11 @@
-import { useEffect, useState, useRef, useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
+import Loading from "../../components/molecules/Loading/Loading";
+import MessageInput from "../../components/molecules/MessageInput/MessageInput";
+import PostCard from "../../components/molecules/PostCard/PostCard";
+import CommentList from "../../components/organisms/CommentList/CommentList";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 import {
   getPostData,
   getPostComment,
@@ -7,12 +13,6 @@ import {
   deleteComment,
   reportComment,
 } from "./PostViewPageAPI";
-import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
-import PostCard from "../../components/molecules/PostCard/PostCard";
-import CommentList from "../../components/organisms/CommentList/CommentList";
-import MessageInput from "../../components/molecules/MessageInput/MessageInput";
-import Loading from "../../components/molecules/Loading/Loading";
-import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 
 function PostViewPage() {
   let { postId } = useParams();

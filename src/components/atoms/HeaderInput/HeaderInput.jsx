@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./headerInput.module.css";
 
 function HeaderInput({ placeholder, onInput }) {

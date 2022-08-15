@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../../components/atoms/Button/Button";
-import Logo from "../../assets/icon-404-cat.png";
-import styles from "./errorPage.module.css";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/atoms/Button/Button";
+import CatLogo from "../../assets/icon-404-cat.png";
+import styles from "./errorPage.module.css";
 
 function ErrorPage() {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ function ErrorPage() {
   return (
     <section>
       <div className={`${styles["wrapper-404"]}`}>
-        <img src={Logo} className={styles["logo"]} />
+        <img src={CatLogo} className={styles["logo"]} />
         <h2 className={styles["text"]}>페이지를 찾을 수 없습니다. :(</h2>
         <div className={styles["wrapper-button"]}>
           <Button

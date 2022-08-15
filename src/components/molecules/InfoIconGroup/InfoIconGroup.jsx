@@ -1,6 +1,6 @@
 import React from "react";
-import Like from "../../atoms/Like/Like";
 import Comment from "../../atoms/Comment/Comment";
+import Like from "../../atoms/Like/Like";
 import styles from "./infoIconGroup.module.css";
 
 function InfoIconGroup({ postId, hearted, heartCount, commentCount }) {

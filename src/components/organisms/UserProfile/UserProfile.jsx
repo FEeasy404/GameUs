@@ -1,7 +1,7 @@
 import React from "react";
-import UserProfileBox from "../../molecules/UserProfileBox/UserProfileBox";
 import MyProfileButton from "../../molecules/MyProfileButton/MyProfileButton";
 import ProfileButton from "../../molecules/ProfileButton/ProfileButton";
+import UserProfileBox from "../../molecules/UserProfileBox/UserProfileBox";
 import styles from "./userProfile.module.css";
 
 function UserProfile({
