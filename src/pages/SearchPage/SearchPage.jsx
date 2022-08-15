@@ -1,46 +1,38 @@
-import { Link } from "react-router-dom";
+import { useState, useContext, useCallback } from "react";
+import { getSearchUser } from "./SearchPageAPI";
+import { LoginedUserContext } from "../../contexts/LoginedUserContext";
 import styles from "./searchPage.module.css";
 import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
-import ImageBox from "../../components/atoms/ImageBox/ImageBox";
 import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
-
-// 마크업까지 구현되었으며, 추후 props를 통해 검색 기능을 추가할 예정
+import SearchCard from "../../components/molecules/SearchCard/SearchCard";
 
 function SearchPage() {
+  const [searchUser, setSeacrhUser] = useState(null);
+  const [keyword, setkeyword] = useState("");
+  const { user } = useContext(LoginedUserContext);
+  const handleInputText = useCallback((event) => {
+    let keyword = event.target.value;
+    if (!event.target.value) {
+      setSeacrhUser(null);
+      return;
+    }
+    setkeyword(keyword);
+    getSearchUser(user.token, keyword, setSeacrhUser);
+  });
   return (
     <section>
       <h2 className="a11y-hidden">유저 검색</h2>
-      <HeaderForm backButton={true} input={true} />
+      <HeaderForm backButton={true} input={true} onInput={handleInputText} />
       <div className="wrapper-contents">
         <ul className={styles["container-users"]}>
-          <li>
-            <Link to={"/profile/jordi3"} className={styles["container-user"]}>
-              <ImageBox
-                src={"https://mandarin.api.weniv.co.kr/1657961502180.png"}
-                type={"circle"}
-                size={"medium"}
-                alt={"jordi3"}
-              />
-              <div className={styles["info-user"]}>
-                <strong className={styles["username"]}>죠르디</strong>
-                <span className={styles["id"]}>jordi3</span>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to={"/profile/marshal7"} className={styles["container-user"]}>
-              <ImageBox
-                src={"https://mandarin.api.weniv.co.kr/1657869447576.png"}
-                type={"circle"}
-                size={"medium"}
-                alt={"jordi3"}
-              />
-              <div className={styles["info-user"]}>
-                <strong className={styles["username"]}>쭈니</strong>
-                <span className={styles["id"]}>jordi3</span>
-              </div>
-            </Link>
-          </li>
+          {searchUser &&
+            searchUser.map((user) => {
+              return (
+                <li key={user._id}>
+                  <SearchCard user={user} keyword={keyword} />
+                </li>
+              );
+            })}
         </ul>
       </div>
       <BottomNavigateBar />
