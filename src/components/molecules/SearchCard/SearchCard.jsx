@@ -32,7 +32,7 @@ function SearchCard({ user, keyword }) {
             {handlekeywordColor(user.username)}
           </strong>
           <span className={styles["id"]}>
-            {handlekeywordColor(user.accountname)}
+            {`@ ${handlekeywordColor(user.accountname)}`}
           </span>
         </div>
       </Link>
