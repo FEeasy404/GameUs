@@ -11,8 +11,7 @@ function getTimeStamp(createdAt) {
   const elapsedDay = elapsedHour / 24;
   const elapsedMonth = elapsedDay / 30;
   const elapsedYear = elapsedMonth / 12;
-  if (elapsedSec < 1) return `지금`;
-  if (elapsedSec < 61) return `${Math.floor(elapsedSec)}초 전`;
+  if (elapsedSec < 61) return `조금 전`;
   if (elapsedMin < 61) return `${Math.floor(elapsedMin)}분 전`;
   if (elapsedHour < 25) return `${Math.floor(elapsedHour)}시간 전`;
   if (elapsedDay < 31) return `${Math.floor(elapsedDay)}일 전`;
@@ -23,22 +22,25 @@ function getTimeStamp(createdAt) {
 function CommentList({ comments, handleDelete, handleReport }) {
   return (
     <ul className={styles["wrapper-comment"]}>
-      {comments.map((item) => {
-        return (
-          <li key={item.id}>
-            <CommentForm
-              id={item.id}
-              src={item.author.image}
-              accountName={item.author.accountname}
-              userName={item.author.username}
-              createTime={getTimeStamp(item.createdAt)}
-              text={item.content}
-              handleDelete={handleDelete}
-              handleReport={handleReport}
-            />
-          </li>
-        );
-      })}
+      {comments
+        .slice(0)
+        .reverse()
+        .map((item) => {
+          return (
+            <li key={item.id}>
+              <CommentForm
+                id={item.id}
+                src={item.author.image}
+                accountName={item.author.accountname}
+                userName={item.author.username}
+                createTime={getTimeStamp(item.createdAt)}
+                text={item.content}
+                handleDelete={handleDelete}
+                handleReport={handleReport}
+              />
+            </li>
+          );
+        })}
     </ul>
   );
 }

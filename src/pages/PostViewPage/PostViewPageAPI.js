@@ -39,7 +39,7 @@ async function uploadComment(TOKEN, postId, text) {
     },
   };
   try {
-    await fetch(BASE_URL + `/post/${postId}/comments`, {
+    const response = await fetch(BASE_URL + `/post/${postId}/comments`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${TOKEN}`,
@@ -47,6 +47,8 @@ async function uploadComment(TOKEN, postId, text) {
       },
       body: JSON.stringify(commentData),
     });
+    const result = await response.json();
+    return result.comment.id;
   } catch (error) {
     console.log(error.message);
   }

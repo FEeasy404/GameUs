@@ -32,6 +32,10 @@
   margin-left: auto;
 }
 
+.wrapper-header input {
+  font-size: 1.4rem;
+}
+
 .button button:nth-child(2) {
   justify-self: end;
   margin-left: auto;

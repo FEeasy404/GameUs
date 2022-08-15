@@ -12,13 +12,14 @@ function MessageInput({
   inputRef,
   onClick,
 }) {
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState(null);
   useEffect(() => {
     inputRef.current.focus();
   }, []);
   function handleOnkeyPress(event) {
     if (event.key === "Enter") {
       onClick();
+      setInputText(null);
     }
   }
   return (
@@ -43,7 +44,10 @@ function MessageInput({
         className={
           inputText ? styles["button-active"] : styles["button-disable"]
         }
-        onClick={onClick}
+        onClick={() => {
+          onClick();
+          setInputText(null);
+        }}
       >
         {buttonText}
       </button>
