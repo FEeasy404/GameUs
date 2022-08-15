@@ -1,13 +1,13 @@
 import styles from "./headerInput.module.css";
 
-function HeaderInput({ placeholder, onChange }) {
+function HeaderInput({ placeholder, onInput }) {
   return (
     <form action="#" className={styles["form-input"]}>
       <input
         type="text"
         title={placeholder}
         placeholder={placeholder}
-        onChange={onChange}
+        onInput={onInput}
         className={styles["input-find"]}
       ></input>
     </form>

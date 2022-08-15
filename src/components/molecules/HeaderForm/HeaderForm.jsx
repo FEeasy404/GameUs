@@ -17,7 +17,7 @@ function HeaderForm({
   active,
   input,
   onClick,
-  onChange,
+  onInput,
   handleSetting,
 }) {
   let navigate = useNavigate();
@@ -72,7 +72,7 @@ function HeaderForm({
             onClick={onClick}
           />
         )}
-        {input && <HeaderInput placeholder="계정 검색" onChange={onChange} />}
+        {input && <HeaderInput placeholder="계정 검색" onInput={onInput} />}
       </header>
       {onModal && (
         <Modal

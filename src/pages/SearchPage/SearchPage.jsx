@@ -22,7 +22,7 @@ function SearchPage() {
   return (
     <section>
       <h2 className="a11y-hidden">유저 검색</h2>
-      <HeaderForm backButton={true} input={true} onChange={handleInputText} />
+      <HeaderForm backButton={true} input={true} onInput={handleInputText} />
       <div className="wrapper-contents">
         <ul className={styles["container-users"]}>
           {searchUser &&
