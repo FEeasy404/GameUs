@@ -21,6 +21,7 @@ import SearchPage from "./pages/SearchPage/SearchPage";
 import ChatListPage from "./pages/ChatListPage/ChatListPage";
 import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
 import { LoginedUserContext } from "./contexts/LoginedUserContext";
+import { checkTokenValid } from "./common/checkValid";
 
 function App() {
   const loginedToken = window.sessionStorage.getItem("token");
@@ -33,11 +34,14 @@ function App() {
   });
 
   useEffect(() => {
-    const loginedData = user;
-    setUser(loginedData);
-    if (window.performance) {
-      if (PerformanceNavigationTiming === 1) {
-        setUser(loginedData);
+    if (checkTokenValid(user.token)) {
+      const loginedData = user;
+      setUser(loginedData);
+
+      if (window.performance) {
+        if (PerformanceNavigationTiming === 1) {
+          setUser(loginedData);
+        }
       }
     }
   }, []);
