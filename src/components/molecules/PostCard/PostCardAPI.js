@@ -31,4 +31,38 @@ async function reportPost(TOKEN, postId) {
   }
 }
 
-export { deletePost, reportPost };
+// 좋아요
+async function heartPost(TOKEN, postId) {
+  try {
+    const data = await fetch(BASE_URL + `/post/${postId}/heart`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-type": "application/json",
+      },
+    });
+    const result = await data.json();
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+// 좋아요 취소
+async function unheartPost(TOKEN, postId) {
+  try {
+    const data = await fetch(BASE_URL + `/post/${postId}/unheart`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-type": "application/json",
+      },
+    });
+    const result = await data.json();
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export { deletePost, reportPost, heartPost, unheartPost };
