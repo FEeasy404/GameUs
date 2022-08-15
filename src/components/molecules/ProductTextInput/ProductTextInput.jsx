@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import InputBox from "../../atoms/InputBox/InputBox";
 
 function ProductTextInput({ setName, setPrice, setLink, name, price, link }) {

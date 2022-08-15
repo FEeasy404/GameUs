@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
+import React, { useContext } from "react";
 import NavItem from "../../atoms/NavItem/NavItem";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import styles from "./bottomNavigateBar.module.css";
 
 function BottomNavigateBar() {

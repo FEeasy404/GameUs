@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./modalRequestion.module.css";
 
 //로그아웃 또는 댓글, 게시글, 상품 삭제, 신고 재확인시 사용하는 모달

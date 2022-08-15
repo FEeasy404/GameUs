@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductCard from "../../molecules/ProductCard/ProductCard";
-import styles from "./productList.module.css";
-import Modal from "../Modal/Modal";
-import { deleteProduct } from "./ProductListAPI";
-import { useContext } from "react";
+import Modal from "../../organisms/Modal/Modal";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
+import { deleteProduct } from "./ProductListAPI";
 import { getProducts } from "../../../pages/ProfilePage/ProfilePageAPI";
+import styles from "./productList.module.css";
 
 
 function ProductList({ isMyProfile, products, setProducts }) {

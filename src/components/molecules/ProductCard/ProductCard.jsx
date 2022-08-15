@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import styles from "./productCard.module.css";
 
@@ -6,7 +6,7 @@ function ProductCard({ product }) {
   const price = useRef();
   const [isOverflow, setOverflow] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (price.current.scrollWidth > price.current.clientWidth) {
       setOverflow(true);
     }

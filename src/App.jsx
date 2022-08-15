@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import "./reset.css";
-import "./font.css";
-import "./global.css";
+import { Route, Routes } from "react-router-dom";
 import SplashPage from "./pages/SplashPage/SplashPage";
+import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import ProductUploadPage from "./pages/ProductUploadPage/ProductUploadPage";
-import ProductEditPage from "./pages/ProductEditPage/ProductEditPage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import ProfileEditPage from "./pages/ProfileEditPage/ProfileEditPage";
-import PostViewPage from "./pages/PostViewPage/PostViewPage";
-import PostUploadPage from "./pages/PostUploadPage/PostUploadPage";
-import PostEditPage from "./pages/PostEditPage/PostEditPage";
-import FollowerPage from "./pages/FollowerPage/FollowerPage";
-import FollowingPage from "./pages/FollowingPage/FollowingPage";
-import ErrorPage from "./pages/ErrorPage/ErrorPage";
-import HomePage from "./pages/HomePage/HomePage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ChatListPage from "./pages/ChatListPage/ChatListPage";
 import ChatRoomPage from "./pages/ChatRoomPage/ChatRoomPage";
+import PostViewPage from "./pages/PostViewPage/PostViewPage";
+import PostUploadPage from "./pages/PostUploadPage/PostUploadPage";
+import PostEditPage from "./pages/PostEditPage/PostEditPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import ProfileEditPage from "./pages/ProfileEditPage/ProfileEditPage";
+import FollowerPage from "./pages/FollowerPage/FollowerPage";
+import FollowingPage from "./pages/FollowingPage/FollowingPage";
+import ProductUploadPage from "./pages/ProductUploadPage/ProductUploadPage";
+import ProductEditPage from "./pages/ProductEditPage/ProductEditPage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import { LoginedUserContext } from "./contexts/LoginedUserContext";
 import { checkTokenValid } from "./common/checkValid";
+import "./reset.css";
+import "./font.css";
+import "./global.css";
 
 function App() {
   const loginedToken = window.sessionStorage.getItem("token");
@@ -59,12 +59,14 @@ function App() {
             <Route path="/search" element={<SearchPage />} />
             <Route path="/chat" element={<ChatListPage />} />
             <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
-            <Route path="/product" element={<ProductUploadPage />} />
-            <Route
-              path="/product/edit/:productId"
-              element={<ProductEditPage />}
-            />
+            <Route path="/post" element={<PostUploadPage />} />
+            <Route path="/post/:postId" element={<PostViewPage />} />
+            <Route path="/post/edit/:postId" element={<PostEditPage />} />
             <Route path="/profile/:accountname" element={<ProfilePage />} />
+            <Route
+              path="/profile/:accountname/edit"
+              element={<ProfileEditPage />}
+            />
             <Route
               path="/profile/:accountname/follower"
               element={<FollowerPage />}
@@ -73,13 +75,11 @@ function App() {
               path="/profile/:accountname/following"
               element={<FollowingPage />}
             />
+            <Route path="/product" element={<ProductUploadPage />} />
             <Route
-              path="/profile/:accountname/edit"
-              element={<ProfileEditPage />}
+              path="/product/edit/:productId"
+              element={<ProductEditPage />}
             />
-            <Route path="/post" element={<PostUploadPage />} />
-            <Route path="/post/:postId" element={<PostViewPage />} />
-            <Route path="/post/edit/:postId" element={<PostEditPage />} />
             <Route path="/*" element={<ErrorPage />} />
           </Routes>
         </div>

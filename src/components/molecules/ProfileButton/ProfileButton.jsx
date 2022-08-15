@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import Button from "../../atoms/Button/Button";
 import IconButton from "../../atoms/IconButton/IconButton";
+import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import { followUser } from "../../../common/FollowUser";
 import { unfollowUser } from "../../../common/UnfollowUser";
-import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
-import styles from "./profileButton.module.css";
 import { getProfile } from "../../../pages/ProfilePage/ProfilePageAPI";
+import styles from "./profileButton.module.css";
 
 function ProfileButton({ userProfile, setProfile, setChangeFollow }) {
   const { user } = useContext(LoginedUserContext);

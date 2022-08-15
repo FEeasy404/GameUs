@@ -1,5 +1,5 @@
 import React from "react";
-import ImageBox from "../ImageBox/ImageBox";
+import ImageBox from "../../atoms/ImageBox/ImageBox";
 import styles from "./userchat.module.css";
 
 function UserChat({ text, date, image }) {

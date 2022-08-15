@@ -1,6 +1,6 @@
 import React from "react";
-import NumberFollow from "../../atoms/NumberFollow/NumberFollow";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
+import NumberFollow from "../../atoms/NumberFollow/NumberFollow";
 import UserInfo from "../../atoms/UserInfo/UserInfo";
 import styles from "./userProfileBox.module.css";
 
@@ -20,11 +20,7 @@ function UserProfileBox({
         <ImageBox src={image} type="circle" size="large" />
         <NumberFollow number={followingCount} isFollower={false} />
       </div>
-      <UserInfo
-        username={username}
-        accountname={accountname}
-        intro={intro}
-      />
+      <UserInfo username={username} accountname={accountname} intro={intro} />
     </div>
   );
 }

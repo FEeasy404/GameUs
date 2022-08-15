@@ -1,6 +1,6 @@
 import React from "react";
+import ImageBox from "../../atoms/ImageBox/ImageBox";
 import styles from "./mychat.module.css";
-import ImageBox from "../ImageBox/ImageBox";
 
 function MyChat({ text, image, date }) {
   return (

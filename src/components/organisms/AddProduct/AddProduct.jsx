@@ -1,3 +1,4 @@
+import React from "react";
 import ImageInputForm from "../../molecules/ImageInputForm/ImageInputForm";
 import ProductTextInput from "../../molecules/ProductTextInput/ProductTextInput";
 import styles from "./addProduct.module.css";

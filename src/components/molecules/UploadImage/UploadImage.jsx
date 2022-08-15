@@ -1,5 +1,6 @@
-import ImageBox from "../../atoms/ImageBox/ImageBox";
+import React from "react";
 import IconButton from "../../atoms/IconButton/IconButton";
+import ImageBox from "../../atoms/ImageBox/ImageBox";
 import styles from "./uploadImage.module.css";
 
 function UploadImage({ size, item, handleDeleteBtn }) {

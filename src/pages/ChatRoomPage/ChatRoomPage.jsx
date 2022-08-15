@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
+import ChatRoom from "../../components/molecules/ChatRoom/ChatRoom";
 import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
 import MessageInput from "../../components/molecules/MessageInput/MessageInput";
-import ChatRoom from "../../components/molecules/ChatRoom/ChatRoom";
-import { useRef } from "react";
 
 function ChatRoomPage() {
   const inputRef = useRef();

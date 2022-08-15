@@ -1,3 +1,4 @@
+import React from "react";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import ImageInputButton from "../../atoms/ImageInputButton/ImageInputButton";
 import styles from "./imageInputForm.module.css";

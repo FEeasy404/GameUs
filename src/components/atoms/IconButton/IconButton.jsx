@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./iconButton.module.css";
 
 function IconButton({ type, text, onClick, disabled }) {

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import EmailPasswordForm from "../../components/organisms/EmailPasswordForm/EmailPasswordForm";
 import ProfileSetting from "../../components/organisms/ProfileSetting/ProfileSetting";
-import { useState } from "react";
 
 function RegisterPage() {
   // 이메일과 비밀번호가 유효성 검사를 모두 통과하면 true입니다.

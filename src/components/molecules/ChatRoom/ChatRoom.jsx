@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./chatroom.module.css";
-import UserChat from "../../atoms/UserChat/UserChat";
 import MyChat from "../../atoms/MyChat/MyChat";
+import UserChat from "../../atoms/UserChat/UserChat";
+import styles from "./chatroom.module.css";
 
 function ChatRoom() {
   // 유저이미지 더미데이터입니다.

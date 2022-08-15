@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./modalNormal.module.css";
 
 function ModalNormal({ buttons, onClose, handleButtonClick }) {

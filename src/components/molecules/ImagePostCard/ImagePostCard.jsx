@@ -1,7 +1,7 @@
 import React from "react";
-import ImageBox from "../../atoms/ImageBox/ImageBox";
 import { Link } from "react-router-dom";
 import IconButton from "../../atoms/IconButton/IconButton";
+import ImageBox from "../../atoms/ImageBox/ImageBox";
 import styles from "./imagePostCard.module.css";
 
 function ImagePostCard({ post }) {

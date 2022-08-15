@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "../../components/atoms/Button/Button";
-import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
-import PostCard from "../../components/molecules/PostCard/PostCard";
-import catImageURL from "../../assets/icon-404-cat.png";
 import BottomNavigateBar from "../../components/molecules/BottomNavigateBar/BottomNavigateBar";
+import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
 import Loading from "../../components/molecules/Loading/Loading";
-import styles from "./homePage.module.css";
-import { BASE_URL } from "../../common/BASE_URL";
-import { useContext } from "react";
+import PostCard from "../../components/molecules/PostCard/PostCard";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
+import { BASE_URL } from "../../common/BASE_URL";
+import CatLogo from "../../assets/icon-404-cat.png";
+import styles from "./homePage.module.css";
 
 function HomePage() {
   const [posts, setPosts] = useState(null);
@@ -52,7 +51,7 @@ function HomePage() {
         {posts ? (
           posts.length === 0 ? (
             <div className={styles["container-search_notice"]}>
-              <img src={catImageURL} />
+              <img src={CatLogo} />
               <p className={styles["text"]}>유저를 검색해 팔로우 해보세요!</p>
               <Button
                 href={"/search"}

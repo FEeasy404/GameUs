@@ -1,7 +1,7 @@
 import React from "react";
 import UserFollow from "../../molecules/UserFollow/UserFollow";
+import CatLogo from "../../../assets/icon-404-cat.png";
 import styles from "./followList.module.css";
-import Logo from "../../../assets/icon-404-cat.png";
 
 function FollowList({ list, setFollowers, setFollowings, setChangeFollow }) {
   return list.length > 0 ? (
@@ -21,7 +21,7 @@ function FollowList({ list, setFollowers, setFollowings, setChangeFollow }) {
     </ul>
   ) : (
     <div className={styles["wrapper-message"]}>
-      <img src={Logo} />
+      <img src={CatLogo} />
       <p>아직 아무도 없어요.</p>
     </div>
   );

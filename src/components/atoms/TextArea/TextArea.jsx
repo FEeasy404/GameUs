@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import styles from "./textArea.module.css";
 
 function TextArea({ label, handleText, text }) {

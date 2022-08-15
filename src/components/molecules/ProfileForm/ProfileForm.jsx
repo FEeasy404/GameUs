@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import InputBox from "../../atoms/InputBox/InputBox";
-import ImageInputForm from "../ImageInputForm/ImageInputForm";
-import styles from "./profileForm.module.css";
+import ImageInputForm from "../../molecules/ImageInputForm/ImageInputForm";
 import { BASE_URL } from "../../../common/BASE_URL";
 import { BASE_IMAGE } from "../../../common/BASE_IMAGE";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
+import styles from "./profileForm.module.css";
 
 function ProfileForm({
   value,

@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { handleImageSize } from "../../common/ImageResize";
-import { uploadImage } from "../../common/ImageUpload";
-import { postProduct } from "./ProductUploadPageAPI";
 import HeaderForm from "../../components/molecules/HeaderForm/HeaderForm";
 import AddProduct from "../../components/organisms/AddProduct/AddProduct";
 import { LoginedUserContext } from "../../contexts/LoginedUserContext";
+import { handleImageSize } from "../../common/ImageResize";
+import { uploadImage } from "../../common/ImageUpload";
+import { postProduct } from "./ProductUploadPageAPI";
 
 function ProductUploadPage() {
   const navigate = useNavigate();
