@@ -33,7 +33,6 @@ function App() {
     image: loginedImage,
   });
   const location = useLocation();
-  // const [isTokenValid, setTokenValid] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
