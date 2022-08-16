@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import SplashPage from "./pages/SplashPage/SplashPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -32,58 +32,73 @@ function App() {
     accountname: loginedAccountname,
     image: loginedImage,
   });
+  const location = useLocation();
+  // const [isTokenValid, setTokenValid] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (checkTokenValid(user.token)) {
-      const loginedData = user;
-      setUser(loginedData);
+    async function tokenCheck() {
+      const result = await checkTokenValid(user.token);
+      if (
+        (user.token === null || !result) &&
+        location.pathname !== "/" &&
+        location.pathname !== "/login" &&
+        location.pathname !== "/register"
+      ) {
+        const answer = window.confirm(
+          "로그인이 필요한 서비스입니다.\n로그인 페이지로 이동하시겠습니까?"
+        );
+        answer ? navigate("/login") : navigate("/");
+      } else {
+        const loginedData = user;
+        setUser(loginedData);
 
-      if (window.performance) {
-        if (PerformanceNavigationTiming === 1) {
-          setUser(loginedData);
+        if (window.performance) {
+          if (PerformanceNavigationTiming === 1) {
+            setUser(loginedData);
+          }
         }
       }
     }
-  }, []);
+    tokenCheck();
+  }, [user.token]);
 
   return (
     <LoginedUserContext.Provider value={{ user, setUser }}>
-      {user && (
-        <div className="max-width">
-          <h1 className="a11y-hidden">게임어스</h1>
-          <Routes>
-            <Route path="/" element={<SplashPage />} />
-            <Route path="/feed" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/chat" element={<ChatListPage />} />
-            <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
-            <Route path="/post" element={<PostUploadPage />} />
-            <Route path="/post/:postId" element={<PostViewPage />} />
-            <Route path="/post/edit/:postId" element={<PostEditPage />} />
-            <Route path="/profile/:accountname" element={<ProfilePage />} />
-            <Route
-              path="/profile/:accountname/edit"
-              element={<ProfileEditPage />}
-            />
-            <Route
-              path="/profile/:accountname/follower"
-              element={<FollowerPage />}
-            />
-            <Route
-              path="/profile/:accountname/following"
-              element={<FollowingPage />}
-            />
-            <Route path="/product" element={<ProductUploadPage />} />
-            <Route
-              path="/product/edit/:productId"
-              element={<ProductEditPage />}
-            />
-            <Route path="/*" element={<ErrorPage />} />
-          </Routes>
-        </div>
-      )}
+      <div className="max-width">
+        <h1 className="a11y-hidden">게임어스</h1>
+        <Routes>
+          <Route path="/" element={<SplashPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/feed" element={<HomePage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/chat" element={<ChatListPage />} />
+          <Route path="/chat/:chatroomId" element={<ChatRoomPage />} />
+          <Route path="/post" element={<PostUploadPage />} />
+          <Route path="/post/:postId" element={<PostViewPage />} />
+          <Route path="/post/edit/:postId" element={<PostEditPage />} />
+          <Route path="/profile/:accountname" element={<ProfilePage />} />
+          <Route
+            path="/profile/:accountname/edit"
+            element={<ProfileEditPage />}
+          />
+          <Route
+            path="/profile/:accountname/follower"
+            element={<FollowerPage />}
+          />
+          <Route
+            path="/profile/:accountname/following"
+            element={<FollowingPage />}
+          />
+          <Route path="/product" element={<ProductUploadPage />} />
+          <Route
+            path="/product/edit/:productId"
+            element={<ProductEditPage />}
+          />
+          <Route path="/*" element={<ErrorPage />} />
+        </Routes>
+      </div>
     </LoginedUserContext.Provider>
   );
 }
