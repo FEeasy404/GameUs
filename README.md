@@ -2,10 +2,10 @@
 
 ### [배포 URL]
 
-- URL: (Link) (예정)
+- URL: https://gameus.web.app/
 - 계정
-  - `ID`: 
-  - `PassWord`: 
+  - `ID`: `gameus@gmail.com`
+  - `PassWord`: `asdf1234`
 
 ![게임어스-발표(날짜수정)](https://user-images.githubusercontent.com/102498600/184269360-05b249db-c1d8-4aad-a6ba-ab05ca124f25.png)
 
@@ -59,16 +59,17 @@
 
 - 로그인, 검색, 채팅 목록 페이지 마크업
 - 홈 피드 페이지 마크업 및 팔로우하는 사용자 게시글 불러오는 기능 구현
-- 좋아요 및 좋아요 취소 기능 구현
+- 좋아요 및 좋아요 취소 UI 구현
 - 하단 탭 네비게이션 바 마크업 및 기능 구현
 
 ### **😎 이혜원**
 
 - Splash 페이지 마크업 및 기능 구현
-- 로그인, 로그아웃 기능 및 유효성 검사 구현
+- 로그인, 로그아웃 기능 및 토큰 검증, 유효성 검사 구현
 - 회원가입 기능 및 유효성 검사 구현
 - 사용자의 프로필 페이지 마크업 및 프로필 수정 기능 구현
 - 팔로잉/팔로워 목록 페이지 마크업 및 팔로우, 언팔로우 기능 구현
+- 좋아요, 좋아요 취소 기능 구현
 
 <br>
 
@@ -182,7 +183,7 @@ contexts : useContext를 이용한 context 파일
 
 |**홈 피드**|**검색**|
 |:---:|:---:|
-|![홈피드](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/04b08cf3-2395-4d0c-82de-3aef281078ab/.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T151006Z&X-Amz-Expires=86400&X-Amz-Signature=55d8dcd62b86cf68b8ad056e153a98265cfd495a7197b7bf83e003f742a151b7&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25ED%2599%2588%25ED%2594%25BC%25EB%2593%259C.gif%22&x-id=GetObject)|![검색](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9ac8fdf1-76b5-40c5-bfa9-9e2274aacdc3/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T151022Z&X-Amz-Expires=86400&X-Amz-Signature=0712990b48ef90bdeef0ac28221a05c256651eed2cd7b3fa33724999918fb3cc&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)|
+|![홈피드](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/04b08cf3-2395-4d0c-82de-3aef281078ab/.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T151006Z&X-Amz-Expires=86400&X-Amz-Signature=55d8dcd62b86cf68b8ad056e153a98265cfd495a7197b7bf83e003f742a151b7&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25ED%2599%2588%25ED%2594%25BC%25EB%2593%259C.gif%22&x-id=GetObject)|![검색](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9ac8fdf1-76b5-40c5-bfa9-9e2274aacdc3/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220815%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220815T125106Z&X-Amz-Expires=86400&X-Amz-Signature=25e5ddd45e1adfa8eed5cf9df1f28217eb15dbafe3ffda086f787201a3aacae4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)|
 
 |**채팅**|**404 페이지**|
 |---|---|
@@ -197,7 +198,7 @@ contexts : useContext를 이용한 context 파일
 
 |**게시글 상세 및 댓글**|**댓글 삭제**|**댓글 신고**|
 |:---:|:---:|:---:|
-![게시글 상세 및 댓글](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9308a4ee-fa33-48e5-9e07-4dc2e1d22729/__.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T151929Z&X-Amz-Expires=86400&X-Amz-Signature=f0e05718ba154d46e47ce27ceb520684ce35d2c975b1aba3c0e8a95a14065e98&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25EA%25B2%258C%25EC%258B%259C%25EB%25AC%25BC%25EC%2583%2581%25EC%2584%25B8%2520%25EB%25B0%258F%2520%25EB%258C%2593%25EA%25B8%2580.gif%22&x-id=GetObject)|![댓글 삭제](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7e644eed-cfba-4d44-a871-a92dba20e8cd/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T151948Z&X-Amz-Expires=86400&X-Amz-Signature=d52f6503ff9a05cb031e22100e7ce776bb8fd603428a4d1f8b5ee84c9b601765&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25EB%258C%2593%25EA%25B8%2580%2520%25EC%2582%25AD%25EC%25A0%259C.gif%22&x-id=GetObject)|![댓글 신고](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1155afb6-11b2-496a-b907-0ad2a85fe1a4/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T152002Z&X-Amz-Expires=86400&X-Amz-Signature=c94536d033bb732b9ed8a44d148678ad949ba9a0d6a86c423fe7eabbd8a971d5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25EB%258C%2593%25EA%25B8%2580%2520%25EC%258B%25A0%25EA%25B3%25A0.gif%22&x-id=GetObject)|
+![게시글 상세 및 댓글](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9308a4ee-fa33-48e5-9e07-4dc2e1d22729/__.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220815%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220815T125215Z&X-Amz-Expires=86400&X-Amz-Signature=eaf46a292df5fa5bf6f7a577de90ab4e05d6e38741f25bc2cb090ab0d1a38819&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25EA%25B2%258C%25EC%258B%259C%25EB%25AC%25BC%25EC%2583%2581%25EC%2584%25B8%2520%25EB%25B0%258F%2520%25EB%258C%2593%25EA%25B8%2580.gif%22&x-id=GetObject)|![댓글 삭제](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7e644eed-cfba-4d44-a871-a92dba20e8cd/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T151948Z&X-Amz-Expires=86400&X-Amz-Signature=d52f6503ff9a05cb031e22100e7ce776bb8fd603428a4d1f8b5ee84c9b601765&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25EB%258C%2593%25EA%25B8%2580%2520%25EC%2582%25AD%25EC%25A0%259C.gif%22&x-id=GetObject)|![댓글 신고](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1155afb6-11b2-496a-b907-0ad2a85fe1a4/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220815%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220815T125249Z&X-Amz-Expires=86400&X-Amz-Signature=3bc0f49c25dc8a0e4ba17b6dc9c0f329b209947896e07ab0d01b7d34d859a3a5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25EB%258C%2593%25EA%25B8%2580%2520%25EC%258B%25A0%25EA%25B3%25A0.gif%22&x-id=GetObject)|
 
 |**게시글 신고**|**좋아요, 좋아요 취소**|
 |---|---|
@@ -432,4 +433,3 @@ BUG, CUSTOM, FEATURE 세 가지 Issue 템플릿을 만들어 사용하였습니�
 - 아토믹 디자인 패턴을 적용하며 헤메면서 중복코드가 많이 생겼는데, 제거하는 것에 어려움을 느끼고 있습니다. API 코드를 분리하고 Custom Hook을 만들어 지금의 코드보다 가시적이고 효율적인 코드를 만들 수 있을 것 같습니다.
 - setState의 비동기적 실행에 대해 더욱 공부하여 버벅임을 고쳐보도록 하겠습니다.
 - 홈 피드, 팔로워/팔로잉 목록, 댓글 등의 데이터를 불러올 때 개수 제한이 있습니다. 무한스크롤 또는 페이지네이션을 추가해 전체 목록을 보여주도록 개선하고 싶습니다.
-- 아직 배포를 안 했는데, 빠른 시일 내에 배포하고 싶습니다!
