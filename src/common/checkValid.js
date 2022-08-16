@@ -10,6 +10,9 @@ async function checkTokenValid(TOKEN) {
       },
     });
     const result = await data.json();
+    if(result.status === 401){
+      return false;
+    }
     const isValid = await result.isValid;
     return isValid;
   } catch (error) {
