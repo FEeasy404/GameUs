@@ -179,41 +179,41 @@ contexts : useContext를 이용한 context 파일
 
 |**splash**|**로그인**|**회원 가입**|
 |:---:|:---:|:---:|
-|![splash](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f1fc86bf-3308-4751-a99d-cfde618ba51b/splash.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T072116Z&X-Amz-Expires=86400&X-Amz-Signature=e275092517e605335e075c340da9f46c7a1fb06c57140e7d589d6e591cc3aa68&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22splash.gif%22&x-id=GetObject)|![로그인](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/26e177d8-95b2-4672-b0de-8c176129ce2f/.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220908T083630Z&X-Amz-Expires=86400&X-Amz-Signature=2bce03d3e0bc635b54f2e9fb2368a96707d5943ea6e4a0aacbf0d909b428351e&X-Amz-SignedHeaders=host&x-id=GetObject)|![회원가입](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/2c494714-0954-4027-812d-935d566cdb62/.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220908T083630Z&X-Amz-Expires=86400&X-Amz-Signature=169ddf8c9bf4db9026bd0c368c4ff6e4bcb4edf3089c89e6e19aa46ae471dcbe&X-Amz-SignedHeaders=host&x-id=GetObject)|
+|![splash](https://user-images.githubusercontent.com/68495264/189080331-4485414b-fe0f-4243-96b4-aa678c0a0b52.gif)|![로그인](https://user-images.githubusercontent.com/68495264/189081882-c7d9030f-2863-4751-a262-52c4298ba161.gif)|![회원가입](https://user-images.githubusercontent.com/68495264/189082019-4313e45c-1703-4d34-b166-9bf0e20e1f13.gif)|
 
 |**홈 피드**|**검색**|
 |:---:|:---:|
-|![홈피드](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/04b08cf3-2395-4d0c-82de-3aef281078ab/.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T071815Z&X-Amz-Expires=86400&X-Amz-Signature=ba1149f4e030f0a410e1e4e8392c9ddfbb4ac1ced76efcf75de765f619e1d1fc&X-Amz-SignedHeaders=host&x-id=GetObject)|![검색](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/244806cb-7f52-45e6-8047-52cf012d862c/2022-09-05_163706.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T074650Z&X-Amz-Expires=86400&X-Amz-Signature=9e7f48ee6e89b8b74e6d3438282b1a22a2887dac8329bbf4310dbce93f6af4d1&X-Amz-SignedHeaders=host&x-id=GetObject)|
+|![홈피드](https://user-images.githubusercontent.com/68495264/189082264-da8caef9-e5f7-430f-907b-e09c9939f21a.gif)|![검색](https://user-images.githubusercontent.com/68495264/189082285-29a980ed-75c5-4646-911e-414afc7d28fc.gif)|
 
 |**채팅**|**404 페이지**|
 |---|---|
-|![채팅](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/34407259-fb19-4d4b-a5a7-fc20706444cc/.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220908T083630Z&X-Amz-Expires=86400&X-Amz-Signature=14e6fbb283b5afcffb1f235a875a08c0d5660eee7ebd0fab1cfd6d84757c4cb5&X-Amz-SignedHeaders=host&x-id=GetObject)|![404](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9e3e88db-72be-474a-9378-b4c28e2cfbe4%2FUntitled.png?table=block&id=81f3ebc5-bc37-4222-920e-59cb800fc7f4&spaceId=bf59a660-6bb4-424d-a168-656040a440f5&width=2000&userId=636e72fd-92fe-465e-ba07-e3b36c709626&cache=v2)|
+|![채팅](https://user-images.githubusercontent.com/68495264/189082612-a0fb3198-b090-40fc-8ae9-684c646bede0.gif)|![404](https://user-images.githubusercontent.com/68495264/189082621-c7882f70-8113-43c9-beab-dd16468049ed.png)|
 
 ### 2) 게시글
 
 |**게시글 작성**|**게시글 수정**|**게시글 삭제**|
 |:---:|:---:|:---:|
-|![게시물작성](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3e6157d0-064b-4689-a257-186eb5b27002/.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220908T083630Z&X-Amz-Expires=86400&X-Amz-Signature=92609ef408d43e77979b1aa50d4aae1123b7f7e3f746ecf2a3e647c548300213&X-Amz-SignedHeaders=host&x-id=GetObject)|![게시글 수정](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3d9ae4a1-7168-4e86-8ae7-e087bfd10be7/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220908T083630Z&X-Amz-Expires=86400&X-Amz-Signature=37c653b84c36c6e316bdcc3dc93a9aa6cb4a6456e62b2bbe22e4b02474259dd3&X-Amz-SignedHeaders=host&x-id=GetObject)|![게시글 삭제](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/39c2dab3-47ab-473d-ad1a-29dcdcc9fc2a/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220908T083630Z&X-Amz-Expires=86400&X-Amz-Signature=6cac8426186d5e79fd1e53d99bc8b56cff1f47804ad40e8ce63e31159de63146&X-Amz-SignedHeaders=host&x-id=GetObject)|
+|![게시물작성](https://user-images.githubusercontent.com/68495264/189082889-922a7009-375b-4c4b-8a2a-4c1d7f1af31e.gif)|![게시글 수정](https://user-images.githubusercontent.com/68495264/189082902-72a8f297-49d7-4535-92a0-7eee802b2a0f.gif)|![게시글 삭제](https://user-images.githubusercontent.com/68495264/189082904-936bafb7-9698-4a63-b021-7e634e5cbb5a.gif)|
 
 
 |**게시글 상세 및 댓글**|**댓글 삭제**|**댓글 신고**|
 |:---:|:---:|:---:|
-![게시글 상세 및 댓글](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9308a4ee-fa33-48e5-9e07-4dc2e1d22729/__.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T071815Z&X-Amz-Expires=86400&X-Amz-Signature=a299cf66eabb864a41402d13f8cddec1c60483c3620eaa78ebe90a994ec88685&X-Amz-SignedHeaders=host&x-id=GetObject)|![댓글 삭제](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7e644eed-cfba-4d44-a871-a92dba20e8cd/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220908T083631Z&X-Amz-Expires=86400&X-Amz-Signature=d8dd723dfc4d34279177c3e39960c3d2f3a7cf5dd949b1724a232cebf6a15c63&X-Amz-SignedHeaders=host&x-id=GetObject)|![댓글 신고](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1155afb6-11b2-496a-b907-0ad2a85fe1a4/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T071815Z&X-Amz-Expires=86400&X-Amz-Signature=9735f97d3727957fc58d1dd4e041cc111663f14ac742ab859afe41aea0d1eec4&X-Amz-SignedHeaders=host&x-id=GetObject)|
+![게시글 상세 및 댓글](https://user-images.githubusercontent.com/68495264/189083172-7c111679-f05f-483c-8821-b00255892b96.gif)|![댓글 삭제](https://user-images.githubusercontent.com/68495264/189083219-edba33aa-a7d0-4c32-908c-28db2b8862f3.gif)|![댓글 신고](https://user-images.githubusercontent.com/68495264/189083234-380fe4a8-eb0c-4ca1-ad54-33aa7a031cfb.gif)|
 
 |**게시글 신고**|**좋아요, 좋아요 취소**|
 |---|---|
-|![게시글 신고](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b198641a-1ed6-4d10-a8e0-b5eec9c802f6/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220908T083631Z&X-Amz-Expires=86400&X-Amz-Signature=632d146f5a950d43021c30be182c5e386514ad56584c5d028eebc9b094c4970a&X-Amz-SignedHeaders=host&x-id=GetObject)|![좋아요 및 좋아요 취소](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5e33f8e2-20a9-437c-8540-20e2cdfaab24/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T071815Z&X-Amz-Expires=86400&X-Amz-Signature=8a297041faf8d2da66f3364368c74af6f9027bc8080380df8095c6cf5aea951d&X-Amz-SignedHeaders=host&x-id=GetObject)|
+|![게시글 신고](https://user-images.githubusercontent.com/68495264/189083466-8622f068-1f6a-4364-926b-dfedebbc4e77.gif)|![좋아요 및 좋아요 취소](https://user-images.githubusercontent.com/68495264/189083493-f29e5a3a-8557-42be-9035-f6789cc0536d.gif)|
 
 
 ### 3) 프로필
 
 |**내 프로필**|**프로필 수정**|
 |---|---|
-|![내 프로필](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/78f5bdd3-828a-4b4d-a9cb-c1d956ddf727/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T071815Z&X-Amz-Expires=86400&X-Amz-Signature=10bc173da1dbd824276ce1ab20a36b7bdfb31a9c4c992eb54d4dd612655bd9fe&X-Amz-SignedHeaders=host&x-id=GetObject)|![프로필 수정](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c6952a9a-6b1e-451d-a3dc-7182b49675e7/.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T071815Z&X-Amz-Expires=86400&X-Amz-Signature=a271cf9032490c18ef45dad29d495d2695add78af37f2927563a6d4d4661b17c&X-Amz-SignedHeaders=host&x-id=GetObject)|
+|![내 프로필](https://user-images.githubusercontent.com/68495264/189083748-08210d6d-9395-4774-9bbb-18b45f27310f.gif)|![프로필 수정](https://user-images.githubusercontent.com/68495264/189083804-03bf71e8-9038-4a5d-8fa5-6ef6a8de4d8a.gif)|
 
 |**팔로워, 팔로잉**|**타 유저 프로필 및 팔로우, 언팔로우**|
 |---|---|
-|![팔로워 및 팔로잉](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/22ce241a-53b5-4d0f-a84a-d25ba0ed062c/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T071815Z&X-Amz-Expires=86400&X-Amz-Signature=82a5198c7ac9514d4fee5e86c8c9fef46e0faefd48b8d207e450295d27864f98&X-Amz-SignedHeaders=host&x-id=GetObject)|![유저 프로필 및 팔로우 및 언팔로우](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/73f87e91-53f5-45a4-942a-728f502218f4/__.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220908T083631Z&X-Amz-Expires=86400&X-Amz-Signature=84f154b127aaa69974c872e24beb5922ea1082dc67befd29639fcf361c992376&X-Amz-SignedHeaders=host&x-id=GetObject)|
+|![팔로워 및 팔로잉](https://user-images.githubusercontent.com/68495264/189083839-f3005da2-449c-42d4-8d76-eee644092bff.gif)|![유저 프로필 및 팔로우 및 언팔로우](https://user-images.githubusercontent.com/68495264/189083853-20c39d35-55ae-4c2a-a39e-f7539f01a4c1.gif)|
 
 
 
@@ -221,7 +221,7 @@ contexts : useContext를 이용한 context 파일
 
 |**상품 등록**|**상품 수정**|**상품 삭제**|
 |:---:|:---:|:---:|
-|![상품 등록](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f77101cc-ea18-40f0-8450-8fc424b0db68/.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T071815Z&X-Amz-Expires=86400&X-Amz-Signature=7a59c7e1d9e16e19bc75c37203c51cb2bc92882216c7a7660c3e06a7cc11e7f8&X-Amz-SignedHeaders=host&x-id=GetObject)|![상품 수정](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/10e3edc1-bf7f-4c00-b330-93c63053e866/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220905%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220905T071815Z&X-Amz-Expires=86400&X-Amz-Signature=dbecd5f399a3eb2dfb5b6720afc10e539e2b14ef919346ac2517118811c45f46&X-Amz-SignedHeaders=host&x-id=GetObject)|![상품 삭제](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/60b48fd4-22e8-4b22-bea5-e163737cddbd/_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220908%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220908T083631Z&X-Amz-Expires=86400&X-Amz-Signature=c55972e9886f83178ee05b4bdca800beb0c4fb21d9729871c010af4d84b20911&X-Amz-SignedHeaders=host&x-id=GetObject)|
+|![상품 등록](https://user-images.githubusercontent.com/68495264/189083839-f3005da2-449c-42d4-8d76-eee644092bff.gif)|![상품 수정](https://user-images.githubusercontent.com/68495264/189085132-a2841647-18c2-4a1c-ae6a-4b7081236008.gif)|![상품 삭제](https://user-images.githubusercontent.com/68495264/189085192-87832630-dca3-4c30-bee6-f03f3445c219.gif)|
 
 <br>
 
@@ -300,14 +300,14 @@ return(
 ### 3) 웹 접근성을 높이기 위한 노력
 - 상단에 텍스트가 없는 디자인의 페이지의 경우에는 **`a11y-hidden`** 클래스를 이용하여 페이지 설명을 숨겨주었습니다.
 <div align="center">
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F806b35be-42ba-44ab-83cb-2f55ad778ec5%2FUntitled.png?table=block&id=cc326314-d771-4033-a00a-bf10e2841264&spaceId=bf59a660-6bb4-424d-a168-656040a440f5&width=2000&userId=636e72fd-92fe-465e-ba07-e3b36c709626&cache=v2" width="450">
+<img src="https://user-images.githubusercontent.com/68495264/189085816-3ed4b080-51b5-47e5-82ed-bbfe4ffe02f8.png" width="450">
 </div>
 
 <br> 
 
 - 텍스트가 너무 길 경우 말줄임표로 줄이되 **`title`** 속성을 이용하여 마우스를 올리면 전체 텍스트를  보여주도록 하였습니다.
 <div align="center">
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4b721dec-89e7-4d6c-9d4d-3b5650e9963c%2FUntitled.png?table=block&id=cd67d66b-10be-4ebb-9d21-59ce025edd14&spaceId=bf59a660-6bb4-424d-a168-656040a440f5&width=2000&userId=636e72fd-92fe-465e-ba07-e3b36c709626&cache=v2" width="200">
+<img src="https://user-images.githubusercontent.com/68495264/189085823-fd6c8649-c6f1-4ceb-9356-cdeb54ef3def.png" width="200">
 </div>
 
 ```jsx
@@ -325,7 +325,7 @@ return(
 ### 1) 프로젝트 스터디 진행
 
 <div align="center">
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F89ee2841-86bd-4cd6-8601-b45781e8bceb%2FUntitled.png?table=block&id=ec1df9a8-77d2-401b-8c64-d891b1af2e16&spaceId=bf59a660-6bb4-424d-a168-656040a440f5&width=2000&userId=636e72fd-92fe-465e-ba07-e3b36c709626&cache=v2" width="450">
+<img src="https://user-images.githubusercontent.com/68495264/189085905-20ae4a33-9898-406a-82a1-108193e5ed92.png" width="450">
 </div>
 
 프로젝트를 시작하기 전 필요한 지식들에 관해 스터디를 진행했습니다. ([📚스터디 디렉토리](https://github.com/FEeasy404/FE-Easy-DevNote))
@@ -359,7 +359,7 @@ return(
 > 이슈를 생성할 때는 버그 발생 상황에 대해 설명하며 캡쳐나 gif를 첨부하는 등 최대한 정보를 전달하였습니다.
 
 <div align="center">
-	<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e40de854-8e5c-45c7-91e8-b1e5ac6eb33a/.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T153044Z&X-Amz-Expires=86400&X-Amz-Signature=6991110b2478704898d115e97a67ba9be52eba9a34c9c08f97934f61451c3ef8&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25EC%259D%25B4%25EC%258A%2588.gif%22&x-id=GetObject" width="600">
+	<img src="https://user-images.githubusercontent.com/68495264/189086098-01ca4bf7-e21b-4327-91fa-ec988a4f7576.gif" width="600">
 </div>
 
 <br>
@@ -368,7 +368,8 @@ return(
 > PR에는 이슈를 링크해 어떻게 해결했는지, 어떤 글을 참고했는 지에 대한 설명과 중점적으로 봐주었으면 하는 부분을 명시해 효율적인 코드 리뷰를 유도하였습니다.
 
 <div align="center">
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3bd929dd-1743-4ffb-b26d-9db80fb962dd%2FUntitled.png?table=block&id=93d30f0d-5e58-4fce-b838-dd3c7595cd1b&spaceId=bf59a660-6bb4-424d-a168-656040a440f5&width=2000&userId=636e72fd-92fe-465e-ba07-e3b36c709626&cache=v2" width="600">
+<img src="https://user-images.githubusercontent.com/68495264/189086163-d5127076-f77f-4e05-a01b-9832250bd432.png")
+b-4327-91fa-ec988a4f7576.gif" width="600">
 </div>
 
 <br>
@@ -377,7 +378,7 @@ return(
 > 깃허브의 Issue와 Pull Request에 템플릿을 적용하여 커뮤니케이션에 사용되는 비용을 줄이고자 하였습니다. <br>
 BUG, CUSTOM, FEATURE 세 가지 Issue 템플릿을 만들어 사용하였습니다. 
 <div align="center">
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F870ad4c6-6cdf-4685-9466-2f8d5ab8b24b%2FUntitled.png?table=block&id=fb0fb5df-91dc-451d-aeb2-4dd690ba376c&spaceId=bf59a660-6bb4-424d-a168-656040a440f5&width=2000&userId=636e72fd-92fe-465e-ba07-e3b36c709626&cache=v2" width="500">
+<img src="https://user-images.githubusercontent.com/68495264/189085968-9177d10a-435b-47f9-8d4a-646ba03593dc.png" width="500">
 </div>
 
 
@@ -395,7 +396,7 @@ BUG, CUSTOM, FEATURE 세 가지 Issue 템플릿을 만들어 사용하였습니�
 > **디스코드 웹 훅**<br>
 > PR을 작성하면 **최소 2명에게 코드 리뷰를 받은 뒤 머지**하도록 규칙을 설정해서, 디스코드 채널에 Github 웹훅을 연동해 PR이나 변경사항 커밋이 있을 경우 빠르게 알림을 받을 수 있도록하였습니다. 
 <div align="center">
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe86a472f-f7e8-47a5-a099-d3ece6a3033e%2FUntitled.png?table=block&id=696d0f1b-ad65-4870-bd8a-1d223a8ecdd8&spaceId=bf59a660-6bb4-424d-a168-656040a440f5&width=2000&userId=636e72fd-92fe-465e-ba07-e3b36c709626&cache=v2" width="600">
+<img src="https://user-images.githubusercontent.com/68495264/189086227-0d671bd0-f9c0-4101-bfca-165ba98d28ba.png" width="600">
 </div>
 
 <br>
