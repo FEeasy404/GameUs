@@ -12,11 +12,15 @@ function FollowerPage() {
   let { accountname } = useParams();
   const [followers, setFollowers] = useState(null);
   const { user } = useContext(LoginedUserContext);
-  const [isChangeFollow, setChangeFollow] = useState("");
 
   useEffect(() => {
-    getFollowers(user.token, accountname, setFollowers);
-  }, [accountname, isChangeFollow]);
+    async function setFollowerList() {
+      const followerList = await getFollowers(user.token, accountname);
+      setFollowers(followerList);
+    }
+
+    setFollowerList();
+  }, [accountname]);
 
   return (
     <section>
@@ -28,15 +32,7 @@ function FollowerPage() {
         menuButton={false}
       />
       <div className="wrapper-contents">
-        {followers ? (
-          <FollowList
-            list={followers}
-            setFollowers={setFollowers}
-            setChangeFollow={setChangeFollow}
-          />
-        ) : (
-          <Loading />
-        )}
+        {followers ? <FollowList list={followers} /> : <Loading />}
       </div>
       <BottomNavigateBar />
     </section>

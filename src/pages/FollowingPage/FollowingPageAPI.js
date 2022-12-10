@@ -1,6 +1,6 @@
 import { BASE_URL } from "../../common/BASE_URL";
 
-async function getFollowings(TOKEN, accountname, setFollowings) {
+async function getFollowings(TOKEN, accountname) {
   try {
     const data = await fetch(
       BASE_URL + `/profile/${accountname}/following?limit=Infinity`,
@@ -13,8 +13,7 @@ async function getFollowings(TOKEN, accountname, setFollowings) {
       }
     );
     const result = await data.json();
-    setFollowings(result);
-    console.log("rendering...");
+    return result;
   } catch (error) {
     console.log(error.message);
   }
