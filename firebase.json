@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "gameus",
     "public": "build",
     "ignore": [
       "firebase.json",
