@@ -1,28 +1,26 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../../atoms/Button/Button";
 import ImageBox from "../../atoms/ImageBox/ImageBox";
 import UserNameIntroduce from "../../atoms/UserNameIntroduce/UserNameIntroduce";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import { followUser } from "../../../common/FollowUser";
 import { unfollowUser } from "../../../common/UnfollowUser";
-import { getFollowers } from "../../../pages/FollowerPage/FollowerPageAPI";
-import { getFollowings } from "../../../pages/FollowingPage/FollowingPageAPI";
 import styles from "./userFollow.module.css";
 
-function UserFollow({
-  userProfile,
-  setFollowers,
-  setFollowings,
-  setChangeFollow,
-}) {
+function UserFollow({ userProfile }) {
   const { user } = useContext(LoginedUserContext);
   const [isFollowing, setFollowing] = useState(userProfile.isfollow);
-  let { accountname } = useParams();
 
-  useEffect(() => {
-    setFollowing(userProfile.isfollow);
-  }, [userProfile.isfollow]);
+  async function handleSetFollow() {
+    let result;
+    if (isFollowing) {
+      result = await unfollowUser(user.token, userProfile.accountname);
+    } else {
+      result = await followUser(user.token, userProfile.accountname);
+    }
+    setFollowing(result.profile.isfollow);
+  }
 
   return (
     <div className={styles["wrapper-follow"]}>
@@ -47,18 +45,7 @@ function UserFollow({
           label={isFollowing ? "취소" : "팔로우"}
           active={true}
           primary={isFollowing ? false : true}
-          onClick={() => {
-            if (isFollowing) {
-              unfollowUser(user.token, userProfile.accountname, setChangeFollow);
-            } else {
-              followUser(user.token, userProfile.accountname, setChangeFollow);
-            }
-            if (setFollowers) {
-              getFollowers(user.token, accountname, setFollowers);
-            } else {
-              getFollowings(user.token, accountname, setFollowings);
-            }
-          }}
+          onClick={handleSetFollow}
         />
       )}
     </div>
