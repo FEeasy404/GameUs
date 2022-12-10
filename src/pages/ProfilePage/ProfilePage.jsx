@@ -18,7 +18,6 @@ function ProfilePage() {
   const [products, setProducts] = useState(null);
   const [posts, setPosts] = useState(null);
   const [isMyProfile, setMyProfile] = useState(null);
-  const [isChangeFollow, setChangeFollow] = useState("");
 
   const { user } = useContext(LoginedUserContext);
 
@@ -45,7 +44,7 @@ function ProfilePage() {
       }
     }
     setUserProfile();
-  }, [accountname, user, isChangeFollow]);
+  }, [accountname, user]);
 
   return (
     <section>
@@ -61,7 +60,6 @@ function ProfilePage() {
                 isMyProfile={isMyProfile}
                 userProfile={profile}
                 setProfile={setProfile}
-                setChangeFollow={setChangeFollow}
               />
               <ProductList
                 isMyProfile={isMyProfile}

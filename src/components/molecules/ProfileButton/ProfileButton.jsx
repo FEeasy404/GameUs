@@ -1,19 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "../../atoms/Button/Button";
 import IconButton from "../../atoms/IconButton/IconButton";
 import { LoginedUserContext } from "../../../contexts/LoginedUserContext";
 import { followUser } from "../../../common/FollowUser";
 import { unfollowUser } from "../../../common/UnfollowUser";
-import { getProfile } from "../../../pages/ProfilePage/ProfilePageAPI";
 import styles from "./profileButton.module.css";
 
-function ProfileButton({ userProfile, setProfile, setChangeFollow }) {
+function ProfileButton({ userProfile, setProfile }) {
   const { user } = useContext(LoginedUserContext);
   const [isFollow, setFollow] = useState(userProfile.isfollow);
 
-  useEffect(() => {
-    setFollow(userProfile.isfollow);
-  }, [userProfile.isfollow]);
+  async function handleSetFollow() {
+    let result;
+    if (isFollow) {
+      result = await unfollowUser(user.token, userProfile.accountname);
+    } else {
+      result = await followUser(user.token, userProfile.accountname);
+    }
+    setFollow(result.profile.isfollow);
+    setProfile(result.profile);
+  }
 
   return (
     <div className={styles["container-button"]}>
@@ -23,14 +29,7 @@ function ProfileButton({ userProfile, setProfile, setChangeFollow }) {
         label={isFollow ? "언팔로우" : "팔로우"}
         active={true}
         primary={isFollow ? false : true}
-        onClick={() => {
-          if (isFollow) {
-            unfollowUser(user.token, userProfile.accountname, setChangeFollow);
-          } else {
-            followUser(user.token, userProfile.accountname, setChangeFollow);
-          }
-          getProfile(user.token, userProfile.accountname, setProfile);
-        }}
+        onClick={handleSetFollow}
       />
       <IconButton type="share" text="공유하기" />
     </div>

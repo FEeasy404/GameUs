@@ -4,12 +4,7 @@ import ProfileButton from "../../molecules/ProfileButton/ProfileButton";
 import UserProfileBox from "../../molecules/UserProfileBox/UserProfileBox";
 import styles from "./userProfile.module.css";
 
-function UserProfile({
-  isMyProfile,
-  userProfile,
-  setProfile,
-  setChangeFollow,
-}) {
+function UserProfile({ isMyProfile, userProfile, setProfile }) {
   return (
     <section className={styles["wrapper-profile"]}>
       <UserProfileBox
@@ -23,11 +18,7 @@ function UserProfile({
       {isMyProfile ? (
         <MyProfileButton />
       ) : (
-        <ProfileButton
-          userProfile={userProfile}
-          setProfile={setProfile}
-          setChangeFollow={setChangeFollow}
-        />
+        <ProfileButton userProfile={userProfile} setProfile={setProfile} />
       )}
     </section>
   );
