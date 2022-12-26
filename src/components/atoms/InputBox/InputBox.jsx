@@ -32,6 +32,7 @@ function InputBox({
         ref={innerRef}
         onKeyDown={onKeyDown}
         value={value && value}
+        autoComplete="off"
       />
       {error && <small className={styles["text-error"]}>{error}</small>}
     </div>
