@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../atoms/Button/Button";
 import ProfileForm from "../../molecules/ProfileForm/ProfileForm";
-import { BASE_IMAGE } from "../../../common/BASE_IMAGE";
+import UserBaseImage from "../../../assets/icon-basic-profile.svg";
 import { handleImageSize } from "../../../common/ImageResize";
 import { uploadImage } from "../../../common/ImageUpload";
 import { postRegister } from "../../../pages/RegisterPage/RegisterPageAPI";
@@ -34,7 +34,7 @@ function ProfileSetting({ value, setValue, error, setError }) {
       }
       // 이미지를 선택하지 않았다면 기본 이미지로 설정됩니다.
       else {
-        data.image = BASE_IMAGE;
+        data.image = UserBaseImage;
       }
       const reqData = { user: { ...data } };
       await postRegister(reqData);
